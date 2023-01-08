@@ -4,3 +4,16 @@
     margin: auto; 
     width: 800px; 
 }
+
+
+a {
+    color: #2d75b9;
+    text-decoration: none;
+}
+a:hover {
+    color: #f05151;
+}
+
+b {
+    color: rgb(40, 126, 23);
+}
