@@ -1,11 +1,4 @@
 
-.div_main {
-    background-color: #fff;
-    margin: auto; 
-    width: 800px; 
-}
-
-
 a {
     color: #2d75b9;
     text-decoration: none;
@@ -17,3 +10,15 @@ a:hover {
 b {
     color: rgb(40, 126, 23);
 }
+
+.research-image {
+    max-height: 150px;
+    max-width: 210px;
+}
+
+.div_main {
+    background-color: #fff;
+    margin: auto; 
+    width: 800px; 
+}
+
