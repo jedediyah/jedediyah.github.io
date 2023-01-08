@@ -1,0 +1,1934 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Data and Modeling</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Additional custom CSS -->
+		<style>
+			:root {
+				--dsp-red: rgb(255, 217, 223);
+				--dsp-orange: rgb(255, 226, 173);
+				--dsp-yellow: rgb(255, 255, 190);
+				--dsp-green: rgb(200, 236, 200);
+				--dsp-blue: rgb(205, 229, 237); 
+				/*--dsp-gray: rgb(101, 101, 101); */
+				--dsp-gray: rgb(231, 231, 231); 
+				--dsp-light: rgb(245, 245, 245);
+			}
+			.graphbox{
+				display:inline-block;
+				padding:8px;
+				/* border:3px solid rgb(35, 41, 145); */
+				border-radius:10px;
+				font-size:80%;
+				background-color:blanchedalmond;
+				box-shadow: 3px 3px 7px #AAA;
+			}
+
+
+			@keyframes colorchange {
+				0% {
+					
+					color: black;
+				}					
+				100% {
+					
+					color: rgb(210, 87, 30);
+				}
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Footer -->
+			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+				jedediyah.com/nctm2022
+			</div>
+			<div class="slides">
+
+
+				<section style="text-align:right;" data-background="#fff">
+					<!-- <img src="img/title.png" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> -->
+					
+					<div>
+						<br><br><br>
+						<h3>Breaking Bias in Data and Modeling</h3>
+						<p>
+							<a target="_blank" href="http://jedediyah.com">Jedediyah Williams, PhD</a> </a>
+							<br>
+							<span style="color:#555;font-size:80%;">Nantucket High School</span>
+						</p>
+						<br> 
+						<p style="font-style:italic;font-size:80%;color:#555;">
+							September, 2022
+						</p>
+					</div>
+					<div style="width:100%;text-align:left;font-size:80%;"><a target="_blank" href="https://twitter.com/jedediyah">@jedediyah</a><br>jedediyah.com/nctm2022</div>
+					<br><br><br><br>
+				</section>
+			
+				<section>
+					<h3>About Jed</h3>
+					<p>
+						<div class="graphbox">Teaching</div> &rarr; <div class="graphbox">Astronomy</div> &rarr; <div class="graphbox">Robots</div> &rarr; <div class="graphbox">Teaching</div> 
+					</p>
+					<p>
+						<img src="img/12m.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/trooper_ladder.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/srcmoon.png" style="height:265px;">
+					</p>	
+					</section>
+	
+	
+
+
+				<section data-background-gradient="linear-gradient(to bottom, #acf, #ffffff)">
+					<p>
+						<h4>DATA: There is too much to talk about! </h4>
+						<table style="font-size:85%;">
+							<tr>
+								<td>
+									<ul>
+										<li>Power</li>
+										<li>Surveillance</li>
+										<li>Privacy</li>
+										<li>Security</li>
+										<li>Consent</li>
+										<li>Access</li>
+										<li>Fairness</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Education</li>
+										<li>Energy</li>
+										<li>Military</li>
+										<li>Misuse</li>
+										<li>Adversarial Attacks</li>
+										<li>Disinformation</li>
+										<li>Liberty</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Discrimination</li>
+										<li>Labor</li>
+										<li>Environment</li>
+										<li>Exploitation</li>
+										<li>Law and Oversight</li>
+										<li>Accountability</li>
+										<li>Justice</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</p>
+					<p>
+						<table style="font-size:90%;">
+							<tr>
+								<td>
+									<ul>
+										<li>Data Ethics </li>
+										<li>AI Ethics </li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Fair ML </li>
+										<li>Fair AI </li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Algorithmic Bias </li>
+										<li>Data Bias </li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+
+
+				<style>
+					.booklink:hover {
+						opacity: 0.5;
+						filter: alpha(opacity=40);
+					}
+				</style>
+
+
+
+				
+
+
+				<section>
+					<h3>axioms</h3>
+					<ol>
+						<li>Math is awesome.</li>
+						<li>Causing unnecessary harm is bad.</li>
+					</ol>
+					<br><br><br>
+				</section>
+
+
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4" data-auto-animate-delay="0.5">Data Modeling Process</h4>
+					<br>
+					<p id="dmp-p">
+						<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+						<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+						<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+						<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+						<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+					</p>
+					<br>
+					<br>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4">Data Modeling Process</h4>
+					<p id="dmp-p">
+						<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+						<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.05" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+						<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.15" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+						<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.25" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+						<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.35" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+					</p>
+					<br>
+					<div data-id="modelquestionbounceanswer" data-auto-animate-delay="0.5" >
+						<ul>
+							<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Modeling</span> with data</li>
+							<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Teaching</span> and scafolding modeling with data </li>
+							<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Critically analyzing</span> data technologies </li>
+						</ul>
+						<div data-id="modelquestionbounceanswer" data-auto-animate-delay="0.5" >
+							<br><br>
+				</section>
+
+
+				<section>
+					<table>
+						<tr>
+							<td style="width:35%;">
+								<a target="_blank" href="https://youtu.be/JahO1-saibU?t=3510"><img src="img/ruha.png" style="width:300px;"></a>
+								
+							</td>
+							<td style="vertical-align:top; font-size:75%;">
+								"Yes, train these young people to get these skills, but integrate into that not only the technical capacity but the <span style="text-decoration:underline">critical capacity</span> to question what they're doing and what's happening.  
+								To me, it is not true empowerment unless people can have the power to question how these skills are going to be used."
+								<div style="padding-left:50px;font-size:65%;">
+									<br>- Ruha Benjamin 
+									<br> "<a target="_blank" href="https://youtu.be/JahO1-saibU?t=3510">The New Jim Code? Race, Carceral Technoscience, and Liberatory Imagination</a>"
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4" data-auto-animate-delay="0.5">Data Modeling Process</h4>
+					<p id="dmp-p">
+						<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+						<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+						<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+						<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+						<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+					</p>
+					<br>
+					<p style="text-align:left;margin:auto;font-size:95%;">
+						When we approach modeling as a series of design choices, we highlight the assumptions and subjectivity of value judgements made at each stage and begin to expose the inherent biases embedded within our models. 
+					</p>
+					<!-- 
+						By breaking down modeling into stages in this way, we empower students with a critical framework for analyzing data models. 
+					-->
+				</section>
+
+
+
+				<section>
+					<p>
+						1 minute, talk to your neighbors: 
+					</p>
+					<br> 
+					<h3>How can <br>math<br> cause harm?</h3>
+					<br><br>
+				</section>
+
+
+				<section>
+					<h3>When we say that we are teachers of "mathematics", which "mathematics" are we talking about?</h3>
+				</section>
+
+
+				<style>
+					.bookresource {
+						height:40px; margin:0px; padding: 0px;
+					}
+				</style>
+				<section style="vertical-align:top;" data-background-gradient="linear-gradient(to bottom, #fff, #ffffff)">
+					<table style="font-size:30%;width:100%;">
+						<tr>
+							<th>Authors</th>
+							<th>Reading</th>
+							<th>Watching</th>
+						</tr>
+						<tr style="height:50px;padding:0px;margin:0px;">
+							<td>Cathy O'Neil </td>
+							<td style="padding:0px;margin:0px;">
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><a target="_blank" href="https://www.indiebound.org/book/9780553418835" class="booklink"><img src="img/oneil.jpg" style="height:44px;margin:0px;padding:0px;"></a></td><td style="padding:0px;margin:0px;"> Weapons of Math Destruction (2016)</td></tr>
+								</table>
+							</td>
+							<td> </td>
+						</tr>
+						<tr>
+							<td>Viginia Eubanks </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><a target="_blank" href="https://www.indiebound.org/book/9781250215789" class="booklink"><img src="img/eubanks.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></a></td><td style="padding:0px;margin:0px;"> Automating Inequality (2018)</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="https://www.pbs.org/video/automating-inequality-joyeti/">Automating Inequality</a><br> PBS 2018 </td>
+							
+						</tr>
+						<tr>
+							<td>Safiya Umoja Noble </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/algopression.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;"> Algorithms of Oppression (2018)</td></tr>
+								</table>
+							</td>
+							<td> </td>
+						</tr>
+						<tr style="padding:0px;margin:0px;">
+							<td>Meredith Broussard </td>
+							<td style="padding:0px;margin:0px;">
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/broussard.png" style="height:44px;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;"> (2019)</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="https://www.ted.com/talks/janelle_shane_the_danger_of_ai_is_weirder_than_you_think">   </a><br> <span style="font-style:italic;">  </span></td>
+						
+						</tr>
+						<tr style="padding:0px;margin:0px;">
+							<td>Janelle Shane </td>
+							<td style="padding:0px;margin:0px;">
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/thing_shane.jpg" style="height:44px;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">(2019)</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="https://www.ted.com/talks/janelle_shane_the_danger_of_ai_is_weirder_than_you_think">The danger of AI is weirder than you think</a><br> <span style="font-style:italic;">TED 2019</span></td>
+						
+						</tr>
+						<tr>
+							<td>Hannah Fry </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/hello_fry.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">( )</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="https://www.youtube.com/watch?v=Rzhpf1Ai7Z4">Should Computers Run the World?</a><br> Royal Institution 2019</td>
+							
+						</tr>
+						<tr>
+							<td>Caroline Criado Perez  </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/invisible_perez.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">( )</td></tr>
+								</table>
+								</td>
+							<td><a target="_blank" href="https://www.youtube.com/watch?v=hB92hQeCEAw&feature=youtu.be">Invisible Women</a><br>Engage 2019 </td>
+							
+						</tr>
+						<tr>
+							<td>Ruha Benjamin </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/benjamin.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">( )</td></tr>
+								</table>
+								</td>
+							<td>Ruha's resources for <a target="_blank" href="https://twitter.com/ruha9/status/1540374182936154112">Race After Tech</a> </td>
+							
+						</tr>
+						<tr>
+							<td>Melanie Mitchell </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/ai_mitchell.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">( )</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="https://www.youtube.com/watch?v=4QBvSVYotVc">The Collapse of Artificial Intelligence</a><br>Santa Fe Institute 2019 </td>
+							
+						</tr>
+						<tr style="padding:0px;margin:0px;">
+							<td>Sasha Costanza-Chock</td>
+							<td style="padding:0px;margin:0px;">
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/designjustice.png" style="height:44px;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">Design Justice (2020)</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="">   </a><br> <span style="font-style:italic;">  </span></td>
+							
+						</tr>
+						<tr style="padding:0px;margin:0px;">
+							<td>Kate Crawford</td>
+							<td style="padding:0px;margin:0px;">
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/atlasai.png" style="height:44px;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">(2021)</td></tr>
+								</table>
+							</td>
+							<td><a target="_blank" href="">   </a><br> <span style="font-style:italic;">  </span></td>
+							
+						</tr>
+						<tr>
+							<td>Catherine D'Ignazio &<br> Lauren F. Klein </td>
+							<td>
+								<table style="padding:0px;margin:0px;">
+									<tr style="padding:0px;margin:0px;"> <td style="vertical-align:top;padding:0px;margin:0px;"><img src="img/datafem.jpg" style="height:44px;width:100%;margin:0px;padding:0px;"></td><td style="padding:0px;margin:0px;">( )</td></tr>
+								</table>
+							</td>
+							<td> </td>
+							
+						</tr>
+					</table>
+				</section>
+
+<!-- 
+				<section>
+					<section data-background="#ddd" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						Experiment: what does "math" mean to this person? 
+						<br><br>
+						<blockquote style="background-color:#fff;" data-id="mathquotesblock1"><br>"I hate math"<br><br></blockquote>
+						<br><br><br><br> 
+					</section>
+					<section data-background="#ddd" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<br><br>
+						<blockquote style="background-color:#fff;" data-id="mathquotesblock1"><br>"I hate math" - Binh<br><br></blockquote>					
+						After a couple hours of debugging, he realized he hadn't taken the transpose of a matrix before multiplying. 
+						<br><br>
+					</section>
+					<section data-background="#ddd" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						Experiment: what does "math" mean to this person? 
+						<br><br>
+						<blockquote style="background-color:#fff;" data-id="mathquotesblock2"><br>"I hate math"<br><br></blockquote>
+						<br><br><br><br> 
+					</section>
+	
+					<section data-background="#ddd" data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<br><br>
+						<blockquote style="background-color:#fff;" data-id="mathquotesblock2"><br>"I hate math" - Alejandro<br><br></blockquote>
+						First day of class, reflecting on his math history.
+						<br><br><br><br>
+					</section>
+				</section> -->
+
+
+	
+
+				<section data-background-gradient="linear-gradient(to bottom, #384bA5, #17b2c3)">
+					<h3 style="color:white">Wait! <br> Isn't math objective and neutral?</h3>
+					<p>
+						<img src="img/platonic.png">
+						<!-- https://commons.wikimedia.org/wiki/File:Platonic_Solids_Transparent.svg -->
+					</p>
+			
+				</section>
+
+
+				<section data-background="img/contact.png">
+					<!-- https://www.youtube.com/watch?v=GZDT-FsO9Uc -->
+
+				</section>
+				<section data-background="img/contact_signal.png">
+
+				</section>
+
+
+			<!-- 
+				<section>
+					<h4>Nuance?</h4>
+					<p>
+						If you as a teacher are without ethics (I don't mean necessarily anti-ethical) or you feel that math should pretend to exist only in a Platonic or Formalist realm, we're still good!
+						Because this isn't just about "doing the right thing".  
+						It is about quality mathematics.  
+						The systematic errors that lead to negative consequences are mathematically interesting: they are about accuracy in predictive optimization problems, and they are largely addressable.  
+						
+					</p>
+				</section>
+			-->
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left; vertical-align:text-top;">
+				Let's ignore philosophy, paradoxes, incompleteness, decidability, the unfinished state of mathematics; there is still complexity. <br><br>
+				<table>
+					<tr>
+						<td width="30%">
+							<a target="_blank" href="https://www.indiebound.org/book/9780199798100"><img src="img/complexity.jpg"></a>
+						</td>
+						<td data-id="mitchellquotes1" style="vertical-align: top;padding:0px; margin:0px; font-size:90%;padding-top:10px;padding-left:10px; padding-right:10px; background-color: #ddd;border-radius: 5px;" >
+							"However, two major discoveries of the twentieth century showed that Laplace's dream of complete prediction is not possibe, <span style="font-weight: bold;">even in principle</span>...
+							<br><br>
+							It was the understanding of <span style="font-style: italic;">chaos</span> that eventually laid to rest the hope of perfect prediction of all complex systems, quantum or otherwise."  <span style="font-size:50%;">(Mitchell, 2019, p. 20)</span>
+						</td>
+					</tr>
+				</table>					
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left; vertical-align:text-top;">
+				<table>
+					<tr>
+						<td width="15%">
+							<a target="_blank" href="https://www.indiebound.org/book/9780199798100"><img src="img/complexity.jpg"></a>
+						</td>
+						<td data-id="mitchellquotes1" style="vertical-align: top;padding:0px; margin:0px; font-size:90%;padding-top:10px;padding-left:10px; padding-right:10px; background-color: rgb(241, 255, 228);border-radius: 5px;" >
+							"But even if it were the case that the natural laws had no longer any secret for us, we could still only know the initial situation approximately. 
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+							<br> <!--If that enabled us to predict the succeeding situation with the same approximation, that is all we require, and we should say that the phenomenon has been predicted, that it is governed by laws.  -->
+							<!-- But it is not always so;  -->
+							it may happen that small differences in the initial conditions produce very great ones in the final phenomenon.  
+							<!-- A small error in the former will produce an enormous error in the latter. -->
+							<br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...
+							<br>
+							Prediction becomes impossible."  
+							<br><span style="font-size:50%;">(Poincaré, 1908, as cited in Mitchell, 2019, p. 21)</span>
+						</td>
+					</tr>
+				</table>					
+			</section>
+
+
+
+
+			<section data-background="#fff" data-background-video="img/triplependulum.mp4" data-background-size="contain" style="text-align:left;">
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<a href="https://twitter.com/standupmaths/status/741251532167974912" target="_blank"><span style="color:#999; font-size:50%;">https://twitter.com/standupmaths/status/741251532167974912</span></a>
+				<aside class="notes">
+					This isn't just a cool colorful animation.  
+					It is a demonstration of how sensitive dependence on initial conditions can make prediction impracticle or impossible.
+					Yet technology after technology is put into production, decisions and policies are decided, etc., within complex systems based on insufficient information. 
+				</aside>
+			</section>
+
+<!-- 
+
+			<section>
+				<a target="_blank" href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext"><img src="img/artlife.png"></a>
+			</section> -->
+
+			<section data-background="img/malcolm.png">
+				<br><br><br><br><br><br><br><br><br>
+				<div style="background-color:rgba(20,20,20,0.7);color:#fff;border-radius:10px;">"The lack of humility before nature that's being displayed here staggers me." - Malcolm, <a target="_blank" style="color:rgb(106, 106, 230);" href="https://www.youtube.com/watch?v=4PLvdmifDSk">Jurassic Park</a></div>				
+			</section>
+
+
+
+			<section>
+				<section>
+					<a target="_blank" href="https://arxiv.org/abs/2206.09511"><img src="img/fallacyofai.png"></a>
+				</section>
+				
+				<section>
+					<a target="_blank" href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext"><img src="img/automatingambiguity.png"></a>
+				</section>
+
+				<section>
+					<!-- <a target="_blank" href="https://www.technologyreview.com/2020/11/18/1012234/training-machine-learning-broken-real-world-heath-nlp-computer-vision/"><img src="img/trainingbroken.png" style="width:40%;"></a> -->
+					<a target="_blank" href="https://www.science.org/content/article/eye-catching-advances-some-ai-fields-are-not-real"><img src="img/eyecatching.png" style="width:40%;"></a>
+					<a target="_blank" href="https://spectrum.ieee.org/machine-learning-faces-a-reckoning-in-health-research"><img src="img/mlreckoning.png" style="width:40%;"></a>
+					<a target="_blank" href="https://qz.com/2016153/ai-promised-to-revolutionize-radiology-but-so-far-its-failing/"><img src="img/airevolutionfail.png" style="width:40%;"></a>
+					<a target="_blank" href="https://www.technologyreview.com/2020/04/27/1000658/google-medical-ai-accurate-lab-real-life-clinic-covid-diabetes-retina-disease/"><img src="img/googlemedai.png" style="width:40%;"></a>
+				</section>
+				
+				<section>
+					<a href="https://aisnakeoil.substack.com/p/eighteen-pitfalls-to-beware-of-in" target="_blank"><img src="img/aihype.png"></a>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="watsonpic" src="img/watsonj.jpg"> 
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<a target="_blank" href="https://slate.com/technology/2022/01/ibm-watson-health-failure-artificial-intelligence.html"><img src="img/watson.png" style="width:70%;"></a>				
+					<img data-id="watsonpic" src="img/watsonj.jpg" style="width:200px;"> 
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<a data-id="naturelinkedpitfall" target="_blank" href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png"></a>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">					
+					<img src="img/natureabstract.png" style="width:70%;">
+					<a data-id="naturelinkedpitfall" target="_blank" href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png" style="width:25%;"></a>
+				</section>					
+
+				<section>
+					<a href="https://openai.com/blog/solving-rubiks-cube/" target="_blank"><img src="img/openaihand.png" style="width:80%;"></a>
+				</section>
+				<section>
+					<a href="https://www.theregister.com/2021/07/18/in_brief_ai/" target="_blank"><img src="img/openaibotshutdown.png"></a>
+				</section>
+
+				<section>
+					<img src="img/tay.png" style="width:35%;">
+					<a target="_blank" href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"><img src="img/tayapology.png" style="width:90%;"></a>
+				</section>
+				<section>
+					<a href="https://retailwire.com/discussion/will-walmarts-decision-to-scrap-robots-have-far-ranging-effects/" target="_blank"><img src="img/walmart.png"></a>
+				</section>
+
+				<section>
+					<a target="_blank" href="https://www.theguardian.com/technology/2015/dec/30/us-marines-reject-bigdog-robot-boston-dynamics-ls3-too-noisy"><img src="img/marinebot.png" style="width:48%;"></a>	
+					<a target="_blank" href="https://www.nationaldefensemagazine.org/articles/2020/1/8/army-cancels-high-profile-robotic-mule-contract"><img src="img/armybot.png" style="width:48%;"></a>
+				</section>
+
+				<section>
+					<a target="_blank" href="https://jalopnik.com/elon-musk-promises-full-self-driving-next-year-for-th-1848432496"><img src="img/musk.png" style="width:70%;"></a>
+				</section>
+				<section>
+					<a target="_blank" href="https://reproducible.cs.princeton.edu/"><img src="img/reproducability.png"></a>
+				</section>
+			</section>
+
+
+			<section>
+				<h3>Data modeling applications</h3>
+				<ul>
+					<li>Search engine</li>
+					<li>Recommendation systems</li>			
+					<li>Ranking systems</li>			
+					<li>Application / resume filtering</li>
+					<li>Computer vision</li>
+					<li>Chat bots</li>
+					<li>Policing</li>
+					<li>Sentencing and parole</li>
+					<li>"Self-driving" vehicles</li>
+					<li>...</li>
+				</ul>
+			</section>
+
+
+
+
+
+
+			<section data-background="#ddd">
+				<blockquote style="width:85%;font-size:90%;background-color: #fff;">"Our success, happiness, and wellbeing are never fully of our own making. Others' decisions can profoundly affect the course of our lives... <br><br> Arbitrary, inconsistent, or faulty decision-making thus raises serious concerns..."</blockquote>
+				<p style="font-size:80%;">
+					- <a target="_blank" href="https://fairmlbook.org/introduction.html">Fairness and Machine Learning</a>, Barocas, Hardt, and Narayanan
+				</p>
+			</section>
+
+
+
+			<section>
+				<section>
+
+					What are some consequences of data technologies?
+					<br> 
+					&darr; 
+				</section>
+				
+				<section>
+					<h4>Some of the more well known harms</h4>
+					<a target="_blank" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing"><img src="img/propublicabias.png" style="width:30%;"></a>
+					<a target="_blank" href="https://www.media.mit.edu/projects/gender-shades/overview/"><img src="img/gendershades.png" style="width:30%;"></a>
+					<a target="_blank" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G"><img src="img/amazonrecruiting.png" style="width:35%;"></a>
+					<a target="_blank" href="https://www.washingtonpost.com/news/morning-mix/wp/2017/09/12/researchers-use-facial-recognition-tools-to-predict-sexuality-lgbt-groups-arent-happy/"><img src="img/sexualityai.png" style="width:40%;"></a>
+					<a target="_blank" href="https://www.vox.com/future-perfect/22672414/ai-artificial-intelligence-gpt-3-bias-muslim"><img src="img/aiislamaphobia.png" style="width:40%;"></a>
+				</section>
+				
+				<section data-background="#fff">
+					<a href="https://twitter.com/mallory_yu/status/1346196380281405445" target="_blank"><img src="img/yu.png" style="width:30%;border-radius:11px;"></a>					
+					<a target="_blank" href="https://twitter.com/DrJewelKling/status/1542646473208348672" style="margin-left:20px;"><img src="img/drkingtweet.png" style="width:40%;"></a>
+					<a href="https://twitter.com/rit/status/1534252282493034501" target="_blank" style="margin-top:0px;"><img src="img/mcadams.jpeg" style="width:70%;"></a>
+				</section>
+
+				
+
+				<section data-background="img/manyhumans.png" style="text-align:left;">
+					
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<a href="https://www.nytimes.com/2019/08/16/technology/ai-humans.html" target="_blank"><span style="width:50%;margin-right:0px;text-align:right;font-size:50%;color:#fff;">https://www.nytimes.com/2019/08/16/technology/ai-humans.html</span></a>
+
+				</section>
+
+				<section>
+					<a href="https://www.bbc.com/news/technology-57088382" target="_blank"><img src="img/labelertrauma.png"></a>
+				</section>
+
+				<section data-background="#fff">
+					<a target="_blank" href="https://www.nytimes.com/interactive/2019/10/11/technology/flickr-facial-recognition.html"><img src="img/flickr.png"></a>
+				</section>
+<!-- 
+				<section style="text-align:left;">
+					<h4>Data manipulation?</h4>
+					<ul>
+						<li> <a target="_blank" href="https://www.vice.com/en/article/qj8xbq/police-are-telling-shotspotter-to-alter-evidence-from-gunshot-detecting-ai">Altering Shot Spotter data to make it look like it works</a> </li>
+						<li> <a target="_blank" href="https://futurism.com/tesla-nhtsa-autopilot-report"> Teslas turning off autopilot when a crash is detected</a> </li>
+						<li> <a target="_blank" href="https://www.wsj.com/articles/columbia-wont-submit-data-for-u-s-news-rankings-this-year-11656632706?page=1"> Columbia won't submit data for US News Rankings this year</a>  </li>
+										
+					</ul>
+				</section> -->
+
+				<section data-background="#fff">
+					<a target="_blank" style="font-size:60%;" href="https://www.attendeeinteractive.com/privacy-policy/">https://www.attendeeinteractive.com/privacy-policy/</a>
+					<br>
+					<a target="_blank" href="https://www.attendeeinteractive.com/privacy-policy/"><img src="img/nctmprivacy.png"></a>
+				</section>
+				<section>
+					<img src="img/sessioninfo.png">
+				</section>
+
+
+				<section data-background="#000">
+					<a href="https://anatomyof.ai/index.html" target="_blank"><img src="img/aianatomy.png"></a>
+					<span style="font-size:50%;"><a href="https://anatomyof.ai/">Anatomy of an AI system</a>, Crawford and Joler</span>
+				</section>
+
+				<!-- <section>
+					<ul>
+						<li>Are our models modeling what we think they're modeling?  </li>
+						<li>Environmental impact of training giant models </li>
+						<li>Feedback loops</li>
+					</ul>
+					
+				</section> -->
+<!-- 
+				<section>
+					Ignoring variance 
+				</section>
+
+				<section>
+					Feedback loops - college example 
+				</section> -->
+
+
+				<section>
+					<a href="https://www.nature.com/articles/s42256-022-00465-9" target="_blank"><img src="img/dualuse.png"></a>
+				</section>
+
+				<section>
+					Adversarial attack 
+					<a target="_blank" href="https://www.youtube.com/watch?v=ZwCNG9KFdXs"><img src="img/faceprint.png"></a>
+				</section>
+				<section>
+					<img src="img/brittletesla.png">
+				</section>
+				<section>
+					<img src="img/brittletesla2.png">
+				</section>
+
+
+				<section>
+					Algorithms are brittle - Melanie Mitchell 
+					<a href="https://www.youtube.com/watch?v=4QBvSVYotVc"><img src="img/brittle.png"></a>
+				</section>
+
+
+				<!-- <section>
+					https://www.nytimes.com/2020/01/01/health/breast-cancer-mammogram-artificial-intelligence.html
+					but 
+					https://www.wired.com/story/artificial-intelligence-makes-bad-medicine-even-worse/
+				</section> -->
+
+				<section>
+					Lack of oversight or auditing 
+				</section>
+
+				<section>
+					The act, by those in power, of making decisions for us is a display of the imbalance of power.  
+					<br>
+					- Sun-ha Hong,
+					<a target="_blank" href="https://dl.acm.org/doi/10.1145/3531146.3533155">Prediction as Extraction of Discretion</a>
+				</section>
+
+				<section>
+					You are being surveilled. 
+					<ul>
+						<li><a target="_blank" href="https://www.theverge.com/2021/7/14/22576236/retail-stores-facial-recognition-civil-rights-organizations-ban">Retail stores use facial recognition</a>, and </li>
+						<li><a target="_blank" href="https://www.retaildive.com/spons/wi-fi-tracking-a-data-gold-mine-or-privacy-nightmare/572937/">tracking you through your phone's wifi</a>.</li>
+						<li><a target="_blank" href="https://www.theverge.com/2022/7/14/23219419/amazon-ring-law-enforcement-no-warrant-no-consent">Ring data is being shared with law enforcement.</a></li>
+						<li><a target="_blank" href="https://spectrum.ieee.org/tesla-autopilot-data-scope">Tesla is recording petabytes of data</a>.</li>
+						<li>Police are <a target="_blank" href="https://www.vice.com/en/article/v7dw8x/san-francisco-police-are-using-driverless-cars-as-mobile-surveillance-cameras">using driverless cars as mobile surveillance cameras</a></li>
+					</ul>						
+
+					<!-- Follow these: 
+					https://twitter.com/STOPSpyingNY 
+					https://twitter.com/hypervisible
+					-->
+
+				</section>
+
+				<section>
+					You are being experimented on. 
+				</section>
+
+
+			</section>
+
+
+
+
+<!-- 
+			<section>
+				"I'm just an engineer"
+
+				So if you don't want to do anything to address the hamrs being done, then you join a long line of people who say "it's not my job"
+			</section> -->
+
+
+
+
+
+			<section>
+				<h3>Big Picture</h3>
+				<p>
+					When handing over the tools of mathematics, <br>
+					we are responsible as educators  <br>
+					for teaching their responsible use. 
+				</p>
+				<p class="fragment">					
+					It is a sin of omission when we fail to acknowledge the consequences of the content we teach; 
+					Consequences which include ethical and technical pitfalls. 
+				</p>
+				<aside class="notes">
+					When teaching statistics, and we mention Francis Galton, Karl Pearson, or Ronald Aylmer Fisher, I hope that we do not neglect, at a minimum, to acknowledge their rolls in eugenics. 
+				</aside>
+			</section>
+
+
+
+			<section>
+				<h4>Subtle picture</h4>
+				<p>
+					<ul>
+						<li> There is no simple solution. There is no checklist that if you've done these things then you won't cause harm.</li>
+						<li> Many ethical concerns are technical concerns.    </li>
+						<li> Predicting, detecting, and mitigating harm and discrimination in data technologies are complex and active areas of research. </li>
+					</ul>
+				</p>
+			</section>
+
+
+			<section>
+
+
+				<section>
+					<img src="img/kdd.png" style="width:100%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Fayyad et al (1996).  <a target="_blank" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.27.2315">The KDD Process for Extracting Useful Knowledge from Volumes of Data</a><br>(Knowledge Discovery in Databases)</span>
+				</section>
+
+				<section>
+					<img src="img/crispdm.png" style="width:70%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Chapman et al (1999), Wirth (2000).  "<a target="_blank" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.198.5133">Towards a standard process model for data mining</a>". </span>
+				</section>
+
+				<section>
+					<div style="text-align:left;border:1px solid black;padding:30px;background-color: rgb(221, 243, 248);">
+						1. <b>Obtain</b>: pointing and clicking does not scale  
+						<br> 
+						2. <b>Scrub</b>: the world is a messy place 
+						<br> 
+						3. <b>Explore</b>: You can see a lot by looking 
+						<br>
+						4. <b>Models</b>: always bad, sometimes ugly
+						<br>
+						5. <b>INterpret</b>: "The purpose of computing is insight, not numbers." 
+					</div>
+					<br>
+					<span style="font-size:60%;color:#555;">Mason and Wiggins (2010). "<a target="_blank" href="https://sites.google.com/a/isim.net.in/datascience_isim/taxonomy">A Taxonomy of Data Science</a>".</span>
+				</section>
+
+
+				<section>
+					<img src="img/doingdatascience.png" style="width:80%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Schutt and O'Neil (2014). "Doing Data Science: Straight talk from the frontline".</span>
+					<aside class="notes">Note the dashed line creates a loop! O'Neil is already hinting at "pernicious feedback loops"</aside>
+				</section>
+
+				<section>
+					<img src="img/gaimme-modeling-process.png" style="width:80%;">
+					<br>
+					<span style="font-size:60%;color:#555;"><a target="_blank" href="http://www.siam.org/Portals/0/Publications/Reports/gaimme-full_color_for_online_viewing.pdf?ver=2018-03-19-115454-057">GAIMME Guidlines for assessment & instruction in mathematical modeling education</a> (2016).</span>
+				</section>
+
+				<section>
+					<img src="img/gaiseii.png" style="width:100%;">
+					<br>
+					<span style="font-size:60%;color:#555;"><a target="_blank" href="https://www.amstat.org/education/guidelines-for-assessment-and-instruction-in-statistics-education-(gaise)-reports">Guidelines for Assessment and Instruction in Statistics Education (GAISE) Reports</a> <br>(2020, based on 2007).</span>
+				</section>
+
+				
+				<section>
+					<img src="img/dsineducation.png" style="width:100%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Estrellado et al (2020).  <a target="_blank" href="https://datascienceineducation.com/c03.html#defining-the-process-of-data-science">Data Science in Education Using R</a>, Section 3.2. </span>					
+				</section>
+
+				<section>
+					<img src="img/dspipeline.png" style="width:100%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Zico Kolter (2021).  <a target="_blank" href="http://www.datasciencecourse.org/notes/intro/">Practical Data Science</a>, Intrdouction</span>					
+				</section>
+
+				<!-- <section>
+					<img src="img/destindsp.png" style="width:65%;">
+					<br>
+					<span style="font-size:60%;color:#555;">Destin Gong (2022).  <a target="_blank" href="https://towardsdatascience.com/how-to-self-learn-data-science-in-2022-a537a76d138e">How to Self-Learn Data Science in 2022</a></span>					
+				</section> -->
+
+				<section>
+					<img src="img/achievemodeling.png" style="width:65%;">
+					<br>
+					<span style="font-size:60%;color:#555;">  <a target="_blank" href="https://achievethecore.org/coherence-map/HS/M/more-about">Common Core / Achieve the Core.</a><br>I like the video here!</span>					
+				</section>
+			
+			</section>
+
+			<section>
+				<h4>Many frameworks. Much overlap.</h4>
+				<table>
+					<tr>
+						<td style="border: 0px;width:33%;">
+							<img src="img/crispdm.png" style="width:70%;">
+						</td>
+						<td style="border: 0px;vertical-align: top;width:33%; padding-top:35px;">					
+							<img src="img/osemn.png" style="width:90%;">
+						</td>
+						<td style="border: 0px;">
+							<img src="img/gaiseii.png" style="width:80%;width:90%;">
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 0px;">
+							<img src="img/doingdatascience.png" style="width:80%;">
+						</td>
+						<td style="border: 0px;">
+							<img src="img/gaimme-modeling-process.png" style="width:80%;">
+						</td>
+						<td style="border: 0px;">
+							<img src="img/dspipelinemoreaccurate.png" style="width:80%;">
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<p id="dmp-p">
+					<table>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: hidden;"><div data-id="dmp-data" 		 data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">1. Get the data</div></td>		
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: hidden;"><div data-id="dmp-preprocess" 	 data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div></td> 
+							<td style="border:0px solid white;"><div data-id="dmp-step1">2. Clean up the data</div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: hidden;"><div data-id="dmp-explore" 	 data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">3. Explore the data </div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: hidden;"><div data-id="dmp-model" 		 data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">4. Model it </div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: hidden;"><div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">5. Share the results</div></td>
+						</tr>
+					</table>										
+				</p>
+				<br>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">				
+				<p id="dmp-p">
+					<table>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: visible;"><div data-id="dmp-data" 		 data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">1. Get the data</div></td>		
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: visible;"><div data-id="dmp-preprocess" 	 data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div></td> 
+							<td style="border:0px solid white;"><div data-id="dmp-step1">2. Clean up the data</div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: visible;"><div data-id="dmp-explore" 	 data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">3. Explore the data </div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: visible;"><div data-id="dmp-model" 		 data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">4. Model it </div></td>
+						</tr>
+						<tr>
+							<td style="text-align:right;border:0px solid white;visibility: visible;"><div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div></td>
+							<td style="border:0px solid white;"><div data-id="dmp-step1">5. Share the results</div></td>
+						</tr>
+					</table>												
+				</p>
+				<br>
+			</section>
+
+
+
+
+			<style>
+				.dmp-sublist {
+					padding-left: 60px;
+					font-size:80%;  
+				}
+			</style>
+
+
+
+			<!-- DMP Animations -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				<br>
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+					<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+					<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+				</p>
+				<br>
+				<br>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="font-weight:bold; background-color:var(--dsp-red);">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="1.0" style="background-color: var(--dsp-red); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; <span style="font-weight: bold;">Design</span>
+					<br> 
+					<span class="dmp-sublist">&SmallCircle; Turn a problem into a data-problem. </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Survey or experimental design </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Database infrastructure </span> <br>
+					&bull; <span style="font-weight: bold;">Acquire</span>
+					<br>
+					<span class="dmp-sublist">&SmallCircle; Survey or experiment </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Download the dataset!  CSV, API, etc. </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Web scraping </span> <br>						
+				</p>
+			</section>
+
+			<section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.0" class="graphbox" style="font-weight:bold; background-color:var(--dsp-orange);">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-orange); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; <span style="font-weight: bold;">Wrangle</span>
+					<br> 
+					<span class="dmp-sublist">&SmallCircle; Format </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Clean and organize </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Check data integrity </span> <br>
+					&bull; <span style="font-weight: bold;">Prepare</span>
+					<br>
+					<span class="dmp-sublist">&SmallCircle; Label </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Split into training and testing sets </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Normalize </span> <br>						
+				</p>
+			</section>
+
+			<section>
+				<h3>Data Splitting</h3>
+				<img src="img/splitting.svg"">
+			</section>
+
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="font-weight:bold; background-color:var(--dsp-yellow);">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-yellow); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; <span style="font-weight: bold;">Visualize</span>
+					<br> 
+					<span class="dmp-sublist">&SmallCircle; Plot and familiarize with data  </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Look for and compare features visually  </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Consider appropriate models </span> <br>
+					&bull; <span style="font-weight: bold;">Inspect</span>
+					<br>
+					<span class="dmp-sublist">&SmallCircle; Exploratory data analysis </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Descriptive statistics </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Identify features analytically </span> <br>					
+				</p>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="font-weight:bold; background-color:var(--dsp-green);">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-green); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; <span style="font-weight: bold;">Model</span>
+					<br> 
+					<span class="dmp-sublist">&SmallCircle; Try and compare multiple models </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Consider bias and variance </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Interpret model and performance </span> <br>
+					&bull; <span style="font-weight: bold;">Validate</span>
+					<br>
+					<span class="dmp-sublist">&SmallCircle; Assess model performance on independent test data </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Error analysis and stress-test </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Consider consequences </span> <br>
+				</p>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="font-weight:bold; background-color:var(--dsp-blue);">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-blue); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; <span style="font-weight: bold;">Reflect</span>
+					<br> 
+					<span class="dmp-sublist">&SmallCircle; Consider contexts, bias, and consequence </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Create audit plant </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Document - data and model </span> <br>
+					&bull; <span style="font-weight: bold;">Share</span>
+					<br>
+					<span class="dmp-sublist">&SmallCircle; Report documentation </span> <br>						
+					<span class="dmp-sublist">&SmallCircle; Inform policy </span> <br>
+					<span class="dmp-sublist">&SmallCircle; Deploy in product </span> <br>	
+				</p>
+			</section>
+
+
+
+			
+			
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4" data-auto-animate-delay="0.3">Data Modeling Process</h4>
+				<br>
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+					<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+					<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+				</p>
+				<br>
+				<br>
+			</section>
+
+
+
+			
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4" data-auto-animate-delay="0.0">Data Modeling Process</h4>
+				<br>
+				<div data-id="dmp-env" data-auto-animate-delay="1.4" style="width:98%;margin:auto;background-color: #ccc; padding:20px 50px 30px 50px;box-shadow: 3px 3px 7px #AAA;border-radius:20px;">
+					<p style="margin-bottom: 50px;">
+						Environment
+					</p>
+					<p id="dmp-p">
+						<div data-id="dmp-arrow0" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-data" 		data-auto-animate-delay="0.0"   class="graphbox" style="background-color:var(--dsp-red);font-size:72%;">Data</div>
+						<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);font-size:72%;">Preprocess</div>
+						<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);font-size:72%;">Explore</div>
+						<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);font-size:72%;">Model</div>
+						<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);font-size:72%;">Communicate</div>
+						<div data-id="dmp-arrow5" 		data-auto-animate-delay="1.5" style="display:inline-block;">&rarr;</div>
+					</p>
+				</div>
+				<br>
+				<br>
+			</section>
+
+
+
+
+
+
+			
+
+			<section>
+				
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4">A framework for critical analysis</h4>
+					<table>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">		
+								<div data-id="dmp-data" data-auto-animate-delay="0" class="graphbox" style="background-color:var(--dsp-red);float:right;margin-right:20px;">Data</div>
+							</td>
+							<td data-auto-animate-delay="0.5" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Harmful data collection, lack of consent, insecure / lack of privacy, historical, representational, or measurement bias, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-preprocess" data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);float:right;margin-right:20px;"">Preprocess</div>
+							</td>
+							<td data-auto-animate-delay="0.6" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Labor exploitation, labeling by non-experts, incorrect labeling, trauma experienced by labelers,  ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-explore" data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);float:right;margin-right:20px;">Explore</div>
+							</td>
+							<td data-auto-animate-delay="0.7" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Feature selection bias, bias in interpretation of data visualization, data manipulation, feature hacking, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-model" data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);float:right;margin-right:20px;">Model</div>	
+							</td>
+							<td data-auto-animate-delay="0.8" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Bias in model choice, model-amplified bias, environmental impact, learning bias, evaluation bias, peripheral modeling, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);float:right;margin-right:20px;">Communicate</div>
+							</td>
+							<td data-auto-animate-delay="0.9" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Biased model interpretation, ignoring variance, rejecting model, deploying harmful products, deployment bias, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-meta" data-auto-animate-delay="1.4" class="graphbox" style="background-color:var(--dsp-gray);float:right;margin-right:20px;">Meta</div>
+							</td>
+							<td data-auto-animate-delay="0.9" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; "Pernicious feedback loops", runaway homogeneity<!-- https://arxiv.org/abs/1710.11214 -->, susceptability to adversarial attack, lack of oversight or auditing, ...
+								<br><br>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<span style="font-size:40%;"><a href="https://arxiv.org/abs/1901.10002" target="_blank">"A Framework for Understanding Sources of Harm throughout the Machine Learning Life Cycle", Harini Suresh and John V. Guttag</a></span>
+					<a href="https://arxiv.org/abs/1901.10002" target="_blank"><img src="img/frameworkforsources.png" style="width:80%;"></a>
+				</section>
+			</section>
+
+			<section>
+				https://lighthouse3.com/newsletter/ 
+				<a href="https://lighthouse3.com/newsletter/" target="_blank"><img src="img/lighthouse3.png"></a>
+			</section>
+
+			<section>
+				<div style="font-size:50%;">
+					Critical Questions: 
+					<br> 
+					<table>
+						<tr>
+							<td>
+								<ul>
+									<li>What are the motivations for the project?  </li>
+									<li>What is the intended use? </li>
+									<li>What is the unintended use or misuse? </li>
+									<li>Where does the data come from?  </li>
+									<li>Who collects the data? </li>
+									<li>Who owns the data?</li>
+									<li>How is the data collected? </li>
+									<li>How is the data stored?</li>
+									<li>How old is the data? </li>
+									<li>When will the data expire? </li>
+									<li>How will the data be secured? </li>
+									<li>What happens with the data when the company is sold? </li>
+									<li>Who does the labeling? </li>
+									<li>What labels will they decide to use? </li>
+									<li>Are the labelers experts? </li>
+									<li>Are the labels accurate? </li>
+									<li>What biases are represented in the data?</li>
+									<li>How is data included or excluded? </li>
+								</ul>
+							</td>
+							<td>
+								<ul>
+									<li>How are outliers addressed? </li>
+									<li>What subpopulations are represented? </li>
+									<li>What subpopulations are over- or underrepresented? </li>
+									<li>What portions of the data are inspected?  <!-- For example, the first 100 entries are representative if the data isn't randomized --></li>
+									<li>What features are selected for modeling? </li>
+									<li>What model is chosen? </li>
+									<li>What features do we think are being modeled? </li>
+									<li>What latent features are actually being modeled? </li>
+									<li>What is the domain of the model?</li>
+									<li>What are the consequences of error?</li>
+									<li>What decisions will be made with the model? </li>
+									<li>What biases are perpetuated? </li>
+									<li>Where will the model be deployed? </li>
+									<li>What could go wrong?</li>
+									<li>Who is responsible when things go wrong?</li>
+									<li>How can issues be reported?  </li>
+									<li>Will new data be fed back in to update the model? </li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+					
+			</div>
+
+			</section>
+
+			<section>
+				<h4>Have you ever read a book in a math class?</h4>
+				<img src="img/broussard.png" style="width:24%;">
+				<img src="img/thing_shane.jpg" style="width:24%;">
+				<img src="img/hello_fry.jpg" style="width:24%;">
+				<img src="img/oneil.jpg" style="width:24%;">
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Data Modeling Process</h4>
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+					<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+					<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+				</p>
+				<br>
+				<br>
+				<div data-id="modelquestionbounceanswer" data-auto-animate-delay="0.5" >					
+					<ul>
+						<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Modeling</span> with data</li>
+						<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Teaching</span> and scafolding modeling with data </li>
+						<li><span style="-webkit-animation:colorchange 10s 1;animation-fill-mode: forwards;">Critically analyzing</span> data technologies </li>
+					</ul>
+					<div data-id="modelquestionbounceanswer" data-auto-animate-delay="0.5" >
+						<br><br>
+			</section>
+
+
+
+
+			
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Example:</h3>
+				<h4 data-id="dmp-h4">How high does a bouncy ball bounce?</h4><br>
+			</section> -->
+				
+			<!-- Bouncy ball experiment -->
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">How high does a bouncy ball bounce?</h4><br>
+				<div id="dmp-p">
+					<p>
+						<div data-id="dmp-data" data-auto-animate-delay="0" class="graphbox" style="background-color:var(--dsp-red);">Data</div>						
+					</p>
+					<p>
+						<div data-id="dmp-preprocess" data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+					</p>
+					<p>
+						<div data-id="dmp-explore" data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+					</p>
+					<p>
+						<div data-id="dmp-model" data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>			
+					</p>
+					<p>
+						<div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+					</p>						
+				</div>
+				<br>
+				<br>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+
+				<h4 data-id="dmp-h4">How high does a bouncy ball bounce?</h4>
+
+				<table>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">		
+							<div data-id="dmp-data" data-auto-animate-delay="0" class="graphbox" style="background-color:var(--dsp-red);float:right;margin-right:20px;">Data</div>
+						</td>
+						<td data-auto-animate-delay="0.5" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+							&bull; Data problem: What will be the bounce height \(h_{bounce}\) of my bouncy ball when dropped from rest from a given drop height \(h_{drop}\)?
+							<br> 
+							&bull; Record several slow-motion videos.
+							<br><br>
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="dmp-preprocess" data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);float:right;margin-right:20px;"">Preprocess</div>
+						</td>
+						<td data-auto-animate-delay="0.6" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+							&bull; Randomly choose a subset of videos as the training set.
+							<br>
+							&bull; Parse the training set videos into a table. 
+							<br><br>
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="dmp-explore" data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);float:right;margin-right:20px;">Explore</div>
+						</td>
+						<td data-auto-animate-delay="0.7" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+							&bull; Create a scatter plot of \(h_{bounce}(h_{drop})\)
+							<br> 
+							&bull; Look for features!  Notice and wonder.  Consider models. 
+							<br><br>
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="dmp-model" data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);float:right;margin-right:20px;">Model</div>	
+						</td>
+						<td data-auto-animate-delay="0.8" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+							&bull; Find a best-fit model on the training data. 
+							<br> 
+							&bull; Validate the model on the testing data. 
+							<br><br>
+						</td>
+					</tr>
+					<tr style="border:0px;padding:0px;">
+						<td style="border:0px;padding:0px;">
+							<div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);float:right;margin-right:20px;">Communicate</div>
+						</td>
+						<td data-auto-animate-delay="0.9" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+							&bull; Reflect on the process.
+							<br> 
+							&bull; Share out. 
+							<br><br>
+						</td>
+					</tr>
+				</table>
+			</section>
+<!-- 
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">How high does a bouncy ball bounce?</h4>		
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="font-weight:bold; background-color:var(--dsp-red);">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="1.0" style="background-color: var(--dsp-red); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; 
+					<span style="font-size:80%;">What will be the bounce height \(h_{bounce}\) of my bouncy ball when dropped from rest from a given drop height \(h_{drop}\)?</span>
+					<br>
+					<br>
+					&bull; 
+					<span style="font-size:80%;">Record a few slow-motion videos of drop samples next to a meter stick. </span>
+					<br>					
+				</p>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.0" class="graphbox" style="font-weight:bold; background-color:var(--dsp-orange);">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.0" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-orange); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; 
+					<span style="font-size:80%;">Parse the videos into a table in a spreadsheet. </span>
+					<br>
+					<br>	
+					<br>	
+					<br>	
+					<br>					
+				</p>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="font-weight:bold; background-color:var(--dsp-yellow);">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-yellow); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; 
+					<span style="font-size:80%;">Create a scatter plot </span>
+					<br><br>					
+					&bull; 
+					<span style="font-size:80%;">Notice the data are linear </span>
+					<br><br><br> 
+				</p>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="font-weight:bold; background-color:var(--dsp-green);">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-green); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; 
+					<span style="font-size:80%;">Determine the best-fit line to the data.</span>
+					<br><br>					
+					&bull; 
+					<span style="font-size:80%;">Validate the model by making a prediction and then testing it. </span>
+					<br><br><br>	
+				</p>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">Data Modeling Process</h4>
+				
+				<p id="dmp-p">
+					<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Data</div>
+					<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Preprocess</div>
+					<div data-id="dmp-arrow2" 		data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Explore</div>
+					<div data-id="dmp-arrow3" 		data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-gray);color:var(--dsp-light)">Model</div>
+					<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+					<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="font-weight:bold; background-color:var(--dsp-blue);">Communicate</div>
+				</p>
+				<p data-id="dmp-description" data-auto-animate-delay="0" style="background-color: var(--dsp-blue); text-align:left; padding:20px;border-radius:15px;box-shadow: 3px 3px 7px #AAA">
+					&bull; 
+					<span style="font-size:80%;">Create a scatter plot </span>
+					<br><br>					
+					&bull; 
+					<span style="font-size:80%;">Notice the data are linear </span>
+					<br><br>	
+				</p>
+			</section> -->
+
+
+
+			<section>
+				<img src="img/balldrop.jpg">
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4 data-id="dmp-h4">How high does a bouncy ball bounce?</h4>
+				<div id="desmos_functions" style="width: 100%; height:500px;margin: auto;"></div>
+				<script>
+					var elt = document.getElementById('desmos_functions');
+					var calculator = Desmos.Calculator(elt,
+						{
+							expressionsCollapsed:true,
+							settingsMenu:true,
+							zoomButtons:false,
+							keypad:false,
+							
+						});
+					calculator.setMathBounds({
+						left: -5,
+						right: 110,
+						bottom: -5,
+						top: 100
+						});
+					calculator.setGraphSettings({
+						xAxisLabel: 'drop_height (cm)',
+						yAxisLabel: 'bounce_height (cm)'
+						});
+					calculator.setExpression({
+							id:'m', 
+							latex:'m=0.72',
+							sliderBounds: { min: 0.6, max: 1.1, step: 0.01 }
+						});
+					// Visualize the error
+					calculator.setExpression({
+						id:'a',
+						latex: 'x=x_{1}\\left[1...5\\right]\\left\\{y_{1}\\left[1...5\\right]>y>mx_{1}\\left[1...5\\right]\\right\\}',
+						color: '#dd0000',
+					});
+					calculator.setExpression({
+						id:'b',
+						latex: 'x=x_{1}\\left[1...5\\right]\\left\\{y_{1}\\left[1...5\\right]<y<mx_{1}\\left[1...5\\right]\\right\\}',
+						color: '#dd0000',
+					});
+					// Data 
+					calculator.setExpression({
+						type: 'table',
+						columns: [
+							{
+							latex: 'x_1',
+							values: ['30', '50', '80', '90', '100']
+							},
+							{
+							latex: 'y_1',
+							values: ['27', '47', '68', '77', '86'],
+							color: '#0000ff',
+							}
+						]
+					});
+					// Linear model
+					calculator.setExpression({
+						id: 'y',
+						latex: 'y=mx',
+						color: '#000000',
+					});
+				</script>
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos70.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror70.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos75.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror75.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos80.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror80.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos85.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror85.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos90.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror90.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos95.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror95.png" style="width:40%;">
+				</p>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Bounce Prediction Error</h4>
+				<p data-id="linslope">
+					<img src="img/desmos100.png" style="width:40%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/desmoserror100.png" style="width:40%;">
+				</p>
+			</section>
+
+			<section data-background="#fff">
+				<img src="img/findm.jpg">
+				<aside class="notes">
+					Something starts to happen!  They view models not as a ground truth they've uncovered, but as an approximation which can, at best, minimize error. 
+				</aside>
+			</section>
+
+			<section>							
+				<table>
+					<tr style="border: 0px solid black;">
+						<td style="border: 0px solid black;"><img src="img/bouncetraining.png" style="width:100%;"></td>
+						<td style="border: 0px solid black;"><img src="img/bouncetesting.png" style="width:100%;"></td>
+					</tr>
+					<tr style="border: 0px solid black;">
+						<td style="width:50%;text-align:center;">Training Data</td>
+						<td style="width:50%;text-align:center;">Testing Data</td>						
+					</tr>
+				</table>
+			</section>
+
+			<section>
+				<div><a target="_blank" href="https://reproducible.cs.princeton.edu/#rep-failures" style="font-size:50%;">https://reproducible.cs.princeton.edu/#rep-failures</a></div>
+				<a target="_blank" href="https://reproducible.cs.princeton.edu/#rep-failures"><img src="img/reproducabilitylist.png"></a>
+
+			</section>
+
+			<section>
+				Break models  <br>
+				<img src="img/bigdrop.jpg" style="width:50%;">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="modelquestionbounce">
+					"How high does a bouncy ball bounce?"
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<!-- Lessons from the linear modeling example: -->
+				<div data-id="modelquestionbounce">
+					"How high does a bouncy ball bounce?"
+				</div>
+				<div data-id="modelquestionbounceanswer" data-auto-animate-delay="0.5" >
+					<br>
+					becomes: 
+					<br><br>
+					"How much can we minimize the error of a linear model 
+					when predicting how high this particular bouncy ball will bounce
+					in this room on this surface 
+					at this temperature and humidity when dropped from rest at a height of no more than two meters?"
+				</div>
+				<aside class="notes">
+					In other words: context matters and we must consider context when assessing the predictive power of our models.  
+				</aside>
+			</section> 
+
+
+			<section>
+				<h3>Data Modeling Projects</h3>
+				<ul>
+					<li>How high does a bouncy ball bounce?</li>
+					<li>How far will the ball roll?  </li>
+					<li>What is the period of a pendulum? </li>
+					<li>When will the water reach 40&#x2103;? </li>
+					<li>When is high tide?  </li>
+					<li>How much daylight will there be on Jan 1?  </li>
+					<li>When will sun set on Feb 1?</li>
+					<li>What is the best move in Hexapawn? </li>
+					<li>What is the best move in Tic Tac Toe? </li>
+					<li>Which NFL team will win Monday? </li>
+				</ul>
+			</section>
+
+			<section>
+				<section>
+					<img src="img/hexapawntree.png">
+				</section>
+				<section data-background-iframe="https://jedediyah.com/learning/hexapawn/" data-background-interactive>
+
+				</section>
+			</section>
+			<section>
+				<img src="img/hexboard.jpg" style="width:30%;">
+				<img src="img/hex_game_chart.png" style="width:65%;">
+			</section>
+
+			<section>
+				<img src="img/tictactoetree.png">
+			</section>
+			<section data-background="img/tictactoeboard.jpg">
+			</section>
+
+
+
+			<section>
+				<h3>I have a project for you! <br>But first, in Summary</h3>
+				<ul>
+					<li>Model data. It's awesome. </li>
+					<li>Break models. Witness them failing.</li>
+					<li>Critically analyze technology.</li>
+				</ul>
+			</section>
+
+			<section>
+				<a href="https://colab.research.google.com/drive/16g8_0ILTBrISHEyE4fRK8LJNQGx92Pe3?usp=sharing" target="_blank">Classify these fruit!</a>
+				<img src="img/fruit.png">
+			</section>
+
+
+			<section style="text-align:left;">
+				Using data pipelines as critical frameworks:
+				<br> 
+				<ul style="font-size:70%;">
+					<li><a target="_blank" href="https://arxiv.org/abs/1901.10002">A Framework for Understanding Sources of Harm throughout the Machine Learning Life Cycle</a> - Harini Suresh, John V. Guttag</li>
+				</ul>
+				<br>
+				<br>
+				Teaching with ethics at the forefront: 
+				<br>
+				<ul style="font-size:70%;">
+					<li><a target="_blank" href="https://openreview.net/forum?id=k9jaVBHot_">Teaching Machine Learning in the Context of Critical Quantitative Information Literacy</a> - Carrie Diaz Eaton. </li>
+					<li><a target="_blank" href="https://iase-web.org/ojs/SERJ/article/view/42">Integrating the Humanities into Data Science Education</a> - Eric A. Vance et al.
+				</ul>
+			</section>
+
+
+			<section style="font-size:70%;">
+				<!-- More academic-like papers and people to follow on twitter  -->
+
+				AI Now Institute reports: https://ainowinstitute.org/reports.html 
+				<br> 
+				<a target="_blank" href="https://arxiv.org/abs/2206.04179">Automating Ambiguity: Challenges and Pitfalls of Artificial Intelligence</a> - <a target="_blank" href="https://twitter.com/abebab">Abeba Birhane</a>
+				<br> 
+				On the dangers of stochastic parrots: Can language models be too big?  - Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Margaret Mitchell
+				<br> 
+				<a target="_blank" href="https://twitter.com/rctatman">Rachael Tatman</a> - <a target="_blank" href="https://www.youtube.com/c/RachaelTatmanNLP">YouTube</a>
+				<br> 
+				<a target="_blank" href="https://twitter.com/math_rachel">Rachel Thomas</a> Fast.ai <a target="_blank" href="https://ethics.fast.ai/syllabus/">Data Ethics Course</a>  
+				
+				<br> 
+				Joy Buolamwini https://www.media.mit.edu/people/joyab/publications/ 
+				<br> 
+				SERJ special issue: https://iase-web.org/ojs/SERJ/issue/view/28 
+				<br> 
+				AIES '22: Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society  https://dl.acm.org/doi/proceedings/10.1145/3514094
+
+			</section>
+
+			<section style="font-size:70%;">
+				Education: 
+					<br> 
+				<a target="_blank" href="https://openreview.net/forum?id=k9jaVBHot_">Teaching Machine Learning in the Context of Critical Quantitative Information Literacy </a> 
+				<br>
+				<a target="_blank" href="https://arxiv.org/abs/2001.07649">Integrating data science ethics into an undergraduate major: A case study</a>
+				<br>
+				<a target="_blank" href="https://journals.sagepub.com/doi/full/10.3102/0013189X211048810">A call for a humanistic stance toward k-12 data science education</a>
+				<br>
+				<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8455229/">Artificial intelligence in education: Addressing ethical challenges in K-12 settings</a>
+				<br>
+				<a hre="https://docs.google.com/spreadsheets/d/1oppU-mYv3pvy2oGTkLZel03ydMjSgQ09Aa1L2fEC0v8/edit#gid=0">Provisional Data Science for Social Change Spring 2022 schedule</a>
+			</section>
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+	</body>
+</html>
