@@ -1,7 +1,10 @@
 body {
+    background-color: #eee;
     color: #444; 
     font-size: 14px; 
 	font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px; 
 }
 
 a {
@@ -25,6 +28,7 @@ b {
     background-color: #fff;
     margin: auto; 
     width: 800px; 
+    padding:50px;
 }
 
 .cmti-10{
