@@ -1,0 +1,328 @@
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+  <link href="prism.css" rel="stylesheet" />
+  <script src="prism.js"></script>
+
+  <!-- Mathjax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Desmos API for embedded graphs -->
+  <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <a id="dsp-top"></a>
+
+  <div class="sidebar" id="mainNav">
+    <a href="#dsp-top" id="a-dsp-top" class="active">Cooperative Data Science</a>
+    <a href="#dsp-example" id="a-dsp-example"><img src="img/bar.svg" class="menu-img"> Example Project</a>
+    <a href="#dsp-overview" id="a-dsp-overview"><img src="img/network.svg" class="menu-img"> Digit Classifier</a>
+    <!-- <a href="#dsp-concern" id="a-dsp-concern"><img src="img/warn.svg" class="menu-img"> Concern</a>
+    <a href="#dsp-consequence" id="a-dsp-consequence"><img src="img/chart.svg" class="menu-img"> Concenquence</a> -->
+    <a href="#dsp-conclusions" id="a-dsp-conclusions"><img src="img/note.svg" class="menu-img"> Conclusions</a>
+    <a href="#dsp-resources" id="a-dsp-resources"><img src="img/people.svg" class="menu-img"> Resources</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/cite.svg" class="menu-img"> References</a>
+  </div>
+
+  <div class="content">
+
+
+    <div class="maincontainer">
+      <h1>Cooperative Data Science</h1> <br>
+      <div style="width:100%; text-align:center;font-style:italic;">
+        Jedediyah Williams
+      </div>
+      <p>
+        This page contains resources for a session at the 2023 <a href="https://www.nctm.org/virtual2023/">NCTM 
+          Virtual Conference</a>.
+      </p>
+      <p>
+        <div style="width:520px;margin:auto;color:#888;">
+          slides: <a target="new"
+             href="https://docs.google.com/presentation/d/e/2PACX-1vSODhemyez-KIFrWIQFV3QQ-2ZYdnPzi9NVWEKEIv_8ppB9fsD8bkhK7KZYP7Hrbl_L0Cp9a9PPyEus/pub?start=false&loop=false&delayms=3000"><img
+             src="img/slides.png"  alt="link to slides" class="linkimage"></a>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          video: <a target="new" href="https://www.youtube.com/watch?v=_J6VQCMug3Y"><img src="img/talkimage.png" alt="link to video of talk" class="linkimage"></a>
+        </div>
+      </p>
+      <div style="width:30%;margin:auto;">
+        <h4>Contents</h4>
+        <div style="text-align:left;">
+          <ol>
+            <li>Introduction</li>
+            <li>Example Project</li>
+            <li>Digit Classifier</li>
+          </ol>
+        </div>
+      </div>
+
+
+      <h3>Introduction</h3>
+      <p>
+        The primary activity and lesson resource in this presentation is a <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a> engineering project, classifying handwritten digits from the famous <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. 
+        Given examples of handwritten digits, we ask: what features can we identify that are useful for distinguishing digits from one another?         
+      </p>
+      <p>
+        A <a href="https://en.wikipedia.org/wiki/Statistical_classification">classifier</a> is an algorithm which takes some input and categorizes that input based on recognizable features (data patterns). 
+        There are <a href="https://towardsdatascience.com/top-machine-learning-algorithms-for-classification-2197870ff501">several popular algorithms</a> for automating the identification of useufl features in data. 
+        Some examples of classification problems include:
+        <ul>
+          <li>Distinguishing spam from non-spam in email. </li>
+          <li>Object recognition in images. </li>
+          <li>Speech recognition in audio. </li>
+          <li>Likely winners in sporting events.</li>
+        </ul>
+      </p>
+      <p>
+        Some of the reasons I like this project are: 
+        <ul>
+          <li> Concepts utilized in this type of problem are a fundamental in data-based applied mathematics. </li>
+          <li> Collaboration is natural in a project of this type, so it doesn't feel added on. </li>
+          <li> The project facilitates frequent translating between intuition and formalization, between abstract and algorithmic thinking. </li>
+          <li> It has low floors, high ceilings, and wide walls.  Every student can contribute, there is no limit on how complex solutions may become, and every student could find different succesful solutions.   </li>
+        
+        </ul>
+        You'll see some code and links to Python Notebooks below, but think of those as bonus features if you are interested.  
+        They aren't necessary to complete the main project. 
+      </p>
+      <p>
+        An example project on classifying images of fruit is covered briefly, then a more detailed project is described on the digit classifier. 
+      </p>
+
+
+
+      <section id="dsp-example">
+        <h2>Example Project: Fruit Classifier</h2>
+        <p>
+          The following is an overview of an example project to demonstrate some key ideas in feature engineering with images.  
+          Consider a database of images with four types of fruit: bananas, oranges, blueberries, apples. 
+          Given an image, classify which type of fruit is in the image.  
+          A Colab Notebook with this project is <a href="https://colab.research.google.com/drive/16g8_0ILTBrISHEyE4fRK8LJNQGx92Pe3?usp=sharing">available here</a>. 
+        </p>
+        <p>
+          With our human eyes and brains, we might look at an image and immediately recognize the type of fruit.  
+          Our objective is to create an algorithm which takes an image as input and returns an output prediction of the type of fruit.  
+        </p>
+        <p>
+          There are multiple approaches, but we might start by making observations about the images and connecting those observations to the data. 
+          
+        </p>
+        <p>
+          <img src="img/fruit.png">
+        </p>
+        <p>
+          The images are preprocessed to show exactly one piece of fruit on a white background.  
+          They are \(100 \times 100\) pixels. They are color images with 3 color channels: red, green, and blue. 
+          While we can visualize the images, the <em>data</em> is really a set of long lists of triples corresponding to the red, green, and blue values in each pixel. 
+        </p>
+        <p>
+          <img src="img/apple_pixels.png">
+        </p>
+        <p>
+          You can play with RGB values here: 
+          <a href="https://www.csfieldguide.org.nz/en/interactives/rgb-mixer/">https://www.csfieldguide.org.nz/en/interactives/rgb-mixer/</a>.
+          The colors in the images seem distinctive, so let's engineer a feature based on color!
+          One feature to explore is the sum of pixel values for each color.
+          The box plots below depict distributions for the sum of red, green, and blue pixel values from around 200 images for each fruit. 
+        </p>
+        <p>
+          <img src="img/fruitplots.png">
+        </p>
+        <p>
+          From these distributions, we can distinguish each fruit!  
+          Such a classifier written in Python might look like this: 
+          <pre><code class="language-python">def fruit_classifier(img):
+  # Given an image, return a string representing a classification of fruit.
+  r,g,b = img.split()
+  r_sum = np.asarray(r).sum()
+  g_sum = np.asarray(g).sum()
+  b_sum = np.asarray(b).sum()
+
+  if r_sum > 1.9e6 and g_sum > 1.75e6 and b_sum > 1.5e6:
+    return 'banana' 
+  elif r_sum < 1.3e6 and g_sum < 1.5e6 and b_sum < 1.5e6:
+    return 'blueberry'
+  elif r_sum > 1.6e6 and g_sum > 1.15e6 and b_sum < 1.8e6:
+    return 'orange'
+  else:
+    return 'apple'    </code></pre>
+        </p>
+        <p>
+          Naturally, some questions arrise:
+          <ul>
+            <li>What about green apples?   </li>
+            <li>What about bananas that are over-ripe?   </li>
+            <li>What if the image is a different size?    </li>
+            <li>What if there are multiple pieces of fruit in the image?   </li>
+            <li>What if there are other objects in the image?    </li>
+            <li>What happens if our prediction is wrong? </li>
+          </ul>      
+          Critical questions like these are important.  
+          They recognize that our mathematical model has a domain of applicability, and they begin to hint at the ethics of applied mathematics.  
+          Recently when discussing this example with a class, I brought up the application of "self-driving" cars, some of which rely on camera systems to classify objects in their surroundings.
+          I asked the class who is responsible if a "self-driving" car hits a person, perhaps because that person was misclassified by the car's vision system. 
+          Overwhelmingly they agreed it is "the company's fault" and that the driver should not be held responsible.
+          Dear reader, I had some bad news for them!
+        </p>
+      </section>
+
+
+
+      <section id="dsp-overview">
+        <h2>Project: Digit Classification</h2>
+      </section>      
+      <p>
+        The goal of this project is to engineer features that can distinguish digits in the MNIST dataset.  
+        This is broken down in the following increasingly difficult sub-projects: 
+        <ol>
+          <li> 
+            Distinguish only between 0s and 1s.
+          </li> 
+          <li>
+            Determine one digit that you can distinguish from all of the rest. 
+          </li>
+          <li>
+            Try to distinguish more digits!
+          </li>
+        </ol>
+</p>
+      <h3>Step 0: Get to know the data</h3>
+      <p>
+        An archive of MNIST saved as PNGs is available from <a href="https://github.com/myleott/mnist_png">https://github.com/myleott/mnist_png</a>.  
+        Each image is \(28 \times 28\) pixels of grayscale values from \(0\) to \(255\).  Here is an \(8\):   
+        <img src="img/41.png">
+      </p>
+      <p>
+        Visualizing some more of the digits, we can get a sense of dataset: 
+      </p>
+      <p>
+        <img src="img/mnistdigits.png">
+      </p>
+
+      <p>
+        If you have some coding experience, then you can do a lot with this dataset.  
+        But you can also do a lot with a simple spreadsheet!
+        Take a look at <a href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">this sheet</a>.  
+        Each row in the spreadsheet represents a single image.  
+        The first column is the label of what digit is in the image.  
+        The next 784 columns are the 784 pixel values in a single image.  
+      </p>
+      <p>
+        It can be confusing, thinking of a 2D image as 1D list of numbers.  
+        An activity that can be helpful for starting to think about image data this way is to physically cut out the rows of a digit's pixel values and create a physical representation of an image vector.         
+      </p>
+      <p>
+        <a href="https://docs.google.com/document/d/1pyHVInjJOUHMiIOIoYLqpyWWzSMSlV_0enY-ShDbQBA/edit?usp=sharing"><img src="img/sample_zero.png"></a>
+      </p>
+      <p>
+        Below are some images of students cutting up their digits and either stapling or taping all 28 rows of image data together into a single image vector. 
+        The result is a physical version of our spreadsheet! 
+      </p>
+      <p style="text-align:center;">
+        <a href="img/cut1.jpg"><img src="img/cut1.jpg" style="height:250px;"></a>
+        <a href="img/cut2.jpg"><img src="img/cut2.jpg" style="height:250px;"></a>
+        <br> 
+        <a href="img/cut4.jpg"><img src="img/cut3.jpg" style="height:250px;"></a>
+        <a href="img/cut4.jpg"><img src="img/cut4.jpg" style="height:250px;"></a>
+      </p>
+
+      <h3>Part 1: Classify as \(0\) or \(1\)</h3>
+      <p>
+        Now that we are familiar with our data, let's create a classifier to distinguish between \(0\)s and \(1\)s in our spreadsheet.  
+        In other words, what features do \(0\)s have that \(1\)s don't, or the other way around?  
+        While we will be working with the data in the spreadsheet, perhaps thinking back to the 2D images will inspire some ideas for distinguishing features. 
+      </p>
+
+      <p style="text-align:center;">
+        <img src="img/data_zero.png" style="width:48%;">
+        <img src="img/data_one.png" style="width:48%;">
+      </p>
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+    /* Thanks to joxmar: https://codepen.io/joxmar/pen/NqqMEg */
+
+    // Cache selectors
+    var lastId,
+      topMenu = $("#mainNav"),
+      // All list items
+      menuItems = topMenu.find("a"),
+      // Anchors corresponding to menu items
+      scrollItems = menuItems.map(function () {
+        var item = $($(this).attr("href"));
+        if (item.length) { return item; }
+      });
+
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function (e) {
+      var href = $(this).attr("href"),
+        offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
+      $('html, body').stop().animate({
+        scrollTop: offsetTop
+      }, 850);
+      e.preventDefault();
+    });
+
+    // Bind to scroll
+    $(window).scroll(function () {
+      // Get container scroll position
+      var fromTop = $(this).scrollTop();
+
+      // Get id of current scroll item
+      var cur = scrollItems.map(function () {
+        if ($(this).offset().top < fromTop)
+          return this;
+      });
+      // Get the id of the current element
+      cur = cur[cur.length - 1];
+      var id = cur && cur.length ? cur[0].id : "";
+
+      if (lastId !== id) {
+        if (id == '') {
+          document.getElementById('a-dsp-top').className = 'active';
+        } else {
+          lastId = id;
+          // Set/remove active class
+          menuItems.removeClass("active");
+          // Apparently I don't know jQuery, so...
+          document.getElementById('a-' + id).className = 'active';
+        }
+
+      }
+    });
+  </script>
+
+</body>
+
+</html>

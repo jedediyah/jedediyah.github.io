@@ -1,227 +1,339 @@
-<!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Collaborative Data Science</title>
-
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/white.css">
-
-		<!-- Additional custom CSS -->
-		<style>
-			:root {
-				--dsp-red: rgb(255, 217, 223);
-				--dsp-orange: rgb(255, 226, 173);
-				--dsp-yellow: rgb(255, 255, 190);
-				--dsp-green: rgb(200, 236, 200);
-				--dsp-blue: rgb(205, 229, 237); 
-				/*--dsp-gray: rgb(101, 101, 101); */
-				--dsp-gray: rgb(231, 231, 231); 
-				--dsp-light: rgb(245, 245, 245);
-			}
-			.graphbox{
-				display:inline-block;
-				padding:8px;
-				/* border:3px solid rgb(35, 41, 145); */
-				border-radius:10px;
-				font-size:80%;
-				background-color:blanchedalmond;
-				box-shadow: 3px 3px 7px #AAA;
-			}
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
 
 
-			@keyframes colorchange {
-				0% {
-					
-					color: black;
-				}					
-				100% {
-					
-					color: rgb(210, 87, 30);
-				}
-			}
-		</style>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+  <link href="prism.css" rel="stylesheet" />
+  <script src="prism.js"></script>
 
+  <!-- Mathjax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+  <!-- Desmos API for embedded graphs -->
+  <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
-	</head>
-	<body>
-		<div class="reveal">
-			<!-- Footer -->
-			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
-				jedediyah.github.io/nctm2023virtual
-			</div>
-			<div class="slides">
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-				<!-- <section style="text-align:right;" data-background="img/bg.jpg"> -->
-				<!-- <section style="text-align:right;" data-background="#336666"> -->
-				<section style="text-align:right;" data-background="#323232">
-					<div>
-						<br><br> 
-						<h3 style="color:#f1b563;">Collaborative Data Science</h3>
-						<p>
-							<a target="_blank" href="http://jedediyah.com" style="color:#5ba0ff;">Jedediyah Williams, PhD</a> </a>
-							<br>
-							<span style="color:rgb(230, 230, 232);font-size:80%;">Nantucket High School</span>
-						</p>
-						<br> 
-						<p style="font-style:italic;font-size:80%;color:rgb(230,230,232);">
-							March, 2023
-						</p>
-					</div>
-					<div style="width:100%;text-align:left;font-size:80%;"><a target="_blank" href="https://twitter.com/jedediyah" style="color:#5ba0ff;">@jedediyah</a><br>
-						#NCTMvirtual <br> jedediyah.com/nctm2023virtual</div>
-					<br><br><br><br>
-				</section>
-			
-				<section>
-					<h3>About Jed</h3>
-					<p>
-						<div class="graphbox">Teaching</div> &rarr; <div class="graphbox">Astronomy</div> &rarr; <div class="graphbox">Robots</div> &rarr; <div class="graphbox">Teaching</div> 
-					</p>
-					<p>
-						<img src="img/12m.jpg" style="height:265px;"> &nbsp; 
-						<img src="img/trooper_ladder.jpg" style="height:265px;"> &nbsp; 
-						<img src="img/srcmoon.png" style="height:265px;">
-					</p>	
-					</section>
-	
-	
+</head>
+
+<body>
+
+  <a id="dsp-top"></a>
+
+  <div class="sidebar" id="mainNav">
+    <a href="#dsp-top" id="a-dsp-top" class="active">Collaborative Data Science</a>
+    <a href="#dsp-data" id="a-dsp-data"><img src="img/chart.svg" class="menu-img">&nbsp;Data</a>
+    <a href="#dsp-features" id="a-dsp-features"><img src="img/bar.svg" class="menu-img">&nbsp;Features</a>
+    <a href="#dsp-classifier" id="a-dsp-classifier"><img src="img/network.svg" class="menu-img">&nbsp;&nbsp;Classifier</a>
+    <a href="#dsp-conclusions" id="a-dsp-conclusions"><img src="img/note.svg" class="menu-img">&nbsp;&nbsp;Conclusions</a>
+    <a href="#dsp-resources" id="a-dsp-resources"><img src="img/people.svg" class="menu-img">&nbsp;&nbsp;Resources</a>
+    <!-- <a href="#dsp-references" id="a-dsp-references"><img src="img/cite.svg" class="menu-img">&nbsp;References</a> -->
+  </div>
+
+  <div class="content">
 
 
-				<section data-background-gradient="linear-gradient(to bottom, #acf, #ffffff)">
-					<p>
-						<h4>DATA: There is too much to talk about! </h4>
-						<table style="font-size:85%;">
-							<tr>
-								<td>
-									<ul>
-										<li>Power</li>
-										<li>Surveillance</li>
-										<li>Privacy</li>
-										<li>Security</li>
-										<li>Consent</li>
-										<li>Access</li>
-										<li>Fairness</li>
-									</ul>
-								</td>
-								<td>
-									<ul>
-										<li>Education</li>
-										<li>Energy</li>
-										<li>Military</li>
-										<li>Misuse</li>
-										<li>Adversarial Attacks</li>
-										<li>Disinformation</li>
-										<li>Liberty</li>
-									</ul>
-								</td>
-								<td>
-									<ul>
-										<li>Discrimination</li>
-										<li>Labor</li>
-										<li>Environment</li>
-										<li>Exploitation</li>
-										<li>Law and Oversight</li>
-										<li>Accountability</li>
-										<li>Justice</li>
-									</ul>
-								</td>
-							</tr>
-						</table>
-					</p>
-					<p>
-						<table style="font-size:90%;">
-							<tr>
-								<td>
-									<ul>
-										<li>Data Ethics </li>
-										<li>AI Ethics </li>
-									</ul>
-								</td>
-								<td>
-									<ul>
-										<li>Fair ML </li>
-										<li>Fair AI </li>
-									</ul>
-								</td>
-								<td>
-									<ul>
-										<li>Algorithmic Bias </li>
-										<li>Data Bias </li>
-									</ul>
-								</td>
-							</tr>
-						</table>
-					</p>
-				</section>
+    <div class="maincontainer">
+      <h1>Collaborative Data Science</h1> <br>
+      <div style="width:100%; text-align:center;font-style:italic;">
+        Jedediyah Williams
+      </div>
+      <p>
+        This page contains resources for a session at the 2023 <a href="https://www.nctm.org/virtual2023/">NCTM 
+          Virtual Conference</a>.
+      </p>
+      <p style="text-align:center;">
+        Slides: <a href=""><img src="img/slide.png"></a>
+      </p>
 
-				<section>
-					<h3>References</h3>
-					<ol>
-						<li>jedediyah.github.io/nctm2022/   </li>
-						<li>   </li>
-					</ol>
-					<br><br><br>
-				</section>
+      <h3>Introduction</h3>
+      <p>
+        A <a href="https://en.wikipedia.org/wiki/Statistical_classification">classifier</a> is an algorithm which takes some input and categorizes that input based on features (recognizable patterns). 
+        There are <a href="https://towardsdatascience.com/top-machine-learning-algorithms-for-classification-2197870ff501">several popular algorithms</a> for automating the identification of features in data. 
+        Some examples of classification problems include:
+        <ul>
+          <li>Distinguishing spam from non-spam in email. </li>
+          <li>Object recognition in images. </li>
+          <li>Speech recognition in audio. </li>
+          <li>Likely winners in sporting events.</li>
+        </ul>
+      </p>
+      <p>
+        The primary activity and lesson resource in this presentation is a manual <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a> engineering project, classifying handwritten digits from the famous <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. 
+        Given examples of handwritten digits, we ask: what features can we identify or create which are effective for distinguishing digits from one another?         
+        The project is iterated with increasingly difficult tasks: 
+        <ol>
+          <li> 
+            Distinguish between 0s and 1s.
+          </li> 
+          <li>
+            Determine one digit that you can distinguish from the nine others. 
+          </li>
+          <li>
+            Distinguish more digits!
+          </li>
+        </ol>
+      </p>
+      <p>
+        Some of the reasons I like this project are: 
+        <ul>
+          <li> Concepts utilized in this type of problem are a fundamental in data-based applied mathematics. </li>
+          <li> Collaboration is natural in a project of this type, so it doesn't feel added on. </li>
+          <li> The project facilitates frequent translating between intuition and formalization, between abstract and algorithmic thinking. </li>
+          <li> It has low floors, high ceilings, and wide walls.  Every student can contribute, there is no limit on how complex solutions may become, and every student could find different succesful solutions.   </li>
+        
+        </ul>
+        You'll see some code and links to Python Notebooks below, but think of those as bonus features if you are interested.  
+        They aren't necessary to complete the main project. 
+      </p>
 
-				<section>
-					Our project for today: 
-					Feature engineer a digit classifier using the MNIST database. 
-				</section>
+      <section id="dsp-data">
+        <h2>Get to know the data</h2>
+      </section>  
+      <p>
+        An archive of MNIST saved as PNGs is available from <a href="https://github.com/myleott/mnist_png">https://github.com/myleott/mnist_png</a>.  
+        Each image is \(28 \times 28\) pixels of grayscale values from \(0\) to \(255\).  Here is an \(8\):   
+        <img src="img/41.png">
+      </p>
+      <p>
+        Visualizing some more of the digits, we can get a sense of dataset: 
+      </p>
+      <p>
+        <img src="img/mnistdigits.png">
+      </p>
 
-
-				<section>
-					This is an example of...
-				</section>
-
-
-				<section>
-					MNIST 
-				</section>
-				<section data-background="#000">
-					<img src="img/digits.png" style="width:70%;">
-				</section>
-
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<img data-id="img_chart" src="img/digit_chart.svg">
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<img data-id="img_chart" src="img/digit_chart2.svg">
-				</section>
+      <p>
+        If you have some coding experience, then you can do a lot with this dataset.  
+        But you can also do a lot with a simple spreadsheet!
+        Take a look at <a href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">this sheet</a>.  
+        Each row in the spreadsheet represents a single image.  
+        The first column is the label of what digit is in the image.  
+        The next 784 columns are the 784 pixel values in a single image.  
+      </p>
+      <p>
+        It can be confusing, thinking of a 2D image as 1D list of numbers.  
+        An activity that can be helpful for starting to think about image data in this way is to physically cut out the rows of a digit's pixel values and create a physical representation of an image vector.         
+      </p>
+      <p>
+        <a href="https://docs.google.com/document/d/1pyHVInjJOUHMiIOIoYLqpyWWzSMSlV_0enY-ShDbQBA/edit?usp=sharing"><img src="img/sample_zero.png"></a>
+      </p>
+      <p>
+        Below are some images of students cutting up their digits and either stapling or taping all 28 rows of image data together into a single image vector. 
+        The result is a effectively a physical version of our spreadsheet! 
+      </p>
+      <p style="text-align:center;">
+        <a href="img/cut1.jpg"><img src="img/cut1.jpg" style="height:250px;"></a>
+        <a href="img/cut2.jpg"><img src="img/cut2.jpg" style="height:250px;"></a>
+        <br> 
+        <a href="img/cut4.jpg"><img src="img/cut3.jpg" style="height:250px;"></a>
+        <a href="img/cut4.jpg"><img src="img/cut4.jpg" style="height:250px;"></a>
+      </p>
 
 
+      <section id="dsp-features">
+        <h2>Feature Engineering</h2>
+      </section>  
+      <p>
+        Now that we are familiar with our data, let's explore deeper and uncover some features that might help us to distinguish between \(0\)s and \(1\)s in <a href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">our first spreadsheet</a>.  
+        What features do \(0\)s have that \(1\)s don't, or the other way around?  
+      </p>
+      <p>
+        While we will be working with the data in the spreadsheet, perhaps thinking back to the 2D images will inspire some ideas for distinguishing features. 
+      </p>
+      <p style="text-align:center;">
+        <img src="img/data_zero.png" style="width:48%;">
+        <img src="img/data_one.png" style="width:48%;">
+      </p>
+      <p>
+        The above images are only single samples, but what do you notice and wonder? 
+        Below are samples of student responses, hidden to avoid spoilers.  
+        <details>
+          <summary>Click for student responses</summary>
+          <ul>
+            <li>The \(0\)s will be wider.</li>
+            <li>The left-most part of the \(1\) is only a few pixels apart from the right-most part.</li>
+            <li>The \(0\) has more non-zero pixels.</li>
+            <li>You can add up all of the pixel values, and \(0\)s will have a higher number.</li>
+            <li>I wonder how many \(1\)s have the base and the hat.</li>
+            <li>If you go across the middle of the \(0\) (horizontally), it goes zeros, numbers, zeros, numbers, zeros.  With \(1\)s, it just goes zeros, numbers, zeros.</li>            
+            <li>If you got straight down the middle, the \(1\) has a lot more non-zero pixels.</li>
+            <li>I wonder if all of the \(1\)s are centered in the image. </li>
+            <li>I wonder if some \(1\)s are slanted. </li>
+            <li>If the middle pixel is zero, it is a \(0\).  If it is not, then it is a \(1\) </li>
+          </ul>
+        </details>
+      </p>
+      <p>
+        Some features will be relatively easy to calculate using a spreadsheet formula. 
+        Other features, while feasible, are more abstract and challenging to capture algorithmically. 
+        Some features will be effective for classification, while others will be less robust.  
+      </p>
+      <h3>Example Feature</h3>
+      <p>
+        Let's try one of the simpler features: sum all of the pixel values in each image.  
+        Our hope is that we will be able to distinguish \(0\)s because their sums will be higher than those of \(1\)s.  
+      </p>
+      <p>
+        Each feature we create will be in the form of a spreadsheet formula, and we'll keep them in the far right columns.  
+        In the far right column of <a href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">our 0 and 1 spreadsheet</a>, we will enter two formulas.  
+        In ADF2, we enter:        
+        <pre><code class="language-excel-formula">=A2</code></pre> 
+        This makes a copy of the digit label for our convenience.  
+        Then in ADG2, we enter: 
+        <pre><code class="language-excel-formula">=sum(B2:ADE2)</code></pre>
+        This formula sums all of the 784 pixel values. 
+      </p>
+      <div style="margin:auto; width:60%;">
+        <img src="img/firstfeature.png" style="border:3px solid #333; border-radius: 3px;">
+      </div>
+      <p>
+        We can select both of our new formula cells and double-click the blue square to auto-fill the columns.  
+        We have a feature!    
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_chart.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        Let's make a scatter plot of columns ADF and ADG to get a sense of how distinguishing this feature is:
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_scatter.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        Not too shabby!
+      </p>
+
+
+      <section id="dsp-classifier">
+        <h2>Classifier</h2>
+      </section>  
+      <p>
+        So we have a feature that looks like it can nearly distinguish \(0\)s from \(1\)s.  
+        Let's utilize that feature to make a classifier. 
+        In ADH2, let's define a formula to classify the image as \(0\) or \(1\): 
+        <pre><code class="language-excel-formula">=if(ADG2>20000,0,1)</code></pre>
+        This formula looks at the value immediately to the left and if it is greater than \(20000\), it predicts \(0\), otherwise it predicts \(1\). 
+        Based on our scatter plot, this roughly seems reasonable.  
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_prediction.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        It works!  
+        Well, at least with our training data it classifies correctly on 37 out of 40 images.  
+        You can get 40/40 either by finding a great feature, or combining more than one feature. 
+      </p>
+
+
+      <section id="dsp-conclusions">
+        <h2>Conclusions</h2>
+      </section>  
+      <p>
+        We can identify data features and use them to create classifiers.  
+        Go forth, find new features, and maybe even combine them to improve accuracy.  
+      </p>
+      <p>
+        Writing a feature as matrix multiplication. 
+      </p>
+
+
+      <section id="dsp-resources">
+        <h2>Resources</h2>
+      </section>  
+      <p>
+        Other projects:
+        <ul>
+          <li>Fruit Classifier</li>
+          <li> </li>
+        </ul>
+      </p>
+      
+
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </div>
 
 
 
 
 
 
-			</div>
-		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
-			});
-		</script>
-	</body>
+
+
+
+  <script>
+
+    /* Thanks to joxmar: https://codepen.io/joxmar/pen/NqqMEg */
+
+    // Cache selectors
+    var lastId,
+      topMenu = $("#mainNav"),
+      // All list items
+      menuItems = topMenu.find("a"),
+      // Anchors corresponding to menu items
+      scrollItems = menuItems.map(function () {
+        var item = $($(this).attr("href"));
+        if (item.length) { return item; }
+      });
+
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function (e) {
+      var href = $(this).attr("href"),
+        offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
+      $('html, body').stop().animate({
+        scrollTop: offsetTop
+      }, 850);
+      e.preventDefault();
+    });
+
+    // Bind to scroll
+    $(window).scroll(function () {
+      // Get container scroll position
+      var fromTop = $(this).scrollTop();
+
+      // Get id of current scroll item
+      var cur = scrollItems.map(function () {
+        if ($(this).offset().top < fromTop)
+          return this;
+      });
+      // Get the id of the current element
+      cur = cur[cur.length - 1];
+      var id = cur && cur.length ? cur[0].id : "";
+
+      if (lastId !== id) {
+        if (id == '') {
+          document.getElementById('a-dsp-top').className = 'active';
+        } else {
+          lastId = id;
+          // Set/remove active class
+          menuItems.removeClass("active");
+          // Apparently I don't know jQuery, so...
+          document.getElementById('a-' + id).className = 'active';
+        }
+
+      }
+    });
+  </script>
+
+</body>
+
 </html>
