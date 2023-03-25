@@ -1,0 +1,962 @@
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+  <link href="prism.css" rel="stylesheet" />
+  <script src="prism.js"></script>
+
+  <!-- Mathjax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Desmos API for embedded graphs -->
+  <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <a id="dsp-top"></a>
+
+  <div class="sidebar" id="mainNav">
+    <a href="#dsp-top" id="a-dsp-top" class="active">Data Science and Consequences in Mathematical Modeling</a>
+    <a href="#dsp-overview" id="a-dsp-overview"><img src="img/network.svg" class="menu-img"> Data Science Process</a>
+    <a href="#dsp-examples" id="a-dsp-examples"><img src="img/bar.svg" class="menu-img"> Example Projects</a>
+    <a href="#dsp-concern" id="a-dsp-concern"><img src="img/warn.svg" class="menu-img"> Concern</a>
+    <a href="#dsp-consequence" id="a-dsp-consequence"><img src="img/chart.svg" class="menu-img"> Concenquence</a>
+    <a href="#dsp-conclusions" id="a-dsp-conclusions"><img src="img/note.svg" class="menu-img"> Conclusions</a>
+    <a href="#dsp-resources" id="a-dsp-resources"><img src="img/people.svg" class="menu-img"> Resources</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/cite.svg" class="menu-img"> References</a>
+  </div>
+
+  <div class="content">
+
+
+    <div class="maincontainer">
+      <h1>Data Science and Consequences in Mathematical Modeling</h1> <br>
+      <div style="width:100%; text-align:center;font-style:italic;">
+        Jedediyah Williams
+      </div>
+      <p>
+        This page contains resources for a session at the 2021 <a href="https://www.nctm.org/fallvirtual2021/">NCTM Fall
+          Virtual Conference</a>.
+      </p>
+      <p>
+        <div style="width:520px;margin:auto;color:#888;">
+          slides: <a target="new"
+             href="https://docs.google.com/presentation/d/e/2PACX-1vSODhemyez-KIFrWIQFV3QQ-2ZYdnPzi9NVWEKEIv_8ppB9fsD8bkhK7KZYP7Hrbl_L0Cp9a9PPyEus/pub?start=false&loop=false&delayms=3000"><img
+             src="img/slides.png"  alt="link to slides" class="linkimage"></a>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          video: <a target="new" href="https://www.youtube.com/watch?v=_J6VQCMug3Y"><img src="img/talkimage.png" alt="link to video of talk" class="linkimage"></a>
+        </div>
+      </p>
+      <p>
+        Below is an overview of the material from the session along with additional resources.
+        At the core of what I want to communicate are two ideas:
+        <ol>
+          <li>Math is awesome</li>
+          <li>Doing harm is bad</li>
+        </ol>
+        These are not original ideas.  
+      </p>
+
+      <section id="dsp-overview">
+        <h2>A Data Science Process</h2>
+      </section>
+      <h3>Overview</h3>
+      <p style="padding-bottom:15px;">
+        The figure below depicts a Data Science Process.  
+        This process developed as multiple disciplines converged through modeling with data (Chapman 1999, Han 2012 Figure P.1, Schutt 2013 p. 41, Estrellado 2020 Chp. 3, Nantasenamat 2020, Kolter 2021).        
+        
+        <br><br> 
+        <img src="img/dsp.png"> 
+        <br>
+        <table class="figtable">
+          <tr>
+            <!-- <td class="figlabel">A Data Science Process</td> -->
+            <td class="figtext">  
+                                  Roughly, this process involves getting data, cleaning it up, inespecting it, modeling it, and sharing the results. 
+                                  This process is not so linear in practice.  
+                                  Rather like the engineering design process it can iteratively converge toward a solution.  </td>
+          </tr>
+        </table>
+      </p>
+      
+      <p>
+        This process is a structure for modeling with data and it is a tool that can incorporate concepts of data science into existing courses.  
+        Below is a brief description of the five stages stages. 
+      </p>
+
+      <p>
+        <span style="font-weight:bold;">Data</span> &mdash; <span style="font-style:italic;">Design and Acquire</span><br> 
+            The first stage involves getting data.  This might require the design of an experiment or survey, or it could involve simply downloading a dataset.  In any case, we require a <em>data problem</em> and data with which to solve it.  
+      </p>
+      <p>
+        <span style="font-weight:bold;">Preprocess</span> &mdash; <span style="font-style:italic;">Wrangle and Prepare</span><br> 
+          Preprocessing data might be the stage with which students (and teachers) are least familiar, but by many accounts it is where data scientists spend the majority of their time (Kelleher and Tierney 2018, 65-67). 
+          Preprocessing involves cleaning up and wrangling data into usable formats.  
+          If you have ever combed through a spreadsheet to find cells that interpreted an entry as a date when it wasn't, you have a sense of the preprocessing expereince and how messy it can be.  
+          
+      </p>
+      <p>
+        <span style="font-weight:bold;">Explore</span> &mdash; <span style="font-style:italic;">Visualize and Inspect</span><br> 
+        The third stage of Explore almost always involves visualizing data, particularly for the data projects our students work on. 
+        In fact, it is not unusual to see this stage called "Visualize".  
+        Exploring could also involve analyzing descriptive statistics to familiarize and get a sense of data. 
+      </p>
+      <p>
+        <span style="font-weight:bold;">Model</span> &mdash; <span style="font-style:italic;">Model and Validate</span><br> 
+        This is the most important stage in some respects. 
+        Chances are good that your curriculum documents emphasize this stage and largely ignore the others! 
+        A critical component of modeling which is often left out is validation.          
+        Validation involves actually checking to verify your model is working.  
+      </p>
+      <p>
+        <span style="font-weight:bold;">Communicate</span> &mdash; <span style="font-style:italic;">Communicate and Deploy</span><br> 
+        The stage of <em>Communicate</em> could also include "Deploy", <em>i.e.</em>, incorporating a model into a product or implementing a policy decision. 
+        While some students hopefully will deploy products they develop, we emphasize communication as the critical component after developing a mathematical model.        
+      </p>
+
+
+        <br>
+      <p>
+        The Data Science Process is useful as a framework for:
+          <ul>
+            <li>Conceptualizing the processes of modeling with data</li>
+            <li>Scaffolding data projects</li>
+            <li>Analyzing data applications</li>
+          </ul>
+      </p>
+
+
+
+      <p>
+        The expanded figure below lists some of the components of each stage in the process.  
+        This partial list includes steps that students might utilize when working with introductory models. 
+      </p>
+
+      <img src="img/dsp-expanded.png">
+      <br>
+      <table class="figtable">
+        <tr>
+          <!-- <td class="figlabel">A Data Science Process</td> -->
+          <td class="figtext">  
+            An expanded view of the Data Science Process.  
+            In addition to iterating on these stages, some stages may blend together.
+            For example, exploration can easily blend into the modeling stage.  
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        When first introducing the framework, we might scaffold a data modeling project by providing the data, providing explicit walk-throughs of the middle stages, or offering templates for the last stage.
+        As students familiarize themselves with the process and we remove scaffolding, we are working toward a point when the students can execute an entire data modeling project from a single prompt.  
+      </p>
+
+      <p>
+        While the structure is useful and captures an abstraction of what modern data science often looks like, it is just one conceptualization. 
+        Projects often don't flow in a linear progression from the first stage to the last.
+        For example, after the stage of Explore, we might revisit the stage of Preprocess to do some work we missed. 
+        After the stage of Model, we might realize we need to find different features, so we revisit Explore.  
+        There can also be a lot of overlap between stages.  
+      </p>
+
+      <a id="dsp-examples"></a>
+      <h3>Example Projects</h3>
+      <p>
+        The following examples are intended to demonstrate the framing of data projects with the Data Science Process.
+        The complete projects are not necessarily presented, but I try to offer enough information that
+        you could do these projects or facilitate them with students.
+      </p>
+      <p>
+        Shortcuts to the examples below: 
+        <ul>
+          <li><a href="#ex_bouncy_ball">Bouncy Ball</a> - How high does a bouncy ball bounce?</li>
+          <li><a href="#ex_high_tide">High Tide</a> - When will high tide be on Saturday?</li>
+          <li><a href="#ex_fruit_classifier">Fruit Classifier</a> - What type of fruit is in this image?</li>
+        </ul>
+      </p>
+
+      <a id="ex_bouncy_ball"></a>
+      <h4>Example: Bouncy Ball</h4>
+      <table style="margin-left:10px; border: 1px solid #ddd; border-collapse: collapse; font-size: 90%; ">
+        <tr>
+          <td class="table-dsp-data"><span style="font-weight:bold;">Data</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Design</span> <br>
+                Pose the question to students:
+                <div style="width:80%;text-align:center;margin:auto;"><span style="font-weight:bold;">Question</span><br> How high does a bouncy ball bounce? </div>
+                <br> 
+                Discuss and translate this into a data question: 
+                <br> <br> 
+                <div style="width:80%;text-align:center;margin:auto;"><span style="font-weight:bold;">Data Question</span><br> Given a particular bouncy ball dropped from rest at a height \(h_{i}\) on a consistent surface, what is the predicted peak height \(h_{p}\) of the first bounce? </div>            
+              </li>
+              <li><span style="font-weight:bold;">Aquire</span> <br>
+                My students use the slo-mo features on their cell phones to record several trials.  
+              </li>
+            </ul>
+            
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-preprocess"><span style="font-weight:bold;">Preprocess</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Wrangle</span> <br>
+                The videos tend to be spread across multiple students and sometimes those students are absent the next class! 
+                Students parse the video data while attempting some quality control about reading the measurments from the video.  
+                Some students develop a procedure where they independently read the measurements from the video and then average their readings. 
+              </li>
+              <li> <span style="font-weight:bold;">Prepare</span> <br>
+                They create tables in a spreadsheet and label the columns. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-explore"><span style="font-weight:bold;">Explore</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Visualize</span> <br>
+                We create scatter-plots of the bounce-height \(h_{p}\) as a function of drop-height \(h_{i}\).  Some students use Google Sheets and some use Desmos. 
+                <br>
+                <div style="width:180px; margin:auto;">
+                  <img src="img/ex_ball_explore.png" style="width:180px;border: 1px solid #777;">
+                </div>
+              </li>
+              <li>
+                <span style="font-weight:bold;">Inspect</span> <br>
+                We notice and wonder about the relationship between the variables we are exploring.             
+                Students notice that \(h_p\) appears to have a linear relationship to \(h_i\). 
+                They wonder if that relationship continues forever as \(h_i\) increases.
+                Some students notice that there are data points which are far away from the others and they wonder if they should revisit their video data.  
+                Some students wonder about the bounce-height for a drop-height of zero!
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-model"><span style="font-weight:bold;">Model</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Model</span> <br>
+                Students model their data with an appropriate choice of function.  If they can do a regression, they find the best-fit. 
+                <div style="width:220px; margin:auto;">
+                  <img src="img/ex_ball_model.png" style="width:220px;border: 1px solid #777;">
+                </div>
+              </li>
+
+              <li>
+                <span style="font-weight:bold;">Validate</span> <br>
+                
+                  <table style="width:100%;">
+                    <tr>
+                      <td style="font-size:9pt;line-height: 1.6;">
+                        We use our models to make several predictions of unrecorded drop heights, then validate our model by assessing those predictions against experiment.
+                        Our validation tests include interpolated predictions, extrapolated predictions, and extreme extrapolated predictions. 
+                      </td>
+                      <td>
+<div style="width:200px; margin:auto;">
+                    <img src="img/ex_ball_validate.png" style="height:160px;border: 1px solid #777;">
+                  </div>
+                      </td>
+                    </tr>
+                  </table>
+                </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-communicate"><span style="font-weight:bold;">Communicate</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+            <span style="font-weight:bold;">Report</span> <br>
+            Students present their work.  This could be a presentation, podcast, or report.  
+            An important piece of this project is to reflect on the performance of the model on out-of-domain drop-heights.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+
+      <a id="ex_high_tide"></a>
+      <h4>Example: Blue Fishing</h4>
+
+      <table style="margin-left:10px; border: 1px solid #ddd; border-collapse: collapse; font-size: 90%; ">
+        <tr>
+          <td class="table-dsp-data"><span style="font-weight:bold;">Data</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Design</span> <br>
+                Pose the question to students:
+                <div style="width:80%;text-align:center;margin:auto;"><span style="font-weight:bold;">Question</span><br> What time should Zach go casting for blues this Saturday?</div>
+                <br> 
+                Discuss and help them translate this into a data question: 
+                <br> <br> 
+                <div style="width:70%;text-align:center;margin:auto;"><span style="font-weight:bold;">Data Question</span><br> Using the tide data from the NOAA Brant Point station NTKM3, when do we predict high tide will be on Saturday? </div>            
+              </li>
+              <li><span style="font-weight:bold;">Aquire</span> <br>
+                We download a .csv file of tide data from NOAA, or I will pre-download the data over a specific time interval and send it to them.   
+              </li>
+            </ul>
+            
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-preprocess"><span style="font-weight:bold;">Preprocess</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Wrangle</span> <br>
+                We import the data into a spreadsheet, remove any corrupted rows (with missing data), and label the columns. 
+              </li>
+              <li> <span style="font-weight:bold;">Prepare</span> <br>
+                We split the data into training and testing sets. 
+                For my students, this is the first lab we do where we utilize this type of validation.  
+                There are some data-dependent conventions for this but we often use 70% of our data for training our models and 30% for validation of those models. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-explore"><span style="font-weight:bold;">Explore</span></td>
+          <td class="table-dsp-contents">
+            Important to note: the <em>testing data</em> is currently hidden at this stage and we are working only with the <em>training data</em>.
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Visualize</span> <br>
+                   
+                <div style="width:280px; margin:auto;">
+                  <img src="img/tide.png" style="width:280px;border: 1px solid #777;">
+                </div>
+              </li>
+              <li>
+                <span style="font-weight:bold;">Inspect</span> <br>
+                We notice and wonder about the relationship between the variables we are exploring. "It looks like the sine wave things we studied last week!"
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-model"><span style="font-weight:bold;">Model</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Model</span> <br>
+                Students model their data with an appropriate choice of function.  If they can do a regression, they find the best-fit. 
+                <div style="width:220px; margin:auto;">
+                  <img src="img/tide_model.png" style="width:220px;border: 1px solid #777;">
+                </div>
+              </li>
+
+              <li>
+                <span style="font-weight:bold;">Validate</span> <br>
+                  Only after students are satisfied that they have a good model do we move to the step of validation.  
+                  To validate their model, they test how well it predicts or "fits" to the testing data.  
+
+                  <table style="width:100%;">
+                    <tr>
+                      <td style="font-size:9pt;line-height: 1.6;">
+                                          
+                      </td>
+                      <td>
+                        <div style="width:200px; margin:auto;">
+                          <img src="img/tide_validate.png" style="height:160px;border: 1px solid #777;">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  It's a good fit!  We can predict with some level of confidence when Zach should go casting for blues on Saturday. 
+                </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-communicate"><span style="font-weight:bold;">Communicate</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Report</span> <br>
+                Students present their work.  This could be a presentation, podcast, or report.  
+                We will want to be conscientious of variability and the reliability of our model for predicting future tides.  
+                There are also well-known factors that were not present in the training data, <em>e.g.</em>, weather. 
+                An instructive project would be to collect more NOAA data and test model predictive power over longer time scales.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+      
+
+
+
+
+
+
+      <a id="ex_fruit_classifier"></a>
+      <h4>Example: Fruit Classifier</h4>
+      <p>
+        Fruit Classification <a target="new"
+          href="https://colab.research.google.com/drive/16g8_0ILTBrISHEyE4fRK8LJNQGx92Pe3?usp=sharing">Colaboratory
+          Project</a>
+
+      </p>
+
+
+      <table style="margin-left:10px; border: 1px solid #ddd; border-collapse: collapse; font-size: 90%; ">
+        <tr>
+          <td class="table-dsp-data"><span style="font-weight:bold;">Data</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Design</span> <br>
+                Pose the question to students:
+                <div style="width:80%;text-align:center;margin:auto;"><span style="font-weight:bold;">Question</span><br> What fruit is in the picture?</div>
+                <br> 
+                Discuss and help them translate this into a data question: 
+                <br> <br> 
+                <div style="width:70%;text-align:center;margin:auto;"><span style="font-weight:bold;">Data Question</span><br> What are the distinguishing image features that can be used to accurately classify fruit?  </div> 
+              </li>
+              <li><span style="font-weight:bold;">Aquire</span> <br>
+                The images are download-able through the Colab.
+              </li>
+            </ul>
+            
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-preprocess"><span style="font-weight:bold;">Preprocess</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li> <span style="font-weight:bold;">Wrangle</span> <br>
+                We parse the image files into Python lists of Image data. 
+              </li>
+              <li> <span style="font-weight:bold;">Prepare</span> <br>
+                The data is prelabeled for us. We split the data randomly into training and testing sets.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-explore"><span style="font-weight:bold;">Explore</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Visualize</span> <br>
+                <br>
+                <img src="img/fruit.png">
+              </li>
+              <li>
+                <span style="font-weight:bold;">Inspect</span> <br>
+                We notice and wonder about the relationship between the variables we are exploring. 
+                There are several features we could identify. 
+                The simplest is color!  
+                We could look at the amount of red, green, and blue in our attempt to distinguish the fruit. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-model"><span style="font-weight:bold;">Model</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Model</span> <br>
+                Students model their data with an appropriate choice of function. 
+                This particular model involves some conditional statements about color values. 
+                <div style="width:80%; margin:auto;">
+                  <img src="img/fruit_model.png" style="width:100%;border: 1px solid #777;">
+                </div>
+              </li>
+
+              <li>
+                <span style="font-weight:bold;">Validate</span> <br>
+                
+                  <table style="width:100%;">
+                    <tr>
+                      <td style="font-size:9pt;line-height: 1.6;">
+                                          
+                      </td>
+                      <td>
+                        <div style="width:80%; margin:auto;">
+                          <img src="img/fruit_validate.png" style="width:100%; border: 1px solid #777;">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-communicate"><span style="font-weight:bold;">Communicate</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li>
+                <span style="font-weight:bold;">Report</span> <br>
+                  Students present their work.  This particular project focuses on computational thinking and some technical skills.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+
+
+      <section id="dsp-concern">
+        <h2>Concern</h2>
+      </section>
+      <p>
+        When students are familiar with the Data Science Process, we can leverage its structure to critically analyze data technologies, including those that we are building in class.   
+      </p>
+      <p>
+        When our models are useful, which is to say that they make good predictions, it is important to be able to identify how and why they work as a critical step in anticipating when they will fail. 
+        Given the simplicity of most of the models our students will see, this often involves questions of inference and variability. 
+        However, students should understand that as their models grow more complex, so do the complications of applying those models, even to the extent that models are not applicable (Birhane 2021).
+        </p>
+        <p>
+        It can be incredibly difficult to identify harm done by technologies, let alone predict or anticipate the source of it in increasingly complex data systems that are interacting with complex social systems, often with multiple feedback loops.  
+        In critically analyzing data science products, context is everything and there is no limit of nuance.  
+        When we deploy models or products to make or aid in decisions that affect lives, we have a moral obligation to validate and monitor those products to avoid doing harm.  
+        
+      </p>
+      <p>
+        Harm from technologies may include, but is not limited to, disproportionate harm done to subpopulations.
+        We have seen that historically marginalized populations are often further marginalized by data technologies (Benjamin 2019, Criado-Perez 2020, Eubanks 2019, Wachter-Boettcher 2017). 
+        Bias and harm may be incorporated at each stage of the Data Science Process.  
+        Assuming we wish to avoid causing harm, we should be conscientious of these issues and pass this understanding on to students who are active consumers and future practitioners of data technologies.
+      </p>
+      <p>
+        The list below contains some of the considerations we may face at each stage of the data science process.  
+      </p>        
+        
+      <p>
+      <table style="margin-left:10px; border: 1px solid #ddd; border-collapse: collapse; font-size: 90%; ">
+        <tr>
+          <td class="table-dsp-data"><span style="font-weight:bold;">Data</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">Problematic Problems</span> <br> 
+                At the very first step of the process, we translate a problem into a data problem.  
+                It is entirely possible that the problem is not one that should be addressed.  
+                This could be a value judgment or moral dilemma.  <br> 
+                Another issue is presuming a metric in the framing of the problem, <em>e.g.</em>, we want students to do better on a timed test so we ask how do we get students to solve problems faster?
+              </li>
+              <li><span style="font-weight: bold;">Harmful Data Collection</span> <br> 
+                This can be passive, <em>e.g.</em>, presuming cultural conventions of name formats in a survey. 
+                It can also be agressive, manipulating vulnerable populations or violently claiming access.
+              </li>
+              <li><span style="font-weight: bold;">Biased Data</span> <br> 
+                Perhaps the most notorious concern, biased data, <em>e.g.</em>, sampling bias, may lead to poorer outcomes for some.  
+                Consider medical studies on primarily men.  
+              </li>
+              <li><span style="font-weight: bold;">Privacy</span> <br> 
+                There is far too much to say about this bullet.  Remember that time that a fitness bit company released all that customer data and it revealed the locations of military personnel? 
+                <br>
+                When collecting and working with data, security considerations can be critical.  
+              </li>
+              <li><span style="font-weight: bold;">Consent</span> <br> 
+                Each of us has had data collected about us wihtout our consent.  
+                At what point does this cross a line? 
+              </li>
+              <li><span style="font-weight: bold;">Environmental Impact</span> <br> 
+                Data consumes resources.  There is A LOT of data. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-preprocess"><span style="font-weight:bold;">Preprocess</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">Labor Exploitation</span> <br> 
+                Outsourcing and underpaying. 
+              </li>
+              <li><span style="font-weight: bold;">Bad Labeling</span> <br> 
+              </li>
+                Having non-experts label, e.g., medical data.  
+              <li><span style="font-weight: bold;">Trauma Experienced by Labelers</span> <br> 
+                Labelers who spend hours each day parsing horrific content.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-explore"><span style="font-weight:bold;">Explore</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">Feature Bias</span> <br> 
+                Engineering bias into the model through feature choices. 
+              </li>
+              <li><span style="font-weight: bold;">Bad Data Visualization</span> <br> 
+                Bad data visualizations can mislead.  
+                This can be exploited maliciously to influence decisions, or it could inadvertently mislead, possibly amplifying or even creating new biases.  
+              </li>
+              <li><span style="font-weight: bold;">Data Manipulation</span> <br> 
+                Not seeing the pattern you were hoping for, then making it. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-model"><span style="font-weight:bold;">Model</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">What problem are we solving?</span> <br> 
+                Algorithms do what we tell them to do, not what we want them to do (Shane 2019, Chapter 5).  
+                Connecting back to the question we set out to answer at the first stage of the Data Science Process: having the best data about the wrong thing means we aren't modeling what we expected or assumed.  
+                We may discover such a disconnect at this stage.  
+              </li>
+              <li><span style="font-weight: bold;">Bias in Model Choice</span> <br> 
+                There is bias in the choice of models.
+              </li>
+              <li><span style="font-weight: bold;">Model-Amplified Bias</span> <br> 
+                While data may biased, so are models.  This could be due to simple technical issues like getting "stuck" in a local minima, being anchored by initial model training conditions.   
+              </li>
+              <li><span style="font-weight: bold;">Environmental Impact</span> <br> 
+                Many modern models require enourmous computational resources.  
+              </li>
+              <li><span style="font-weight: bold;">Lack of Robustness</span> <br> 
+                How sensitive is the model output to variability in input? 
+                Where are the corner-cases and how does the model behave there? 
+              </li>
+              <li><span style="font-weight: bold;">Peripheral Modeling</span> <br> 
+                Did the model really learn what we think it did?
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-communicate"><span style="font-weight:bold;">Communicate</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">Poor Model Interpretation</span> <br> 
+                While models model what they model, humans (who created the models) interpret them.  
+              </li>
+              <li><span style="font-weight: bold;">Ignoring Variance</span> <br> 
+                What good are predictions when the errors are so large?
+              </li>
+              <li><span style="font-weight: bold;">Ignoring Conclusions</span> <br> 
+                Even when predictions are good, it is up to people to utilize them or not.  Consider the case of resume parser which actually work well, but with results are that are ignored. 
+              </li>
+              <li><span style="font-weight: bold;">Deploying Harmful Products</span> <br> 
+                There are unfortunately many insantces of products being deployed that simply do harm.  This can be related to automation bias. 
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="table-dsp-communicate" style="background-color:#999"><span style="font-weight:bold;">Meta</span></td>
+          <td class="table-dsp-contents">
+            <ul>
+              <li><span style="font-weight: bold;">Feedback Loops</span> <br> 
+                The concept of a feedback loop is used in several fields, <em>e.g.</em>, electrical engineering or control systems, and isn't necessarily harmful.
+                Feedback loops lead to harm in data technologies when they amplify bias or exhibit run-away self-reinforcing performance optimization.
+                Consider the example of predictive policing: an algorithm tells police where to look for crime, of course police find crime where they look for it, that policing not only has the appearence of affirming the model prediction but reinforces the prediction so they police there more. 
+                Even without considering the bias of the data used in the original prediction, it becomes clear that such a system will perpetuate itself by seeming to justify its use until we step back and realize the effect of the feedback loop. 
+                Without a critical analysis of such tools, 
+              </li>
+              <li><span style="font-weight: bold;">Susceptability to Adversarial Attack</span> <br> 
+                Algorithms are brittle.  
+              </li>
+              <li><span style="font-weight: bold;">Lack of Oversight or Auditing</span> <br> 
+                "All models are wrong", so all deployed models need some mechanism for reporting issues.  
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+
+      </p>
+
+
+      <section id="dsp-consequence">
+        <h2>Consequence</h2>
+      </section>
+      <p>
+        Many people are working on issues of technology and society, and particularly data technologies.  
+        Some years ago there was a flood of media attention to the sudden demand for philosophers in tech. 
+        There were any number of articles about the modern-day reformulation of the trolley problem in the context of self-driving cars. 
+        Engineers creating self-driving cars are in a situation where they need to decide how a car should respond in an accident before that accident happens.         
+        Who is at fault when a self-driving car causes harm?  This is, unfortunately, not hypothetical. 
+      </p>
+      <p>
+        Here are some interesting articles documenting consequences.  
+        I kind of want to start collecting them in an organized way.
+        Maybe let me know if you'd like that (and like to help)?
+      </p>
+      <p>
+        <ul>
+          <li class="media-li">
+            <a target="new" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">Machine Bias Risk Assessments in Criminal Sentencing</a> <br>
+            <span class="media-source">ProPublica, 2016</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.nytimes.com/interactive/2019/10/11/technology/flickr-facial-recognition.html">How Photos of Your Kids are Powering Surveillance Technology</a> <br>
+            <span class="media-source">New York Times, 2019</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.nytimes.com/2019/08/16/technology/ai-humans.html">A.I. Is Learning From Humans. Many Humans</a> <br>
+            <span class="media-source">New York Times, 2019</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.nytimes.com/2020/06/24/technology/facial-recognition-arrest.html">Wrongfully Accused by an Algorithm</a> <br>
+            <span class="media-source">New York Times, 2020</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.nytimes.com/2020/12/29/technology/facial-recognition-misidentify-jail.html">Another Arrest, and Jail Time, Due to a Bad Facial Recognition Match</a> <br>
+            <span class="media-source">New York Times, 2020</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.vice.com/en/article/qj8xbq/police-are-telling-shotspotter-to-alter-evidence-from-gunshot-detecting-ai">Police are Telling ShotSpotter to Alter Evidence from Gunshot-Detecting AI</a> <br>
+            <span class="media-source">Vice, 2021</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.vox.com/future-perfect/22672414/ai-artificial-intelligence-gpt-3-bias-muslim">AI's Islamaphobia Problem</a>  <br>           
+            <span class="media-source">Vox, 2021</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.vox.com/future-perfect/2019/4/8/18297410/ai-tesla-self-driving-cars-adversarial-machine-learning">Vox, It's Disturbingly Easy to Trick AI into Doing Something Deadly</a><br> 
+            <span class="media-source">Vox, 2019</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.theverge.com/2021/7/14/22576236/retail-stores-facial-recognition-civil-rights-organizations-ban">Retail stores are packed with unchecked facial recognition</a> <br>           
+            <span class="media-source">The Verge, 2021</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.science.org/content/article/eye-catching-advances-some-ai-fields-are-not-real">Eye-catching advances in some AI fields are not real</a>   <br>         
+            <span class="media-source">Science, 2020</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.statnews.com/2019/10/23/advancing-ai-health-care-trust/">Advancing AI in health care: It's all about trust</a> <br>           
+            <span class="media-source">StaNews, 2019</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.scientificamerican.com/article/artificial-intelligence-is-rushing-into-patient-care-and-could-raise-risks/">AI is rushing into patient care - and could raise risks</a> <br>           
+            <span class="media-source">Scientific American, 2019</span> <br>  
+          </li>
+          <li class="media-li">
+            <a target="new" href="https://www.theguardian.com/uk-news/2021/apr/23/court-clears-39-post-office-staff-convicted-due-to-corrupt-data">Court clears 39 post office operators convicted due to 'corrupt data'</a>   <br>         
+            <span class="media-source">The Guardian, 2021</span> <br>  
+          </li>
+          
+          
+           
+           
+
+          
+        </ul>
+      </p>
+
+
+      <section id="dsp-conclusions">
+        <h2>Conclusions</h2>
+      </section>
+      <p>
+        <blockquote>"Our success, happiness, and wellbeing are never fully of our own making. Others' decisions can profoundly affect the course of our lives." <br> &ndash; Barocas et al 2019, Page 1</blockquote>
+      </p>
+      <p>
+        When we create models trained on data, we are creating optimization problems to maximize or minimize some set of metrics that we have identified as valuable or have let an algorithm identify as valuable. 
+        We are encoding values. 
+        The extent to which these algorithms might cause harm can be incredibly difficult to predict or even detect, so it is important that we are able to critically analyze methods and applications so as to minimize harm.
+      </p>
+      <p>
+        When handing over the tools of mathematics, we are responsible as educators for teaching their responsible use. 
+        It is a sin of omission when we fail to acknowledge the consequences of the content we are teaching. 
+        If we are teaching mathematics because it is practical then it is because mathematics is applicable in solving problems, and applied mathematics has consequences. 
+        From the problems they choose to solve to the solutions they choose to find through the choices embedded in the processes of modeling, practitioners of mathematics are making decisions that affect us all and we are their educators.
+      </p>
+
+
+
+      <section id="dsp-resources">
+        <h2>Resources</h2>
+      </section>
+      <p>
+        <li>
+          Fast AI's <a href="https://ethics.fast.ai/">Practical Data Ethics</a> course.  
+        </li>
+        <li>
+          <a href="https://docs.google.com/document/d/1P4xAUa9qfEbeCjurGOdJH3dW2JErVRJZ1K9DLAT8uYE/edit#heading=h.uiekddknhehl">Ethics in Mathematics Readings</a>, curated by Allison N. Miller</a>.
+        </li>
+        The fantastic videos below are all related to books which I also highly recommend.  The videos are a good introduction to each author and their work. 
+        <li>
+          <a href="https://www.pbs.org/video/automating-inequality-joyeti/">Automating Inequality</a> - Virginia Eubanks
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=JahO1-saibU">The New Jim Code?</a> - Ruha Benjamin
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=4QBvSVYotVc">The collapse of artificial intellgience</a> - Melanie Mitchell
+        </li>
+        <li>
+          <a href="https://youtu.be/hB92hQeCEAw">Invisible Women</a> - Caroline Criado Perez
+        </li>
+        <li>
+          <a href="https://www.ted.com/talks/janelle_shane_the_danger_of_ai_is_weirder_than_you_think?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare">The danger of AI is weirder than you think</a> - Janelle Shane
+        </li>
+        <li>
+          <a href="https://www.youtube.com/watch?v=-V_XBj9OT7k">The future of human-robot interaction</a> - Kate Darling
+        </li>
+      </p>
+
+
+
+
+      <section id="dsp-references">
+        <h2>References</h2>
+      </section>
+      <p>
+        <pre  class="references">Barocas, Solon, Moritz Hardt, and Arvind Naraynan.  2019.  Fairness and Machine Learning.  https://www.fairmlbook.org 
+          
+Benjamin, Ruja. 2019. Race after Technology: Abolitionist Tools for the New Jim Code. Medford, MA: Polity.
+        
+Birhane, Abeba. 2021. “The Impossibility of Automating Ambiguity.” Artificial Life 27, no. 1 (June): 44-61.  10.1162/artl_a_00336.
+
+Brokaw, Galen. 2010. A History of the Khipu. Cambridge, United Kingdom: Cambridge University Press.
+
+Chapman, Pete, Julian Clinton, Randy Kerber, Thomas Khabaza, Thomas Reinartz, Colin Shearer, and Rüdiger Wirth. 1999. “CRISP-DM 1.0: Step-by-step Data Mining Guide.” https://www.the-modeling-agency.com/crisp-dm.pdf.
+
+Criado-Perez, Caroline. 2020. Invisible Women: Exposing Data Bias in a World Designed for Men. London, England: Vintage.
+
+Estrellado, Ryan A., Emily A. Freer, Jesse Mostipak, Joshua M. Rosenberg, and Isabella C. Velázquez. 2020. Data Science in Education Using R. New York, NY: Routledge.
+
+Eubanks, Virginia. 2019. Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor. New York, NY: Picador.
+
+Friendly, Michael. 2006. “A Brief History of Data Visualization.” In Handbook of Computational Statistics: Data Visualization, edited by C. Chen, W. Hardle, and A. Unwin. Heidelberg: Springer-Verlag.
+
+Fry, Hannah. 2018. Hello World: How to Be Human in the Age of the Machine. London, England: Transworld
+Publishers.
+
+Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III, and Kate Crawford. 2018. “Datasheets for Datasets.” (March). https://arxiv.org/abs/1803.09010.
+
+Grus, Joel. 2019. Data Science from Scratch: First Principles with Python. 2nd ed. Sebastopol, CA: O'Reilly Media, Inc.
+
+Han, Jiawei, Kamber Michelin, Jian Pei.  2012.  Data Mining, Concepts and Techniques.  The Morgan Kaufmann Series in Data Management Systems. 
+
+Hill, Kashmir, and Aaron Krolik. 2020. “Your Kids' Photos May be Powering Surveillance.” New York Times:
+Artificial Intelligence Edition (New York), 2020, 40-45.
+
+Hooker, Sara. 2021. “Moving beyond “algorithmic bias is a data problem.”” Patterns 2 (4).
+https://doi.org/10.1016/j.patter.2021.100241.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2013. An Introduction to Statistical
+Learning: with Applications in R. 1st ed. New York, NY: Springer.
+
+Kelleher, John D., and Brendan Tierney. 2018. Data Science. Cambridge, MA: The MIT Press.
+
+Kolter, Zico. 2021. “Introduction.” Practical Data Science. http://www.datasciencecourse.org/notes/intro/.
+
+Mason, Hilary, and Chris Wiggins. 2010. “A Taxonomy of Data Science.” dataists.
+http://www.dataists.com/2010/09/a-taxonomy-of-data-science/.
+
+Metz, Cade. 2020. “Machine Learning Takes Many Human Teachers.” New York Times: Artificial Intelligence Edition (New York), 2020, 18-24.
+
+Mitchell, Melanie. 2019. Artificial Intelligence: A Guide for Thinking Humans. New York, NY: Farrar, Straus and Giroux.
+
+Nantasenamat, Chanin. 2020. “The Data Science Process.” Towards Data Science.
+https://towardsdatascience.com/the-data-science-process-a19eb7ebc41b.
+
+O'Neil, Cathy. 2016. Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy. New York, NY: Crown Publishing Group.
+
+Schutt, Rachel, and Cathy O'Neil. 2014. Doing Data Science. Sebastopol, CA: O'Reilly Media, Inc.
+
+Schweinsberg, Martin, and et al. 2021. “Same data, different conclusions: Radical dispersion in empirical
+results when independent analysts operationalize and test the same hypothesis.” Organizational Behavior and Human Decision Processes 165:228-249. https://doi.org/10.1016/j.obhdp.2021.02.003.
+
+Seth Jones, Ryan, Zhigang Jia, and Joel Bezaire. 2020. “Giving Birth to Inferential Reasoning.” Mathematics Teacher: Learning and Teaching PK-12 113, no. 4 (April): 287-92.
+
+Shane, Janelle. 2019. You Look Like a Thing and I Love You. New York, NY: Voracious / Little, Brown and Company.
+
+Wachter-Boettcher, Sara. 2017. Technically Wrong: Sexist Apps, Biased Algorithms, and Other Threats of Toxic Tech. New York, NY: W. W. Norton & Company.</pre>
+
+      </p>
+
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+    /* Thanks to joxmar: https://codepen.io/joxmar/pen/NqqMEg */
+
+    // Cache selectors
+    var lastId,
+      topMenu = $("#mainNav"),
+      // All list items
+      menuItems = topMenu.find("a"),
+      // Anchors corresponding to menu items
+      scrollItems = menuItems.map(function () {
+        var item = $($(this).attr("href"));
+        if (item.length) { return item; }
+      });
+
+    // Bind click handler to menu items
+    // so we can get a fancy scroll animation
+    menuItems.click(function (e) {
+      var href = $(this).attr("href"),
+        offsetTop = href === "#" ? 0 : $(href).offset().top + 1;
+      $('html, body').stop().animate({
+        scrollTop: offsetTop
+      }, 850);
+      e.preventDefault();
+    });
+
+    // Bind to scroll
+    $(window).scroll(function () {
+      // Get container scroll position
+      var fromTop = $(this).scrollTop();
+
+      // Get id of current scroll item
+      var cur = scrollItems.map(function () {
+        if ($(this).offset().top < fromTop)
+          return this;
+      });
+      // Get the id of the current element
+      cur = cur[cur.length - 1];
+      var id = cur && cur.length ? cur[0].id : "";
+
+      if (lastId !== id) {
+        if (id == '') {
+          document.getElementById('a-dsp-top').className = 'active';
+        } else {
+          lastId = id;
+          // Set/remove active class
+          menuItems.removeClass("active");
+          // Apparently I don't know jQuery, so...
+          document.getElementById('a-' + id).className = 'active';
+        }
+
+      }
+    });
+  </script>
+
+</body>
+
+</html>

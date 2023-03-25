@@ -1,0 +1,275 @@
+
+body {
+    color: #222;
+    line-height: 1.6;
+    overflow: auto;
+    margin: 0 auto;
+    word-break: break-word;
+  	font-family: Verdana, Arial, Helvetica, sans-serif;
+	  font-size: 11pt; 
+    margin: 0;
+}
+
+td {
+  font-size: 11pt; 
+}
+
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.figtable {
+  width:80%;
+  margin:auto; 
+  font-size: 11pt; 
+}
+.figlabel {
+  font-size:9pt; 
+  vertical-align: top;
+  width: 64px; 
+  font-weight: bold; 
+}
+.figtext {
+  font-size:9pt; 
+  color: #333; 
+  font-style: italic;
+}
+
+.linkimage {
+  height:100px;
+  border:2px solid #aaa;
+}
+.linkimage:hover {
+  border: 2px solid rgb(247, 127, 75); 
+}
+
+.menu-img {
+  width: 24px; 
+  transform: translate(0px,3px);
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    font-size: 100%; 
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+    /*
+    background-color: #82ebc5;
+    color: #222; 
+    */
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555; 
+    color: white; 
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+.maincontainer {
+    max-width: 700px; 
+    margin: auto; 
+    padding: 10px; 
+}
+
+/*
+ol { counter-reset: item }
+li{ 
+    display: block;
+    margin-left: -28px;  
+}
+li:before { content: counters(item, ".") " "; counter-increment: item }
+*/
+
+img {
+    max-width: 100%; 
+}
+
+a {
+    color: #58D;
+    cursor: pointer;
+    text-decoration: none;
+}
+a:hover {
+    color: #C52;
+}
+
+h1 {
+    color: #557; 
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: normal;
+    margin-left: -2px;
+    margin-top: 16px;
+    margin-bottom: -8px;
+}
+
+h2 {
+    color: #900;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: normal;
+
+    margin-top: 28px;
+    /*margin-bottom: -8px; */
+}
+
+h3 {
+    color: #009; 
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: normal;
+    margin-top: 24px;
+    margin-bottom: -8px;
+}
+
+/* The table in DSP Overview */
+.dsp-process-td {
+  border: 1px solid #666; 
+  border-collapse: collapse;
+  font-size: 9pt; 
+  padding: 3px; 
+  vertical-align: top;
+  width: 20%; 
+}
+
+/* The repeated vertical table */
+.table-dsp-data {
+  background-color: #f2cecd;
+  text-align: center; 
+  padding-left:10px; 
+  padding-right: 10px; 
+  min-width: 110px; 
+  border: 1px solid #ddd;
+  border-collapse: collapse; 
+  font-size: 9pt; 
+}
+.table-dsp-preprocess {
+  background-color: #f5cd99;
+  text-align: center; 
+  padding-left:10px; 
+  padding-right: 10px; 
+  border: 1px solid #ddd;
+  border-collapse: collapse; 
+  font-size: 9pt; 
+}
+.table-dsp-explore {
+  background-color: #fdf3ca;
+  text-align: center; 
+  padding-left:10px; 
+  padding-right: 10px; 
+  border: 1px solid #ddd;
+  border-collapse: collapse; 
+  font-size: 9pt; 
+}
+.table-dsp-model {
+  background-color: #daebd3;
+  text-align: center; 
+  padding-left:10px; 
+  padding-right: 10px; 
+  border: 1px solid #ddd;
+  border-collapse: collapse; 
+  font-size: 9pt; 
+}
+.table-dsp-communicate {
+  background-color: #d2e2f5;
+  text-align: center; 
+  padding-left:10px; 
+  padding-right: 10px; 
+  border: 1px solid #ddd;
+  border-collapse: collapse; 
+  font-size: 9pt; 
+}
+.table-dsp-contents {
+  border: 1px solid #ddd; 
+  border-collapse: collapse;
+  padding: 10px; 
+  line-height: 1.6; 
+  font-size: 9pt;
+}
+
+.media-li {
+  line-height: 1.2;
+  font-size:10pt; 
+}
+.media-source {
+  font-style: italic;
+  color: #888; 
+}
+
+.example {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    width:620px;
+    border: 2px solid #ddd;
+    background-color:#eeeeef;
+    padding:8px;
+}
+
+.theorem {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    width:450px;
+    border: 2px solid #333;
+    background-color:#f1f7ef;
+    padding:4px;
+}
+
+.exercise-number {
+  color: #C52;
+  font-size:90%; 
+  padding-right:8px; 
+}
+.exercise {
+  padding-left:15px; 
+}
+
+.references {
+  font-size: 9pt; 
+  font-family:'Times New Roman', Times, serif; 
+}
