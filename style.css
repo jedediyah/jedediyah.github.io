@@ -39,3 +39,14 @@ b {
     margin-bottom:15px; 
 }
 
+.twoColumn-1 {
+    float: left;
+    margin-right: 8px;
+    /*width:25%;*/
+}
+.twoColumn-2 {
+}
+.research-image {
+    max-height: 150px;
+    max-width: 210px;
+}
