@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Collaborative Data Science</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Additional custom CSS -->
+		<style>
+			:root {
+				--dsp-red: rgb(255, 217, 223);
+				--dsp-orange: rgb(255, 226, 173);
+				--dsp-yellow: rgb(255, 255, 190);
+				--dsp-green: rgb(200, 236, 200);
+				--dsp-blue: rgb(205, 229, 237); 
+				/*--dsp-gray: rgb(101, 101, 101); */
+				--dsp-gray: rgb(231, 231, 231); 
+				--dsp-light: rgb(245, 245, 245);
+			}
+			.graphbox{
+				display:inline-block;
+				padding:8px;
+				/* border:3px solid rgb(35, 41, 145); */
+				border-radius:10px;
+				font-size:80%;
+				background-color:blanchedalmond;
+				box-shadow: 3px 3px 7px #AAA;
+			}
+
+
+			@keyframes colorchange {
+				0% {
+					
+					color: black;
+				}					
+				100% {
+					
+					color: rgb(210, 87, 30);
+				}
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Footer -->
+			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+				jedediyah.github.io/nctm2023virtual
+			</div>
+			<div class="slides">
+
+				<!-- <section style="text-align:right;" data-background="img/bg.jpg"> -->
+				<!-- <section style="text-align:right;" data-background="#336666"> -->
+				<section style="text-align:right;" data-background="#323232">
+					<div>
+						<br><br> 
+						<h3 style="color:#f1b563;">Collaborative Data Science</h3>
+						<p>
+							<a target="_blank" href="http://jedediyah.com" style="color:#5ba0ff;">Jedediyah Williams, PhD</a> </a>
+							<br>
+							<span style="color:rgb(230, 230, 232);font-size:80%;">Nantucket High School</span>
+						</p>
+						<br> 
+						<p style="font-style:italic;font-size:80%;color:rgb(230,230,232);">
+							March, 2023
+						</p>
+					</div>
+					<div style="width:100%;text-align:left;font-size:80%;"><a target="_blank" href="https://twitter.com/jedediyah" style="color:#5ba0ff;">@jedediyah</a><br>
+						#NCTMvirtual <br> jedediyah.com/nctm2023virtual</div>
+					<br><br><br><br>
+				</section>
+			
+				<section>
+					<h3>About Jed</h3>
+					<p>
+						<div class="graphbox">Teaching</div> &rarr; <div class="graphbox">Astronomy</div> &rarr; <div class="graphbox">Robots</div> &rarr; <div class="graphbox">Teaching</div> 
+					</p>
+					<p>
+						<img src="img/12m.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/trooper_ladder.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/srcmoon.png" style="height:265px;">
+					</p>	
+					</section>
+	
+	
+
+
+				<section data-background-gradient="linear-gradient(to bottom, #acf, #ffffff)">
+					<p>
+						<h4>DATA: There is too much to talk about! </h4>
+						<table style="font-size:85%;">
+							<tr>
+								<td>
+									<ul>
+										<li>Power</li>
+										<li>Surveillance</li>
+										<li>Privacy</li>
+										<li>Security</li>
+										<li>Consent</li>
+										<li>Access</li>
+										<li>Fairness</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Education</li>
+										<li>Energy</li>
+										<li>Military</li>
+										<li>Misuse</li>
+										<li>Adversarial Attacks</li>
+										<li>Disinformation</li>
+										<li>Liberty</li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Discrimination</li>
+										<li>Labor</li>
+										<li>Environment</li>
+										<li>Exploitation</li>
+										<li>Law and Oversight</li>
+										<li>Accountability</li>
+										<li>Justice</li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</p>
+					<p>
+						<table style="font-size:90%;">
+							<tr>
+								<td>
+									<ul>
+										<li>Data Ethics </li>
+										<li>AI Ethics </li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Fair ML </li>
+										<li>Fair AI </li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>Algorithmic Bias </li>
+										<li>Data Bias </li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+					</p>
+				</section>
+
+				<section>
+					<h3>References</h3>
+					<ol>
+						<li>jedediyah.github.io/nctm2022/   </li>
+						<li>   </li>
+					</ol>
+					<br><br><br>
+				</section>
+
+				<section>
+					Our project for today: 
+					Feature engineer a digit classifier using the MNIST database. 
+				</section>
+
+
+				<section>
+					This is an example of...
+				</section>
+
+
+				<section>
+					MNIST 
+				</section>
+				<section data-background="#000">
+					<img src="img/digits.png" style="width:70%;">
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="img_chart" src="img/digit_chart.svg">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="img_chart" src="img/digit_chart2.svg">
+				</section>
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+	</body>
+</html>

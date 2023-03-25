@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="header-div"><a href="../index.html"><div class="header-text"><img src="../chart.svg" class="header-image">&nbsp;Data Projects</div></a></div>
+    <div class="main-div">
+        <h1>Bouncy Ball Bounce Height</h1>
+        <h2>Problem</h2>
+        <p>
+            Given a bouncy ball dropped at rest from a given height, how high will it bounce?  
+        </p>
+        <h2>Resources</h2>
+        <p>
+            <ul>
+                <li><a target="_blank" href="https://docs.google.com/presentation/d/1D9MhhFvHPh2zYLjUZQFZs4U1-lOdtb_aHTa9Wj_BQmk/edit?usp=sharing">Slides</a></li>
+                <li>Handout</li>
+                <li>Desmos</li>
+            </ul>
+        </p>
+        <h2>Overview</h2>
+        <p>
+            In groups, students complete the following stages:
+            <ol>
+                <li> <span style="font-weight:bold;">Experiment</span>:
+                    Drop a bouncy ball from various heights up to 2 meters, and record the bounce height.                    
+                </li>
+                <li> <span style="font-weight:bold;">Analysis</span>:
+                    Plot the bounce height as a function of drop height.  Notice and wonder. 
+                </li>
+                <li> <span style="font-weight:bold;">Modeling</span>:
+                    Create a linear model that minimizes the sum of squared error. 
+                </li>
+                <li> <span style="font-weight:bold;">Model Validation</span>:
+                    Use the model to make predictions and then test those predictions with new drops. 
+                </li>
+            </ol>
+        </p>      
+        <p>
+            This lab can be used as an application of linear modeling, but it can also be used as an introduction to, or practice with:
+            <ul>
+                <li>Basic experimental design</li>
+                <li>Measurement</li>
+                <li>Data splitting</li>
+                <li>Model validation</li>
+                <li>Stress-testing models</li>
+            </ul>
+            With my upper classes (grades 11-12), I pose the question, provide bouncy balls, and help troubleshoot.  
+            With my lower classes, it is more of a walk-through experiment. 
+        </p>
+
+        <p>
+            I used to ask students to write some sort of lab report at the end of this lab.  
+            Recently, I've started faciliating a reflective discussion once all of the models have been tested. 
+            This is a good time to reflect on the concept of domain of applicability.  
+            Our models are specific to a particular range of drop heights, with particular bouncy balls on particular surfaces.  
+            It is important to recognize that models have constraints on applicability.  
+        </p>
+        <h2>Data</h2>
+        <p>            
+            <table style="max-width:80%;margin:auto;">
+                <tr>
+                    <td style="padding-right:30px;">
+                        I ask students to collect as much data as they can in about 30 minutes. 
+                        Most have access to a slow-motion camera on their cell phone, which can improve accuracy.  
+                        <br><br>
+                        They parse the videos into a table of bounce height \(h_{bounce}\) as a function of drop height \(h_{drop}\) and then create a plot in Desmos. 
+                        There should be a <em>strong</em> linear relationship.    
+                    </td>
+                    <td>
+                         <img src="balldrop.jpg" style="height:400px;">
+                    </td>
+                </tr>
+            </table>
+                     
+        </p>
+        <h4>Data Splitting</h4>
+        <p>
+            If it is not overloading them, I ask students to split their data into training and testing sets before plotting, as a method of model validation. 
+            They use the training set to build their model, and only when they are confident in its predictive capabilities do they do a final assessment of their model on the testing set. 
+            This is a good way to detect over-fitting.  
+        </p>
+        <p style="width:80%;margin:auto;">
+            <div style="padding:30px;width:40%;margin:auto;display:inline-block;max-width:340px;"><img src="bouncetesting.png" style="width:100%;"><br>Training Set</div> 
+            <div style="padding:30px;width:40%;margin:auto;display:inline-block;max-width:340px;"><img src="bouncetraining.png" style="width:100%;"><br>Testing Set</div> 
+        </p>
+        <p>
+            The measure of how well our models fit their training data is much less important than the measure of how well those models fit new data they haven't yet seen. 
+        </p>
+    
+        <h2>Modeling</h2>
+        <p>
+            Modeling this data could be as simple as using Desmos to find a linear regression.  
+            I like to use this data to develop understanding of the concepts behind regression.  
+            Using our training data, we vary the slope and calculate the sum of squared errors (SSE).  
+            This creates an ideal parabala, the vertex of which corresponds to the optimal slope and minimized SSE of the best-fit line. 
+        </p>
+        <p style="width:80%;margin:auto;">
+            <img src="desmos100.png" style="height:300px;">
+            &nbsp; &nbsp; 
+            <img src="desmoserror100.png" style="height:300px;">
+        </p>
+        <p>
+            While the optimal slope can be found analytically, we vary the slope and check the SSE, which always turns into a fun race to see which student can find the smaller SSE!
+        </p>
+        <p>
+            <img src="findm.jpg" style="width:100%;">
+        </p>
+
+        <h2>Model Validation</h2>
+        <p>
+            If we used data splitting, then we can validate our model on our testing set. 
+            In any case, we can use our model to make predictions for new drop heights and then measure how close our predictions are to the true bounce height. 
+            I ask students to make interpolated predictions, as well as an extreme extrapolated prediction where we drop the balls from about 6 meters high. 
+            This extreme prediction is always off in a certain direction, and we reflect on the domain of applicability of our models. 
+        </p>
+        <div style="width:300px; margin:auto;"><img src="bigdrop.jpg" style="width:100%;"></div>
+        
+
+
+    </div>
+
+
+
+</body>
+
+
+</html>
+

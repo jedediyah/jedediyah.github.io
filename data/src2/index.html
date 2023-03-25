@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="header-div"><a href="../index.html"><div class="header-text"><img src="../chart.svg" class="header-image">&nbsp;Data Projects</div></a></div>
+    <div class="main-div">
+
+        <h1>NASA Space Robotics Challenge<br><br>Image Processing</h1>
+        <h2>Problem</h2>
+        <p>
+            Given a small set of training images, create an object recognition algorithm.  
+            Given an image, your algorithm should be identify regions or piexels as rovers, the two different stations, the Moon's surface, or space.    
+        </p>
+
+        <h2>Resources</h2>
+        <p>
+            <ul>
+                <li><a href="https://docs.google.com/presentation/d/17jegw7Pg4yaWdB3GXgppOfCOJoP3DdthqPTJOgcix-c/edit?usp=sharing" target="_blank">Slides</a></li>
+                <li>Handout</li>
+            </ul>
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This project requires some amount of programming ability.  
+            In the actual NASA SRC, this problem was solved using Python and the image processing library OpenCV.  
+        </p>
+
+        <h2>Background</h2>
+        <p>
+            The NASA Space Robotics Challenge (SRC) is a virtual robotics challenge which has completed two phases.  
+            In 2017, <a href="https://spacecenter.org/space-robotics-challenge/space-robotics-challenge-phase-1/">Phase 1</a> involved programming a humanoid Valkerie robot to semi-autonomously prepare a base on Mars for the arrival of human travelers.
+            In 2021, <a href="https://spacecenter.org/space-robotics-challenge/space-robotics-challenge-phase-2/">Phase 2</a> involved programming a small fleet of moon rovers to coordinate in the locating, mining, and hauling of resources from the lunar regolith.  
+        </p>
+        <p>
+            Both phases relied on combining several technologies and algorithms to create semi-autonomous and fully autonomous robots.  
+            One important technology used was <em>image processing</em> for <em>computer vision</em>.
+        </p>
+        <p>
+            The video below was one of many test runs from SRC phase 2.  
+            Three robots collaborate to find, excavate, and haul resources that could be used to support operations on the Moon. 
+            <br> 
+            <iframe style="display:block;margin:auto;" width="560" height="315" src="https://www.youtube.com/embed/8eIyBv43BGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </p>
+        <p>
+            The robot interactions are entirely vision based, using cameras mounted on top of each robot chassis.  
+            Around 1:00 in the video above, notice that the hauler executes a docking procedure with the excavator. 
+            The subwindow which appears temporarily in the top left is actually a feed from the excavator's camera, which has turned around to face the hauler. 
+            All of the hauler's movements are based on the location of its red-orange bucket in the frame of that camera!              
+        </p>
+        <p>
+            In addition to robot interactions, navigation is a critical component in autonomous robotics.  
+            If a robot on the Moon crashes or flips over, we can't just go pick it up!  
+            Navigation is also important when we want to haul resources to a particular location like a processing plant.  
+            Computer vision was essential in navigation in the SRC. 
+        </p>
+        <p>
+            <iframe style="display:block;margin:auto;" width="560" height="315" src="https://www.youtube.com/embed/9CiKkquDobo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </p>
+        <p>
+            Being able to identify objects in images can help with navigation.
+            Sometimes a robot can triangulate its own position using relative positions of known objects, or it can infer distance to a target object.  
+        </p>
+        <p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+
+    </div>
+
+
+
+
+</body>
+
+
+</html>
+

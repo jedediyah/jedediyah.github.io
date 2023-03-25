@@ -1,0 +1,124 @@
+
+
+body{
+    background-color: rgb(255, 255, 255);
+    margin:0px;
+    padding:0px;
+    font-family: Arial, sans-serif;
+    color:#111;
+}
+
+a {
+    text-decoration: none;
+    color:hsl(214, 80%, 43%);
+}
+a:hover {
+    color: #c66; 
+}
+h1 {
+    color: #f89d00;
+    text-align:center;
+}
+h2 {
+    color:hsl(214, 80%, 43%);
+}
+
+.header-div {
+    margin:auto; 
+    padding:0px; 
+    height: 50px; 
+    background-color:hsl(214, 93%, 55%);
+    width:100%; 
+    /* position: sticky;
+    top: 0; */
+}
+.header-text{
+    color: #fafaff; 
+    margin:auto; 
+    max-width:800px;
+    font-size: 22px; 
+    padding-top: 4px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight:bold; 
+}
+.header-image{
+    width:30px;
+    transform:translateY(7px);
+    filter: invert(100%);
+}
+
+.main-div{
+    margin: auto; 
+    max-width: 800px; 
+    padding:20px;
+    line-height:1.6em; 
+}
+
+ .project-div {
+    /* background-color: #f2f2f2;
+    display: inline-block; 
+    width: 150px; 
+    height: 180px;
+    border-left: 1px solid #ddd; 
+    border-right: 1px solid #ddd; 
+    border-bottom: 1px solid #ddd; 
+    border-top: 3px solid hsl(34, 97%, 64%);
+    border-radius: 5px; 
+    margin: 3px 10px 25px 10px; 
+    transition: 0.2s;
+    padding:8px; 
+    vertical-align:top; */
+
+    border-top: 3px solid hsl(34, 97%, 64%);
+    /* background-color: #f3f3f3; */
+    background-color: #efefef;
+    width: 44%; 
+    margin:auto;
+    display: inline-block;
+    min-height: 60px;
+    border-radius: 11px; 
+    margin: 3px 10px 25px 10px; 
+    transition: 0.2s;
+    padding: 8px 3px 2px 15px; 
+    vertical-align:top;
+    line-height:1.6; 
+}
+
+.project-image-container {
+    display: inline-block; 
+    margin-top:5px; 
+    margin-right:5px; 
+    margin-bottom: 5px; 
+    vertical-align: text-top;
+}
+.project-text-container {
+    display: inline-block; 
+    vertical-align: text-top;
+    width:70%; 
+}
+
+.project-image {
+    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    border-radius:11px; 
+    border: 1px solid #eee; 
+}
+
+.project-div:hover {
+    background-color: #fbfbfb;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    /* border-top: 3px solid hsl(229, 97%, 64%); */
+}
+.project-title{
+    color:#44a;
+    font-weight: bold;
+    font-size:15px;
+}
+.project-mini-description{
+    color:#666;
+    font-size:13px;
+}
+.project-hr {
+    border: 2px solid #ddd; 
+}
