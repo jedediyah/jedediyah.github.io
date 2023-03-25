@@ -7,6 +7,12 @@ body {
     padding:0px; 
 }
 
+.div_main {
+    background-color: #fff; 
+    min-width:800px;
+    padding:40px;  
+}
+
 a {
     color: #2d75b9;
     text-decoration: none;
