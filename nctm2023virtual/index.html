@@ -33,7 +33,7 @@
     <a href="#dsp-features" id="a-dsp-features"><img src="img/bar.svg" class="menu-img">&nbsp;Features</a>
     <a href="#dsp-classifier" id="a-dsp-classifier"><img src="img/network.svg" class="menu-img">&nbsp;&nbsp;Classifier</a>
     <a href="#dsp-conclusions" id="a-dsp-conclusions"><img src="img/note.svg" class="menu-img">&nbsp;&nbsp;Conclusions</a>
-    <a href="#dsp-resources" id="a-dsp-resources"><img src="img/people.svg" class="menu-img">&nbsp;&nbsp;Resources</a>
+    <!-- <a href="#dsp-resources" id="a-dsp-resources"><img src="img/people.svg" class="menu-img">&nbsp;&nbsp;Resources</a> -->
     <!-- <a href="#dsp-references" id="a-dsp-references"><img src="img/cite.svg" class="menu-img">&nbsp;References</a> -->
   </div>
 
@@ -50,7 +50,7 @@
           Virtual Conference</a>.
       </p>
       <p style="text-align:center;">
-        Slides: <a href="https://docs.google.com/presentation/d/1ZjVQbBNx1QZum8FpoyeXqihV4gMs4dImnNg0ZhBQUo8/edit?usp=sharing"><img src="img/slide.png"></a>
+        Slides: <a target="_blank" href="https://docs.google.com/presentation/d/1ZjVQbBNx1QZum8FpoyeXqihV4gMs4dImnNg0ZhBQUo8/edit?usp=sharing"><img src="img/slide.png"></a>
       </p>
 
       <h3>Introduction</h3>
@@ -66,8 +66,8 @@
         </ul>
       </p>
       <p>
-        The primary activity and lesson resource in this presentation is a manual <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a> engineering project, classifying handwritten digits from the famous <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. 
-        Given examples of handwritten digits, we ask: what features can we identify or create which are effective for distinguishing digits from one another?         
+        The activity presented here is a manual <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a> engineering project, classifying handwritten digits from the famous <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. 
+        Given examples of handwritten digits, we ask: what features can we identify or create which are effective at distinguishing digits from one another?         
         The project is iterated with increasingly difficult tasks: 
         <ol>
           <li> 
@@ -79,18 +79,24 @@
           <li>
             Distinguish more digits!
           </li>
+          <li>
+            Improve performance.
+          </li>
+          <li>
+            Try it again with a new model.
+          </li>
         </ol>
       </p>
       <p>
         Some of the reasons I like this project are: 
         <ul>
           <li> Concepts utilized in this type of problem are a fundamental in data-based applied mathematics. </li>
-          <li> Collaboration is natural in a project of this type, so it doesn't feel added on. </li>
+          <li> The collaboration is natural in a project of this type, so it doesn't feel added on. </li>
           <li> The project facilitates frequent translating between intuition and formalization, between abstract and algorithmic thinking. </li>
           <li> It has low floors, high ceilings, and wide walls.  Every student can contribute, there is no limit on how complex solutions may become, and every student could find different succesful solutions.   </li>
         
         </ul>
-        You'll see some code and links to Python Notebooks below, but think of those as bonus features if you are interested.  
+        You can find some code and links to Python Notebooks below, but think of those as bonus features if you are interested.  
         They aren't necessary to complete the main project. 
       </p>
 
@@ -98,7 +104,8 @@
         <h2>Get to know the data</h2>
       </section>  
       <p>
-        An archive of MNIST saved as PNGs is available from <a href="https://github.com/myleott/mnist_png">https://github.com/myleott/mnist_png</a>.  
+        A brief history of MNIST can be viewed at <a href="https://www.youtube.com/watch?v=oKzNUGz21JM">https://www.youtube.com/watch?v=oKzNUGz21JM</a>.  
+        An archive of the images saved as PNGs is available from <a href="https://github.com/myleott/mnist_png">https://github.com/myleott/mnist_png</a>.  
         Each image is \(28 \times 28\) pixels of grayscale values.  Here is an \(8\):   
         <img src="img/41.png">
       </p>
@@ -246,10 +253,22 @@
         Go forth, find new features, and maybe even combine them to improve accuracy.  
       </p>
       <p>
-        Writing a feature as matrix multiplication. 
+        It is important when working on data projects like this one to reflect. 
+        <ul>
+          <li>Our classifier is built (trained) on a partiuclar dataset</li>
+          <li>The data captures particular cultural conventions</li>
+          <li>Our biases are baked into our classifier via the decisions we made along the way</li>
+          <li>Our classifier is a predictor, not a judge</li>
+        </ul>
+        To clarify that last point.  
+        Our classifier is a feature-based model for making a prediction based on numerical nearness to stereotypes. 
+        Given some input data, it characterizes the 1-ness or the 0-ness of that data as defined by the conventions in the data and the decisions we made about what features to include. 
+      </p>
+      <p>
+        Data projects are awesome and they are a fantastic window through which we might observe and reflect on the consequences of applied mathematics.  
       </p>
 
-
+<!-- 
       <section id="dsp-resources">
         <h2>Resources</h2>
       </section>  
@@ -258,7 +277,7 @@
           <li>History of MNIST starting with NIST</li>
           <li> </li>
         </ul>
-      </p>
+      </p> -->
       
 
 
