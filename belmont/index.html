@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Jed at Belmont!</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Additional custom CSS -->
+		<style>
+			:root {
+				--dsp-red: rgb(255, 217, 223);
+				--dsp-orange: rgb(255, 226, 173);
+				--dsp-yellow: rgb(255, 255, 190);
+				--dsp-green: rgb(200, 236, 200);
+				--dsp-blue: rgb(205, 229, 237); 
+				/*--dsp-gray: rgb(101, 101, 101); */
+				--dsp-gray: rgb(231, 231, 231); 
+				--dsp-light: rgb(245, 245, 245);
+			}
+			.graphbox{
+				display:inline-block;
+				padding:8px;
+				/* border:3px solid rgb(35, 41, 145); */
+				border-radius:10px;
+				font-size:80%;
+				background-color:blanchedalmond;
+				box-shadow: 3px 3px 7px #AAA;
+			}
+
+
+			@keyframes colorchange {
+				0% {
+					
+					color: black;
+				}					
+				100% {
+					
+					color: rgb(210, 87, 30);
+				}
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Footer -->
+			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+				jedediyah.github.io/belmont
+			</div>
+			<div class="slides">
+
+
+				<section  data-background="#fff">
+					
+					<div>
+						<br><br><br>
+						<h3>Hexapawn</h3>
+						<p>
+							These slides are available at <a href="https://jedediyah.github.io/belmont">jedediyah.github.io/belmont</a>
+						</p>
+						<br>
+						<p>
+							<a target="_blank" href="http://jedediyah.github.io">Jedediyah Williams</a> </a>
+							<br>
+						</p>
+						<p style="font-style:italic;font-size:80%;color:#555;">
+							June 14, 2023
+						</p>
+					</div>
+					<br><br><br><br>
+				</section>
+			
+				<section>
+					<h3>About Jed</h3>
+					<p>
+						<div class="graphbox">Teaching</div> &rarr; <div class="graphbox">Astronomy</div> &rarr; <div class="graphbox">Robots</div> &rarr; <div class="graphbox">Teaching</div> 
+					</p>
+					<p>
+						<img src="img/12m.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/trooper_ladder.jpg" style="height:265px;"> &nbsp; 
+						<img src="img/srcmoon.png" style="height:265px;">
+					</p>	
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="dmp-h4" src="img/hextitle.jpg" style="max-width:300px;">
+					<p id="dmp-p">
+						<div data-id="dmp-data" 		style="background-color:#fff;"><img data-id="board1" src="img/hex.png"></div>
+						<div data-id="dmp-preprocess" 	style="background-color:#fff;">Hexapawn is a mini-chess game. <br>It uses six pawns on a 3x3 board.<br>White moves first.</div>
+					</p>
+					<br><br>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img src="img/hextitle.jpg" style="padding:0px;max-width:300px;">
+					<div style="font-size:70%;" data-id="div_top">
+						<br>
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/hex.png" style="margin-bottom:0px;"></div>
+						<div>Starting <br>position </div>
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/move_forward.png" style="margin-bottom:0px;"></div>
+						<div>Move <br>forward </div>
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/move_diagonal.png" style="margin-bottom:0px;"></div>
+						<div>Capture <br>diagonally </div>
+					</div>
+					<br><br><br><br>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img src="img/hextitle.jpg" style="padding:0px;max-width:300px;">
+					<div style="font-size:70%;" data-id="div_top">
+						
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/hex.png" style="margin-bottom:0px;"></div>
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/move_forward.png" style="margin-bottom:0px;"></div>
+					</div>
+					<div style="display:inline-block;margin-left:40px;margin-right:40px;">
+						<div><img src="img/move_diagonal.png" style="margin-bottom:0px;"></div>
+					</div>
+					
+					<br><br>
+					<div style="font-size:85%;" data-id="div_bottom">
+						A player wins when: 
+						<br> 
+						<ol>
+							<li>They reach the other side</li>
+							<li>They capture all their opponent's pieces</li>
+							<li>It is their opponent's turn and there is no legal move</li>
+						</ol>
+					</div>
+
+					<br><br>
+				</section>
+
+
+
+				
+
+			<section>
+				<h4>Let's play Hexapawn!</h4>
+				<div style="display:inline-block;width:45%;">
+					Make your own board: <br> 
+					<img src="img/realboard.jpg" style="height:300px;">					
+				</div>
+				<div style="display:inline-block;width:45%;">
+					or play online: <br> 
+				<img src="img/hex.png" style="height:300px;">
+				</div>
+				
+			</section>
+
+
+			<section>
+				<section>
+					<img src="img/hexapawntree.png">
+				</section>
+				<section data-background-iframe="https://jedediyah.com/learning/hexapawn/" data-background-interactive>
+
+				</section>
+			</section>
+
+
+
+			<section>
+				<img src="img/tictactoetree.png">
+			</section>
+			<section data-background="img/tictactoeboard.jpg">
+			</section>
+
+			<section data-background="#fff">
+				<h4>Some interesting things to think about</h4>
+				<ol style="font-size:70%;">
+					<li>Is it possible to draw (tie) in hexapawn?</li>
+					<li>Does one side have the advantage? </li>
+					<li>What is the shortest game possible (fewest moves)? </li>
+					<li>What is the longest game possible (most moves)? </li>
+					<li>How many unique positions are possible after one move (only white moves)? </li>
+					<li>How many unique positions are possible after the first two moves (white moves then black moves)? </li>
+					<li>Give an example of a position that is impossible to reach. </li>
+					<li>If white's first move is to move their left-most pawn forward, then what is blacks' worst response? What is black's best response? </li>
+					<li>If white's first move is to move their center pawn forward, then what is black's worst response? What is black's best respones?  </li>
+					<li>How many unique games are possible? A "game" is represented by a sequence of moves. </li>
+					
+				</ol>
+			</section>
+			<section data-background="#fff" style="font-size:70%;">
+				<h4>Next Level Hexapawn</h4>
+				Browse to jedediyah.github.io/hexapawn. 
+				Try playing a few games. 
+				Let the machine play itself until it solves the game.  
+				<ol style="font-size:85%;">
+					<li>As the machine plays itself, how can you tell when the game as been solved? </li>
+					<li>What is the shortest game in the tree? What is the longest?  </li>
+					<li>After letting the machine play itself until one side always wins, there are still several games in the gree where each side has won. So how is it that one side will always win now? In other words, why are some previously reachable results now un-reachable? </li>
+					<li>Why doesn't the tree expand completely? That is, why won't every possible game get played? </li>
+					<li>Find a game that hasn't yet been recorded in the tree, and play it into the tree.  </li>
+					<li>Refresh the website and start the machine playing itself again. Does it generate the same tree each time? What might it say about the algorithm if the tree is the same or different ecah time? </li>
+					<li>Refresh the website. Running one Machine vs. Machine game at a time, 
+						<ol>
+							<li>How many games did it take before black always wins? </li>
+							<li>How many wins total did white have? </li>
+							<li>On average how many games does does it take before black always wins?</li>
+							<li>On average how many wins will white achieve? What is the fewest number possible? What is the most? </li>
+						</ol>	
+					</li>
+				</ol>
+			</section>
+
+
+			<section>
+				<ul>
+					<li>A paper about machine learning for games using Hexapawn, by Martin Garder: <a href="http://cs.williams.edu/~freund/cs136-073/GardnerHexapawn.pdf">http://cs.williams.edu/~freund/cs136-073/GardnerHexapawn.pdf</a>" </li>
+					<li>Questions or answers?! jedediyah@gmail.com </li>
+				</ul>
+				
+			</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+	</body>
+</html>
