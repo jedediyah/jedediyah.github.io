@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+  <!-- <link href="prism.css" rel="stylesheet" />
+  <script src="prism.js"></script> -->
+
+  <!-- Mathjax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Desmos API for embedded graphs -->
+  <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+  <a id="dsp-top"></a>
+
+  <div class="sidebar" id="mainNav">
+    <a href="index.html" id="a-dsp-top" class="active">Physics</a>
+    <a href="simplemotion.html" id="a-dsp-overview"><img src="img/simplemotion.png" class="menu-img"> 1. Simple Motion</a>
+    <a href="acceleratedmotion.html" id="a-dsp-examples"><img src="img/acceleratedmotion.png" class="menu-img"> 2. Accelerated Motion</a>
+    <a href="#dsp-concern" id="a-dsp-concern"><img src="img/projectile.png" class="menu-img"> 3. Projectile Motion</a>
+    <a href="#dsp-consequence" id="a-dsp-consequence"><img src="img/newton.png" class="menu-img"> 4. Newton's Laws</a>
+    <a href="#dsp-conclusions" id="a-dsp-conclusions"><img src="img/momentum2.png" class="menu-img"> 5. Momentum</a>
+    <a href="#dsp-resources" id="a-dsp-resources"><img src="img/energy.png" class="menu-img"> 6. Energy</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/heat.png" class="menu-img"> 7. Heat</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/charge.png" class="menu-img"> 8. Electrostatics</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/circuit.png" class="menu-img"> 9. Circuits</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/magnetism2.png" class="menu-img"> 10. Magnetism</a>
+    <a href="#dsp-references" id="a-dsp-references"><img src="img/waves2.png" class="menu-img"> 11. Waves</a>
+  </div>
+
+  <div class="content">
+
+    <div class="maincontainer">
+
+<h1>1. Simple Motion</h1>
+<h2>Overview</h2>
+Simple motion is motion in a straight line at a constant velocity. 
+
+<h3>Skills and Understanding</h3>
+<ul>
+	<li> Distinguish between <em>distance</em> and <em>displacement</em>.</li>
+	<li> Distinguish between <em>speed</em> and <em>velocity</em>.</li>
+	<li> Apply the equations for speed and velocity. </li>
+	<li> Use the GUESS framework for problem solving.</li>
+</ul>
+
+<h3>Equations</h3>
+\[
+\begin{array}{ccc}
+   \Delta x = x_{f} - x_{i} \quad \quad \quad \quad & 
+   s = \frac{d}{\Delta t} \quad \quad \quad \quad   & 
+   v = \frac{\Delta x}{\Delta t} \quad \quad \quad \quad 
+\end{array}
+\]
+
+
+<h3>Vocabulary</h3>
+<ul>
+  <li> <em>Distance</em> \(d\) is the total length of a path. </li>
+  <li> <em>Displacement</em> is the change in position from the start to the end of a path. Given an initial position \(x_{i}\) and final position \(x_{f}\), the displacement \(\Delta x\) is calculated as \(\Delta x = x_{f} - x_{i}\)  </li>
+  <li> <em>Speed</em> is how fast something is moving. It is the rate of distance per time, and for distance \(d\) and change in time \(\Delta t\), speed \(s\) is calculated as \(s = \frac{d}{\Delta t}\) </li>
+  <li> <em>Velocity</em> is the rate at which position is changing. It is calculated as \(v = \frac{\Delta x}{\Delta t}\)  </li>
+</ul>
+	
+  <!-- <div> 
+  This section contains the following sections:
+  <br><a href="#speedandguess" id="a-dsp-references">1.1 Speed and GUESS</a>
+  <br><a href="#dsp-references" id="a-dsp-references">1.2 Speed and GUESS</a>
+  <br><a href="#dsp-references" id="a-dsp-references">1.3 Speed and GUESS</a>
+  <br><a href="#dsp-references" id="a-dsp-references">1.4 Speed and GUESS</a>
+  </div> -->
+
+<a id="speedandguess"></a>
+<h2>1.1 Speed and GUESS</h2>
+Given distance \(d\) and change in time \(\Delta t\), speed \(s\) is calculated with:
+\[s = \frac{d}{\Delta t}\]
+
+The GUESS method is a framework for problem solving. It stands for: 
+<ul>
+  <li><b>G</b>ivens &mdash; Identify the given values.   </li>
+  <li><b>U</b>nknowns &mdash; Identify the unknown variables.  </li>
+  <li><b>E</b>quation &mdash; Choose the appropriate equations.  </li>
+  <li><b>S</b>ubstitute &mdash; Substitute known values into variables.   </li>
+  <li><b>S</b>olve &mdash; Solve for the missing value.  </li>
+</ul>
+
+<div class="example">
+  Carlos drives his car a distance of \(15\) km in \(20\) minutes. What was his average speed in m/s? 
+  <hr> 
+  We can answer this question using the GUESS method. 
+  <br> 
+  The <b>G</b>ivens are: 
+  \[ d = 15 \text{ km} = 15000 \text{ m} \]
+  \[ \Delta t = 20 \text{ min} = 1200 \text{ s} \]
+  The <b>U</b>nknown is: Speed \(s\).  
+  <br>  
+  The <b>E</b>quation to use is: 
+  \[ s = \frac{d}{\Delta t} \]
+  We <b>S</b>ubstitute to get:
+  \[ s = \frac{15000 \text{ m}}{1200 \text{ s}}  \]
+  And <b>S</b>olve to find:
+  \[ s = 12.5 \text{ m/s} \]
+</div>
+    
+
+<h2>1.2 Distance, Displacement, Speed, Velocity</h2>
+<p>
+<em>Distance</em> refers to the total length of a path, whereas <em>displacement</em> refers to the distance from the start to the end of a path. For example, if I walk \(6\) m forward and then \(10\) m backward, my distance traveled is \(16\) m while my displacement is \(-4\) m (that is 4 m behind where I started). Note that distance can never be negative but displacement can.
+</p>
+
+<p>
+<em>Speed</em> is calculated using distance, \(s = \frac{d}{\Delta t}\), so it too can never be negative. <em>Velocity</em> on the other hand is calculated with displacement, \(v = \frac{\Delta x}{\Delta t}\), so it can be negative. Consider a car driving backward \(20\) miles in an hour. We would say that it's velocity is \(-20\) mph, but it's speed is \(20\) mph. 
+</p>
+
+<div class="example">
+	Juan went biking from home straight to his friend's house 843 meters away. He then biked back towards home 325 meters before taking a break. Juan did this all in 9 minutes. What was Juan's average speed in m/s, and what was his average velocity in m/s? 
+	\vspace{4mm} 
+  <hr> 
+	The <b>G</b>ivens are: 
+	\[ \Delta t = 9 \text{ min} = 540 \text{ s} \]
+	\[ \text{Adding the lengths to get total distance, we have: } d = 843 + 325 = 1168 \text{ m} \]
+	\[ \text{We can say his initial position is: } x_{i} = 0 \text{ m} \]
+	\[ \text{We can find his final position from home: } x_{f} = 843 - 325 = 518 \text{ m} \]		
+	The <b>U</b>nknowns are: Speed \(s\) and velocity \(v\). 
+	<br> 
+	The <b>E</b>quations to use are: 
+	\[ 
+		\begin{array}{cc}
+			s = \frac{d}{\Delta t}  \quad \quad & v = \frac{\Delta x}{\Delta t} = \frac{x_{f} - x_{i}}{\Delta t} 
+		\end{array}
+	\]
+	We <b>S</b>ubstitute to get:
+	\[ 
+	\begin{array}{cc}
+	   s = \frac{1168 \text{ m}}{540 \text{ s}} \quad \quad & v = \frac{518 \text{ m} - 0 \text{ m}}{540 \text{ s}} 
+	\end{array}
+	\]
+	And <b>S</b>olve to find:
+	\[ 
+	\begin{array}{cc}
+	 s = 2.16 \text{ m/s} \quad \quad &  v = 0.96 \text{ m/s}
+	\end{array}
+	\]
+</div>
+
+
+<h2>1.3 Position versus Time Graphs</h2>
+
+
+
+
+
+
+
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  </div>
+
+
+
+</body>
+
+</html>
