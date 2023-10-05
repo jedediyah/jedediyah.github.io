@@ -155,7 +155,7 @@ h2 {
     font-size: 20px;
     line-height: 36px;
     font-weight: normal;
-    transform: translateX(-20px);
+    /* transform: translateX(-20px); */
     margin-top: 28px;
     /*margin-bottom: -8px; */
 }
@@ -167,71 +167,6 @@ h3 {
     font-weight: normal;
     margin-top: 16px;
     margin-bottom: 2px;
-}
-
-/* The table in DSP Overview */
-.dsp-process-td {
-  border: 1px solid #666; 
-  border-collapse: collapse;
-  font-size: 9pt; 
-  padding: 3px; 
-  vertical-align: top;
-  width: 20%; 
-}
-
-/* The repeated vertical table */
-.table-dsp-data {
-  background-color: #f2cecd;
-  text-align: center; 
-  padding-left:10px; 
-  padding-right: 10px; 
-  min-width: 110px; 
-  border: 1px solid #ddd;
-  border-collapse: collapse; 
-  font-size: 9pt; 
-}
-.table-dsp-preprocess {
-  background-color: #f5cd99;
-  text-align: center; 
-  padding-left:10px; 
-  padding-right: 10px; 
-  border: 1px solid #ddd;
-  border-collapse: collapse; 
-  font-size: 9pt; 
-}
-.table-dsp-explore {
-  background-color: #fdf3ca;
-  text-align: center; 
-  padding-left:10px; 
-  padding-right: 10px; 
-  border: 1px solid #ddd;
-  border-collapse: collapse; 
-  font-size: 9pt; 
-}
-.table-dsp-model {
-  background-color: #daebd3;
-  text-align: center; 
-  padding-left:10px; 
-  padding-right: 10px; 
-  border: 1px solid #ddd;
-  border-collapse: collapse; 
-  font-size: 9pt; 
-}
-.table-dsp-communicate {
-  background-color: #d2e2f5;
-  text-align: center; 
-  padding-left:10px; 
-  padding-right: 10px; 
-  border: 1px solid #ddd;
-  border-collapse: collapse; 
-  font-size: 9pt; 
-}
-.table-dsp-contents {
-  border: 1px solid #ddd; 
-  border-collapse: collapse;
-  padding: 10px; 
-  line-height: 1.6; 
-  font-size: 9pt;
 }
 
 .media-li {
