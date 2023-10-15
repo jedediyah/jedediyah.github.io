@@ -66,26 +66,23 @@ Accelerated motion describes when an object's velocity is changing. In this unit
 </ul>
 
 <h3>Equations</h3>
+
 \[
-\begin{array}{ccc}
-   \Delta x = x_{f} - x_{i} \quad \quad \quad \quad & 
-   s = \frac{d}{\Delta t} \quad \quad \quad \quad   & 
-   v = \frac{\Delta x}{\Delta t} \quad \quad \quad \quad \quad 
-\end{array}
+  \begin{array}{cc} 
+  v = \frac{\Delta x}{\Delta t}     \quad  \quad  \quad  \quad    & v_{f} = v_{i} + a \cdot \Delta t      \\ 
+  a = \frac{\Delta v}{\Delta t}     \quad  \quad  \quad  \quad    & \Delta x = \frac{1}{2} \left( v_{i} + v_{f} \right) \Delta t    \\ 
+  v_{avg} = \frac{v_{i}+v_{f}}{2}   \quad  \quad  \quad  \quad    & \Delta x = v_{i} \Delta t + \frac{1}{2} a \Delta t ^{2}    \\ 
+                                    \quad \quad \quad \quad       &    v_{f}^{2} = v_{i}^{2} + 2 a \Delta x
+  \end{array}
 \]
-\[
-\begin{array}{ccc}
-   \Delta v = v_{f} - v_{i}  \quad \quad \quad \quad & 
-   a = \frac{\Delta v}{\Delta t}  \quad \quad \quad \quad   & 
-   v_{avg} = \frac{v_{i}+v_{f}}{2} \quad \quad \quad 
-\end{array}
-\]
+
 
 
 <h3>Vocabulary</h3>
 <ul>
   <li> <em>Acceleration</em> \(a\) is the rate at which velocity changes. It is calculated as \(a = \frac{\Delta v}{\Delta t}\) </li>
   <li> <em>Displacement</em> is the change in position from the start to the end of a path. Given an initial position \(x_{i}\) and final position \(x_{f}\), the displacement \(\Delta x\) is calculated as \(\Delta x = x_{f} - x_{i}\)  </li>
+  <li> <em>Freefall</em> describes when an object is falling due to gravity alone. </li>
   <li> <em>Velocity</em> is the rate at which position is changing. It is calculated as \(v = \frac{\Delta x}{\Delta t}\)  </li>
 </ul>
 	
@@ -95,14 +92,27 @@ Acceleration is change in velocity per time,
 \[ a = \frac{\Delta v}{ \Delta t} = \frac{v_{f} - v_{i}}{\Delta t} \ \]
 
 <div class="example">
-	
+	A ball is thrown at 31 m/s. The ball hits a wall and bounces directly back, 24 m/s in the opposite direction. If the ball was in contact with the wall for 0.035 s, what was the acceleration during the bounce? 
   <hr> 
+  Considering the ball starting in the positive direction, the ball is initially moving with velocity 
+  \[ v_{i} = 31 \text{ m/s} \]
+  After the ball bounces off the wall, its velocity is 
+  \[ v_{f} = -24 \text{ m/s} \]
+  We also have that 
+  \[ \Delta t = 0.035 \text{ s} \]
+  Using the formula 
+  \[ a = \frac{v_{f} - v_{i}}{\Delta t} \]
+  we can plug in to get 
+  \[ a = \frac{-24 - 31}{0.035} = -1571 \text{ m/s}^{2}  \]
 </div>
 
 
 <a id="sec-pvtacceleration"></a>
 <h2>2.2 Position versus Time Graphs and Acceleration</h2>
-
+<p>
+  When velocity was constant (acceleration was zero), position versus time graphs were linear. That was inline with our understanding that velocity was the slope of the position versus time graph, and constant slope results in a straight line. 
+  Now that we are considering acceleration, 
+</p>
 <img src="velacc.gif">
 
 
@@ -114,11 +124,36 @@ Acceleration is change in velocity per time,
 
 <a id="sec-kinematic"></a>
 <h2>2.4 Kinematic Equations</h2>
-    
+<p>
+Assuming constant acceleration, there are four common equations:
+\[ v_{f} = v_{i} + a \cdot \Delta t \]
+\[ \Delta x = \frac{1}{2} \left( v_{i} + v_{f} \right) \Delta t    \]
+\[ \Delta x = v_{i} \Delta t + \frac{1}{2} a \Delta t ^{2}    \]
+\[ v_{f}^{2} = v_{i}^{2} + 2 a \Delta x   \]
+ Each of these equations is useful in a different way. Note that the first equation has no \(\Delta x\), the second has no acceleration \(a\), the third requires no \(v_{f}\), and the last has no \(\Delta t\).
+</p>
+<p>
+  When presented with a kinematic physics problem, identifying the <b>G</b>ivens and the <b>U</b>nknown helps us to choose the appropriate <b>E</b>quation to use. 
+</p>
+<div class="example">
+	A car is traveling at \(21\) m/s when it accelerates at a rate of \(4.5\) m/s\(^{2}\) for 3.1 s. How far does the car travel during those 3.1 s? 
+  <hr> 
+  We are <b>G</b>iven that
+  \[ v_{i} = 21 \text{ m/s} \]
+  \[ a = 4.5 \text{ m/s}^{2} \]
+  \[ \Delta t = 3.1 \text{ s} \]
+  and we want to find the <b>U</b>nknown \(\Delta x\). The <b>E</b>quation 
+  \[ \Delta x = v_{i} \Delta t + \frac{1}{2} a \Delta t ^{2}  \] 
+  has everything we are given as well as what we are trying to find. 
+  Plugging in we have 
+  \[ \Delta x = (21) (3.1) + \frac{1}{2} (4.5) (3.1)^{2} = 87 \text{ m} \]
+</div>
 
 <a id="sec-freefall"></a>
 <h2>2.5 Freefall</h2>
-    
+  <p>
+    Freefall describes when an object is accelerating due only to gravity. The acceleration due to gravity at the surface of Earth is approximately 9.8 m/s\(^{2}\). 
+  </p>
 
 
 
