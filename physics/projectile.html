@@ -87,12 +87,35 @@ Two dimensional projectile motion can be broken down into horizontal and vertica
 <a id="sec-horizontal"></a>
 <h2>3.1 Horizontal Projectile</h2>
 
+<p>
+  In projectile motion, we have a two dimensional problem which we can break into horizontal and vertical components. Importantly, there is no acceleration in the horizontal direction while the acceleration in the vertical direction is due to gravity. 
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zMF4CD7i3hg?si=lSuqtfathRelkKeR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<p>
+A <em>horizontal projectile</em> is a special case because the initial vertical velocity is zero, or  
+\[ v_{yi} = 0 \text{ m/s}\]
+This is useful because it can make our algebra much easier!
+</p>
 
 <div class="example">
-	
+	A ball is rolling at 3.2 m/s when it rolls off the edge of a 1.2 m tall table. How far from the table does the ball land? 
   <hr> 
+  We break this problem into two pieces: vertical, and horizontal. <br><br> 
+  Considering only the vertical motion of the ball as it falls, 
+  \[ v_{yi} = 0  \text{ m/s} \]
+  \[ \Delta y = -1.2 \text{ m} \]
+  \[ a = -10 \text {m/s}^{2} \]
+  With this information we can find the amount of time \(\Delta t\) that the ball will be falling before it hits the ground. 
+  Using \[ \Delta y = v_{yi} \Delta t + \frac{1}{2} a_{y} \Delta t ^{2} \]
+  We plug in and solve to get 
+  \[ \Delta t = \sqrt{ \frac{2 \Delta y}{a_{y}} } = \sqrt{\frac{2 (-1.2)}{(-10)}} = 0.49 \text{ s}\]
   
+  Now that we know \(\Delta t\), we can consider the horizontal motion. 
+  Using 
+  \[ \Delta x = v_{x} \Delta t \] 
+  we plug in to get 
+  \[ \Delta x = (3.2)(0.49) = 1.57 \text{ m}  \]
 </div>
 
 
