@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>NCTM 2023</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+
+		<!-- Additional custom CSS -->
+		<style>
+			:root {
+				--dsp-red: rgb(255, 217, 223);
+				--dsp-orange: rgb(255, 226, 173);
+				--dsp-yellow: rgb(255, 255, 190);
+				--dsp-green: rgb(200, 236, 200);
+				--dsp-blue: rgb(205, 229, 237); 
+				/*--dsp-gray: rgb(101, 101, 101); */
+				--dsp-gray: rgb(231, 231, 231); 
+				--dsp-light: rgb(245, 245, 245);
+			}
+			.graphbox{
+				display:inline-block;
+				padding:8px;
+				/* border:3px solid rgb(35, 41, 145); */
+				border-radius:10px;
+				font-size:80%;
+				background-color:blanchedalmond;
+				box-shadow: 3px 3px 7px #AAA;
+			}
+
+
+			@keyframes colorchange {
+				0% {
+					
+					color: black;
+				}					
+				100% {
+					
+					color: rgb(210, 87, 30);
+				}
+			}
+		</style>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+		<style>
+			.topicnumber{
+				font-family:Georgia, 'Times New Roman', Times, serif
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Footer -->
+			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+				jedediyah.github.io/nctm2023
+			</div>
+			<div class="slides">
+
+
+				<section style="text-align:right;" data-background-gradient="linear-gradient(to right, #def, #fed)">
+					
+					<div>
+						<br><br>
+						<h3><span style="color:#668;">Beauty, Utility, and Consequence</span><br><span style="color:#668;">in Mathematics</span></h3>
+						<br>
+						<p>
+							<a target="_blank" href="http://jedediyah.com" style="font-size:80%;">Jedediyah Williams, PhD</a> </a>
+							<br>
+							<span style="color:#555;font-size:80%;">Belmont High School</span>
+						</p>
+						<p style="font-style:italic;font-size:80%;color:#555;">
+							October, 2023
+						</p>
+					</div>
+					<div style="width:100%;text-align:left;font-size:80%;color: #666;">jedediyah.github.io/nctm2023</div>
+					<br><br><br><br><br>
+				</section>
+
+				<section>
+					About Jed
+
+					Physics 
+					Cryptography
+					Chaos Theory 
+					Electronics 
+					Computer Security 
+				</section>
+				
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+					<h3 style="width:100%;text-align: center;">Outline</h3>
+					<br> 
+					<div style="padding-left:0px; ">
+						<div data-id="topicI" style="width:220px;font-size:130%;background-color: #fff;"><span class="topicnumber">I</span>. Beauty</div> 
+						<div data-id="topicI" style="width:220px;font-size:130%;background-color: #fff;"><span class="topicnumber">II</span>. Utility</div> 
+						<div data-id="topicI" style="width:400px;font-size:130%;background-color: #fff;"><span class="topicnumber">III</span>. Consequence</div>
+						<div data-id="topicI" style="width:100%;font-size:130%;background-color: #fff;"><span class="topicnumber">IV</span>. Our Teaching </div>
+					</div>
+					<aside class="notes">
+						These themes are not mutually exclusive. 
+					</aside>
+					<br><br>
+				</section>
+
+
+				<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+					<div style="padding-left:0px; ">
+						<div data-id="topicI" style="width:220px;font-size:130%;background-color: #fff;"><span class="topicnumber">I</span>. Beauty</div> <br>
+						<div data-id="topicI" style="width:220px;font-size:130%;background-color: #fff;"><span class="topicnumber">II</span>. Utility</div> <br>
+						<div data-id="topicI" style="width:400px;font-size:130%;background-color: #fff;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<br> 
+				</section> -->
+
+				<section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+							
+						<br>
+						<div style="text-align:center;">
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						<br><br>
+						<p>  
+							<div style="width:100%;text-align:center;font-style:italic;color:#333343;" data-auto-animate-delay="1.2"><a href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">please share your conceptions</a></div>
+							<div data-auto-animate-delay="0.8">
+								<br> 
+								<a target="_blank" style="font-size:50%;" href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing</a>
+								<br><br> 
+							</div>
+						</p>
+						<br><br><br><br>
+				
+					</section>
+					<section>
+						
+						<div style="text-align:center;">		
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						<br><br> 
+						<p>
+							<img src="img/def_beauty.jpg" style="max-width:500px;">
+						</p>
+						<br><br><br><br>
+					</section>
+				</section>
+				
+
+				<section> <!-- BEAUTY EXAMPLES -->
+					<section data-background="img/Fr137.jpg">
+						<!-- https://en.wikipedia.org/wiki/Fractal#/media/File:Fr137.jpg -->	
+					</section>
+
+					<section data-background="img/mandelbrot1.jpg">
+						<!-- https://upload.wikimedia.org/wikipedia/commons/2/21/Mandel_zoom_00_mandelbrot_set.jpg -->	
+					</section>
+
+					<section data-background="img/gathering.jpeg">
+					</section>
+
+					<section style="background-color:#333;" data-background-color="#444">
+						<img src="img/psolids.jpg">
+					</section>
+
+					<section data-background="#222">
+						<img src="img/twoplusfive.jpeg">
+					</section>
+
+					<section data-background-color="#445">
+						<img src="img/numbers.jpeg">
+					</section>
+
+					<section data-background-color="#454">
+						<img src="img/20220121_112514.jpg">
+					</section>
+
+					<section data-background="img/whalers.jpeg">
+						
+					</section>
+
+					<section data-background-color="#ddd">
+						<span style="font-size:200%;">\[ e^{i \pi} + 1 = 0 \]</span>
+					</section>
+					<section>
+						<img src="img/nequals6.png" style="width:60%;">
+					</section>
+					<section data-background-color="#656">
+						<img src="img/magna.jpeg">
+					</section>
+					<section data-background-color="#333">
+						<img style="width:200px;padding:0px;margin:0px;" src="img/jack.jpeg">
+						<img style="width:200px;padding:0px;margin:0px;" src="img/blueberry.jpeg">
+						<img style="width:200px;padding:0px;margin:0px;" src="img/crown.jpeg">
+						<img style="width:200px;padding:0px;margin:0px;" src="img/factors.jpeg">
+						<br> 
+						<img style="width:700px;padding:0px;margin:0px;" src="img/ttt.jpg">
+					</section>
+				</section>
+
+
+				<section>
+					<img src="img/hardybeauty.png">
+					<span style="font-size:60%;">G.H. Hardy. <a target="_blank" href="http://www.arvindguptatoys.com/arvindgupta/mathsapology-hardy.pdf">"A Mathematician's Apology"</a></span>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:center;">
+					<div style="text-align:center;">
+						<div data-id="topicI" style="width:23%;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">I</span>. Beauty</div>
+						<div data-id="topicI" style="width:23%;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:48%;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<a target="_blank" href="http://graphics.wsj.com/hamilton/"><img src="img/lauryn.jpg"></a>
+					<br>
+					<a target="_blank" style="font-size:50%;" href="http://graphics.wsj.com/hamilton/">WSJ algorithmic rhyme scheme analysis.</a>
+					<br> <br>
+				</section>
+
+
+				<section> 
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+							
+
+						<div style="text-align:center;">
+							<div data-id="topicI" style="width:23%;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">I</span>. Beauty</div>
+							<div data-id="topicI" style="width:23%;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:48%;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						<br><br>
+						<p>  
+							There is tremendous beauty in mathematics, and the sources of beauty are diverse in nature and mode. 
+							<br>
+							<br>
+						</p>
+						<p>
+							Beauty often involves acts of creativity that satisfy constraints. 
+							
+						</p> 	
+						<br><br>				
+					</section>
+				</section>
+
+
+				<!-- UTILITY -->
+				<section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+							
+						<br> 
+						<div style="text-align:center;">
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div>
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						
+						<p>  
+							<div style="width:100%;text-align:center;">Please share.</div>
+							<br> 
+							Short URL: <a target="_blank" style="font-size:50%;" href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing</a>
+							<br><br> 
+							<div style="width:60%;margin-left:40%;"> 
+							Direct URL: <a target="_blank" style="font-size:50%;" href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing</a>
+							</div>
+						</p>
+						<br><br><br><br>
+				
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+								
+						<div style="text-align:center;">
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div>
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						<br><br> 
+						<p>
+							<img src="img/def_utility.jpg" style="max-width:500px;">
+						</p>
+						<br><br><br><br>
+					</section>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div style="text-align:center;">
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div>
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<br><br>
+					<p style="text-align:left;">
+						The justification for teaching mathematics is often tied to utility in the solving of real problems.  
+					</p>
+					<br><br><br><br>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div style="text-align:center;">
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div>
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<br>
+					<p style="text-align:left;">
+						Much of the history of and motivation for mathematics has deep cultural connections. 
+					</p>
+					
+					<p style="text-align:left;">
+						Tallying, astronomy, calendar, navigation, trade, bookkeeping, surveying, measuring (the Earth), enumeration, physics, statistics, engineering, communication, computability, encryption, analysis, analytics,
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<a href="https://maa.org/press/periodicals/convergence/mathematical-treasure-ishango-bone"><img src="img/ishango_bone.jpg"></a>
+					</section>
+					<section>
+						<a href="https://en.wikipedia.org/wiki/Prehistoric_counting#/media/File:Carved_reindeer_antler_with_tally_marks_(4697848661).jpg"><img src="img/carved_antler.jpg"></a>
+					</section>
+					<section>
+						<a href="https://www.washingtonpost.com/news/speaking-of-science/wp/2016/01/28/clay-tablets-reveal-babylonians-invented-astronomical-geometry-1400-years-before-europeans/"><img src="img/babyloniantablet.png"></a>
+					</section>
+					<section>
+						<a href="https://en.wikipedia.org/wiki/History_of_mathematics#/media/File:Qinghuajian,_Suan_Biao.jpg"><img src="img/800px-Qinghuajian,_Suan_Biao.jpg"></a>"
+					</section>
+
+					<section data-background-color="#222">
+						<a href="https://upload.wikimedia.org/wikipedia/commons/a/a7/Inca_Quipu.jpg"><img src="img/Inca_Quipu.jpg" style="width:100%;"></a>
+					</section>
+					<section>
+						<a href="https://en.wikipedia.org/wiki/Data_and_information_visualization#/media/File:Mouvement_des_plan%C3%A8tes_au_cours_du_temps.png"><img src="img/Mouvement_des_planètes_au_cours_du_temps.png"></a>
+					</section>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+						
+					<div style="text-align:center;">
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div>
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<p>  
+						I recently asked some of my students what real life contexts had they seen in their math classes. 
+						They struggled to think of any. 
+						Finally, one student recalled doing calculations on compound interest, which they know related to finance somehow. 
+						This was the only instance of a realistic context they could recall. 
+						It is funny that there is a trope that "math is everywhere" when for our students, math is basically nowhere. 
+					</p>
+			
+				</section>
+
+
+
+				<!-- CONSEQUENCE -->
+				<section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+							
+						<br> 
+						<div style="text-align:center;">
+							<div data-id="topicI" style="width:180px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						
+						<p>  
+							<div style="width:100%;text-align:center;">Please share.</div>
+							<br> 
+							Short URL: <a target="_blank" style="font-size:50%;" href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing</a>
+							<br><br> 
+							<div style="width:60%;margin-left:40%;"> 
+							Direct URL: <a target="_blank" style="font-size:50%;" href="https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing">https://docs.google.com/document/d/1g1yIbBIhOo3H5e2ujZyJpHFhf2XWYXh7gOJl63z2EH4/edit?usp=sharing</a>
+							</div>
+						</p>
+						<br><br><br><br>
+				
+					</section>
+					<section>
+						
+						<div style="text-align:center;">								
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+							<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+							<div data-id="topicI" style="width:400px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">III</span>. Consequence</div>
+						</div>
+						<br><br> 
+						<p>
+							<img src="img/def_consequence.jpg" style="max-width:500px;">
+						</p>
+						<br><br><br><br>
+					</section>
+				</section>
+
+
+				<section>
+					<a href="https://en.wikipedia.org/wiki/File:Enigma_keylist_3_rotor.jpg"><img src="img/enigma_keylist.jpg"></a>
+					<a href="https://en.wikipedia.org/wiki/File:Enigma_keylist_3_rotor.jpg"><span style="font-size:60%;">Engima Keys</span></a>
+				</section>
+				<section>
+					<a href="https://en.wikipedia.org/wiki/File:Bletchley_Park_Bombe4.jpg"><img src="img/bombe_replica.jpg"></a>
+					<a href="https://en.wikipedia.org/wiki/File:Bletchley_Park_Bombe4.jpg"><span style="font-size:60%;">The "Bombe"</span></a>
+				</section>
+				<section>
+					<a href="https://en.wikipedia.org/wiki/IBM_and_the_Holocaust"><img src="img/watsonhitler.jpg"></a>
+				</section>
+				<section>
+					<a href="https://en.wikipedia.org/wiki/Survivorship_bias#/media/File:Survivorship-bias.svg"><img src="img/survivorship_bias.png"></a>
+					<br>
+					<span style="font-size:40%;"><a href="https://en.wikipedia.org/wiki/Abraham_Wald">Abraham Wald</a> and the <a href="https://en.wikipedia.org/wiki/Statistical_Research_Group">Statistical Research Group</a> at Columbia.</span>
+				</section>
+				<section>
+					Manhattan project 
+				</section>
+				<section>
+					Operation paperclip 
+				</section>
+				<section>
+					https://www.ams.org/publicoutreach/math-history/hmath1-rees21.pdf
+				</section>
+
+				<section>
+					<section>
+						<a href="http://www.cypherspace.org/adam/rsa/uk-shirt.html"><img src="http://www.cypherspace.org/adam/shirt/uk-front2.jpg" style="width:50%;"></a>
+					</section>
+					<section>
+						<div style="font-size:50%;">
+							Recommended reading: "Crypto" by Steven Levy <br><img src="img/crypto.jpg" style="width:250px;">
+						</div>
+					</section>					
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left;">
+					<div data-id="upper1" style="text-align:center;">
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<br><br>
+					<div style="width:40%;display:inline-block;text-align:center;"> <img src="img/box_cover.jpg" style="width:150px;"></div>
+					<div style="width:55%;display:inline-block;vertical-align: top;"><br> "Essentially, all models are wrong, but some are useful." <br> - George Box</div>					
+					<br><br><br><br>
+				</section>
+				<section>
+					<img src="img/box424.jpg" style="width:70%;">
+				</section>
+				<section>
+					<img src="img/box425.jpg" style="width:120%;">
+				</section>
+
+
+
+				<section>
+
+					<div style="text-align:center;">								
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#ccc;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:130%;background-color: #fff;color:#000;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+					<img src="img/nwea.png">
+				</section>
+
+
+				<!-- AI is brittle -->
+
+
+				<section>
+					<section>
+						<a target="_blank" href="https://arxiv.org/abs/2206.09511"><img src="img/fallacyofai.png"></a>
+					</section>
+					
+					<section>
+						<a target="_blank" href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext"><img src="img/automatingambiguity.png"></a>
+					</section>
+
+					<section>
+						<!-- <a target="_blank" href="https://www.technologyreview.com/2020/11/18/1012234/training-machine-learning-broken-real-world-heath-nlp-computer-vision/"><img src="img/trainingbroken.png" style="width:40%;"></a> -->
+						<a target="_blank" href="https://www.science.org/content/article/eye-catching-advances-some-ai-fields-are-not-real"><img src="img/eyecatching.png" style="width:40%;"></a>
+						<a target="_blank" href="https://spectrum.ieee.org/machine-learning-faces-a-reckoning-in-health-research"><img src="img/mlreckoning.png" style="width:40%;"></a>
+						<a target="_blank" href="https://qz.com/2016153/ai-promised-to-revolutionize-radiology-but-so-far-its-failing/"><img src="img/airevolutionfail.png" style="width:40%;"></a>
+						<a target="_blank" href="https://www.technologyreview.com/2020/04/27/1000658/google-medical-ai-accurate-lab-real-life-clinic-covid-diabetes-retina-disease/"><img src="img/googlemedai.png" style="width:40%;"></a>
+					</section>
+					
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<img data-id="watsonpic" src="img/watsonj.jpg"> 
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<a target="_blank" href="https://slate.com/technology/2022/01/ibm-watson-health-failure-artificial-intelligence.html"><img src="img/watson.png" style="width:70%;"></a>				
+						<img data-id="watsonpic" src="img/watsonj.jpg" style="width:200px;"> 
+					</section>
+
+
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+						<a data-id="naturelinkedpitfall" target="_blank" href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png"></a>
+					</section>
+					<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">					
+						<img src="img/natureabstract.png" style="width:70%;">
+						<a data-id="naturelinkedpitfall" target="_blank" href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png" style="width:25%;"></a>
+					</section>					
+
+					<section>
+						<a href="https://openai.com/blog/solving-rubiks-cube/" target="_blank"><img src="img/openaihand.png" style="width:80%;"></a>
+					</section>
+					<section>
+						<a href="https://www.theregister.com/2021/07/18/in_brief_ai/" target="_blank"><img src="img/openaibotshutdown.png"></a>
+					</section>
+
+					<section>
+						<img src="img/tay.png" style="width:35%;">
+						<a target="_blank" href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"><img src="img/tayapology.png" style="width:90%;"></a>
+					</section>
+					<section>
+						<a href="https://retailwire.com/discussion/will-walmarts-decision-to-scrap-robots-have-far-ranging-effects/" target="_blank"><img src="img/walmart.png"></a>
+					</section>
+
+					<section>
+						<a target="_blank" href="https://www.theguardian.com/technology/2015/dec/30/us-marines-reject-bigdog-robot-boston-dynamics-ls3-too-noisy"><img src="img/marinebot.png" style="width:48%;"></a>	
+						<a target="_blank" href="https://www.nationaldefensemagazine.org/articles/2020/1/8/army-cancels-high-profile-robotic-mule-contract"><img src="img/armybot.png" style="width:48%;"></a>
+					</section>
+
+					<section>
+						<a target="_blank" href="https://jalopnik.com/elon-musk-promises-full-self-driving-next-year-for-th-1848432496"><img src="img/musk.png" style="width:70%;"></a>
+					</section>
+				</section>
+				
+
+				<!-- Consequences of data tech -->
+				<section>
+					<section>
+
+						What are some consequences of data technologies?
+						<br> 
+						&darr; 
+					</section>
+					
+					<section>
+						<h4>Some of the more well known harms</h4>
+						<a target="_blank" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing"><img src="img/propublicabias.png" style="width:30%;"></a>
+						<a target="_blank" href="https://www.media.mit.edu/projects/gender-shades/overview/"><img src="img/gendershades.png" style="width:30%;"></a>
+						<a target="_blank" href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G"><img src="img/amazonrecruiting.png" style="width:35%;"></a>
+						<a target="_blank" href="https://www.washingtonpost.com/news/morning-mix/wp/2017/09/12/researchers-use-facial-recognition-tools-to-predict-sexuality-lgbt-groups-arent-happy/"><img src="img/sexualityai.png" style="width:40%;"></a>
+						<a target="_blank" href="https://www.vox.com/future-perfect/22672414/ai-artificial-intelligence-gpt-3-bias-muslim"><img src="img/aiislamaphobia.png" style="width:40%;"></a>
+					</section>
+
+					<section>
+						<a href="https://fortune.com/well/2023/10/20/chatgpt-google-bard-ai-chatbots-medical-racism-black-patients-health-care/amp/"><img src="img/standfordchatgpt.png"></a>
+						<aside class="notes">
+							I attended a virtual ASA meeting recently on ChatGPT. 
+							Respectfully, I disagreed with basically all of it. 
+							One teacher shared that their district is spending an hour of PD per month on practicing using ChatGPT for lesson planning and *grading*. 
+						</aside>
+						
+					</section>
+	<!-- 				
+					<section data-background="#fff">
+						<a href="https://twitter.com/mallory_yu/status/1346196380281405445" target="_blank"><img src="img/yu.png" style="width:30%;border-radius:11px;"></a>					
+						<a target="_blank" href="https://twitter.com/DrJewelKling/status/1542646473208348672" style="margin-left:20px;"><img src="img/drkingtweet.png" style="width:40%;"></a>
+						<a href="https://twitter.com/rit/status/1534252282493034501" target="_blank" style="margin-top:0px;"><img src="img/mcadams.jpeg" style="width:70%;"></a>
+					</section> -->
+
+					
+
+					<section data-background="img/manyhumans.png" style="text-align:left;">
+						
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<a href="https://www.nytimes.com/2019/08/16/technology/ai-humans.html" target="_blank"><span style="width:50%;margin-right:0px;text-align:right;font-size:50%;color:#fff;">https://www.nytimes.com/2019/08/16/technology/ai-humans.html</span></a>
+
+					</section>
+
+					<section>
+						<a href="https://www.bbc.com/news/technology-57088382" target="_blank"><img src="img/labelertrauma.png"></a>
+					</section>
+					<section>
+						<a href="https://www.npr.org/2022/03/24/1088343332/tiktok-lawsuit-content-moderators?sc=18&f=1088343332" target="_blank"><img src="img/tiktok.png" style="width:70%;"></a>
+					</section>
+					<section>
+						<a href="https://time.com/6247678/openai-chatgpt-kenya-workers/" target="_blank"><img src="img/time.png" style="width:70%;"></a>
+					</section>
+									
+
+					<section data-background="#fff">
+						<a target="_blank" href="https://www.nytimes.com/interactive/2019/10/11/technology/flickr-facial-recognition.html"><img src="img/flickr.png"></a>
+					</section>
+
+
+					<section data-background="#000">
+						<a href="https://anatomyof.ai/index.html" target="_blank"><img src="img/aianatomy.png"></a>
+						<span style="font-size:50%;"><a href="https://anatomyof.ai/">Anatomy of an AI system</a>, Crawford and Joler</span>
+					</section>
+
+
+					<section>
+						<a href="https://www.nature.com/articles/s42256-022-00465-9" target="_blank"><img src="img/dualuse.png"></a>
+					</section>
+
+					<section>
+						Adversarial attack 
+						<a target="_blank" href="https://www.youtube.com/watch?v=ZwCNG9KFdXs"><img src="img/faceprint.png"></a>
+					</section>
+					<section>
+						<img src="img/brittletesla.png">
+					</section>
+					<section>
+						<img src="img/brittletesla2.png">
+					</section>
+
+
+					<section>
+						Algorithms are brittle - Melanie Mitchell 
+						<a href="https://www.youtube.com/watch?v=4QBvSVYotVc"><img src="img/brittle.png"></a>
+					</section>
+
+					<section>
+						Lack of oversight or auditing 
+					</section>
+
+					<section>
+						The act, by those in power, of making decisions for us is a display of the imbalance of power.  
+						<br>
+						- Sun-ha Hong,
+						<a target="_blank" href="https://dl.acm.org/doi/10.1145/3531146.3533155">Prediction as Extraction of Discretion</a>
+					</section>
+
+					<section>
+						We are being surveilled. 
+						<ul>
+							<li><a target="_blank" href="https://www.theverge.com/2021/7/14/22576236/retail-stores-facial-recognition-civil-rights-organizations-ban">Retail stores use facial recognition</a>, and </li>
+							<li><a target="_blank" href="https://www.retaildive.com/spons/wi-fi-tracking-a-data-gold-mine-or-privacy-nightmare/572937/">tracking you through your phone's wifi</a>.</li>
+							<li><a target="_blank" href="https://www.theverge.com/2022/7/14/23219419/amazon-ring-law-enforcement-no-warrant-no-consent">Ring data is being shared with law enforcement.</a></li>
+							<li><a target="_blank" href="https://spectrum.ieee.org/tesla-autopilot-data-scope">Tesla is recording petabytes of data</a>.</li>
+							<li>Police are <a target="_blank" href="https://www.vice.com/en/article/v7dw8x/san-francisco-police-are-using-driverless-cars-as-mobile-surveillance-cameras">using driverless cars as mobile surveillance cameras</a></li>
+						</ul>						
+					</section>
+
+					<section>
+						We are being experimented on. 
+					</section>
+				</section>
+
+
+				<section data-background="#ddd">
+					<blockquote style="width:85%;font-size:90%;background-color: #fff;">"Our success, happiness, and wellbeing are never fully of our own making. Others' decisions can profoundly affect the course of our lives... <br><br> Arbitrary, inconsistent, or faulty decision-making thus raises serious concerns..."</blockquote>
+					<p style="font-size:80%;">
+						- <a target="_blank" href="https://fairmlbook.org/introduction.html">Fairness and Machine Learning</a>, Barocas, Hardt, and Narayanan
+					</p>
+				</section>
+
+				<section>
+					<ul>
+						<li>Math-based technologies are ubiquitous, often do not work, and are capable of broad and arbitrary harm.</li>
+						<li>Are we training the next generation of phrenologists? </li>
+						<li>Are we training the next generation of eugenecists? </li>
+					</ul>
+				</section>
+
+				
+				<section>
+					<table>
+						<tr>
+							<td style="width:35%;">
+								<a target="_blank" href="https://youtu.be/JahO1-saibU?t=3510"><img src="img/ruha.png" style="width:300px;"></a>
+								
+							</td>
+							<td style="vertical-align:top; font-size:75%;">
+								"Yes, train these young people to get these skills, but integrate into that not only the technical capacity but the <span style="text-decoration:underline">critical capacity</span> to question what they're doing and what's happening.  
+								To me, it is not true empowerment unless people can have the power to question how these skills are going to be used."
+								<div style="padding-left:50px;font-size:65%;">
+									<br>- Ruha Benjamin 
+									<br> "<a target="_blank" href="https://youtu.be/JahO1-saibU?t=3510">The New Jim Code? Race, Carceral Technoscience, and Liberatory Imagination</a>"
+								</div>
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						Our students are future engineerings.  
+					</aside>
+				</section>
+				
+
+				<!-- OUR TEACHING -->
+
+				<!-- <section>
+					<div data-id="upper1" style="text-align:center;">
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#000;"><span class="topicnumber">I</span>. Beauty</div> &nbsp;&nbsp;&nbsp;
+						<div data-id="topicI" style="width:220px;display:inline-block;font-size:110%;background-color: #fff;color:#000;"><span class="topicnumber">II</span>. Utility</div>
+						<div data-id="topicI" style="width:400px;display:inline-block;font-size:110%;background-color: #fff;color:#000;"><span class="topicnumber">III</span>. Consequence</div>
+					</div>
+				</section> -->
+
+
+
+				<style>
+					.bookresource {
+						height:40px; margin:0px; padding: 0px;
+					}
+				</style>
+				<section>
+					<img src="img/oneil.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/eubanks.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/algopression.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/broussard.png" style="height:230px;margin:0px;padding:0px;">
+					<br>
+					<img src="img/thing_shane.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/hello_fry.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/invisible_perez.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/benjamin.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/ai_mitchell.jpg" style="height:230px;margin:0px;padding:0px;">
+					<br>
+					<img src="img/designjustice.png" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/atlasai.png" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/datafem.jpg" style="height:230px;margin:0px;padding:0px;">
+					<img src="img/morethanaglitch.png" style="height:230px;margin:0px;padding:0px;">
+				</section>
+
+
+				<!-- DSP -->
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4" data-auto-animate-delay="0.3">Data Modeling Process</h4>
+					<br>
+					<p id="dmp-p">
+						<div data-id="dmp-data" 		data-auto-animate-delay="0"   class="graphbox" style="background-color:var(--dsp-red);">Data</div>
+						<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);">Preprocess</div>
+						<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);">Explore</div>
+						<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);">Model</div>
+						<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+						<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);">Communicate</div>
+					</p>
+					<br>
+					<br>
+				</section>
+
+
+
+				
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4" data-auto-animate-delay="0.0">Data Modeling Process</h4>
+					<br>
+					<div data-id="dmp-env" data-auto-animate-delay="1.4" style="width:98%;margin:auto;background-color: #ccc; padding:20px 50px 30px 50px;box-shadow: 3px 3px 7px #AAA;border-radius:20px;">
+						<p style="margin-bottom: 50px;">
+							Environment
+						</p>
+						<p id="dmp-p">
+							<div data-id="dmp-arrow0" 		data-auto-animate-delay="0.0" style="display:inline-block;">&rarr;</div>
+							<div data-id="dmp-data" 		data-auto-animate-delay="0.0"   class="graphbox" style="background-color:var(--dsp-red);font-size:72%;">Data</div>
+							<div data-id="dmp-arrow1" 		data-auto-animate-delay="0.1" style="display:inline-block;">&rarr;</div>
+							<div data-id="dmp-preprocess" 	data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);font-size:72%;">Preprocess</div>
+							<div data-id="dmp-arrow2"	 	data-auto-animate-delay="0.2" style="display:inline-block;">&rarr;</div>
+							<div data-id="dmp-explore" 		data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);font-size:72%;">Explore</div>
+							<div data-id="dmp-arrow3"	 	data-auto-animate-delay="0.3" style="display:inline-block;">&rarr;</div>
+							<div data-id="dmp-model" 		data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);font-size:72%;">Model</div>
+							<div data-id="dmp-arrow4" 		data-auto-animate-delay="0.4" style="display:inline-block;">&rarr;</div>
+							<div data-id="dmp-communicate" 	data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);font-size:72%;">Communicate</div>
+							<div data-id="dmp-arrow5" 		data-auto-animate-delay="1.5" style="display:inline-block;">&rarr;</div>
+						</p>
+					</div>
+					<br>
+					<br>
+				</section>
+
+
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h4 data-id="dmp-h4">A framework for critical analysis</h4>
+					<table>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">		
+								<div data-id="dmp-data" data-auto-animate-delay="0" class="graphbox" style="background-color:var(--dsp-red);float:right;margin-right:20px;">Data</div>
+							</td>
+							<td data-auto-animate-delay="0.5" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Harmful data collection, lack of consent, insecure / lack of privacy, historical, representational, or measurement bias, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-preprocess" data-auto-animate-delay="0.1" class="graphbox" style="background-color:var(--dsp-orange);float:right;margin-right:20px;"">Preprocess</div>
+							</td>
+							<td data-auto-animate-delay="0.6" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Labor exploitation, labeling by non-experts, incorrect labeling, trauma experienced by labelers,  ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-explore" data-auto-animate-delay="0.2" class="graphbox" style="background-color:var(--dsp-yellow);float:right;margin-right:20px;">Explore</div>
+							</td>
+							<td data-auto-animate-delay="0.7" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Feature selection bias, bias in interpretation of data visualization, data manipulation, feature hacking, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-model" data-auto-animate-delay="0.3" class="graphbox" style="background-color:var(--dsp-green);float:right;margin-right:20px;">Model</div>	
+							</td>
+							<td data-auto-animate-delay="0.8" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Bias in model choice, model-amplified bias, environmental impact, learning bias, evaluation bias, peripheral modeling, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-communicate" data-auto-animate-delay="0.4" class="graphbox" style="background-color:var(--dsp-blue);float:right;margin-right:20px;">Communicate</div>
+							</td>
+							<td data-auto-animate-delay="0.9" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; Biased model interpretation, ignoring variance, rejecting model, deploying harmful products, deployment bias, ...
+								<br><br>
+							</td>
+						</tr>
+						<tr style="border:0px;padding:0px;">
+							<td style="border:0px;padding:0px;">
+								<div data-id="dmp-meta" data-auto-animate-delay="1.4" class="graphbox" style="background-color:var(--dsp-gray);float:right;margin-right:20px;">Meta</div>
+							</td>
+							<td data-auto-animate-delay="0.9" style="font-size:60%;border:0px;padding:0px;vertical-align: top;">
+								&bull; "Pernicious feedback loops", runaway homogeneity<!-- https://arxiv.org/abs/1710.11214 -->, susceptability to adversarial attack, lack of oversight or auditing, ...
+								<br><br>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+
+
+				<section>
+					<div style="font-size:50%;">
+						Critical Questions: 
+						<br> 
+						<table>
+							<tr>
+								<td>
+									<ul>
+										<li>What are the motivations for the project?  </li>
+										<li>What is the intended use? </li>
+										<li>What is the unintended use or misuse? </li>
+										<li>Where does the data come from?  </li>
+										<li>Who collects the data? </li>
+										<li>Who owns the data?</li>
+										<li>How is the data collected? </li>
+										<li>How is the data stored?</li>
+										<li>How old is the data? </li>
+										<li>When will the data expire? </li>
+										<li>How will the data be secured? </li>
+										<li>What happens with the data when the company is sold? </li>
+										<li>Who does the labeling? </li>
+										<li>What labels will they decide to use? </li>
+										<li>Are the labelers experts? </li>
+										<li>Are the labels accurate? </li>
+										<li>What biases are represented in the data?</li>
+										<li>How is data included or excluded? </li>
+									</ul>
+								</td>
+								<td>
+									<ul>
+										<li>How are outliers addressed? </li>
+										<li>What subpopulations are represented? </li>
+										<li>What subpopulations are over- or underrepresented? </li>
+										<li>What portions of the data are inspected?  <!-- For example, the first 100 entries are representative if the data isn't randomized --></li>
+										<li>What features are selected for modeling? </li>
+										<li>What model is chosen? </li>
+										<li>What features do we think are being modeled? </li>
+										<li>What latent features are actually being modeled? </li>
+										<li>What is the domain of the model?</li>
+										<li>What are the consequences of error?</li>
+										<li>What decisions will be made with the model? </li>
+										<li>What biases are perpetuated? </li>
+										<li>Where will the model be deployed? </li>
+										<li>What could go wrong?</li>
+										<li>Who is responsible when things go wrong?</li>
+										<li>How can issues be reported?  </li>
+										<li>Will new data be fed back in to update the model? </li>
+									</ul>
+								</td>
+							</tr>
+						</table>
+						
+				</div>
+
+				</section>
+
+
+
+				
+				<section style="font-size:40%;">
+					How can we start incorporating ethics into math? 
+	In science it is easier: start talking about DNA and pretty soon you're pondering quesitons of cloning which is froght with ethical questions... But how can we do that in math? 
+	
+	Talk about encryption: 
+	- PGP t shirt
+	- Apple refusing to create a back door for the FBI to access cell phones
+
+	Talk about statistics
+	- Read https://nautil.us/how-eugenics-shaped-statistics-238014/ 
+	- Talk about the mistakes that were made early on so that STUDENTS CAN LEARN FROM THEM instead of repeating them. 
+	
+	When we model bouncy balls, we are creating a data based predictive model. Then we make a prediction and it is wrong. Show models breaking. Show math not working. 
+	If students never see math "break", it feeds into the misconception that math is pure and beautiful, a misconception we are responsible for perpetuating. 
+
+	- Talk about how notation is a human invention, and it's pretty wha
+	- Talk about how models break. Don't leave it out. Maybe even read a book about it. 
+	- Show them that models break. Build a bouncy ball model and then see it not work. 
+	- Talk about bias and variance. 
+	- Talk about complexity. 
+	- See math being not useful. Too many classrooms present a view of math that is not only unrealistic, but useless. 
+
+	Read a book! 
+				</section>
+
+
+
+
+			<section style="font-size:14px;">
+
+Many of the arguments I here for math's neutrality are of the form:
+"Math is completely objective, so it can't be subjective"
+"Math is math"
+which is begging the question (assuming the conclusion is true, and then concluding the assumption)
+
+To suggest that mathematics is value-free is to reject the history of the development of mathematics and it's profoundly deep cultural bases. 
+	Dantzig. 1930. Number: The Language of Science
+				p. 193 Euler's identity "was considered by some of his metaphysically inclined contemporaries as of mystic significance." 
+	Crest of the Peacock
+	The mathematical debates of the late 19th and early 20th centuries, decades of atttempts to determine the nature of mathematics. 
+	Kline. 1967. Mathematics for the nonmathematician: 
+				p. 3 Perhaps we can see more easily why one should study mathematics if we take a moment to consider what mathematics is. Unfortunately the answer cannot be given in a single sentence or a single chapter. 
+					The subject has many facets or, some might say, is Hydra-headed. 
+					One can look at mathematics as a language, as a particular kind of logical structure, as a body of knowledge about number and space, as a series of methods for deriving conclusions, as the essence of our knowledge of the physical world, or merely as an amusing intellectual activity. 
+					... 
+					[mathematics is what mathematicians do... it is a human creation]
+To suggest that mathematics is neutral is to play games of obfuscation with language, attempting to manipulate definitions so as to push responsibility off onto other fields.
+	That's not "math", that's "physics". That's not "math", that's "engineering". That's not "math", that's some application of math so you shouldn't hold math responsible. 
+When someone says math is racist, I think I understand what they're saying. 
+When someone says math can't be racist I think I understand what they're saying. 
+When someone says math is neutral, I think I know what they're talking about. 
+	They're talking about a meta mathematical idea or one of the many proposals for a philosophy of mathematics. 
+	But there are many conceptions of mathematics and 
+Mathematics is a human endevour. And human endevours are inherently ethical. Our teaching and doing of mathmetics has consequences, and to claim objectivity in human endevours is anti-ethical. 
+
+
+A common question I get from students when I first present the notion of teaching ethics in mathematics is "but where is the ethics in mathematics?" 
+I hear that as direct evidence that ethics need to incorporated into math classes! 
+What they are really saying is: "nothing about the way math has been taught to me indicates that it is actually useful for real world applications, and I'll never use it, so how could there be consequences of it?" 
+
+I recently had a conversation with a student about teaching ethics in mathematics. 
+	I said that in biology, you can start a unit on DNA and very quickly be discussing ethical dilemmas; cloning, designer children, eugenics, etc. 
+	In math, you never do that. But I think there are plenty of ways you can introduce ethical contexts into technical mathematics, we just don't. 
+
+
+It has been repeated that math is the "universal language", but I think it is more accurate to say that it is the universe that is universal and various civilizations and cultures have developed tools for describing the same universe. 
+If we meet aliens and they know about similar patterns in prime numbers, they have made observations about the same universe in which we made observations. 
+They have a concept of quantity, they have abstractions of quantities, and they have observed patterns in abstractions. Placing a line between 
+
+
+			</section>
+
+
+
+			<section data-background="#333343">
+				<img src="img/abstraction.jpg" style="width:70%;">
+				<div style="color:#555; font-size:70%;">Davis and Hersh. "The Mathematical Experience" p. 129</div>
+				
+			</section>
+
+
+
+
+			<section style="font-size:60%;">
+				<h3>Resources</h3>
+				<ul>
+					<li>AI Now Institute: <a href="https://ainowinstitute.org/">https://ainowinstitute.org/</a> </li>
+
+					<li>Lighthouse3, AI Ethics Weekly - <a href="https://lighthouse3.com/newsletter/">https://lighthouse3.com/newsletter/</a></li>
+					<li>The Batch - <a href="https://www.deeplearning.ai/the-batch/">https://www.deeplearning.ai/the-batch/</a></li>
+					<li><a target="_blank" href="https://twitter.com/math_rachel">Rachel Thomas</a> Fast.ai <a target="_blank" href="https://ethics.fast.ai/syllabus/">Data Ethics Course</a>  </li>
+					<li><a href="https://docs.google.com/document/d/1P4xAUa9qfEbeCjurGOdJH3dW2JErVRJZ1K9DLAT8uYE/">Ethics in Mathematics Readings</a> - Allison N. Miller </li>
+					<li><a target="_blank" href="https://arxiv.org/abs/2206.04179">Automating Ambiguity: Challenges and Pitfalls of Artificial Intelligence</a> - <a target="_blank" href="https://twitter.com/abebab">Abeba Birhane</a></li>
+			
+					<li><a href="https://dl.acm.org/doi/10.1145/3442188.3445922">On the dangers of stochastic parrots: Can language models be too big?</a>  - Emily M. Bender, Timnit Gebru, Angelina McMillan-Major, and Margaret Mitchell</li>
+			
+					<li><a target="_blank" href="https://twitter.com/rctatman">Rachael Tatman</a> - <a target="_blank" href="https://www.youtube.com/c/RachaelTatmanNLP">YouTube</a></li>
+		
+					<li><a target="_blank" href="https://www.youtube.com/watch?v=P7XT4TWLzJw">SaTML 2023 - Timnit Gebru - Eugenics and the Promise of Utopia through AGI</a></li>
+					<li><a target="_blank" href="https://www.youtube.com/watch?v=jAHRbFetqII">A.I. and Stochastic Parrots | FACTUALLY with Emily Bender and Timnit Gebru</a></li>
+					<li>AIES '22: Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society  <a href="https://dl.acm.org/doi/proceedings/10.1145/3514094">https://dl.acm.org/doi/proceedings/10.1145/3514094</a></li>
+				</ul>
+			</section>
+
+			<section style="font-size:70%;">
+				Education: 
+					<ul>
+					<li>
+						<a target="_blank" href="https://openreview.net/forum?id=k9jaVBHot_">Teaching Machine Learning in the Context of Critical Quantitative Information Literacy </a> 
+					</li><li>
+						<a target="_blank" href="https://arxiv.org/abs/2001.07649">Integrating data science ethics into an undergraduate major: A case study</a>
+					</li>	<li>
+						<a target="_blank" href="https://journals.sagepub.com/doi/full/10.3102/0013189X211048810">A call for a humanistic stance toward k-12 data science education</a>
+					</li>	<li>
+						<a target="_blank" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8455229/">Artificial intelligence in education: Addressing ethical challenges in K-12 settings</a>
+					</li> <li>
+						<a hre="https://docs.google.com/spreadsheets/d/1oppU-mYv3pvy2oGTkLZel03ydMjSgQ09Aa1L2fEC0v8/edit#gid=0">Provisional Data Science for Social Change Spring 2022 schedule</a>
+					</li>
+					</ul>
+			</section>
+
+
+
+
+			</div>  <!-- END of slides div -->
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
