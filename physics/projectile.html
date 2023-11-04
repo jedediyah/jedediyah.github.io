@@ -20,7 +20,7 @@
   <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
   <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
 
 </head>
 
@@ -101,25 +101,34 @@ A <em>horizontal projectile</em> is a special case because the initial vertical 
 This is useful because it can make our algebra much easier! Note that we are now using subscripts to distinguish between horizontal \(x\) motion and vertical \(y\) motion. 
 </p>
 
-<div class="example">
-	A ball is rolling at 3.2 m/s when it rolls off the edge of a 1.2 m tall table. How far from the table does the ball land? 
-  <hr> 
-  We break this problem into two pieces: vertical, and horizontal. <br><br> 
-  Considering only the vertical motion of the ball as it falls, 
-  \[ v_{yi} = 0  \text{ m/s} \]
-  \[ \Delta y = -1.2 \text{ m} \]
-  \[ a = -10 \text {m/s}^{2} \]
-  With this information we can find the amount of time \(\Delta t\) that the ball will be falling before it hits the ground. 
-  Using \[ \Delta y = v_{yi} \Delta t + \frac{1}{2} a_{y} \Delta t ^{2} \]
-  We plug in and solve to get 
-  \[ \Delta t = \sqrt{ \frac{2 \Delta y}{a_{y}} } = \sqrt{\frac{2 (-1.2)}{(-10)}} = 0.49 \text{ s}\]
-  
-  Now that we know \(\Delta t\), we can consider the horizontal motion. 
-  Using 
-  \[ \Delta x = v_{x} \Delta t \] 
-  we plug in to get 
-  \[ \Delta x = (3.2)(0.49) = 1.57 \text{ m}  \]
-</div>
+<div id="question1" class="exampleQuestion">
+  A ball is rolling at 3.2 m/s when it rolls off the edge of a 1.2 m tall table. How far from the table does the ball land? 
+      <div style="text-align:center;">&darr;</div>
+  </div>
+  <div id="answer1" class="exampleAnswer">
+    We break this problem into two pieces: vertical, and horizontal. <br><br> 
+    Considering only the vertical motion of the ball as it falls, 
+    \[ v_{yi} = 0  \text{ m/s} \]
+    \[ \Delta y = -1.2 \text{ m} \]
+    \[ a = -10 \text {m/s}^{2} \]
+    With this information we can find the amount of time \(\Delta t\) that the ball will be falling before it hits the ground. 
+    Using \[ \Delta y = v_{yi} \Delta t + \frac{1}{2} a_{y} \Delta t ^{2} \]
+    We plug in and solve to get 
+    \[ \Delta t = \sqrt{ \frac{2 \Delta y}{a_{y}} } = \sqrt{\frac{2 (-1.2)}{(-10)}} = 0.49 \text{ s}\]
+    
+    Now that we know \(\Delta t\), we can consider the horizontal motion. 
+    Using 
+    \[ \Delta x = v_{x} \Delta t \] 
+    we plug in to get 
+    \[ \Delta x = (3.2)(0.49) = 1.57 \text{ m}  \]
+  </div><br>
+  <script> 
+      $(document).ready(function(){
+          $("#question1").click(function(){
+              $("#answer1").slideToggle("fast");
+          });
+      });
+  </script><br>
 
 
 
@@ -130,7 +139,7 @@ Given a vector with some magnitude \(v\) and direction \(\theta\) measured from 
 \[v_{x} = v \cdot \cos(\theta)\]
 \[v_{y} = v \cdot \sin(\theta)\]
 Consider the vector in the graph below. Try dragging the tip of the vector to change its magnitude (length) and direction. Explore how changing the vector changes its horizontal component (red) and vertical component (blue). 
-<iframe src="https://www.desmos.com/calculator/4jr5xbo1ov?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<iframe src="https://www.desmos.com/calculator/4jr5xbo1ov?embed" width="540" height="540" style="border: 1px solid #ccc" frameborder=0></iframe>
 
 
 <a id="sec-angle"></a>
