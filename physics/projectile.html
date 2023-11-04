@@ -53,12 +53,15 @@ Two dimensional projectile motion can be broken down into horizontal and vertica
 
 <h3>Slides</h3>
 <ul>
-  <li><a href="https://docs.google.com/presentation/d/1B9Q--WrkvMNzDirfQLRCmvkOYWzWejiP-vlv3uVR0Jc/edit?usp=sharing">3.1 </a></li>
+  <li><a href="https://docs.google.com/presentation/d/1B9Q--WrkvMNzDirfQLRCmvkOYWzWejiP-vlv3uVR0Jc/edit?usp=sharing">3.1 Horizontal Projectile Motion</a></li>
 </ul>
 
 <h3>Skills and Understanding</h3>
 <ul>
-	<li> </li>
+	<li>Apply kinematic equations to solve projectile motion problems in 2D. </li>
+  <li>Use basic trigonometry functions to find lengths of triangles corresponding to magnitudes of vectors.  </li>
+  <li>Understand that horizontal and vertical motion of a projectile can be analyzed independently.</li>
+  <li>Understand that vertical acceleration due to gravity is independent of horizontal motion. </li>
 </ul>
 
 <h3>Equations</h3>
@@ -66,7 +69,7 @@ Two dimensional projectile motion can be broken down into horizontal and vertica
 \[
   \begin{array}{cc} 
   v = \frac{\Delta x}{\Delta t}     \quad  \quad  \quad  \quad    & v_{f} = v_{i} + a \cdot \Delta t      \\ 
-  a = \frac{\Delta v}{\Delta t}     \quad  \quad  \quad  \quad    & \Delta x = \frac{1}{2} \left( v_{i} + v_{f} \right) \Delta t    \\ 
+  a = \frac{\Delta v}{\Delta t}     \quad  \quad  \quad  \quad    & \Delta x = \frac{1}{2} ( v_{i} + v_{f} ) \Delta t    \\ 
   v_{avg} = \frac{v_{i}+v_{f}}{2}   \quad  \quad  \quad  \quad    & \Delta x = v_{i} \Delta t + \frac{1}{2} a \Delta t ^{2}    \\ 
                                     \quad \quad \quad \quad       &    v_{f}^{2} = v_{i}^{2} + 2 a \Delta x
   \end{array}
@@ -79,7 +82,7 @@ Two dimensional projectile motion can be broken down into horizontal and vertica
   <li> <em>Acceleration</em> \(a\) is the rate at which velocity changes. It is calculated as \(a = \frac{\Delta v}{\Delta t}\) </li>
   <li> <em>Displacement</em> is the change in position from the start to the end of a path. Given an initial position \(x_{i}\) and final position \(x_{f}\), the displacement \(\Delta x\) is calculated as \(\Delta x = x_{f} - x_{i}\)  </li>
   <li> <em>Freefall</em> describes when an object is falling due to gravity alone. </li>
-  <li> <em>Projectile</em> </li>
+  <li> A <em>projectile</em> is an object with some initial velocity that is accelerating due to gravity.</li>
   <li> <em>Velocity</em> is the rate at which position is changing. It is calculated as \(v = \frac{\Delta x}{\Delta t}\)  </li>
 </ul>
 
@@ -120,10 +123,43 @@ This is useful because it can make our algebra much easier! Note that we are now
 
 
 
+<a id="sec-vectors"></a>
+<h2>3.2 Vector Basics</h2>
+
+Given a vector with some magnitude \(v\) and direction \(\theta\) measured from the positive \(x\)-axis, the honrizontal and vertical components can be calculated with 
+\[v_{x} = v \cdot \cos(\theta)\]
+\[v_{y} = v \cdot \sin(\theta)\]
+Consider the vector in the graph below. Try dragging the tip of the vector to change its magnitude (length) and direction. Explore how changing the vector changes its horizontal component (red) and vertical component (blue). 
+<iframe src="https://www.desmos.com/calculator/4jr5xbo1ov?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+
+<a id="sec-angle"></a>
+<h2>3.3 Projectile at an Angle</h2>
+
+Play with the <a href="https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html">PhET projetile simulator</a>. 
+What do you notice? What do you wonder? 
 
 
 
+<div class="example">
+	A marble is launched from ground height with an initial velocity \(v_{i}=5.7\) m/s at an angle of \(72^{\circ}\). How far horizontally does the marble travel before coming back to the ground? 
+  <hr> 
+  First we find the horizontal and vertical components of the velocity. 
+  \[v_{x} = 5.7 \cdot \cos(72^{\circ}) \approx 1.761 \]
+  \[v_{yi} = 5.7 \cdot \sin(72^{\circ}) \approx 5.421 \]
+  We then break the problem into two: horizontal and vertical. 
+  <br><h4>Vertical</h4>
+  We can use \(v_{y}\) to find how much time the marble spends in the air. One way to do this is with 
+  \[ a_{y} = \frac{v_{yf}-v_{yi}}{\Delta t} \]
+  Given that \(a_{y}=-10\), \(v_{yi} = 5.421\), and \(v_{yf}=-5.421\) because of symmetry, we can solve for \(\Delta t\) to get 
+  \[ \Delta t = \frac{-5.421 - 5.421}{-10} = 1.084 \text{ s} \]
 
+  <h4>Horizontal</h4>
+  Using the value of \(\Delta t\) from the vertical portion, we can find the horizontal displacement:
+  \[ \Delta x = v_{x} \Delta t = (1.761)(1.084) = 1.9 \text{ m}  \]
+
+
+</div>
 
 
 
