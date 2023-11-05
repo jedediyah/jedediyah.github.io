@@ -20,7 +20,7 @@
   <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 
   <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
 
 </head>
 
@@ -91,9 +91,13 @@ Accelerated motion describes when an object's velocity is changing. In this unit
 Acceleration is change in velocity per time, 
 \[ a = \frac{\Delta v}{ \Delta t} = \frac{v_{f} - v_{i}}{\Delta t} \ \]
 
-<div class="example">
-	A ball is thrown at 31 m/s. The ball hits a wall and bounces directly back, 24 m/s in the opposite direction. If the ball was in contact with the wall for 0.035 s, what was the acceleration during the bounce? 
-  <hr> 
+
+
+<div id="question1" class="exampleQuestion">
+  A ball is thrown at 31 m/s. The ball hits a wall and bounces directly back, 24 m/s in the opposite direction. If the ball was in contact with the wall for 0.035 s, what was the acceleration during the bounce? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
   Considering the ball starting in the positive direction, the ball is initially moving with velocity 
   \[ v_{i} = 31 \text{ m/s} \]
   After the ball bounces off the wall, its velocity is 
@@ -105,15 +109,37 @@ Acceleration is change in velocity per time,
   we can plug in to get 
   \[ a = \frac{-24 - 31}{0.035} = -1571 \text{ m/s}^{2}  \]
 </div>
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+
+
 
 
 <a id="sec-pvtacceleration"></a>
 <h2>2.2 Position versus Time Graphs and Acceleration</h2>
 <p>
   When velocity was constant (acceleration was zero), position versus time graphs were linear. That was inline with our understanding that velocity was the slope of the position versus time graph, and constant slope results in a straight line. 
-  Now that we are considering acceleration, 
+  Now that we are considering acceleration, velocity is changing, so our position versus time graphs will no longer be linear. 
 </p>
-<img src="velacc.gif">
+<p>
+  Given the four samples of motion below, consider these questions:
+  <ul>
+    <li>Is the velocity positive or negative?</li>
+    <li>Is the acceleration positive or negative?</li>
+    <li>Is the person speeding up, or slowing down?</li>
+    <li>What would the graph of position versus time look tike?</li>
+  </ul>
+  <br>
+  <img src="velacc.gif">
+  Match each of the motion samples above to one of these position versus time graphs:
+  <br>
+  <img src="img/pvt_accel.jpg" style="margin-top:15px;">
+</p>
 
 
 
@@ -135,9 +161,13 @@ Assuming constant acceleration, there are four common equations:
 <p>
   When presented with a kinematic physics problem, identifying the <b>G</b>ivens and the <b>U</b>nknown helps us to choose the appropriate <b>E</b>quation to use. 
 </p>
-<div class="example">
-	A car is traveling at \(21\) m/s when it accelerates at a rate of \(4.5\) m/s\(^{2}\) for 3.1 s. How far does the car travel during those 3.1 s? 
-  <hr> 
+
+
+<div id="question2" class="exampleQuestion">
+  A car is traveling at \(21\) m/s when it begins to accelerate at a rate of \(4.5\) m/s\(^{2}\) for 3.1 s. How far does the car travel during those 3.1 s? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer2" class="exampleAnswer">
   We are <b>G</b>iven that
   \[ v_{i} = 21 \text{ m/s} \]
   \[ a = 4.5 \text{ m/s}^{2} \]
@@ -148,12 +178,46 @@ Assuming constant acceleration, there are four common equations:
   Plugging in we have 
   \[ \Delta x = (21) (3.1) + \frac{1}{2} (4.5) (3.1)^{2} = 87 \text{ m} \]
 </div>
+<script> 
+    $(document).ready(function(){
+        $("#question2").click(function(){
+            $("#answer2").slideToggle("fast");
+        });
+    });
+</script>
+
+
 
 <a id="sec-freefall"></a>
 <h2>2.5 Freefall</h2>
   <p>
-    Freefall describes when an object is accelerating due only to gravity. The acceleration due to gravity at the surface of Earth is approximately 9.8 m/s\(^{2}\). 
+    Freefall describes when an object is accelerating due only to gravity. The acceleration due to gravity at the surface of Earth is approximately -9.81 m/s\(^{2}\), but we'll often use the value \(-10\) m/s\(^{2}\). 
   </p>
+
+
+  <div id="question3" class="exampleQuestion">
+    A tennis ball is dropped from rest at a height of 3.8 m. How much time will it take for the ball to hit the ground? 
+    <div style="text-align:center;">&darr;</div>
+  </div>
+  <div id="answer3" class="exampleAnswer">
+    We are given 
+    \[\Delta y = -3.8 \text{ m}\]
+    \[a = -10 \text{m/s}^{2} \]
+    \[v_{i} = 0 \text{ m/s} \]
+    and we are looking for \(\Delta t\). We can use the formula 
+    \[ \Delta y = v_{i} \Delta t + \frac{1}{2}a \Delta t^{2} \]
+    Plugging into this formula we have 
+    \[ -3.8 = (0)\Delta t + \frac{1}{2} (-10) \Delta t^{2} \]
+    which we can solve to get 
+    \[ \Delta t = \sqrt{ \frac{2 \cdot (-3.8)}{-10}} \approx 0.87 \text{ s}\]
+  <script> 
+      $(document).ready(function(){
+          $("#question3").click(function(){
+              $("#answer3").slideToggle("fast");
+          });
+      });
+  </script>
+
 
 
 
