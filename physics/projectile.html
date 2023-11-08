@@ -59,8 +59,8 @@ Two dimensional projectile motion can be broken down into horizontal and vertica
 <h3>Skills and Understanding</h3>
 <ul>
 	<li>Apply kinematic equations to solve projectile motion problems in 2D. </li>
-  <li>Use basic trigonometry functions to find lengths of triangles corresponding to magnitudes of vectors.  </li>
-  <li>Understand that horizontal and vertical motion of a projectile can be analyzed independently.</li>
+  <li>Use trigonometry to find lengths of triangles corresponding to magnitudes of vectors.  </li>
+  <li>Understand that projectile motion can be decomposed into horizontal and vertical motion, and these can be analyzed separately.</li>
   <li>Understand that vertical acceleration due to gravity is independent of horizontal motion. </li>
 </ul>
 
@@ -162,7 +162,7 @@ What do you notice? What do you wonder?
   \[v_{yi} = 5.7 \cdot \sin(72^{\circ}) \approx 5.421 \]
   We then break the problem into two: horizontal and vertical. 
   <br><h4>Vertical</h4>
-  We can use \(v_{y}\) to find how much time the marble spends in the air. One way to do this is with 
+  We can use \(v_{yi}\) to find how much time the marble spends in the air. One way to do this is with 
   \[ a_{y} = \frac{v_{yf}-v_{yi}}{\Delta t} \]
   Given that \(a_{y}=-10\), \(v_{yi} = 5.421\), and \(v_{yf}=-5.421\) because of symmetry, we can solve for \(\Delta t\) to get 
   \[ \Delta t = \frac{-5.421 - 5.421}{-10} = 1.084 \text{ s} \]
@@ -183,15 +183,48 @@ What do you notice? What do you wonder?
 
 
 
-  <a id="sec-uneven"></a>
+  <a id="sec-projectileheight"></a>
   <h2>3.4 Projectile at a Height</h2>
   <p>
   Previously, we analyzed a projectile that landed at the same height from which it was launched. 
   Let's consider the case where a projectile lands at a different height. 
   </p>
   <p>
-    Our useful strategy is to break problems into smaller problems. If a projectile is 
+    Our useful strategy is to break problems into smaller problems. 
   </p>
+
+
+  <div id="question3" class="exampleQuestion">
+    A projectile is launched from a height of 3.4 m with an initial velocity \(v_{i}=12.5\) m/s at an angle of \(51^{\circ}\). How far horizontally does the marble travel before landing on the ground? 
+    <div style="text-align:center;">&darr;</div>
+  </div>
+  <div id="answer3" class="exampleAnswer">
+    First we find the horizontal and vertical components of the velocity. 
+  \[v_{x} = 12.5 \cdot \cos(51^{\circ}) \approx 7.867 \]
+  \[v_{yi} = 12.5 \cdot \sin(51^{\circ}) \approx 9.714 \]
+  We will find the time \(\Delta t_{1}\) from start to peak, and time \(\Delta t_{2}\) from peak to ground. Then with the total time we can find the horizontal displacement. 
+  <h4>From start to peak</h4>
+  Using \(a=\frac{v_{f}-v_{i}}{\Delta t}\) we can find the time to peak with 
+  \[\Delta t_{1} = \frac{0 - 9.714}{-10} = 0.9714\]
+  For that amount of time, our projectile traveled upwards a distance of 
+  \[ \Delta y = v_{yi} \Delta t_{1} + \frac{1}{2} a \Delta t_{1}^{2} = 4.718 \text{ m} \]
+  which we add to 3.4 to get a peak height of \(8.118\) m. 
+
+  <h4>From peak to ground</h4>
+  Using the peak height, we can find the time to the ground, \(\Delta t_{2}\), 
+  \[ \Delta t_{2} = \sqrt{\frac{2\cdot(-8.118)}{-10}} = 1.274 \]
+  and the horizontal displacement from start to end is 
+  \[ \Delta x = v_{xi} \cdot (\Delta t_{1} + \Delta t_{2}) = 17.7 \text{ m} \]
+
+  </div>
+  <script> 
+      $(document).ready(function(){
+          $("#question3").click(function(){
+              $("#answer3").slideToggle("fast");
+          });
+      });
+  </script>
+
 
 
 

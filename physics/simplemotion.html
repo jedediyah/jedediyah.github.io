@@ -106,9 +106,13 @@ The GUESS method is a framework for problem solving. It stands for:
   <li><b>S</b>olve &mdash; Solve for the missing value.  </li>
 </ul>
 
-<div class="example">
+
+
+<div id="question1" class="exampleQuestion">
   Carlos drives his car a distance of \(15\) km in \(20\) minutes. What was his average speed in m/s? 
-  <hr> 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
   We can answer this question using the GUESS method. 
   <br> 
   The <b>G</b>ivens are: 
@@ -123,7 +127,15 @@ The GUESS method is a framework for problem solving. It stands for:
   And <b>S</b>olve to find:
   \[ s = 12.5 \text{ m/s} \]
 </div>
-    
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+
+
 
 <a id="sec-distance"></a>
 <h2>1.2 Distance, Displacement, Speed, Velocity</h2>
@@ -135,10 +147,14 @@ The GUESS method is a framework for problem solving. It stands for:
 <em>Speed</em> is calculated using distance, \(s = \frac{d}{\Delta t}\), so it too can never be negative. <em>Velocity</em> on the other hand is calculated with displacement, \(v = \frac{\Delta x}{\Delta t}\), so it can be negative. Consider a car driving backward \(20\) miles in an hour. We would say that it's velocity is \(-20\) mph, but it's speed is \(20\) mph. 
 </p>
 
-<div class="example">
-	Juan went biking from home straight to his friend's house 843 meters away. He then biked back towards home 325 meters before taking a break. Juan did this all in 9 minutes. What was Juan's average speed in m/s, and what was his average velocity in m/s? 
-  <hr> 
-	The <b>G</b>ivens are: 
+
+
+<div id="question2" class="exampleQuestion">
+  Juan went biking from home straight to his friend's house 843 meters away. He then biked back towards home 325 meters before taking a break. Juan did this all in 9 minutes. What was Juan's average speed in m/s, and what was his average velocity in m/s? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer2" class="exampleAnswer">
+  The <b>G</b>ivens are: 
 	\[ \Delta t = 9 \text{ min} = 540 \text{ s} \]
 	Adding the lengths to get total distance, we have: \[ d = 843 + 325 = 1168 \text{ m} \]
 	We can say his initial position is: \[ x_{i} = 0 \text{ m} \]
@@ -164,6 +180,14 @@ The GUESS method is a framework for problem solving. It stands for:
 	\end{array}
 	\]
 </div>
+<script> 
+    $(document).ready(function(){
+        $("#question2").click(function(){
+            $("#answer2").slideToggle("fast");
+        });
+    });
+</script>
+
 
 
 <a id="sec-posvtime"></a>
