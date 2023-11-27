@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+  <title>Physics</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+  <!-- <link href="prism.css" rel="stylesheet" />
+  <script src="prism.js"></script> -->
+
+  <!-- Mathjax -->
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Desmos API for embedded graphs -->
+  <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+
+</head>
+
+<body>
+
+  <a id="dsp-top"></a>
+
+  <div class="sidebar" id="mainNav">
+    <a href="index.html" class="active">Physics</a>
+    <a href="simplemotion.html"><img src="img/simplemotion.png" class="menu-img"> 1. Simple Motion</a>
+    <a href="acceleratedmotion.html"><img src="img/acceleratedmotion.png" class="menu-img"> 2. Accelerated Motion</a>
+    <a href="projectile.html"><img src="img/projectile.png" class="menu-img"> 3. Projectile Motion</a>
+    <a href="newton.html"><img src="img/newton.png" class="menu-img"> 4. Newton's Laws</a>
+    <a href="momentum.html"><img src="img/momentum2.png" class="menu-img"> 5. Momentum</a>
+    <a href="energy.html"><img src="img/energy.png" class="menu-img"> 6. Energy</a>
+    <a href="heat.html"><img src="img/heat.png" class="menu-img"> 7. Heat</a>
+    <a href="electrostatics.html"><img src="img/charge.png" class="menu-img"> 8. Electrostatics</a>
+    <a href="circuits.html"><img src="img/circuit.png" class="menu-img"> 9. Circuits</a>
+    <a href="magnetism.html"><img src="img/magnetism2.png" class="menu-img"> 10. Magnetism</a>
+    <a href="waves.html"><img src="img/waves2.png" class="menu-img"> 11. Waves</a>
+  </div>
+
+  <div class="content">
+
+    <div class="maincontainer">
+
+<h1>4. Newton's Laws</h1>
+<h2>Overview</h2>
+Newton's Laws are fundamental concepts in classical physics. They help us predict the motion and behavior of everyday objects. 
+
+<h3>Slides</h3>
+<ul>
+  <li><a href="">4.1 Forces</a></li>
+  <li><a href="">4.2 Free Body Diagrams</a></li>
+  <li><a href="">4.3 </a></li>
+</ul>
+
+<h3>Skills and Understanding</h3>
+<ul>
+  <li>Apply Newton's Laws to analyze physical behaviors and interactions of objects.  </li>
+	<li>Draw Free Body Diagrams (FBDs) and analyze forces in 2D. </li>
+	<li>Apply Newton's 2nd Law, \(F=ma\), to solve for force, mass, and acceleration. </li>
+	<li>Identify when an object is in equilibrium, and solve equilibrium equations.  </li>
+</ul>
+
+<h3>Equations</h3>
+
+\[
+  \begin{array}{cc} 
+  F = ma     \quad \quad  \quad  \quad   F_{f} = \mu F_{N}    \\ 
+  \end{array}
+\]
+
+
+
+<h3>Vocabulary</h3>
+<ul>
+  <li> <em>Acceleration</em> is the rate at which velocity changes. </li>
+  <li> <em>Equilibrium</em> describes when the forces on an object add to zero, resulting in no acceleration. </li>
+  <li> <em>Force</em> is an influence on mass that can change its velocity.  \(F=ma\).  </li>
+  <li> <em>Friction</em> is a force that opposes sliding motion due to the interaction of two surfaces. It acts parallel to the surfaces in contact.</li>
+  <li> <em>Inertia</em> is the tendency of an object to resist changes in its state of motion. An object at rest stays at rest unless acted upon by a force. An object in motion maintains that motion unless acted upon by a force.  </li>
+  <li> <em>Mass</em> is a measure of the amount of matter in an object, measured in kilograms (kg).  </li>
+  <li> <em>Weight</em> is a measure of the force exerted on an object due to gravity. </li>
+</ul>
+
+
+<a id="sec-laws"></a>
+<h2>4.1 Newton's Laws</h2>
+<p>
+  <ol>
+    <li>
+      <h4>Newton's First Law (Inertia)</h4>
+      An object at rest will stay at rest, and an object in motion will stay in motion, unless acted upon by a force. 
+    </li>
+    <li>
+      <h4>Newton's Second Law</h4>
+      The acceleration of an object is directly proportional to the force applied to it, and inversely proportional to its mass. 
+      \[F=ma\]
+    </li>
+    <li>
+      <h4>Newton's Third Law</h4>
+      For every action, there is an equal and opposite reaction. This means that if an object A exerts a force on object B, then object B exerts an equal force in the opposition direction on object A.
+    </li>
+  </ol>
+</p>
+
+	
+<a id="sec-forces"></a>
+<h2>4.2 Forces</h2>
+<p>
+  There are several types of forces we will consider, including: 
+  <ul>
+    <li>\(F_{g}\) Force of Gravity - The weight of a mass. </li>
+    <li>\(F_{a}\) Applied Force - A force that is applied to a mass, for example from pushing or pulling on it.</li>
+    <li>\(F_{f}\) Frictional Force - A force that results from the friction between two surfaces. </li>
+    <li>\(F_{N}\) Normal Force - The force that results from solid objects interacting. \(F_{n}\) is always perpendicular to the surface.</li>
+    <li>\(F_{T}\) Tension Force - A force applied from a non-rigitd object like a rope, string, or cable. </li>   
+  </ul>
+</p>
+
+
+
+
+<a id="sec-fbd"></a>
+<h2>4.3 Free Body Diagrams</h2>
+<p>
+Here are examples with Free Body Diagrams. 
+</p>
+<p>
+  <ul>
+    <li>A 3.2 kg bag of toys is sitting on the ground.  
+      <br>
+      <div style="width:100%;margin:auto;text-align:center;filter:brightness(160%)"><img style="border: 1px solid #aaa;width:200px;" src="img/fbd1.jpg"></div>
+    </li>
+    <li>A 0.325 kg book is sitting on a shelf.  
+      <br>
+      <div style="width:100%;margin:auto;text-align:center;filter:brightness(160%)"><img style="border: 1px solid #aaa;width:200px;" src="img/fbd2.jpg"></div>
+    </li>
+    <li>A 41.5 kg crate is sitting on the ground and someone is pushing with 5 N of force to the right. 
+      <br>
+      <div style="width:100%;margin:auto;text-align:center;filter:brightness(150%)"><img style="border: 1px solid #aaa;width:200px;" src="img/fbd3.jpg"> </div>
+    </li>    
+    <li>A 41.5 kg crate is sitting on the ground and someone is pushing with 5 N of force to the right but the crate is being held in place by friction.  
+      <br>
+      <div style="width:100%;margin:auto;text-align:center;filter:brightness(155%)"><img style="border: 1px solid #aaa;width:200px;" src="img/fbd4.jpg"></div>
+    </li>
+    <li>A sled with mass 35 kg is being pulled by a rope. The rope has a tension of 18 N and is pulled at an angle \(22^{\circ}\) above the horizontal.</li>
+    <li>A 2 kg block is on a frictionless ramp of incline \(14^{\circ}\).</li>
+  </ul>
+</p>
+
+
+<a id="sec-analyze"></a>
+<h2>4.4 Analyzing Forces</h2>
+<p>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  </div>
+
+
+
+</body>
+
+</html>
