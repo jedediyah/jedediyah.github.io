@@ -2,9 +2,17 @@
 <html>
 <head>
     <link rel="stylesheet" href="../style.css">
+    
+    <!-- Mathjax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Syntax highlighting for code samples, from https://prismjs.com/ -->
+    <link href="prism.css" rel="stylesheet" />
+    <script src="prism.js"></script>
+
 </head>
 <body>
-    <div class="header-div"><a href="../index.html"><div class="header-text"><img src="../chart.svg" class="header-image">&nbsp;Data Projects</div></a></div>
+    <div class="header-div"><a target="_blank"  href="../index.html"><div class="header-text"><img src="../chart.svg" class="header-image">&nbsp;Data Projects</div></a></div>
     <div class="main-div">
 
         <h1>MNIST Digit Classifier</h1>
@@ -19,36 +27,234 @@
         <h2>Resources</h2>
         <p>
             <ul>
-                <li><a href="https://docs.google.com/spreadsheets/d/1wIiRo_ecfvlcf7wSCWvSbhqLMJzABXgT0gJ0095pI1Q/edit?usp=drive_link" target="_blank">Spreadsheet - Training Data</a> - 50 '0's and 50 '1's to use for searching for features and building a classifier.</li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1k8RNWgdvAulyQJu__0I6iHu0jBeWFfrYl-iwlO5tTgE/edit?usp=drive_link" target="_blank">Spreadsheet - Testing Data</a> - 50 '0's and 50 '1's to use for validating your classifier.</li>
-                <li><a href="mnist_png.tar.gz">mnist_png.tar.gz</a> - Compressed database of all 70,000 MNIST digits in PNG format. </li>
-                <li><a href="https://editor.p5js.org/jedediyah/full/LJjFsbCn5" target="_blank">Online MNIST-style digit maker</a></li>
-                <!-- <li><a href="https://docs.google.com/presentation/d/1RpIAtAAwQ3-TsTgFGTWCKcDyC2-lwGW0CvYHbsp0u9Y/edit?usp=sharing" target="_blank">Slides</a></li> -->
+                <li><a target="_blank"  href="https://docs.google.com/spreadsheets/d/1wIiRo_ecfvlcf7wSCWvSbhqLMJzABXgT0gJ0095pI1Q/edit?usp=drive_link" target="_blank">Spreadsheet - Training Data</a> - 50 '0's and 50 '1's to use for searching for features and building a classifier.</li>
+                <li><a target="_blank"  href="https://docs.google.com/spreadsheets/d/1k8RNWgdvAulyQJu__0I6iHu0jBeWFfrYl-iwlO5tTgE/edit?usp=drive_link" target="_blank">Spreadsheet - Testing Data</a> - 50 '0's and 50 '1's to use for validating your classifier.</li>
+                <li><a target="_blank"  href="mnist_png.tar.gz">mnist_png.tar.gz</a> - Compressed database of all 70,000 MNIST digits in PNG format. </li>
+                <li><a target="_blank"  href="https://editor.p5js.org/jedediyah/full/LJjFsbCn5" target="_blank">Online MNIST-style digit maker</a></li>
+                <!-- <li><a target="_blank"  href="https://docs.google.com/presentation/d/1RpIAtAAwQ3-TsTgFGTWCKcDyC2-lwGW0CvYHbsp0u9Y/edit?usp=sharing" target="_blank">Slides</a></li> -->
+                <li><a target="_blank" href="https://docs.google.com/presentation/d/1ZjVQbBNx1QZum8FpoyeXqihV4gMs4dImnNg0ZhBQUo8/edit?usp=sharing">Slides from NCTM Virtual 2023</a></li>
             </ul>
         </p>
-        <h2>Overview</h2>
-            <p>
-                The Modified National Institute of Standards and Technology (MNIST) database is a classic in introductory machine learning courses.  
-                It contains 70,000 images of handwritten digits.  
-                Each image is 28x28 pixels.  
-                The goal is to be able to algorithmically “recognize” or classify each digit from an image.  
-            </p>
-            <p>
-                While the MNIST database is decades old, character recognition is fundamental to modern data applications.  
-                It is used in apps like Photomath for digitizing mathematics problems, and in autonomous vehicles for reading street signs.  
-                An understanding of image processing algorithms and their applications can help develop an appreciation for the brittle nature of these algorithms and the critical role they play in a wide variety of sensitive applications. 
-            </p>
-            <p>
-                The following lesson is not on machine learning, rather it invites students to explore data and create algorithms themselves while introducing fundamental ideas in image processing and feature engineering for classification.  
-                Students are first asked to conceptualize and formalize features to distinguish 0s from 1s.  
-                Then they are invited to distinguish as many digits as they can, either manually or with the help of additional technologies.  
-            </p>
-    
 
+
+      <h2>Introduction</h2>
+      <p>
+        A <a target="_blank"  href="https://en.wikipedia.org/wiki/Statistical_classification">classifier</a> is an algorithm which takes some input and categorizes that input based on features (recognizable patterns). 
+        There are <a target="_blank"  href="https://towardsdatascience.com/top-machine-learning-algorithms-for-classification-2197870ff501">several popular algorithms</a> for automating the identification of features in data. 
+        Some examples of classification problems include:
+        <ul>
+          <li>Distinguishing spam from non-spam in email. </li>
+          <li>Object recognition in images. </li>
+          <li>Speech recognition in audio. </li>
+          <li>Likely winners in sporting events.</li>
+        </ul>
+      </p>
+      <p>
+        The activity presented here is a manual <a target="_blank"  href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">feature</a> engineering project, classifying handwritten digits from the famous <a target="_blank"  href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> dataset. 
+        Given examples of handwritten digits, we ask: what features can we identify or create which are effective at distinguishing digits from one another?         
+        The project is iterated with increasingly difficult tasks: 
+        <ol>
+          <li> 
+            Distinguish between 0s and 1s.
+          </li> 
+          <li>
+            Determine one digit that you can distinguish from the nine others. 
+          </li>
+          <li>
+            Distinguish more digits!
+          </li>
+          <li>
+            Improve performance.
+          </li>
+          <li>
+            Try it again with a new model.
+          </li>
+        </ol>
+      </p>
+      <p>
+        Some of the reasons I like this project are: 
+        <ul>
+          <li> Concepts utilized in this type of problem are a fundamental in data-based applied mathematics. </li>
+          <li> The collaboration is natural in a project of this type, so it doesn't feel added on. </li>
+          <li> The project facilitates frequent translating between intuition and formalization, between abstract and algorithmic thinking. </li>
+          <li> It has low floors, high ceilings, and wide walls.  Every student can contribute, there is no limit on how complex solutions may become, and every student could find different succesful solutions.   </li>
+        
+        </ul>
+        
+      </p>
+
+      <section id="dsp-data">
+        <h2>Get to know the data</h2>
+      </section>  
+      <p>
+        A brief history of MNIST can be viewed at <a target="_blank"  href="https://www.youtube.com/watch?v=oKzNUGz21JM">https://www.youtube.com/watch?v=oKzNUGz21JM</a>.  
+        An archive of the images saved as PNGs is available from <a target="_blank"  href="https://github.com/myleott/mnist_png">https://github.com/myleott/mnist_png</a>.  
+        Each image is \(28 \times 28\) pixels of grayscale values.  Here is an \(8\):   
+        <img src="img/41.png">
+      </p>
+      <p>
+        Visualizing some more of the digits, we can get a sense of dataset: 
+      </p>
+      <p>
+        <img src="img/mnistdigits.png">
+      </p>
+
+      <p>
+        If you have some coding experience, then you can do a lot with this dataset.  
+        But you can also do a lot with a simple spreadsheet!
+        Take a look at <a target="_blank"  href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">this sheet</a>.  
+        Each row in the spreadsheet represents a single image.  
+        The first column is the label of what digit is in the image.  
+        The next 784 columns are the 784 pixel values in a single image.  
+      </p>
+      <p>
+        It can be confusing, thinking of a 2D image as 1D list of numbers.  
+        An activity that can be helpful for starting to think about image data in this way is to physically cut out the rows of a digit's pixel values and create a physical representation of an image vector.         
+      </p>
+      <p>
+        <a target="_blank"  href="https://docs.google.com/document/d/1pyHVInjJOUHMiIOIoYLqpyWWzSMSlV_0enY-ShDbQBA/edit?usp=sharing"><img src="img/sample_zero.png"></a>
+      </p>
+      <p>
+        Below are some images of students cutting up their digits and either stapling or taping all 28 rows of image data together into a single image vector. 
+        The result is a effectively a physical version of our spreadsheet! 
+      </p>
+      <p style="text-align:center;">
+        <a target="_blank"  href="img/cut1.jpg"><img src="img/cut1.jpg" style="height:250px;"></a>
+        <a target="_blank"  href="img/cut2.jpg"><img src="img/cut2.jpg" style="height:250px;"></a>
+        <br> 
+        <a target="_blank"  href="img/cut4.jpg"><img src="img/cut3.jpg" style="height:250px;"></a>
+        <a target="_blank"  href="img/cut4.jpg"><img src="img/cut4.jpg" style="height:250px;"></a>
+      </p>
+
+
+      <section id="dsp-features">
+        <h2>Feature Engineering</h2>
+      </section>  
+      <p>
+        Now that we are familiar with our data, let's explore deeper and uncover some features that might help us to distinguish between \(0\)s and \(1\)s in <a target="_blank"  href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">our first spreadsheet</a>.  
+        What features do \(0\)s have that \(1\)s don't, or the other way around?  
+      </p>
+      <p>
+        While we will be working with the data in the spreadsheet, perhaps thinking back to the 2D images will inspire some ideas for distinguishing features. 
+      </p>
+      <p style="text-align:center;">
+        <img src="img/data_zero.png" style="width:48%;">
+        <img src="img/data_one.png" style="width:48%;">
+      </p>
+      <p>
+        The above images are only single samples, but what do you notice and wonder? 
+        Below are samples of student responses, hidden to avoid spoilers.  
+        <details>
+          <summary>Click for student responses</summary>
+          <ul>
+            <li>The \(0\)s will be wider.</li>
+            <li>The left-most part of the \(1\) is only a few pixels apart from the right-most part.</li>
+            <li>The \(0\) has more non-zero pixels.</li>
+            <li>You can add up all of the pixel values, and \(0\)s will have a higher number.</li>
+            <li>I wonder how many \(1\)s have the base and the hat.</li>
+            <li>If you go across the middle of the \(0\) (horizontally), it goes zeros, numbers, zeros, numbers, zeros.  With \(1\)s, it just goes zeros, numbers, zeros.</li>            
+            <li>If you got straight down the middle, the \(1\) has a lot more non-zero pixels.</li>
+            <li>I wonder if all of the \(1\)s are centered in the image. </li>
+            <li>I wonder if some \(1\)s are slanted. </li>
+            <li>If the middle pixel is zero, it is a \(0\).  If it is not, then it is a \(1\) </li>
+          </ul>
+        </details>
+      </p>
+      <p>
+        Some features will be relatively easy to calculate using a spreadsheet formula. 
+        Other features, while feasible, are more abstract and challenging to capture algorithmically. 
+        Some features will be effective for classification, while others will be less robust.  
+      </p>
+      <h3>Example Feature</h3>
+      <p>
+        Let's try one of the simpler features: sum all of the pixel values in each image.  
+        Our hope is that we will be able to distinguish \(0\)s because their sums will be higher than those of \(1\)s.  
+      </p>
+      <p>
+        Each feature we create will be in the form of a spreadsheet formula, and we'll keep them in the far right columns.  
+        In the far right column of <a target="_blank"  href="https://docs.google.com/spreadsheets/d/1xD5ZUDnCYYmYvEoQTi9xYhItnVxY9PC43ThKX--QbyY/edit?usp=sharing">our 0 and 1 spreadsheet</a>, we will enter two formulas.  
+        In ADF2, we enter:        
+        <pre><code class="language-excel-formula">=A2</code></pre> 
+        This makes a copy of the digit label for our convenience.  
+        Then in ADG2, we enter: 
+        <pre><code class="language-excel-formula">=sum(B2:ADE2)</code></pre>
+        This formula sums all of the 784 pixel values. 
+      </p>
+      <div style="margin:auto; width:60%;">
+        <img src="img/firstfeature.png" style="border:3px solid #333; border-radius: 3px;">
+      </div>
+      <p>
+        We can select both of our new formula cells and double-click the blue square to auto-fill the columns.  
+        We have a feature!    
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_chart.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        Let's make a scatter plot of columns ADF and ADG to get a sense of how distinguishing this feature is:
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_scatter.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        Not too shabby!
+      </p>
+
+
+      <section id="dsp-classifier">
+        <h2>Classifier</h2>
+      </section>  
+      <p>
+        So we have a feature that looks like it can nearly distinguish \(0\)s from \(1\)s.  
+        Let's utilize that feature to make a classifier. 
+        In ADH2, let's define a formula to classify the image as \(0\) or \(1\): 
+        <pre><code class="language-excel-formula">=if(ADG2>20000,0,1)</code></pre>
+        This formula looks at the value immediately to the left and if it is greater than \(20000\), it predicts \(0\), otherwise it predicts \(1\). 
+        Based on our scatter plot, this roughly seems reasonable.  
+      </p>
+      <p>
+        <div style="margin:auto; width:60%;">
+          <img src="img/firstfeature_prediction.png" style="border:3px solid #333; border-radius: 3px;">
+        </div>
+      </p>
+      <p>
+        It works!  
+        Well, at least with our training data it classifies correctly on 37 out of 40 images.  
+        You can get 40/40 either by finding a great feature, or combining more than one feature. 
+      </p>
+
+
+      <section id="dsp-conclusions">
+        <h2>Conclusions</h2>
+      </section>  
+      <p>
+        We can identify data features and use them to create classifiers.  
+        Go forth, find new features, and maybe even combine them to improve accuracy.  
+      </p>
+      <p>
+        It is important when working on data projects like this one to reflect. 
+        <ul>
+          <li>Our classifier is built (trained) on a partiuclar dataset</li>
+          <li>The data captures particular cultural conventions</li>
+          <li>Our biases are baked into our classifier via the decisions we made along the way</li>
+          <li>Our classifier is a predictor, not a judge</li>
+        </ul>
+        To clarify that last point.  
+        Our classifier is a feature-based model for making a prediction based on numerical nearness to stereotypes. 
+        Given some input data, it characterizes the 1-ness or the 0-ness of that data as defined by the conventions in the data and the decisions we made about what features to include. 
+      </p>
+      <p>
+        Data projects are awesome and they are a fantastic window through which we might observe and reflect on the consequences of applied mathematics.  
+      </p>
    
 
     </div>
 
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
 
