@@ -55,7 +55,7 @@ Newton's Laws are fundamental concepts in classical physics. They help us predic
 <ul>
   <li><a href="">4.1 Forces</a></li>
   <li><a href="">4.2 Free Body Diagrams</a></li>
-  <li><a href="">4.3 </a></li>
+  <li><a href="">4.3 Gravity</a></li>
 </ul>
 
 <h3>Skills and Understanding</h3>
@@ -170,9 +170,37 @@ Here are examples with Free Body Diagrams.
 <a id="sec-analyze"></a>
 <h2>4.5 Gravity</h2>
 <p>
+  The force of gravity \(F_{g}\) between two masses is given by 
   \[ F_{g} = G \frac{m_{1}m_{2}}{d^{2}} \]
-
+  where \(m_{1}\) and \(m_{2}\) are the two masses, \(d\) is the distance between the masses, and \(G\) is Newton's gravitational constant, 
+  \[G \approx 6.67 \times 10^{-11} \text{ Nm^2/kg^2} \]
 </p>
+
+
+<div id="question1" class="exampleQuestion">
+  Find the force of gravity between the Earth and Moon.  
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
+  The masses of Earth and the Moon are: <br>  
+  \(M_{earth} = 5.972 \times 10^{24} \) kg
+   <br>
+   \(M_{moon} = 7.348 \times 10^{22} \) kg
+   <br> 
+   and the distance between the two is \(384,400\) km. Plugging this into our formula for \(F_{g}\), we have 
+   \[ F_{g} = G \frac{m_{1}m_{2}}{d^{2}} \]
+   \[ F_{g} = \left( 6.67 \times 10^{-11} \right) \frac{ \left( 5.972 \times 10^{24} \right) \left( 7.348 \times 10^{22} \right) }{\left( 384,400,000 \right)^{2}} \]
+   \[ F_{g} = 1.98 \times 10^{20} \text{ N} \]
+
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+
 
 
 
