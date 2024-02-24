@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Robots</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+		<style>
+			h5 {
+				color: #f48e28;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal"><!-- Footer -->
+			<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+				jedediyah.github.io/nctm2024virtual
+			</div>
+			<div class="slides">
+
+				<section style="text-align:right;" data-background-gradient="linear-gradient(to right, #def, #dfe)" data-background="img/desmos-graph.png">
+					
+					<div>
+						<br><br><br><br> 
+						<!-- <h3><span style="color:#668;">The Mathematics <br>of Robotics</h3> -->
+						<h3><span style="color:#868;">The Mathematics <br>of Robotics</h3>
+						
+						<p>
+							<a target="_blank" href="http://jedediyah.github.io" style="font-size:80%;">Jedediyah Williams, PhD</a> </a>
+							<br>
+							<span style="color:#555;font-size:80%;">Belmont High School</span>
+						</p>
+						<p style="font-style:italic;font-size:80%;color:#555;">
+							April, 2024
+						</p>
+					</div>
+					<br><br><br><br><br>
+				</section>
+
+				<section>
+					Robotics is a broad field. 
+					My experience with robotics is that you can do a huge amount with:
+					<ul>
+						<li>Trigonometry</li>
+						<li>2x2, 3x3, 4x4 Matrices</li>
+						<li>A pinch of calculus </li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<p>
+						Let's look at some fun things!
+					</p>
+					<ul>
+						<li>Kinematics</li>
+						<li>Inverse Kinematics</li>
+						<li>Position Controller</li>
+						<li>Machine Learning with Hexapawn</li>
+						<li>Computer Vision with MNIST</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h5>Forward Kinematics</h5>
+					<div style="font-size:70%;">
+						Given the joint angles, <br> 
+						find the position of the end effector.
+					</div>
+					<img src="img/botarm.jpg" style="width:50%;">
+				</section>
+				<section>
+					<h5>Forward Kinematics - 1 Link</h5>
+					<a target="_blank" href="https://www.desmos.com/calculator/oicyg21ibt"><img src="img/kinematics_1link.png"></a>
+				</section>
+				<section>
+					<h5>Forward Kinematics - 2 Link</h5>
+					<a target="_blank" href="https://www.desmos.com/calculator/nrpfavygyq"><img src="img/kinematics_2link.png"></a>
+				</section>
+
+				<section>
+					<h5>Inverse Kinematics</h5>
+					<div style="font-size:70%;">
+						Given a target position,
+						find the joint angles to move the end effector there.
+					</div>
+					<a target="_blank" href="https://www.desmos.com/calculator/gdds4ffndj"><img src="img/invkin.png"></a>
+				</section>
+				<section>
+					<h5>Inverse Kinematics</h5>
+					<div style="font-size:70%;">
+						Given a target position,
+						find the joint angles to move the end effector there.
+					</div>
+					<img src="img/invleft.png" style="width:40%;">
+					&nbsp;&nbsp;
+					<img src="img/invright.png" style="width:44%;">
+				</section>
+
+
+
+
+
+				<!-- POSITION CONTROL -->
+				<section>
+					<h5>Position Controller</h5>
+					<p style="font-size:80%;">
+						Consider a simple robot arm which we want to move from position \(\theta_{1}\) to position \(\theta_{2}\) beginning at time \(t_{1}\) and ending at time \(t_{2}\).
+					</p>
+					<br>
+					<img src="img/trajectory_t1.png"> &nbsp;&nbsp; <img src="img/trajectory_t2.png">
+
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller</h5>
+					<div data-id="traj_div" style="font-size:80%;">
+						We can think about the angle changing over time, and what a function \(\theta(t)\) might look like. 
+					</div>
+					<img src="img/trajectory.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Linear</h5>
+					<div data-id="traj_div2" style="font-size:80%;">
+						 A linear function \(\theta(t)\) is a line that connects \(\left( t_{1}, \theta_{1} \right)\) to \(\left( t_{2}, \theta_{2} \right)\)
+					</div>
+					<img src="img/traj_linear.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Linear</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t  \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Linear</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t  \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+					</div>
+					<div style="font-size:60%;text-align: left;">
+						<hr> 
+						Let's use our example values of changing the position from \(\theta_{1}=1\) to \(\theta_{2}=3\) from time \(t_{1}=2\) to \(t_{2}=8\)
+						\[ a_0 + a_1 (2) = 1 \]
+						\[ a_0 + a_1 (8) = 3 \]
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Linear</h5>
+					<div data-id="traj_div3" style="font-size:60%;">
+						\[ \theta(t) = \frac{1}{3} + \frac{1}{3} t \]
+					</div>
+					<img src="img/traj_linear.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Linear</h5>
+					<div data-id="traj_div" style="font-size:60%;">
+						\[ \theta(t) = \frac{1}{3} + \frac{1}{3} t \]
+					</div>
+					<a target="_blank" href="https://www.desmos.com/calculator/jnmycng9zn"><img src="img/pcontroller.png"></a>
+				</section>				
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Quadratic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t + a_2 t^2 \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+						\[ \theta'(t_{1}) = 0 \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Quadratic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t + a_2 t^2 \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+						\[ \theta'(t_{1}) = 0 \]
+					</div>
+					<div style="font-size:60%;text-align: left;">
+						<hr> 
+						Note that 
+						\[ \theta'(t) = \frac{d}{dt} \theta(t) = a_1 + 2 a_2 t   \]
+					</div>
+				</section>
+				<section>
+					<h5 data-id="traj_title">Position Controller - Quadratic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						Let's use our example values of changing the position from \(\theta_{1}=1\) to \(\theta_{2}=3\) from time \(t_{1}=2\) to \(t_{2}=8\):
+						\[ a_0 + a_1 (2) + a_2 (2)^2 = 1 \]
+						\[ a_0 + a_1 (8) + a_2 (8)^2 = 3 \]
+						\[ a_1 + 2 a_2 (2) = 0 \]
+						which we solve to get 
+						\[ \theta(t) = \frac{11}{9} + \frac{-2}{9} t + \frac{1}{18} t^2  \]
+					</div>
+				</section>
+				<section>
+					<h5 data-id="traj_title">Position Controller - Quadratic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						\[ \theta(t) = \frac{11}{9} + \frac{-2}{9} t + \frac{1}{18} t^2  \]					
+					</div>
+					<img src="img/traj_quadratic.png">
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Cubic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+						\[ \theta'(t_{1}) = 0 \]
+						\[ \theta'(t_{2}) = 0 \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h5 data-id="traj_title">Position Controller - Cubic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						<hr>
+						Find 
+						\[ \theta(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 \]
+						Given 
+						\[ \theta(t_{1}) = \theta_{1} \]
+						\[ \theta(t_{2}) = \theta_{2} \]
+						\[ \theta'(t_{1}) = 0 \]
+						\[ \theta'(t_{2}) = 0 \]
+					</div>
+					<div style="font-size:60%;text-align: left;">
+						<hr> 
+						Note now that 
+						\[ \theta'(t) = a_1 + 2 a_2 t + 3 a_3 t^2 \]
+					</div>
+				</section>
+				<section>
+					<h5 data-id="traj_title">Position Controller - Cubic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						Let's use our example values of changing the position from \(\theta_{1}=1\) to \(\theta_{2}=3\) from time \(t_{1}=2\) to \(t_{2}=8\):
+						\[ a_0 + a_1 (2) + a_2(2)^2 + a_3 (2)^3 = 1 \]
+						\[ a_0 + a_1 (8) + a_2(8)^2 + a_3 (8)^3 = 3 \]
+						\[ a_1 + 2 a_2 (2) + 3 a_3 (2)^2 = 0 \]
+						\[ a_1 + 2 a_2 (8) + 3 a_3 (8)^2 = 0 \]
+					</div>
+				</section>
+				<section>
+					<h5 data-id="traj_title">Position Controller - Cubic</h5>
+					<div data-id="traj_div" style="font-size:60%;text-align: left;">
+						\[ \theta(t) = \frac{49}{27} + \frac{-8}{9} t + \frac{5}{18}t^2 + \frac{-1}{54} t^3 \]
+					</div>
+					<img src="img/traj_cubic.png">
+				</section>
+
+				<section>
+					<h5>Some Machine Learning</h5>
+					<div>
+
+					</div>
+					<a target="_blank" href="https://jedediyah.github.io/hexapawn"><img src="img/hexapawn.png"></a>
+					<br> 
+					<a target="_blank" href="hexapawn.pdf" style="font-size:70%;">Hexapawn Problem Set</a>
+				</section>
+
+
+				<section>
+					<h5>Computer Vision Example</h5>
+					<a target="_blank" href="https://jedediyah.github.io/data/mnist"><img src="img/digits.png"></a>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
