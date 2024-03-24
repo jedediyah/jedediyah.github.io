@@ -53,21 +53,27 @@
 
 <h3>Slides</h3>
 <ul>
-  <li><a href="">9.1</a>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/1wPdnwraPnF7fJr_iZX1Hl0iaXBvA5ErzjyoL4F6pwCg/edit?usp=sharing">9.1 Intro to Electric Circuits</a></li>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/1pR-lhx9B9ANOw-JTWwWVqtHdA4rw1VkyN9yR-ekqFpI/edit?usp=sharing">9.2 Series Circuits</a></li>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/1yzQXpAeMvU1ggnOi2gINIh9nzSp6pVo7zLkQ72FMBwM/edit?usp=sharing">9.3 Parallel Circuits</a></li>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/1vAl_c5s0d-ss__YRKPl-KUiAZYwmrdKAAMXrNjrj13U/edit?usp=sharing">9.4 Power Concepts</a></li>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/17aHP-fTZbd_TlFp1OoefEHrHJJWbIZ4NUQF8lucJ62s/edit?usp=sharing">9.5 Power Calculations</a></li>
+  <li><a target="_blank" href="https://docs.google.com/presentation/d/1yJkztRgzstqioJsZbc1RuFoDLLJhKbq3v_OgdFXH6mQ/edit?usp=sharing">9.6 Complex Circuits</a></li>
+
 </ul>
 
 <h3>Skills and Understanding</h3>
 <ul>
-  <li>  </li>
-  <li>  </li>
-  <li>  </li>
+  <li>Apply Ohm's Law to calculate voltage, current, and resistance.  </li>
+  <li>Analyze series and parallel circuits, including calculating resistance of complex arrangements of resistors.   </li>
 </ul>
 
 <h3>Equations</h3>
 
 \[
   \begin{array}{cc} 
-  F = ma     \quad \quad  \quad  \quad   F_{f} = \mu F_{N}    \\ 
+  V = IR    \quad \quad  \quad  \quad   P = VI    \\ 
+  R = R_{1} + \dots + R_{n}   \quad \quad  \quad  \quad   \frac{1}{R} = \frac{1}{R_{1}} + \dots + \frac{1}{R_{n}}   \\ 
   \end{array}
 \]
 
@@ -75,12 +81,92 @@
 
 <h3>Vocabulary</h3>
 <ul>
-  <li> <em>Acceleration</em> \(a\) is the rate at which velocity changes. </li>
+  <li> <em>Voltage</em> \(V\) is an electric potential, measured in volts (V). </li>
+  <li> <em>Current</em> \(I\) is the flow of electric charge, measured in amperes (A) or "amps".  </li>
+  <li> <em>Resistance</em> \(R\) is an opposition to the flow of current, measured in ohms (\(\Omega\)). </li>
+  <li> <em>Power</em> \(P\) is the rate at which electrical energy is transferred within a circuit, measured in watts (W). </li>
+  <li> A <em>Series</em> circuit is one in which the components are arranged one after another, where the output of one component leads to the input of the next.  </li>
+  <li> A <em>Parallel</em> circuit is one in which the components are arranged so that their inputs are connected and their outputs are connected. The diagram of such an arrangement shows the components to be parallel to one another.   </li>
 </ul>
 
 
-<a id="sec-"></a>
-<h2>9.1 Section </h2>
+<a id="sec-intro"></a>
+<h2>9.1 Intro to Circuits </h2>
+<!-- <p>
+  Try out the <a target="_blank" href="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc-virtual-lab/latest/circuit-construction-kit-dc-virtual-lab_en.html">PhET Circuit Simulator</a>.
+</p> -->
+<p> 
+  An <em>electric circuit</em> is a closed loop through which electric current can flow. It consists of electrical components including resistors, capacitors, switches, and power sources like batteries. 
+  Three fundamental properties of circuits are current, voltage, and resistance. 
+  <ul>
+    <li><em>Current</em> (I) refers to the flow of electric charge, and is measured in amperes (A). It is the rate of change of charge per time, \(I = \frac{\Delta q}{\Delta t}\), where \(\Delta q\) is the change in charge. </li>
+    <li><em>Voltage</em> (V) is an electric potential measured in volts (V), and can be thought of as a pressure that "pushes" on charge to create current. Increasing voltage increases current. </li>
+    <li><em>Resistance</em> (R) is an opposition to the flow of current, measured in ohms (\(\Omega\)). Increasing resistance decreases current. </li>
+  </ul>
+  The three are related by <em>Ohm's Law</em>, which is usually written as:
+  \[V=IR\]
+  If we rearrange Ohm's Law as \(I=\frac{V}{R}\), we see that current is directly proportional to voltage and inversely proportional to resistance. 
+</p>
+
+<h3>Circuit Diagrams</h3>
+<p>
+  The circuit diagram below depicts a circuit with two components: a voltage source (battery) on the left, and a resistor on the right. They are connected by wire (lines). 
+</p>
+<p style="width:100%;text-align: center;">
+  <img src="img/circuitcurrent.png" style="width:80%;margin:auto;">
+</p>
+<p>
+  We analyze current as "moving" in the positive direction, even though physically the positive charges are stationary while electrons are flowing from the negative (-) side of the battery toward the positive (+) side. 
+</p>
+
+
+<div id="question1" class="exampleQuestion">  
+  Find the current in the circuit below:
+  <br> 
+  <br>
+  <img style="border:2px solid #999;border-radius:7px;" src="img/circuitpractice1.png">
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
+  We use Ohm's law, and note that 10 k\(\Omega\) is 10 kilo-Ohms, or 10,000 Ohms. 
+  \[V = IR\]
+  \[I = \frac{V}{R}\]
+  \[I = \frac{3}{10000} = 0.0003 A \]
+  The answer could also be written as 0.3 mA (milliamps). Current is usually quite small and is often expressed in mA. 
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+
+
+
+
+<a id="sec-series"></a>
+<h2>9.2 Series Circuits </h2>
+<p>
+
+</p>
+<a id="sec-parallel"></a>
+<h2>9.3 Parallel Circuits </h2>
+<p>
+
+</p>
+<a id="sec-power"></a>
+<h2>9.4 Power Concepts</h2>
+<p>
+
+</p>
+<a id="sec-calculations"></a>
+<h2>9.5 Power Calculations </h2>
+<p>
+
+</p>
+<a id="sec-complex"></a>
+<h2>9.6 Complex Circuits </h2>
 <p>
 
 </p>
