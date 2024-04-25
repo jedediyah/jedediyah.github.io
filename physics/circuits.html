@@ -66,13 +66,14 @@
 <ul>
   <li>Apply Ohm's Law to calculate voltage, current, and resistance.  </li>
   <li>Analyze series and parallel circuits, including calculating resistance of complex arrangements of resistors.   </li>
+  <li>Determine the power used in a circuit or in components of a circuit. </li>
 </ul>
 
 <h3>Equations</h3>
 
 \[
   \begin{array}{cc} 
-  V = IR    \quad \quad  \quad  \quad   P = VI    \\ 
+  V = IR    \quad \quad  \quad  \quad   P = IV    \\ 
   R = R_{1} + \dots + R_{n}   \quad \quad  \quad  \quad   \frac{1}{R} = \frac{1}{R_{1}} + \dots + \frac{1}{R_{n}}   \\ 
   \end{array}
 \]
@@ -206,19 +207,44 @@
 
 
 <a id="sec-power"></a>
-<h2>9.4 Power Concepts</h2>
+<h2>9.4 Power</h2>
 <p>
-
+Electric <em>power</em> is the rate at which energy is used by a circuit or circuit component. Power is measured in Watts \(W\), which is equivalent to Joules per second. 
+Power is the product of current and voltage, 
+\[ P = IV \]
+We can find the total power in a circuit, or the power used by individual components. 
 </p>
-
-
-<a id="sec-calculations"></a>
-<h2>9.5 Power Calculations </h2>
-<p>
+<div id="question3" class="exampleQuestion">    
+  Find the power used by each resistor in the circuit below:
+  <br> 
+  <br>
+  <div style="width:100%; text-align:center;">
+    <img style="border:2px solid #999;border-radius:7px;" src="img/circuitseries3.png">
+  </div>  
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer3" class="exampleAnswer">
+  We know from a the exercise above that the total current is:
+  \[I = 0.03 A \]
+  The power is \[P=IV\] for each component, where \(I\) = 0.03 A and V is the voltage drop across a given resistor. 
+  Given that the voltage drop is found with \(V=IR\), we can find the \(V\) for each component, or substitute into the power equation to get:
+  \[ P = IV = I (IR) = I^{2} R \]
+  Then the power for each resistor would be: 
+  \[ P_{1} = (0.03)^2 \cdot 100 = 0.09 \text{ W} \]
+  \[ P_{1} = (0.03)^2 \cdot 200 = 0.18 \text{ W} \]
+  \[ P_{1} = (0.03)^2 \cdot 500 = 0.45 \text{ W} \]
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question3").click(function(){
+            $("#answer3").slideToggle("fast");
+        });
+    });
+</script>
 
 </p>
 <a id="sec-complex"></a>
-<h2>9.6 Complex Circuits </h2>
+<h2>9.5 Complex Circuits </h2>
 <p>
 
 </p>
