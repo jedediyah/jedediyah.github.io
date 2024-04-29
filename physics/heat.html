@@ -64,16 +64,20 @@
 
 <h3>Skills and Understanding</h3>
 <ul>
-  <li>  </li>
-  <li>  </li>
-  <li>  </li>
+  <li>Understand convection, conduction, and radiation.  </li>
+  <li>Identify types of heat transfer.  </li>
+  <li>Analyze temperature change within and across phases, including solid, liquid, and gas.  </li>
+  <li>Calculate heat of fusion, heat of vaporization, and latent heat. </li>
+  <li>Determine a substance using calorimetry calculations. </li>
+  <li>Recognize descriptions and describe alpha, beta, and gamma radiaiton. </li>
+  <li>Recognize descriptions and describe fission and fusion. </li>
 </ul>
 
 <h3>Equations</h3>
 
 \[
   \begin{array}{cc} 
-  Q = m c \Delta t   \quad \quad  \quad  \quad   Q_{A} = -Q_{B}   \\ 
+  Q = m c \Delta t   \quad \quad \quad  Q = mh \quad \quad  \quad   Q_{A} = -Q_{B}   \\ 
   \end{array}
 \]
 
@@ -105,27 +109,84 @@ Temperature is a scale for measuring the average kinetic energy of a group of mo
   <img src="img/heatenergyenergy.png">
 </p>
 <p>
-  Conductors and insulators
+  A <em>thermal conductor</em> is a mterial which quickly transfers heat throughout itself. Most metals are thermal conductors. 
+  A <em>thermal insulator</em> is a material which does not transfer heat well. Examples include wood and air.
 </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/aYBEcFvI8o8?si=ImgjIqLCcTk2ntl9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-
-<a id="sec-basics"></a>
-<h2>7.1 Introduction to Heat </h2>
-<p>
-  
-</p>
 
 <a id="sec-heattransfer"></a>
-<h2>7.2 Heat Transfer Methods </h2>
+<h2>7.2 Heat Transfer</h2>
 <p>
-  
+  <em>Heat transfer</em> describes the movement of heat energy.   
+</p>
+<p>
+  <em>Conduction</em> is heat transfer through contact. Kinetic energy is transferred rom one molecule to another through collisions. 
+</p>
+<p>
+  <em>Convection</em> is heat transfer through currents. Due to <em>thermal expansion</em>, hotter fluids (liquids or gases) are less dense so they rise. Cooler fluids sink, may heat up, and then continue the process of convection. 
+</p>
+<p>
+  <em>Radiation</em> is heat transfer by electromagnetic waves. The Earth, for example, receives a tremendous amount of heat energy through the radiation emitted by the sun. 
 </p>
 
 <a id="sec-specificheat"></a>
 <h2>7.3 Specific Heat Capacity </h2>
 <p>
-  
+  Different substances change temperature at different rates. <em>Specific heat</em> is a property of matter and relates the change in temperature of a substance and the amount of heat energy it gains or loses. 
+  We will measure specific heat capacity in \(\frac{\text{J}}{\text{g}}^{\circ}\text{C}\). 
 </p>
+<p>
+  Here is a table of some specific heat capacities: 
+  <table style="border:2px solid #555;text-align: center;">
+    <tr> 
+      <th>Material</th><th>Specific Heat (J/g \(^\circ\)C)</th>
+    </tr>
+    <tr><td>Solid water</td><td>2.10</td></tr>
+    <tr><td>Liquid water</td><td>4.18</td></tr>
+    <tr><td>Water vapor</td><td>2.01</td></tr>
+    <tr><td>Iron</td><td>0.45</td></tr>
+    <tr><td>Aluminum</td><td>0.90</td></tr>
+    <tr><td>Silver</td><td>0.24</td></tr>
+    <tr><td>Copper</td><td>0.39</td></tr>
+    <tr><td>Wood</td><td>1.76</td></tr>
+    <tr><td>Vegetable oil</td><td>2.00</td></tr>
+  </table>
+</p>
+<p>
+The heat equation which uses specific heat is 
+\[Q = mc \Delta T\]
+where \(Q\) is heat energy gained or lost, \(m\) is mass (in grams), \(c\) is the specific heat, and \(\Delta T\) is the change in temperature. 
+</p>
+<p>
+
+<div id="question1" class="exampleQuestion">
+  A pot of water is placed onto a stove. 44,000 J of heat energy is added to it, raising the temperature by 7.8\(^{\circ}C\). What is the mass of the water?
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
+  We are given:
+  \[Q = 44000\]
+  \[ \Delta T = 7.8\]
+  and since we know the pot contains water, 
+  \[c = 4.18\]
+  Using the heat equation
+  \[ Q = m c \Delta T \]
+  we can solve for m:
+  \[ m = \frac{Q}{c \Delta T} \]
+  and substitute to get 
+  \[ m = \frac{Q}{c \Delta T} = \frac{44000}{4.18 \cdot 7.8} = 1350 \text{ g}  \]
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+
+</p>
+
 
 <a id="sec-calorimetry"></a>
 <h2>7.4 Calorimetry </h2>

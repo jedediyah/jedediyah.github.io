@@ -54,6 +54,7 @@ pre {
 .menu-img {
   width: 24px; 
   transform: translate(0px,3px);
+  padding-right:5px; 
 }
 
 .sidebar {

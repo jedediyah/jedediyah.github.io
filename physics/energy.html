@@ -94,16 +94,69 @@
 <p>
   Work is a measure of the transfer of energy that occurs when an applied force results in the displacment of an object. 
   \[W = F d \cos(\theta)  \]
-
+  where \(\theta\) is the angle between the force \(F\) and the direction of motion of the object. 
+</p>
+<p>
+<div id="question1" class="exampleQuestion">
+  You push horizontally on a large box with a force of 38 N. If the crate moves a distance of 3.7 m in the direction you are pushing, how much work did you do on the crate? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer1" class="exampleAnswer">
+\(F = 38\) N and \(d = 3.7\) m. Since we are pushing in the direction the crate is moving, \(\theta=0 ^{\circ}\), and we have 
+\[W = F d \]
+\[W = 38 \cdot 3.7 = 140.6 J  \]
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question1").click(function(){
+            $("#answer1").slideToggle("fast");
+        });
+    });
+</script>
+</p>
+<p>
+<div id="question2" class="exampleQuestion">
+  To move a crate, you push on it with a force of 32 N at an angle of \(12^{\circ}\) above the horizontal. If you move the crate 8 m, how much work did you do on the crate? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer2" class="exampleAnswer">
+ \[ W = F d \cos(\theta) \]
+ \[ W = (32) (8) \cos(12^{\circ}) = 250.4 J \]
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question2").click(function(){
+            $("#answer2").slideToggle("fast");
+        });
+    });
+</script>
 </p>
 
 <a id="sec-kinetic"></a>
 <h2>6.2 Kinetic Energy and Work</h2>
 <p>
 Kinetic energy is the energy an object possesses in the form of its motion. 
-\[ E_{k} = \frac{1}{2}mv^{2} \]
-  
+\[ E_{k} = \frac{1}{2}mv^{2} \]  
+Work can be calculated by finding the change in kinetic energy, 
+\[ W = \Delta E_{k} \]
 </p>
+<div id="question3" class="exampleQuestion">
+  A 44 kg wagon is moving with velocity 4 m/s. If you apply a force to the wagon, increasing its velocity to 7 m/s, how much work did you do on the wagon? 
+  <div style="text-align:center;">&darr;</div>
+</div>
+<div id="answer3" class="exampleAnswer">
+ \[ W = \Delta E_{k} = E_{kf} - E_{ki} = \frac{1}{2} m v_{f}^2 - \frac{1}{2} m v_{i}^2 \]
+ \[ W = \frac{1}{2} (44) (7)^2 - \frac{1}{2} (44) (4)^2 = 726 \text{ J} \]
+
+</div>
+<script> 
+    $(document).ready(function(){
+        $("#question3").click(function(){
+            $("#answer3").slideToggle("fast");
+        });
+    });
+</script>
+
 
 
 
@@ -118,10 +171,18 @@ The potential energy of an object (due to gravity) is a measure of energy an obj
 <a id="sec-conservation"></a>
 <h2>6.4 Conservation</h2>
 <p>
-
-  
+Mechanical energy \(E_{M}\) is the total sum of kinetic and potential energy, 
+\[ E_{M} = E_{p} + E_{k} \]
+When no energy is lost to friction, sound, etc., the mechanical energy remains constant, even as potential and kinetic energies trade off.   
 </p>
-
+<p>
+  Visit the <a target="_blank" href="https://phet.colorado.edu/sims/html/energy-skate-park/latest/energy-skate-park_all.html">PhET energy skate park</a>. 
+  Let the skater loose on the track and click the green + to see the energy graph.
+  Notice that the total energy remains constant, the potential energy is maximized when the skater is higher off the ground, and the kinetic energy is maximized when the skater is going fastest at the bottom of the ramp. 
+</p>
+<p>
+  <img src="img/energyskatepark.png">
+</p>
 
     </div>
 
