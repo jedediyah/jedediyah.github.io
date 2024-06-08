@@ -24,7 +24,7 @@
 
 
     a {
-      color: #002a51;
+      color: #003f7a;
       text-decoration: none;
     }
 
@@ -46,6 +46,7 @@
 
     .card:hover {
       /* transform: translateY(-10px); */
+      box-shadow: 0 2px 5px rgba(200, 50, 50, 0.5);
     }
 
     .card-header {
@@ -78,10 +79,10 @@
     }
 
 
-    @media only screen {
+    @media only screen and (max-width: 600px) {
       body {
         background-color: lightblue;
-        max-width: 500px; 
+        /* max-width: 500px;  */
       }
       .container {
         max-width: 300px;
@@ -104,19 +105,19 @@
         </div>
         <div class="card-body">
           <div class="subsection">
-            <a href="">
+            <a href="slides/motion_speed.html">
               <h3>Speed and GUESS</h3>
             </a>
             <p>Analyze simple motion in one dimension.</p>
           </div>
           <div class="subsection">
-            <a href="">
+            <a href="slides/motion_velocity.html">
               <h3>Displacement and Velocity</h3>
             </a>
             <p>Distinguish between distance and displacement, as well as speed and velocity. </p>
           </div>
           <div class="subsection">
-            <a href="">
+            <a href="slides/motion_graphs.html">
               <h3>Graphing Position and Velocity</h3>
             </a>
             <p>Analyze motion using graphs. </p>
