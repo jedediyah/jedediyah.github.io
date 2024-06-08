@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/simple.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+		<!-- Mathjax -->
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>Slide 1</section>
+				<section>
+
+<a id="sec-speedandguess"></a>
+<h4>1.1 Speed and GUESS</h4>
+Given distance \(d\) and change in time \(\Delta t\), speed \(s\) is calculated with:
+\[s = \frac{d}{\Delta t}\]
+
+				</section>
+				<section>
+The GUESS method is a framework for problem solving. It stands for: 
+<ul>
+  <li><b>G</b>ivens &mdash; Identify the given values.   </li>
+  <li><b>U</b>nknowns &mdash; Identify the unknown variables.  </li>
+  <li><b>E</b>quation &mdash; Choose the appropriate equations.  </li>
+  <li><b>S</b>ubstitute &mdash; Substitute known values into variables.   </li>
+  <li><b>S</b>olve &mdash; Solve for the missing value.  </li>
+</ul>
+				</section>
+				<section>Slide 2</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
