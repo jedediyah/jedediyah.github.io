@@ -5,7 +5,7 @@
         <script src="events.js"></script>        
         <style>
             body {
-                background-color: aliceblue;
+                background-color: rgb(238, 244, 249);
             }
             .session-div {
                 margin: auto;
@@ -37,7 +37,7 @@
                     document.write("<span style='font-size:0.8em;padding-left: 50px;'>"); 
                     let speaker = event.speakers[speaker_index]; 
                     let affiliation = event.affiliations[speaker_index];
-                    document.write("<i>" + speaker + "</i>, " + affiliation + "</span><br>");
+                    document.write(speaker + "<i>, " + affiliation + "</i></span><br>");
                 }
                 document.write("<div style='font-size:0.8em;'>" + event.location + "</div>");
                 document.write("<div style='font-size:0.8em;'>" + event.room + "</div>");
