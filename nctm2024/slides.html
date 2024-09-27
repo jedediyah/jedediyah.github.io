@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Numerical Computing - NCTM 2024</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#fff">
+					<h3>Numerical Computing with Data</h3>
+					<div><img src="img/plot3d.png"></div>
+					<p style="font-size:80%;">Jedediyah Williams, PhD<br>NCTM 2024, Chicago</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="headerdivs">
+						<h3>Numerical Computing </h3>
+					</div>
+					<div>
+						<h3>Numerical Analysis </h3>
+					</div>
+						<h3>Scientific Computing </h3>
+					<p>
+						Study of doing math with a computer and the technical details of its implementation. 
+					</p>
+					<p>
+
+					</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="headerdivs">
+						<h3>Numerical Computing </h3>					
+					</div>
+					<p>
+						How do we find solutions to problems involving continuous functions using discrete algorithms* and what happens when we try to do that? 
+					</p>
+					<p style="font-size:70%; color:#777;">
+						* Discrete in numerical precision and constrained by finite memory and by the finite number of steps we are willing to wait for convergence on a close-enough solution. 
+					</p>
+				</section>
+				<section data-background="#202020">
+					<a target="_blank" href="https://www.youtube.com/watch?v=7LKy3lrkTRA">
+						<img src="img/standupmaths.png">
+					</a>
+				</section>
+				<section>
+					<p style="font-size:80%;">
+						What type of errors occur, how do they manifest, <br>and how do they propagate? 
+					</p>
+					<p>
+						<img src="img/xy.png" style="width:80%;">
+						<br> 
+						<span style="font-size:50%;color: #555;">Source: Stolen from Dylan Kane.</span>
+					</p>
+				</section>
+				<section>
+					<p>
+						<img src="img/ieee754pdf.png">
+					</p>
+					<p>
+						"IEEE Standard for Floating-Point Arithmetic," in IEEE Std 754-2019 (Revision of IEEE 754-2008) , vol., no., pp.1-84, 22 July 2019, doi: 10.1109/IEEESTD.2019.8766229.
+					</p>
+				</section>
+				<section>
+					<p>
+						Besides interesting details of implementing math, <br>
+							I'm interested in:
+					</p>
+					<h3>doing math with computers</h3>
+					<p style="font-size:60%; color:#555; ">
+						There are SO many facets to this... what is math class for? Should we be teaching programming along with mathematics? 
+						There are great reasons to NOT teach two things at once, but there are also great reasons why NEVER teaching numerical computing is one of the biggest gaps in all of K-12 mathematics education. 
+					</p>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h3>Conjectures</h3>
+					<p>
+						Beyond the classroom (the real world?),
+						<ol>
+							<li data-id="conjecture1">
+								Way more math is done by non-mathematicians than mathematicians. 
+							</li>
+						</ol>
+					</p>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h3>Conjectures</h3>
+					<p>
+						Beyond the classroom (the real world?),
+						<ol>
+							<li data-id="conjecture1">
+								Way more math is done by non-mathematicians than mathematicians. 
+							</li>
+							<li data-id="conjecture2">
+								Way more mathematics is performed on computers than by humans. 
+							</li>
+						</ol>
+					</p>
+				</section>
+				<section>
+					<h3>What does real math look like?</h3>
+					<p style="font-size:80%;">
+						I don't know, but it is probably 
+						<ul>
+							<li>Starbucks registers</li>
+							<li>JavaScript</li>
+							<li>Spreadsheets</li>
+							<li>Python scripts</li>
+							<li>Graphics cards</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					The math we do in high school...
+					<br><br> 
+					<ul>
+						<li>
+						 is not like the math that mathematicians do. 
+						</li>
+						<li>
+							is removed from applications that engineers and scientists care about. 
+						</li>
+						<li>
+							 could, but does not leverage tools that mathematicians, engineers, and scientists use.
+						</li>
+					</ul> 
+				</section>
+				<!-- <section>
+					<h3>What does real math look like?</h3>
+					<p style="font-size:100%;">
+						Within some very small error \(\epsilon\), it is probably safe to say that 100% of math* is done on computers.
+					</p>
+					<br> 
+					<p style="font-size:70%; color:#555;">
+						* But Jed, you say, that isn't math, the math part was done by the human. <br>
+						The computers are just computing.
+						<br><br> 
+						Yes! I agree. So where does the math you're talking about happen in our classrooms? 
+						It doesn't. 
+						Our math is profoundly lacking.
+					</p>
+				</section> -->
+
+
+				<section data-background="#000">
+					<img src="img/lunar_table.jpg">
+					<div style="font-size: 40%; color: #aaa;">
+						Source: early-astronomy.classics.lsa.umich.edu/ancient_lunar_table.php
+					</div>
+				</section>
+
+				<section data-background="#222">
+					<img src="img/kipu.png">
+					<div style="font-size: 40%; color: #aaa;">
+						Source: en.wikipedia.org/wiki/File:Inca_Quipu.jpg
+					</div>
+					
+				</section>
+
+
+
+
+
+
+				<!-- <section>
+					<img src="img/kutahw.png">
+				</section>
+				<section>
+					<img src="img/kutahwsolution.png">
+				</section> -->
+				<section>
+					<img src="img/kutawords.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemsolution">
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<br><br> 
+					<div data-id="problemsolution">
+						Guess and check? 
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemsolution">
+						\[ x_1 + x_2 = 12  \]
+						\[ x_1 - x_2 = 4 \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemsolution">
+						\[ x_1 + x_2 = 12  \]
+						\[ x_1 - x_2 = 4 \]
+					</div>
+					<div data-id="problemmatrix">
+						\[ \begin{bmatrix}  1 & 1 & 12 \\ 1 & -1 & 4  \end{bmatrix}  \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemmatrix">
+						\[ \begin{bmatrix}  1 & 1 & 12 \\ 1 & -1 & 4  \end{bmatrix}  \]
+					</div>
+					<div data-id="problemmatrix2" style="font-family:'Courier New', Courier, monospace; text-align:left;">
+						> M = [ 1 1 12; 1 -1 4 ]; <br> 
+						> rref(M)
+						ans = <br> 
+   1   0   8 <br> 
+   0   1   4
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemsolution">
+						\[ x_1 + x_2 = 12  \]
+						\[ x_1 - x_2 = 4 \]
+					</div>
+					<div data-id="problemmatrix">
+						\[ \begin{bmatrix}  1 & 1 \\ 1 & -1  \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2  \end{bmatrix}  =  \begin{bmatrix} 12 \\ 4 \end{bmatrix} \]
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<div data-id="problemstatement">
+						Find the value of two numbers if their sum is 12 and their difference is 4. 
+					</div>
+					<div data-id="problemmatrix">
+						\[ \begin{bmatrix}  1 & 1 \\ 1 & -1  \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2  \end{bmatrix}  =  \begin{bmatrix} 12 \\ 4 \end{bmatrix} \]
+					</div>
+					<div data-id="problemmatrix2" style="font-family:'Courier New', Courier, monospace; text-align:left;">
+						> A = [1 1; 1 -1];   <br> 
+						> b = [12; 4]; <br> 
+						> x = A \ b  <br> 
+						x=  <br> 
+						8  <br> 
+						4  <br> 
+					</div>
+				</section>
+
+
+				<section>
+					My recommendation: 
+					<br><br> 
+					Learn some Octave (MATLAB) and start incorporating computing into computation. 
+				</section>
+
+
+				<section>
+					Let's do some math!
+				<br><br><br> 
+					<a target="_blank" href="https://jedediyah.github.io/data/mnist">jedediyah.github.io/data/mnist</a>
+				</section>
+
+
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+			});
+		</script>
+	</body>
+</html>
