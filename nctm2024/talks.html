@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NCTM 2024 Presentations</title>
+        <script src="events.js"></script>        
+        <style>
+            body {
+                background-color: rgb(238, 244, 249);
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .session-div {
+                margin: auto;
+                margin-top: 15px; 
+                max-width: 600px;
+                background: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding:15px; 
+            }
+            .session-title {
+                font-weight:bold;
+                text-align:left
+            }
+        </style>
+    </head>
+    <body>
+        <div style="width:100%; text-align: center;">
+            <h2>NCTM Chicago, 2024</h2>
+        </div>
+        <script>
+            let included_ids = []; 
+            for (let event_index=0; event_index<events.length; event_index++) {
+                let event = events[event_index];
+                if ( included_ids.includes(event.id) ) {
+                    continue; 
+                }
+                included_ids.push(event.id);
+                
+                document.write("<div class='session-div'>");  
+                document.write("<div style='display: flex; justify-content: space-between;'><span class='session-title'>" + events[event_index].title + "</span>");
+                document.write("<span style='text-align:right; font-size:0.8em; color:#777;'>" + events[event_index].id + "</span></div>");
+
+                for (let speaker_index=0; speaker_index < event.speakers.length; speaker_index++) {
+                    document.write("<span style='font-size:0.8em;padding-left: 50px;'>"); 
+                    let speaker = event.speakers[speaker_index]; 
+                    let affiliation = event.affiliations[speaker_index];
+                    document.write(speaker + "<i>, " + affiliation + "</i></span><br>");
+                }
+                document.write("<div style='font-size:0.8em;'>" + event.location + "</div>");
+                document.write("<div style='font-size:0.8em;'>" + event.room + "</div>");
+                document.write("<div style='font-size:0.8em;'>" + event.date + "</div>");
+                document.write("<div style='font-size:0.8em;'>" + event.time + "</div>");
+
+                if (event.description != undefined) {
+                    document.write("<div style='margin-top:10px;font-size:0.9em;'>" + event.description + "</div>");
+                }
+                document.write("</div>");
+            }
+        </script>
+
+    </body>
+</html>
