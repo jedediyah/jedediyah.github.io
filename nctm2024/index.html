@@ -1,309 +1,116 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>NCTM 2024</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-		<title>Numerical Computing - NCTM 2024</title>
+		<style>
+			body {
+				font-family: "Roboto", sans-serif;
+				font-weight: 400;
+				font-style: normal; 
+				line-height: 1.6em; 
+			}
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/white.css">
+			h1 {
+				color: #00abdb; 
+			}
+			h2 {
+				color: #09506f; 
+			}
+			h3 {
+				color: #000; 
+			}
+			.maindiv {
+				margin: auto; 
+				max-width: 700px; 
+			}
+		</style>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section data-background="#fff">
-					<h3>Numerical Computing with Data</h3>
-					<div><img src="img/plot3d.png"></div>
-					<p style="font-size:80%;">Jedediyah Williams, PhD<br>NCTM 2024, Chicago</p>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="headerdivs">
-						<h3>Numerical Computing </h3>
-					</div>
-					<div>
-						<h3>Numerical Analysis </h3>
-					</div>
-						<h3>Scientific Computing </h3>
-					<p>
-						Study of doing math with a computer and the technical details of its implementation. 
-					</p>
-					<p>
-
-					</p>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="headerdivs">
-						<h3>Numerical Computing </h3>					
-					</div>
-					<p>
-						How do we find solutions to problems involving continuous functions using discrete algorithms* and what happens when we try to do that? 
-					</p>
-					<p style="font-size:70%; color:#777;">
-						* Discrete in numerical precision and constrained by finite memory and by the finite number of steps we are willing to wait for convergence on a close-enough solution. 
-					</p>
-				</section>
-				<section data-background="#202020">
-					<a target="_blank" href="https://www.youtube.com/watch?v=7LKy3lrkTRA">
-						<img src="img/standupmaths.png">
-					</a>
-				</section>
-				<section>
-					<p style="font-size:80%;">
-						What type of errors occur, how do they manifest, <br>and how do they propagate? 
-					</p>
-					<p>
-						<img src="img/xy.png" style="width:80%;">
-						<br> 
-						<span style="font-size:50%;color: #555;">Source: Stolen from Dylan Kane.</span>
-					</p>
-				</section>
-				<section>
-					<p>
-						<img src="img/ieee754pdf.png">
-					</p>
-					<p>
-						"IEEE Standard for Floating-Point Arithmetic," in IEEE Std 754-2019 (Revision of IEEE 754-2008) , vol., no., pp.1-84, 22 July 2019, doi: 10.1109/IEEESTD.2019.8766229.
-					</p>
-				</section>
-				<section>
-					<p>
-						Besides interesting details of implementing math, <br>
-							I'm interested in:
-					</p>
-					<h3>doing math with computers</h3>
-					<p style="font-size:60%; color:#555; ">
-						There are SO many facets to this... what is math class for? Should we be teaching programming along with mathematics? 
-						There are great reasons to NOT teach two things at once, but there are also great reasons why NEVER teaching numerical computing is one of the biggest gaps in all of K-12 mathematics education. 
-					</p>
-				</section>
-
-
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<h3>Conjectures</h3>
-					<p>
-						Beyond the classroom (the real world?),
-						<ol>
-							<li data-id="conjecture1">
-								Way more math is done by non-mathematicians than mathematicians. 
-							</li>
-						</ol>
-					</p>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<h3>Conjectures</h3>
-					<p>
-						Beyond the classroom (the real world?),
-						<ol>
-							<li data-id="conjecture1">
-								Way more math is done by non-mathematicians than mathematicians. 
-							</li>
-							<li data-id="conjecture2">
-								Way more mathematics is performed on computers than by humans. 
-							</li>
-						</ol>
-					</p>
-				</section>
-				<section>
-					<h3>What does real math look like?</h3>
-					<p style="font-size:80%;">
-						I don't know, but it is probably 
-						<ul>
-							<li>Starbucks registers</li>
-							<li>JavaScript</li>
-							<li>Spreadsheets</li>
-							<li>Python scripts</li>
-							<li>Graphics cards</li>
-						</ul>
-					</p>
-				</section>
-				<section>
-					The math we do in high school...
-					<br><br> 
-					<ul>
-						<li>
-						 is not like the math that mathematicians do. 
-						</li>
-						<li>
-							is removed from applications that engineers and scientists care about. 
-						</li>
-						<li>
-							 could, but does not leverage tools that mathematicians, engineers, and scientists use.
-						</li>
-					</ul> 
-				</section>
-				<!-- <section>
-					<h3>What does real math look like?</h3>
-					<p style="font-size:100%;">
-						Within some very small error \(\epsilon\), it is probably safe to say that 100% of math* is done on computers.
-					</p>
-					<br> 
-					<p style="font-size:70%; color:#555;">
-						* But Jed, you say, that isn't math, the math part was done by the human. <br>
-						The computers are just computing.
-						<br><br> 
-						Yes! I agree. So where does the math you're talking about happen in our classrooms? 
-						It doesn't. 
-						Our math is profoundly lacking.
-					</p>
-				</section> -->
-
-				<section data-background="#000">
-					<img src="img/visicalc.png">
-				</section>
-
-				<section data-background="#000">
-					<img src="img/lunar_table.jpg">
-					<div style="font-size: 40%; color: #aaa;">
-						Source: early-astronomy.classics.lsa.umich.edu/ancient_lunar_table.php
-					</div>
-				</section>
-
-				<section data-background="#2a2a2a">
-					<img src="img/kipu.png" style="width:80%;">
-					<div style="font-size: 40%; color: #aaa;">
-						Source: en.wikipedia.org/wiki/File:Inca_Quipu.jpg
-					</div>
-					
-				</section>
-
-
-<!-- 
-
-
-				<section>
-					<img src="img/kutawords.png">
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemsolution">
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<br><br> 
-					<div data-id="problemsolution">
-						Guess and check? 
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemsolution">
-						\[ x_1 + x_2 = 12  \]
-						\[ x_1 - x_2 = 4 \]
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemsolution">
-						\[ x_1 + x_2 = 12  \]
-						\[ x_1 - x_2 = 4 \]
-					</div>
-					<div data-id="problemmatrix">
-						\[ \begin{bmatrix}  1 & 1 & 12 \\ 1 & -1 & 4  \end{bmatrix}  \]
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemmatrix">
-						\[ \begin{bmatrix}  1 & 1 & 12 \\ 1 & -1 & 4  \end{bmatrix}  \]
-					</div>
-					<div data-id="problemmatrix2" style="font-family:'Courier New', Courier, monospace; text-align:left;">
-						> M = [ 1 1 12; 1 -1 4 ]; <br> 
-						> rref(M)
-						ans = <br> 
-   1   0   8 <br> 
-   0   1   4
-					</div>
-				</section>
-
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemsolution">
-						\[ x_1 + x_2 = 12  \]
-						\[ x_1 - x_2 = 4 \]
-					</div>
-					<div data-id="problemmatrix">
-						\[ \begin{bmatrix}  1 & 1 \\ 1 & -1  \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2  \end{bmatrix}  =  \begin{bmatrix} 12 \\ 4 \end{bmatrix} \]
-					</div>
-				</section>
-				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-					<div data-id="problemstatement">
-						Find the value of two numbers if their sum is 12 and their difference is 4. 
-					</div>
-					<div data-id="problemmatrix">
-						\[ \begin{bmatrix}  1 & 1 \\ 1 & -1  \end{bmatrix}  \begin{bmatrix} x_1 \\ x_2  \end{bmatrix}  =  \begin{bmatrix} 12 \\ 4 \end{bmatrix} \]
-					</div>
-					<div data-id="problemmatrix2" style="font-family:'Courier New', Courier, monospace; text-align:left;">
-						> A = [1 1; 1 -1];   <br> 
-						> b = [12; 4]; <br> 
-						> x = A \ b  <br> 
-						x=  <br> 
-						8  <br> 
-						4  <br> 
-					</div>
-				</section> -->
-
-
-				<section>
-					My recommendations: 
-					<br><br>
-					Use the heck out of spreadsheets.  
-					<br><br>
-					Take it to the next level,
-					learn some Octave (MATLAB) and start incorporating computing into computation. 
-				</section>
-
-
-
-
-				<section>
-					<img src="img/kutahw.png">
-				</section>
-				<section>
-					<img src="img/kutahwsolution.png">
-				</section> 
-
-
-				<section>
-					Let's do some math!
-				<br><br><br> 
-					<a target="_blank" href="https://jedediyah.github.io/data/mnist">jedediyah.github.io/data/mnist</a>
-				</section>
-
-
-
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
-			});
-		</script>
+		<div class="maindiv">
+		
+			<h1>NCTM 2024, Chicago</h1>
+			<p>
+				For the big list of all presentations, see <a href="talks.html">here</a>.
+				My talk, Numerical Computing with Data, is described below!
+			</p>
+			<h2>Numerical Computing with Data</h2>
+			<p>
+				The slides for my presentation are <a href="slides.html">available here</a>, but they are insufficient on their own to really communicate the workshop. 
+				I try to give some additional context below, but oh boy am I tired. 
+			</p>
+			<p>	
+				When I went to college (started in physics then switched to electrical and computer systems engineering), it was amazing to finally see applications of some of the math that I had almost learned in high school. 
+				I wondered why I hadn't seen any of these wonderful applications before. 
+			</p>
+			<p>
+				Later, in graduate school for robotics, it only became more clear that there is a tremendous amount of accessible and relevant math that we just ignore in high school (while still including some gross math).
+			</p>
+			<p>
+				There is so much to say about the content that gets included and the content that gets ignored. 
+				A lot of people have said it.
+				There is way more nuance to this than I'll address here. 
+				There could be asterisks all over this page, but this isn't meant to be a well supported argument. 
+			</p>
+			<p>
+				Since I started my career in 2006, right out of college, the single biggest most obvious missing piece in math education is <b>computing</b>. 
+				I don't mean computer science. 
+				I mean computing with computers in authentic ways. 
+				<ul>
+					<li>Ask any math teacher if they've ever used a spreadsheet. </li>
+					<li>Ask them if spreadsheets are a part of their curriculum. </li>
+				</ul>
+				(Of course some do! This is one of those asterisk places. Most don't. Trust me.)
+			</p>
+			<p>
+				It is actually pretty wild that we focus on content that seems so oriented toward engineering without actually ever reaching engineering. 
+				In fact, there are multiple points where we get tantalizingly close but quit right before it gets good. 
+			</p>
+			<p>
+				Lots of Algebra 2 and Precalculus textbooks tease the beginnings of matrices and matrix arithmetic, but then don't do anything with it. 
+				In my wildly successful research career, I used two things: Linear Algebra and Trigonometry. 
+				That's 90% of science. 
+				<ul>
+					<li>Ask an engineer, any engineer, if they have ever used MATLAB.</li>
+					<li>Ask a math teacher if they have ever taught a numerical computing platform.</li>
+				</ul>
+				<b>Computers were invented for math!</b> 
+			</p>
+			<p>
+				There are so many opportunities to engage students with authentic tools and problems. 
+				Certainly, students will not be having the same experiences as professional scientists, etc. 
+				But there are too many places where we barely hint at a topic and then move on to the next unit. 
+				Matrix arithmetic is frick'n dope. 
+				<b>Linear algebra is one of the most fundamental and applicable branches of mathematics, and we walk right up to it but don't touch it. </b>
+			</p>
+			<p>
+				Why do we teach math? There's so much to say about this, but it definitely isn't to train future mathematicians. 
+			</p>
+			<p>
+				High school mathematics...
+				<ul>
+					<li>is not like the math that mathematicians do.</li>
+					<li>is removed from applications that engineers and scientists care about. </li>
+					<li>could, but does not leverage tools that mathematicians, engineers, and scientists use.</li>
+				</ul>
+			</p>
+			<p>
+				How to fix math education in two easy steps:
+				<ol>
+					<li>Teach students how to use spreadsheets.</li>
+					<li>Learn MATLAB (really Octave) and start solving better problems.</li>
+				</ol>
+			</p>
+		
+			<div style="height:300px; ">
+				
+			</div>
+		
+		</div>
 	</body>
 </html>
+	
