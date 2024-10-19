@@ -1,0 +1,40 @@
+
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6em; 
+}
+
+.content-container {
+    max-width:700px;
+    margin:auto; 
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+h3 {
+    color: rgb(41, 149, 116);
+}
+h2 {
+    color: rgb(54, 162, 159); 
+}
+h1 {
+    color: rgb(255, 170, 85); 
+}
+/* h1 {
+    font-family: 'Courier New', Courier, monospace; 
+    -webkit-text-stroke: 1px black;
+     color: white;
+  } */
+
+.references {
+    font-size: 80%; 
+}
+
+a {
+    text-decoration: none;
+    color: rgb(57, 57, 175); 
+}
+a:hover {
+    text-decoration: underline;
+    color:rgb(245, 150, 54)
+}
