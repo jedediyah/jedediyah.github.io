@@ -10,27 +10,48 @@
         <h1>Hexapawn</h1>
         <h2>Problem</h2>
         <p>
-            Analyze the game of Hexapawn.  
+            Analyze the game of Hexapawn.  How can a machine be programmed to improve in performance at playing Hexapawn?
         </p>
         <h2>Resources</h2>
         <p>
             <ul>
-                <li><a href="https://docs.google.com/presentation/d/18k2xwwQ3gLKEpCyZ4qdPcTdlcGAv-_O6qkoHnaekMxo/edit?usp=sharing" target="_blank">Slides</a></li>
-                <li>Handout</li>
-                <li>Machine Learning Demonstration</li>
+                <!-- <li><a href="https://docs.google.com/presentation/d/18k2xwwQ3gLKEpCyZ4qdPcTdlcGAv-_O6qkoHnaekMxo/edit?usp=sharing" target="_blank">Slides</a></li> -->
+                <li><a href="hexapawn.pdf">Sample Handout</a></li>
+                <li><a href="https://jedediyah.github.io/hexapawn/">Machine Learning Demonstration</a></li>
             </ul>
         </p>
         <h2>Overview</h2>
         <p>
-            Hexapawn is a micro-chess variant played with 6 pawns on a 3x3 board.  
+            Hexapawn is a tiny chess variant, written about by Martin Gardner as an example of "<em>how to build a game-learning machine and then teach it to play and to win</em>". 
             A full game can be played in about a minute, so that many games can be played and students can make observations, look for patterns, and develop strategies. 
+        </p>
+        <p>
+            White moves first. A piece can either move forward if the space in front of it is empty, or capture an opponent's piece diagonally. 
+        </p>
+        <p>
+            <img style="width:100%;" src="moves.png">
+        </p>
+        <p>
+            A player wins when: 
+            <ol>
+                <li>One of their pawns reaches the other side</li>
+                <li>They capture all of their opponent's pieces</li>
+                <li>It is their opponent's turn and there is no legal move</li>
+            </ol>
         </p>
         <p>
             Students first familiarize with the rules and play several games.  
             The handout prompts them through an analysis of the game.  
             
         </p>
+        <p>
+            <img style="width:100%;" src="tree.png">
+        </p>
+        <p>
+            In the image above, the board on the left depicts a completed game where black has won by reaching the other side (bottom middle piece). 
+            On the right is a game tree representing five games that have been played. As more games are played, the nodes (circles) in the tree will change color corresponding to which side tends to win from that position. Using this information, a human or an algorithm can determine the best path to take. The more games that get played, the more information there is to make a calculated decision!
 
+        </p>
     </div>
 
 
