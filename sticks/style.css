@@ -1,0 +1,17 @@
+body { margin: 0; }
+
+canvas { display: inline-block; }
+
+a {
+    text-decoration: none;
+    color: #70006c; 
+}
+a:hover {
+    color: #d000ff; 
+}
+
+.main-div {
+    margin: auto; 
+    width: 700px; 
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+}
