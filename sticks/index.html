@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetrahedra</title>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script src="simulator.js"></script>
+    <script src="tetrahedra.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-div">
+    <h1>Broken Stick - Tetrahedron Problem</h1>
+    <div style="width:100%; color: #777;width:64%;margin:auto;text-align: right;">Jedediyah Williams</div>
+    
+
+
+
+    <h3>A Triangle Problem</h3>
+    <p>
+        The tetrahedron problem is a 3d version of a 2d classic:
+    </p>
+    <p style="width:80%;margin:auto; padding:12px; font-style:italic; text-align: center;border-radius:11px;background-color: #fafaff;">
+        Given a stick broken randomly into 3 pieces, what is the<br> probability those 3 pieces can meet as edges to form a triangle? 
+    </p>
+    <br> 
+    <div style="width:100%; margin: auto; text-align: center;">
+        <button title="Click to Show/Hide Content" type="button" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Show Triangle Solution</button>
+    </div>    
+    <div id="spoiler" style="display:none; padding:10px; ">
+    <p>
+        Let our stick have length 1. We break the stick at 2 points and label the 3 resulting pieces \(a\), \(b\), and \(c\) sorted in ascending order of length.
+    </p>
+    <p>   
+    The probability density functions (PDFs) for \(a\), \(b\), and \(c\) are shown below. \(f_{a}(L)\) is shown in red and \(f_{b}(L)\) is green. The PDF of \(c\) in blue is 
+    \[ f_{c} (L) = 
+    \begin{cases} 
+          18L-6 & \frac{1}{3} \lt L \lt \frac{1}{2}  \\
+          -6L+6 & \frac{1}{2} \leq L \lt 1 \\ 
+          0 & \text{ otherwise}
+       \end{cases}
+    \]
+    </p>
+    <iframe src="https://www.desmos.com/calculator/0h6g2apkcm?embed" style="width:100%; border: 1px solid black;" height="500" style="border: 1px solid #ccc"></iframe>
+    <p>
+        To achieve \(\triangle abc\), we need to satisfy the triangle inequality, \(a+b > c\). Since \(a+b+c=1\), then \(a+b\) will be greater than \(c\) whenever \(c \lt 0.5 \). Using the PDF of \(c\), we can find the probability that \(c \lt 0.5\),
+        \[ P\left[ c \lt 0.5 \right] = \int_{0}^{0.5} f_{c} (L) \ dL = 0.25  \]    
+    </p>
+    </div>
+
+
+
+
+
+
+    <h3>Background</h3>
+    
+    <p style="width:80%;margin:auto; padding:12px; font-style:italic; text-align: center;border-radius:11px;background-color: #fafaff;">
+    Given a stick broken randomly into \(6\) pieces, what is the  probability<br>  
+     that those \(6\) pieces can meet as edges to form a tetrahedron? 
+    </p>
+    <p>
+    I saw this problem tweeted about here: <a target="_blank" href="https://twitter.com/benjamindickman/status/1392901506026856457">https://twitter.com/benjamindickman/status/1392901506026856457</a> 
+    and it was posted here: <a target="_blank" href="https://mathoverflow.net/questions/142983/probability-that-a-stick-randomly-broken-in-five-places-can-form-a-tetrahedron">https://mathoverflow.net/questions/142983/probability-that-a-stick-randomly-broken-in-five-places-can-form-a-tetrahedron</a> 
+    </p>
+    <p>The tetrahedron problem is intriguing for several reasons. In short, triangles are nice and tetrahedra are not! Moving from 2d to 3d often takes finite problems and adds infinity more problems. </p>
+
+
+
+    <h3>Simulation</h3>
+    <p>
+        Simulation, while not a proof, can be helpful for building our intuition about a problem and validating some results later on. Below is a Monte Carlo simulation. 
+    </p>
+    <p>
+        <button onclick="toggle_simulation();" id="simulation_button">Run Simulation</button>
+    </p>
+    <div id="simulatordiv" style="width:100%;"></div>
+    <p>
+        This simulation utilizes the construction described below to check if a random break can form a tetrahedron. 
+    </p>
+    <p>
+        Note that the simulation here is very slow because of the graphics (and unoptimized JavaScript). You can run a million times faster using <a target="_blank" href="https://replit.com/@jedediyah/BreakingSticksC">C++ like this</a>.
+    </p>
+
+
+
+
+
+    <h3>Constructing a Tetrahdron</h3>
+    <p>
+        To start thinking about creating a tetrahedron from 6 pieces, it will be helpful to define a construction, or an algorithm for creating a tetrahedron given a sequence of edge lengths. 
+    </p>
+    <p>
+        Given lengths 1 through 6, or sequence \( \left( l_{1},l_{2},l_{3},l_{4},l_{5},l_{6} \right) \), we construct a tetrahedron in the following 3 steps:
+        <ol>
+            <li>Form \( \triangle l_1 l_2 l_3 \)  </li>
+            <li>Form \( \triangle l_1 l_4 l_5 \) so that edge \(l_1\) is a "hinge" and \(l_4\) meets \(l_1\) and \(l_2\)    </li>
+            <li>Connect edge \(l_6\) from the point between \(l_4\) and \(l_5\) to the point between \(l_2\) and \(l_3\)  </li>  </li>
+        </ol>
+    </p>
+    <p>
+        Let's clarify and elaborate on these steps.             
+        <ol>
+            <li> Form \( \triangle l_1 l_2 l_3 \)          
+                <div>
+                    <p style="text-align:center;">
+                        <img src="abc.png" style="width:80%;">
+                    </p>
+                    <p>
+                        Let's label the vertices: 
+                        \[P_{1} = (0,0)\] 
+                        \[P_{2}=(l_{1},0)\] 
+                        Point \(P_{3}\) can be found at \((x,y)\) assuming the \(y\) value is positive, from the system of equations:
+                        \[ x^2 + y^2 = l_{3}^{2} \]
+                        \[ (x-l_{1})^2 + y^2 = l_{2}^{2} \]
+                        We find 
+                        \[ P_{3} = \left( 
+                                            \frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}} ,
+                                            \sqrt{l_{3}^{2}-\left(\frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}\right)^{2}}
+                                    \right) \]
+                    </p>
+                </div>
+            
+            </li>
+            <li> Form \( \triangle l_1 l_4 l_5 \) so that edge \(l_1\) is a "hinge" and \(l_4\) meets \(l_1\) and \(l_2\)  
+                <div>
+                    <p style="text-align:center;">
+                        <img src="abcde.png" style="width:80%;">
+                    </p>
+                    <p>
+                        The location of \(P_{4}\) in the figure above can be found at \(x,y\), assuming \(y\) is negative, from the system:
+                        \[ x^2 + y^2 = l_{4}^{2} \]
+                        \[ (x-l_1)^{2} + y^2 = l_{5}^{2} \]
+                    We find the point
+                        \[ P_{4} = \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} , - \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } \right) \]
+                    </p>
+                    <p>
+                        Up to here we have plotted everything in 2d. However, if we imagine edge \(l_1\) as a hinge and we let the bottom triangle rotate about this hinge, we can move \(P_4\) up out of the \(xy\)-plane and closer to \(P_3\). 
+                        The figure above shows \(P_4\) in the position farthest from \(P_{3}\). The figure below shows \(P_4\) in the position closest to \(P_{3}\). 
+                        Both represent degenerate tetrahedra where \(\triangle l_1 l_2 l_3\) and \(\triangle l_1 l_4 l_5\) are coplanar. 
+                    </p>
+                    <p style="text-align:center;">
+                        <img src="abcde2.png" style="width:80%;">
+                    </p>
+                    <p>
+                        In this configuration, the location of \(P_4\) is 
+                        \[ P_{4} = \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} , + \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } \right) \]
+                    </p>
+                
+                </div>
+            </li>
+            <li> Connect edge \(l_6\) from the point between \(l_4\) and \(l_5\) to the point between \(l_2\) and \(l_3\) </li>
+            <p>
+                To connect \(l_6\) from \(P_3\) to \(P_4\), the length of \(l_6\) needs to be long enough and not too long. That is, \(l_6\) needs to be longer than the shortest distance between \(P_3\) and \(P_4\), and shorter than the longest distance between \(P_3\) and \(P_4\).
+            </p>
+            <p> The minimum distance between \(P_3\) and \(P_4\) is 
+                \[ l_{6_{min}} = \sqrt{  
+                    \left( 
+                        \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1}  
+                        -
+                        \frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}
+                    \right)^2 
+                    +
+                    \left(  
+                        \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } 
+                        - 
+                        \sqrt{l_{3}^{2}-\left(\frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}\right)^{2}}
+                    \right)^2  } \]
+                    
+                \[ l_{6_{min}} = \sqrt{  
+                    
+                        \frac{ \left( l_{3}^{2} + l_{4}^{2} -l_{2}^{2} - l_{5}^{2} \right)^2 }{4l_{1}^{2}}  
+                     
+                    +
+                    \left(  
+                        \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } 
+                        - 
+                        \sqrt{l_{3}^{2}-\left(\frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}\right)^{2}}
+                    \right)^2  } \]
+
+                and, similarly, the maximum distance between \(P_3\) and \(P_4\) is 
+                
+                \[ l_{6_{max}} = \sqrt{  
+                    
+                    \frac{ \left( l_{3}^{2} + l_{4}^{2} -l_{2}^{2} - l_{5}^{2} \right)^2 }{4l_{1}^{2}}  
+                 
+                +
+                \left(  
+                    \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } 
+                    + 
+                    \sqrt{l_{3}^{2}-\left(\frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}\right)^{2}}
+                \right)^2  } \]
+                To get a (non-degenerate) tetrahedron at this step, we must have 
+                \[ l_{6_{min}} \lt l_6 \lt l_{6_{max}}  \]
+
+                If this inequality is satisfied, then the \( \left( x,y,z \right) \) position of \(P_4\) can be determined. As \(P_4\) is rotated about the \(x\)-axis, its \(x\) value remains constant 
+                \[ x = \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1}  \]
+                and it remains a radius away from the \(x\) axis of (the \(y\) value of \(P_4\) above)
+                \[ r = \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2} } \]
+
+                We are looking for the point \(x,y,z\) that satisfy: 
+                \[ l_6 = \sqrt{ \left( x - P_{3x} \right)^{2}  +
+                                \left( y - P_{3y} \right)^{2} +
+                                \left( z - P_{3z} \right)^{2} } \]            
+                \[ y^2 + z^2 = r^2 \]    
+
+                Solving for \(y\) and \(z\) we find
+                \[ y = \frac{
+                                \left(x-P_{3x} \right)^{2} +  P_{3y}^{2} + r^2 - l_{6}^{2}
+                            }{
+                                2 P_{3y}
+                            } \]
+                \[  z = \sqrt{ r^2 - y^2 } \]
+
+
+
+                which expand in terms of lengths as 
+                \[ y = \frac{ 
+                    \frac{ \left( l_{2}^{2} -l_{3}^{2} +l_{4}^{2} - l_{5}^{2} \right)^{2}  - \left(  l_{1}^{2} -l_{2}^{2} + l_{3}^{2} \right)^2  - \left( l_{1}^{2}+l_{4}^{2} - l_{5}^{2} \right)^{2}  }{4l_{1}^{2}}
+                    + l_{3}^{2} + l_{4}^{2} - l_{6}^2
+                }{  
+                    2 \sqrt{l_{3}^{2} - \frac{ \left( l_{1}^{2}+l_{3}^{2}-l_{2}^{2}\right)^{2} }{4l_{1}^2} }
+                } \]
+
+                \[
+                    z = \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2}   - y^2 }
+                \]
+               
+            </p>
+        </ol>
+    </p>
+    <p>
+        In summary, given lengths \(l_1, l_2, l_3, l_4, l_5, l_6\), the four 3d points of our constructed tetrahedron are located (assuming the tetrahedron is possible) at:
+        \[ P_1 = (0, 0, 0)      \]
+        \[ P_2 = (0, l_1, 0)    \]
+        \[ P_{3} = \left( 
+                        \frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}} ,
+                        \sqrt{l_{3}^{2}-\left(\frac{l_{1}^{2}+l_{3}^{2}-l_{2}^{2}}{2l_{1}}\right)^{2}},
+                        0 
+                    \right) \]
+        \[ P_{4} = \left( 
+                        \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1}, 
+                        \frac{ 
+                            \frac{ \left( l_{2}^{2} -l_{3}^{2} +l_{4}^{2} - l_{5}^{2} \right)^{2}  - \left(  l_{1}^{2} -l_{2}^{2} + l_{3}^{2} \right)^2  - \left( l_{1}^{2}+l_{4}^{2} - l_{5}^{2} \right)^{2}  }{4l_{1}^{2}}
+                            + l_{3}^{2} + l_{4}^{2} - l_{6}^2
+                        }{  
+                            2 \sqrt{l_{3}^{2} - \frac{ \left( l_{1}^{2}+l_{3}^{2}-l_{2}^{2}\right)^{2} }{4l_{1}^2} }
+                        } ,
+                        \sqrt{ l_{4}^{2} - \left( \frac{l_{1}^{2}+l_{4}^{2}-l_{5}^{2}}{2l_1} \right)^{2}   - y^2 }
+                    \right) \]
+    </p>
+
+
+    
+
+<!-- 
+    <p>
+        Here's an example of some edges:
+        <div>
+            <canvas id="mycanvas1"></canvas>
+            <script>
+                {
+                    let a,b,c,d,e,f; 
+                    a = 0.2; 
+                    b = 0.2; 
+                    c = 0.20; 
+                    d = 0.2; 
+                    e = 0.2; 
+                    f = 0.2; 
+                    draw_tetrahedron( [a,b,c,d,e,f], "mycanvas1" );
+                }
+            </script>
+            <canvas id="mycanvas2"></canvas>
+            <script>
+                {
+                    let a,b,c,d,e,f; 
+                    a = 0.18; 
+                    b = 0.19; 
+                    c = 0.20; 
+                    d = 0.21; 
+                    e = 0.22; 
+                    f = 0.1; 
+                    draw_tetrahedron( [a,b,c,d,e,f], "mycanvas2" );
+                }
+            </script>
+        </div>
+    </p> -->
+
+    <h3>Unique Edge Sequences</h3>
+    <p>
+        We have a construction based on a sequence of six lengths, and the success of this construction may depend on the order of those six lengths. 
+        Given six lengths of a broken stick, let's sort those pieces in order of increasing length from \(a\) to \(f\). 
+    </p>    
+    <p>
+        There are 720 possible arrangents of 6 pieces.  These potentially result in 30 unique tetrahedra given 24 degrees of symmetry. "Potentially" because many of these arrangements will not result in a valid tetrahedron for a given break.  Given edges \(a,b,c,d,e,f\), the 30 sequences corresponding to 30 unique tetrahedra are:
+        <table style="width:80%; margin:auto;">
+        <tr><td>(a, b, c, d, e, f) </td>  <td>( a, b, d, f, c, e)</td>  <td>( a, b, f, d, c, e)</td></tr>
+        <tr><td>(a, b, c, d, f, e) </td>  <td>( a, b, d, f, e, c)</td>  <td>( a, b, f, d, e, c)</td></tr>
+        <tr><td>(a, b, c, e, d, f) </td>  <td>( a, b, e, c, d, f)</td>  <td>( a, b, f, e, c, d)</td></tr>
+        <tr><td>(a, b, c, e, f, d) </td>  <td>( a, b, e, c, f, d)</td>  <td>( a, b, f, e, d, c)</td></tr>
+        <tr><td>(a, b, c, f, d, e) </td>  <td>( a, b, e, d, c, f)</td>  <td>( a, c, d, e, f, b)</td></tr>
+        <tr><td>(a, b, c, f, e, d) </td>  <td>( a, b, e, d, f, c)</td>  <td>( a, c, d, f, e, b)</td></tr>
+        <tr><td>(a, b, d, c, e, f) </td>  <td>( a, b, e, f, c, d)</td>  <td>( a, c, e, d, f, b)</td></tr>
+        <tr><td>(a, b, d, c, f, e) </td>  <td>( a, b, e, f, d, c)</td>  <td>( a, c, e, f, d, b)</td></tr>
+        <tr><td>(a, b, d, e, c, f) </td>  <td>( a, b, f, c, d, e)</td>  <td>( a, c, f, d, e, b)</td></tr>
+        <tr><td>(a, b, d, e, f, c) </td>  <td>( a, b, f, c, e, d)</td>  <td>( a, c, f, e, d, b)</td></tr>
+        </table>    
+
+    </p>
+    <p>
+        which correspond to the following 30 combinations of four triangles:
+    </p>
+
+    <p>
+    <table style="width:80%; margin:auto;">
+    <tr><td>abc-ade-bdf-cef</td><td>abf-acd-bde-cef</td><td>abf-ace-bcd-def</td></tr>
+    <tr><td>abc-adf-bde-cef</td><td>abd-acf-bef-cde</td><td>abf-ade-bcd-cef</td></tr>
+    <tr><td>abc-ade-bef-cdf</td><td>abd-aef-bcf-cde</td><td>abf-ace-bde-cdf</td></tr>
+    <tr><td>abc-aef-bde-cdf</td><td>abe-acd-bcf-def</td><td>abf-ade-bce-cdf</td></tr>
+    <tr><td>abc-adf-bef-cde</td><td>abe-acf-bcd-def</td><td>acd-aef-bce-bdf</td></tr>
+    <tr><td>abc-aef-bdf-cde</td><td>abe-acd-bdf-cef</td><td>acd-aef-bcf-bde</td></tr>
+    <tr><td>abd-ace-bcf-def</td><td>abe-adf-bcd-cef</td><td>ace-adf-bcd-bef</td></tr>
+    <tr><td>abd-acf-bce-def</td><td>abe-acf-bdf-cde</td><td>ace-adf-bcf-bde</td></tr>
+    <tr><td>abd-ace-bef-cdf</td><td>abe-adf-bcf-cde</td><td>acf-ade-bcd-bef</td></tr>
+    <tr><td>abd-aef-bce-cdf</td><td>abf-acd-bce-def</td><td>acf-ade-bce-bdf</td></tr>
+    </table>
+    </p>
+
+    where each triple represents one of the triangles of the tetrahedron. 
+
+    <p>
+        Of the 30 unique tetrahedra, we need not analyze them all! There are 7 fundamental configurations such that if any tetrahedra are possible from a set of six pieces, then one of these 7 must form a valid tetrahedron using the construction above. The 7 fundamental sequences are:
+    </p>
+    <p style="text-align: center;">
+        \(T_{1} = \) (a, b, c, d, e, f)<br> 
+        \(T_{2} = \) (a, b, c, d, f, e)<br> 
+        \(T_{3} = \) (a, b, c, e, d, f)<br> 
+        \(T_{4} = \) (a, b, c, e, f, d)<br> 
+        \(T_{9} = \) (a, b, d, e, c, f)<br>       
+        \(T_{10} = \) (a, b, d, e, f, c)<br> 
+        \(T_{25} = \) (a, c, d, e, f, b)
+    </p>
+    <p>
+        where subscripts indicate the index of the sequence in the original list of 30, from top-to-bottom and left-to-right. 
+        The triangle configurations that correspond to these 7 sequences are:
+    </p>
+    <p style="text-align: center;">
+        abc-ade-bdf-cef<br> 
+        abc-adf-bde-cef<br> 
+        abc-ade-bef-cdf<br> 
+        abc-aef-bde-cdf<br> 
+        abd-ace-bef-cdf<br> 
+        abd-aef-bec-cdf<br> 
+        acd-aef-bce-bdf
+    </p>
+    <p>
+        Let's look at an example. Consider the ordered sequence of lengths:
+        \[ \left( 0.12, 0.15, 0.16, 0.17, 0.18, 0.22  \right) \]
+        The seven fundamental sequences for this set of lengths are: 
+        \[ T_{1} = (0.12, 0.15, 0.16, 0.17, 0.18, 0.22) \]
+        \[ T_{2} = (0.12, 0.15, 0.16, 0.17, 0.22, 0.18) \]
+        \[ T_{3} = (0.12, 0.15, 0.16, 0.18, 0.17, 0.22) \]
+        \[ T_{4} = (0.12, 0.15, 0.16, 0.18, 0.22, 0.17) \]
+        \[ T_{9} = (0.12, 0.15, 0.17, 0.18, 0.16, 0.22)  \]
+        \[ T_{10} = (0.12, 0.15, 0.17, 0.18, 0.22, 0.16) \]
+        \[ T_{25} = (0.12, 0.16, 0.17, 0.18, 0.22, 0.15)\]
+        and these tetrahedra look like this:
+        <div>
+        <canvas id="fundamentalexample1"></canvas>
+        <canvas id="fundamentalexample2"></canvas>
+        <canvas id="fundamentalexample3"></canvas>
+        <canvas id="fundamentalexample4"></canvas>
+        <canvas id="fundamentalexample5"></canvas>
+        <canvas id="fundamentalexample6"></canvas>
+        <canvas id="fundamentalexample7"></canvas>
+            <script>
+                {
+                    let a,b,c,d,e,f; 
+                    a = 0.12; 
+                    b = 0.15; 
+                    c = 0.16; 
+                    d = 0.17; 
+                    e = 0.18; 
+                    f = 0.22; 
+                    draw_tetrahedron( [a,b,c,d,e,f], "fundamentalexample1" );
+                    draw_tetrahedron( [a,b,c,d,f,e], "fundamentalexample2" );
+                    draw_tetrahedron( [a,b,c,e,d,f], "fundamentalexample3" );
+                    draw_tetrahedron( [a,b,c,e,f,d], "fundamentalexample4" );
+                    draw_tetrahedron( [a,b,d,e,c,f], "fundamentalexample5" );
+                    draw_tetrahedron( [a,b,d,e,f,c], "fundamentalexample6" );
+                    draw_tetrahedron( [a,c,d,e,f,b], "fundamentalexample7" );
+                }
+            </script>
+        </div>
+    </p>
+    <p>
+        Note that the lengths in the above example were fairly similar. In practice, most of the fundamental tetrahedra will not be possible. Consider the lengths 
+        \[ \left( 0.05, 0.12, 0.16, 0.17, 0.23, 0.27 \right) \]
+        which result in no tetrahedra at all, or the lengths 
+        \[ \left( 0.08, 0.12, 0.16, 0.17, 0.23, 0.24 \right) \]
+        which result in the following four complete and three incomplete tetrahedra: 
+        <div>
+            <canvas id="fundamentalexample1b"></canvas>
+            <canvas id="fundamentalexample2b"></canvas>
+            <canvas id="fundamentalexample3b"></canvas>
+            <canvas id="fundamentalexample4b"></canvas>
+            <canvas id="fundamentalexample5b"></canvas>
+            <canvas id="fundamentalexample6b"></canvas>
+            <canvas id="fundamentalexample7b"></canvas>
+                <script>
+                    {
+                        let a,b,c,d,e,f; 
+                        a = 0.08; 
+                        b = 0.12; 
+                        c = 0.16; 
+                        d = 0.17; 
+                        e = 0.23; 
+                        f = 0.24; 
+                        draw_tetrahedron( [a,b,c,d,e,f], "fundamentalexample1b" );
+                        draw_tetrahedron( [a,b,c,d,f,e], "fundamentalexample2b" );
+                        draw_tetrahedron( [a,b,c,e,d,f], "fundamentalexample3b" );
+                        draw_tetrahedron( [a,b,c,e,f,d], "fundamentalexample4b" );
+                        draw_tetrahedron( [a,b,d,e,c,f], "fundamentalexample5b" );
+                        draw_tetrahedron( [a,b,d,e,f,c], "fundamentalexample6b" );
+                        draw_tetrahedron( [a,c,d,e,f,b], "fundamentalexample7b" );
+                    }
+                </script>
+            </div>
+
+    </p>
+
+
+    
+
+
+    <h3>Probability of a Tetrahedron (a first look)</h3>
+    <p>
+        If we break a stick into six pieces, what is the probability that we get at least one tetrahedron? Yeah, that's a tough one. 
+    </p>
+    <p>
+        Given a particular sequence of six lengths, we can get a tetrahedron if our construction works, which requires 
+        <ol>
+            <li> \(l_1\), \(l_2\), and \(l_3\) can form a triangle </li>
+            <li> \(l_1\), \(l_4\), and \(l_5\) can form a triangle </li>
+            <li> \(l_6\) can reach from \(P_3\) to \(P_4\) </li>
+        </ol>
+        And we check if any of the seven sequences representing the fundamental tetrahedra satisfy these constraints. 
+    </p>
+    <p> Given a stick broken into six pieces where the sorted lengths are \(a,b,c,d,e,f\), we have at least one tetrahedron if          
+        \[ \left( 
+            a + b > c \land 
+            a + d > e \land 
+            f \gt f_{1min} \land 
+            f \lt f_{1max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + b > c \land 
+            a + d > f \land 
+            e \gt e_{2min} \land 
+            e \lt e_{2max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + b > c \land 
+            a + d > e \land 
+            f \gt f_{3min} \land 
+            f \lt f_{3max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + b > c \land 
+            a + e > f \land 
+            d \gt d_{4min} \land 
+            d \lt d_{4max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + b > d \land 
+            a + c > e \land 
+            f \gt f_{9min} \land 
+            f \lt f_{9max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + b > d \land 
+            a + e > f \land 
+            c \gt c_{10min} \land 
+            c \lt c_{10max}
+        \right) \]
+        \[ \lor \]
+        \[ \left( 
+            a + c > d \land 
+            a + e > f \land 
+            b \gt b_{25min} \land 
+            b \lt b_{25max}
+        \right) \]
+
+        where \(f_{1min}\) is the minimum distance \(l_{6_{min}}\) for \(f\) in tetrahedron \(T_{1}\), and so on. 
+    </p>
+    <p>
+        <script>
+            function write_construction_min(l1,l2,l3,l4,l5,l6) {
+                expression = ` \\[  
+                    \\land 
+                    ${l6} \\gt 
+                        \\sqrt{  
+                                
+                            \\frac{ \\left( ${l3}^{2} + ${l4}^{2} - ${l2}^{2} - ${l5}^{2} \\right)^2 }{4${l1}^{2}}  
+                        
+                        +
+                        \\left(  
+                            \\sqrt{ ${l4}^{2} - \\left( \\frac{${l1}^{2}+${l4}^{2}-${l5}^{2}}{2${l1}} \\right)^{2} } 
+                            - 
+                            \\sqrt{${l3}^{2}-\\left(\\frac{${l1}^{2}+${l3}^{2}-${l2}^{2}}{2${l1}}\\right)^{2}}
+                        \\right)^2  }
+                \\] `;
+                document.write( expression ); 
+            }
+            function write_construction_max(l1,l2,l3,l4,l5,l6) {
+                expression = ` \\[  
+                    \\land 
+                    ${l6} \\lt 
+                        \\sqrt{  
+                                
+                            \\frac{ \\left( ${l3}^{2} + ${l4}^{2} - ${l2}^{2} - ${l5}^{2} \\right)^2 }{4${l1}^{2}}  
+                        
+                        +
+                        \\left(  
+                            \\sqrt{ ${l4}^{2} - \\left( \\frac{${l1}^{2}+${l4}^{2}-${l5}^{2}}{2${l1}} \\right)^{2} } 
+                            + 
+                            \\sqrt{${l3}^{2}-\\left(\\frac{${l1}^{2}+${l3}^{2}-${l2}^{2}}{2${l1}}\\right)^{2}}
+                        \\right)^2  }  ) 
+                \\] `;
+                document.write( expression ); 
+            }
+        </script>
+        Expanding the min and max terms creates a gigantic thing that maybe I can put together correctly: 
+        \[ (
+            a + b > c \land 
+            a + d > e 
+        \]
+            <script>write_construction_min('a','b','c','d','e','f')</script>
+            <script>write_construction_max('a','b','c','d','e','f')</script>
+        \[ \lor \]
+        \[ ( 
+            a + b > c \land 
+            a + d > f 
+        \]
+            <script>write_construction_min('a','b','c','d','f','e')</script>
+            <script>write_construction_max('a','b','c','d','f','e')</script>
+        \[ \lor \]
+        \[ ( 
+            a + b > c \land 
+            a + d > e
+        \]
+            <script>write_construction_min('a','b','c','e','d','f')</script>
+            <script>write_construction_max('a','b','c','e','d','f')</script>
+        \[ \lor \]
+        \[ ( 
+            a + b > c \land 
+            a + e > f 
+        \]
+            <script>write_construction_min('a','b','c','e','f','d')</script>
+            <script>write_construction_max('a','b','c','e','f','d')</script>
+        \[ \lor \]
+        \[ ( 
+            a + b > d \land 
+            a + c > e 
+        \]
+            <script>write_construction_min('a','b','d','e','c','f')</script>
+            <script>write_construction_max('a','b','d','e','c','f')</script>
+        \[ \lor \]
+        \[ ( 
+            a + b > d \land 
+            a + e > f 
+        \]
+            <script>write_construction_min('a','b','d','e','f','c')</script>
+            <script>write_construction_max('a','b','d','e','f','c')</script>
+        \[ \lor \]
+        \[ ( 
+            a + c > d \land 
+            a + e > f
+        \]
+            <script>write_construction_min('a','c','d','e','f','b')</script>
+            <script>write_construction_max('a','c','d','e','f','b')</script>
+
+    </p>
+
+
+
+
+    <h3>Probability Density of \(L\)</h3>
+
+    <p>
+        The probability density of piece length being \(L\) from a unit stick broken into \(n\) pieces is 
+        \[(n-1)(1-L)^{n-2}\] 
+        so for six pieces we have 
+        \[5(1-L)^{4}\]
+        and the probability of a piece being between length \(l_1\) and \(l_2\) where \(0 \lt l_1 \lt l_2 \lt 1\) is
+        \[\int_{l_1}^{l_2} 5(1-L)^{4} \ dL = (1-l_1)^{5} - (1-l_2)^{5} \]
+    </p>
+    <p>
+        The PDF \(f(x)\) for each length \(a\) through \(f\) is: 
+        \[	f_a(x) = 38880 x^4 -25920 x^3 + 6480 x^2  -720 x + 30 \quad  0 \leq x \leq \frac{1}{6}   	\]
+        \[ 	f_b(x) = 
+                    \begin{cases}
+                        -100650x^4 + 54600x^3 - 9900x^2 + 600x 		&   0 \leq x \leq \frac{1}{6}   \\
+                        93750x^4 - 75000x^3+22500x^2-3000x+150	      &      \frac{1}{6} \lt x \leq \frac{1}{5}   \\
+                    \end{cases}
+        \]
+        \[ 	f_c(x) = 
+                    \begin{cases}
+                        90600x^4 -36000x^3 +3600 x^2    	&   0 \leq x \leq \frac{1}{6}   \\
+                        -298200x^4 + 223200x^3 -61200x^2 +7200x -300      	&     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                        76800x^4 -76800x^3+28800x^2-4800x+300          &     \frac{1}{5} \lt x \leq \frac{1}{4}      \\
+                    \end{cases}
+        \]
+        \[ 	f_d(x) = 
+                    \begin{cases}
+                            -32400x^4 + 7200x^3	        &     0 \leq x \leq \frac{1}{6}     \\ 
+                            356400x^{4}-252000x^{3}+64800x^{2}-7200x+300     &     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                            -206100x^{4}+198000x^{3}-70200x^{2}+10800x-600 &     \frac{1}{5} \lt x \leq \frac{1}{4}     \\
+                        24300x^4-32400x^3+16200x^2-3600x+300	      &    \frac{1}{4} \lt x \leq \frac{1}{3}     \\
+                    \end{cases}
+        \]
+
+        \[ 	f_e(x) = 
+                    \begin{cases}
+                        3600x^4   &     0 \leq x \leq \frac{1}{6}     \\
+                        -190800x^{4}+129600x^{3}-32400x^{2}+3600x-150     &     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                        184200x^{4}-170400x^{3}+57600x^{2}-8400x+450        &     \frac{1}{4} \lt x \leq \frac{1}{5}     \\
+                        -46200x^{4}+60000x^{3}-28800x^{2}+6000x-450  &      \frac{1}{3} \lt x \leq \frac{1}{4}     \\
+                        2400x^4-4800x^3+3600x^2-1200x+15    &     \frac{1}{2} \lt x \leq 1   \\
+                    \end{cases}
+        \]
+
+        \[ 	f_f(x) = 
+                    \begin{cases}
+                        38880x^4-25920x^3+6480x^2-720x+30       &   \frac{1}{6} \leq x \leq \frac{1}{5}     \\
+                        -54870x^{4}+49080x^{3}-16020x^{2}+2280x-120     &    \frac{1}{5} \lt x \leq \frac{1}{4}     \\
+                        21930x^{4}-27720x^{3}+12780x^{2}-2520x+180       &    \frac{1}{4} \lt x \leq \frac{1}{3}     \\
+                        -2370x^4 + 4680 x^3 -3420 x^2 +1080x -120     &      \frac{1}{3} \lt x \leq \frac{1}{2}     \\
+                        30x^4 -120 x^3 + 180 x^2 -120 x + 30       &    \frac{1}{2} \lt x \leq 1   \\
+                    \end{cases}
+        \]
+        It is important to note that these distributions are not independent. 
+
+
+    </p>
+
+
+
+
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+   
+</body>
+</html>
