@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Weblog</title>
+    <title>Jedlog</title>
     <link rel="stylesheet" href="../styles.css">
     
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -15,7 +15,6 @@
     <!-- <a href="../"><div class="banner">All Models are Wrong</div></a> -->
     <div class="container">
 
-        <hr> 
         <div class="heading">
             <img class="header-image" src="banner.jpg">
             <h1>The First Post</h1>
@@ -25,27 +24,40 @@
         </div>
         <hr>
         <p> 
-            The title of this blog, "All Models are Wrong" may sound negative to non-engineers. It is not meant to be. It is a reminder.
+            The title of this web log, "All Models are Wrong", might sound negative to non-engineers. It is not meant to be! It is a reminder of an important principle that is often ignored.
         </p>
         <p>
-            The title comes from George Box, who is often quoted as saying "<a href="https://en.wikipedia.org/wiki/All_models_are_wrong">all models are wrong, but some are useful.</a>". I know this quote from his book with Normal Draper, "Empirical Model-Building and Response Surfaces". 
+            The title comes from George Box, who is often quoted as saying "<a href="https://en.wikipedia.org/wiki/All_models_are_wrong">all models are wrong, but some are useful</a>". I know this quote from his book with Norman Draper, "Empirical Model-Building and Response Surfaces". 
         </p>
         <p>
-            <img src="box_cover.jpg" style="max-width:200px;">
-        </p>
-        <p>
-            On page 424 of that text, we see the famous quote with additional context. 
+            On page 424 of that text, we see the famous quote with additional details. 
         </p>
         <p>
             <img src="box_424.jpg">
         </p>
         <p>
+            That dot equals symbol, \(\dot{=}\), in equation 13.1.3 means "approximately equal". I'm not sure that I had seen this notation before! 
+        </p>
+        <p>
             <img src="box_425.jpg">
         </p>
         <p>
-            
+            Then we see one of my favorite paragraphs in the book on page 425. 
+            <blockquote>
+                <p>
+                    "Although the above implies that systematic errors \(\boldsymbol\delta(\boldsymbol\xi)\) are always to be expected, there has been, since the time of Gauss (1777-1855), an unfortunate tendency to ignore them, and to concentrate only on the random errors \(\boldsymbol\varepsilon\). This seems to have been because nice mathematical results are possible when this is done. In choosing an experimental design, the ignoring of systematic error is <em>not</em> an innocuous approximation and misleading results may well be obtained, as we shall see in due course."
+                </p>
+                - Box & Draper, 1987, p. 425. 
+            </blockquote>
+        </p>
+        <p>
+            While response surfaces seem fairly abstract and the book includes a lot of theory, the thoery is broadly applicable and there are some good application examples provided for context. Section 13.2, which we peek at in the image above, covers the important topic of bias-variance trade-off, a topic which will be familiar to those studying machine learning! In any case, a lot of good can come from reminding ourselves George Box's aphorism. 
         </p>
 
+        <h4>Bibliography</h4>
+        <div class="bibliography">
+            Box, G. E. P., & Draper, N. R. (1987). Empirical model-building and response surfaces. John Wiley & Sons.
+        </div>
 
     </div>
 </body>

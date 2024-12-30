@@ -26,6 +26,7 @@ body {
     margin: 0 auto;
     background: #fff;
     padding: 40px;
+    margin-bottom: 350px; 
     /* border-radius: 7px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
@@ -95,6 +96,18 @@ a {
 a:hover {
     color: #449;
     text-decoration: underline;
+}
+
+blockquote {
+    background-color: #ddd;
+    padding: 10px 30px 10px 30px; 
+    /* font-style: italic; */
+    border-radius: 7px;
+}
+
+.bibliography {
+    font-size: 0.9em; 
+    color: #666; 
 }
 
 @media (max-width: 600px) {
