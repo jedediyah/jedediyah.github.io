@@ -130,4 +130,8 @@ blockquote {
     p {
         font-size: 0.9em;
     }
+
+    blockquote {
+        padding: 10px 10px 10px 10px; 
+    }
 }
