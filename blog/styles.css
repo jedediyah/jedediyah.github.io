@@ -41,7 +41,8 @@ body {
 }
 
 .author {
-    font-style: italic;
+    /* font-style: italic; */
+    color: #777; 
 }
 
 .date {
@@ -112,11 +113,11 @@ blockquote {
 
 @media (max-width: 600px) {
     body {
-        padding: 10px;
+        padding: 8px;
     }
     
     .container {
-        padding: 10px;
+        padding: 8px;
     }
     
     h1 {
