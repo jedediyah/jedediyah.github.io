@@ -67,10 +67,9 @@
     document.getElementById("check-button").addEventListener("click", () => {  
         // Check for expected values in the sheet
         checkSheet(
-            checkCellFunction("A1","=1+2+3") && 
-            (checkCellFunction("B1","=2^3/(4+1)") || checkCellFunction("B1","=(2^3)/(4+1)")) &&
-            (checkCellFunction("C1","=((1+7)/4^2)^3") || checkCellFunction("C1","=((1+7)/(4^2))^3") ) &&
-            checkCell("C1",0.125), 
+          checkCellFunction("B2","=3*A2+2") &&
+          checkCellFunction("C2","=sin(A2)") &&
+          checkCellFunction("D2","=abs(A2)"), 
             "fibonacci.html"
         ); 
       });
