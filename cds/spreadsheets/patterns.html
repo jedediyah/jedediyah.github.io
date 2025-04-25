@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Predictive Dragging - Multiple Patterns</h2>
+    <p>We can extend multiple patterns simultaneously. </p>
+    <p>Start three different patterns:
+      <ol>
+        <li>Counting by 2s</li>
+        <li>Counting by 5s</li>
+        <li>Counting by 10s</li>
+      </ol>
+      to look like this:
+    </p>
+    <div style="text-align: center;">
+      <img src="img/patterns.png">
+    </div>
+    <p>
+      We barely started each pattern!
+    </p>
+    <p>
+      Select all three patterns (six cells) and drag the blue dot down to at least row 20. 
+    </p>
+
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    initBlankSheet(); 
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCell("A1",2) && 
+            checkCell("A2",4) && 
+            checkCell("B1",5) && 
+            checkCell("B2",10) && 
+            checkCell("C1",10) && 
+            checkCell("C2",20) && 
+            checkCell("A20",40) && 
+            checkCell("B20",100) && 
+            checkCell("C20",200), 
+            "formulas.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

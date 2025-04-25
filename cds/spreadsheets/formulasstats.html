@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Formulas - Stats</h2>
+    <p>Fill in the missing formulas to complete the sheet. </p>
+    <p>The missing formulas go in D2 through D5. They include functions such as min, max, average, and median. These functions should be statistics on A2:A21. </p> 
+
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = [ {r:0,c:0,v:{v:"Values"}}, 
+                      {r:1,c:2,v:{v:"Min:"}}, 
+                      {r:2,c:2,v:{v:"Max:"}}, 
+                      {r:3,c:2,v:{v:"Average:"}}, 
+                      {r:4,c:2,v:{v:"Median:"}},
+    ]; 
+    for (let i=0; i<20; i++) {
+      let value = Math.round(1+20*Math.random());
+      cell_data.push( {r:i+1, c:0, v: {v: value}} );
+    }
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("D2","=min(A2:A21)") && 
+            checkCellFunction("D3","=max(A2:A21)") && 
+            checkCellFunction("D4","=average(A2:A21)") && 
+            checkCellFunction("D5","=median(A2:A21)") , 
+            "somemath.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

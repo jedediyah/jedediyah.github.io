@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Welcome to a Spreadsheets Tutorial!</h2>
+    <p>Notice that every row is numbered and every column has a letter. This provides a way to reference each cell. Click on C3. </p>
+    <p>Use the keyboard arrows to move around the spreadsheet. Hold Shift while using the arrows. Experiment with the Tab and Enter keys. Try entering values into some cells. </p>
+    <p>As you work, use the keyboard as much as you can. </p>
+    
+    <p>Try the following:</p>
+    <ul>
+      <li>Put a 3 into D4</li>
+      <li>Put cat into B7</li>
+      <li>Put 5/7 into A2</li>
+    </ul>
+    <p>Once you're done, check your work.</p>
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    initBlankSheet(); 
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCell("D4",3) && 
+            checkCell("B7","cat") && 
+            checkCell("A2","5/7"), 
+            "bluebox.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div id="leftpanel" class="left-panel">
+    <h2>Random Numbers</h2>
+    <p>
+      There are many applications where random numbers are useful. 
+    </p>
+    <p>
+      <ul>
+        <li>In A1, enter the formula <code>=rand()</code></li>
+        <li>Extend the formula down to A20</li>
+      </ul>
+    </p>
+
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = []; 
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    let updated = false; 
+    function checkForUpdate() {      
+      if (checkCellFunction("A1","=rand()") && 
+            checkCellFunction("A10","=rand()") ) {
+            updated = true; 
+            document.getElementById("leftpanel").innerHTML += `
+            <p>
+      Notice that all these numbers are decimals less than 1. This may seem strange, but it is one of the most convenient ways to get a random number. 
+    </p>
+    <p>
+      What do you expect the average of these random numbers to be?
+      <ul>
+        <li>In B1, use a formula to calculate the average of your 20 random numbers</li>
+      </ul>
+    </p>
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+    `; 
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("A1","=rand()") && 
+            checkCellFunction("A20","=rand()") && 
+            checkCellFunction("B1","=average(A1:A20)"), 
+            "coin.html"
+        ); 
+      });
+
+      } else {
+        setTimeout(checkForUpdate, 2000);
+      }
+    }
+    setTimeout(checkForUpdate, 3000);
+  </script>
+</body>
+</html>
+

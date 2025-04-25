@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Pythagorean Triples</h2>
+    <p>Pythagorean Triples are natural numbers \(a\), \(b\), and \(c\) such that \[a^2 + b^2 = c^2\]
+      For example, \(3^2 + 4^2 = 5^2\). 
+    </p>
+    <p>
+      The spreadsheet contains some values of \(a\) and \(b\). To calculate the corresponding values of \(c\):
+      <ol>
+        <li>In C2, enter the formula <code>=sqrt(A2^2+B2^2)</code></li>
+        <li>Extend the formula through row 21.</li>
+      </ol>
+      The function <code>sqrt</code> is the square root. 
+    </p>
+    
+
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = [ {r:0,c:0,v:{v:"a"}}, 
+                      {r:0,c:1,v:{v:"b"}}, 
+                      {r:0,c:2,v:{v:"c"}}, 
+    ]; 
+    for (let i=0; i<20; i++) {
+      cell_data.push( {r:i+1, c:0, v: {v: Math.round(1+i/3) }} );
+      cell_data.push( {r:i+1, c:1, v: {v: Math.round(1+i) }} );
+    }
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("C21","=sqrt(A21^2+B21^2)") && 
+            checkCell("C13",13), 
+            "random.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

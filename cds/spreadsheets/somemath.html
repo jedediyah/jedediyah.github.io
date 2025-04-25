@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Formulas - Math</h2>
+    <p>
+      We can write mathematical expressions in formulas. The expression \[\frac{4}{5}\cdot 10 + 13\] can be written as       
+    </p>
+    <p style="text-align: center;">
+      <code>=(4/5)*10+13</code>
+    </p>
+    <p>
+      When writing fractions that have multiple terms, group the numerator and denomenator with parentheses. The expression 
+      \[\frac{5-1}{2+3}\]
+      is written in a formula as:
+    </p>
+    <p style="text-align: center;">
+      <code>=(5-1)/(2+3)</code>
+    </p>
+    <p>
+      Exponents use the symbol <code>^</code>, i.e., \(2^{5}\) is <code>=2^5</code>
+    </p>
+    <p>
+      <ol>
+        <li>In A1, write the formula for \(1+2+3\)</li>
+        <li>In B1, write the formula for \(\frac{2^3}{4+1}\)</li>
+        <li>In C1, write the formula for \(\left(\frac{1+7}{4^2}\right)^3\)</li>
+      </ol>
+    </p>
+    
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = []; 
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("A1","=1+2+3") && 
+            (checkCellFunction("B1","=2^3/(4+1)") || checkCellFunction("B1","=(2^3)/(4+1)")) &&
+            (checkCellFunction("C1","=((1+7)/4^2)^3") || checkCellFunction("C1","=((1+7)/(4^2))^3") ) &&
+            checkCell("C1",0.125), 
+            "functions.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

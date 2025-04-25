@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Predictive Dragging</h2>
+    <p>Patterns and efficiency are key ideas in spreadsheets. A standard feature is the <span class="emph">little blue square</span> on a selection of cells.</p>
+    <p>Enter the numbers 1, 2, and 3 the first three rows of column A. Then select those three cells. It should look like this:</p>
+    <p style="text-align: center;"><img src="img/bluebox.png"></p>
+    <p>When the cursor is over the blue square, it should lool like a plus:</p>
+    <p style="text-align: center;"><img src="img/blueboxgrab.png"></p>
+    <p>Click and drag the blue square down to extend the pattern to be at least 20 long. </p>
+    <p>Once you're done, check your work.</p>
+
+
+
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    initBlankSheet(); 
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCell("A1",1) && 
+            checkCell("A2",2) && 
+            checkCell("A3",3) && 
+            checkCell("A20",20), 
+            "patterns.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

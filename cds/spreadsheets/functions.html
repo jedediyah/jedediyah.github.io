@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Functions</h2>
+    <p>
+      Formulas are a convenient way to evaluate a function for several inputs. Evaluate the three functions f, g, and h. 
+    </p>
+    <p>
+      <ol>
+        <li>In the A column, generate a sequence of inputs from -10 to 10. This should reach row 22.</li>
+        <li>In the B column, evaluate \[f(x)=3x+2\] for each input \(x\).</li>
+        <li>In the C column, evaluate \[g(x)=\sin(x)\] for each input \(x\).</li>
+        <li>In the C column, evaluate \[h(x)=\text{abs}(x)\] for each input \(x\).</li>
+      </ol>
+      The function <code>abs()</code> is absolute value. You should end up with four columns that start like this:
+    </p>
+    <p style="text-align: center;"><img src="img/funcs.png"></p> 
+
+    
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = [ {r:0,c:0,v:{v:"x"}}, 
+                      {r:0,c:1,v:{v:"f(x)"}}, 
+                      {r:0,c:2,v:{v:"g(x)"}}, 
+                      {r:0,c:3,v:{v:"h(x)"}} ]; 
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("A1","=1+2+3") && 
+            (checkCellFunction("B1","=2^3/(4+1)") || checkCellFunction("B1","=(2^3)/(4+1)")) &&
+            (checkCellFunction("C1","=((1+7)/4^2)^3") || checkCellFunction("C1","=((1+7)/(4^2))^3") ) &&
+            checkCell("C1",0.125), 
+            "fibonacci.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+

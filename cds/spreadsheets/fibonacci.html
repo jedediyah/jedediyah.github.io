@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spreadsheet Formula Practice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css" />
+  <link rel="stylesheet" href="style.css" /> 
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="left-panel">
+    <h2>Fibonacci</h2>
+    <p>
+      The Fibonacci sequence starts with the terms 1 and 1, and then every next number is the sum of the previous two, 
+      \[a_{n} = a_{n-1} + a_{n-2}\]
+      To generate a column of Fibonacci numbers, enter the formula <code>=sum(A1+A2)</code> into A3, then expand it down. 
+    </p>
+    <p>Find the first Fibonacci number greater than 10,000.</p>
+
+    
+
+    <button id="check-button">Check It</button>
+    <div id="feedback-box"></div>
+  </div>
+  <div class="right-panel">
+    <div id="luckysheet"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+  <script src="sheets.js"></script>
+  <script>
+    let cell_data = [ {r:0,c:0,v:{v:1}}, 
+                      {r:1,c:0,v:{v:1}},]; 
+    luckysheet.create({
+      container: 'luckysheet',
+      data: [
+        {
+          name: "Sheet1",
+          color: "",
+          status: "1",
+          order: "0",
+          celldata: cell_data,
+          config: {},
+          index: 0
+        }
+      ],
+      lang: 'en',
+      allowEdit: true,
+      showtoolbar: false,
+      showinfobar: false,
+      showsheetbar: false,
+      showstatbar: false, 
+    });
+
+    document.getElementById("check-button").addEventListener("click", () => {  
+        // Check for expected values in the sheet
+        checkSheet(
+            checkCellFunction("A3","=sum(A1+A2)") && 
+            checkCellFunction("A21","=sum(A19+A20)") || 
+            checkCellFunction("A3","=sum(A2+A1)") &&
+            checkCellFunction("A21","=sum(A20+A19)"),
+            "pythagorean.html"
+        ); 
+      });
+  </script>
+</body>
+</html>
+
