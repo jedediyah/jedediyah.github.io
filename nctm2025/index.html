@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Math for ML and AI</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+	<div class="reveal">
+		<!-- Footer -->
+		<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+			jedediyah.github.io/nctm2025
+		</div>
+		<div class="slides">
+			<section data-background="#fff" data-background-gradient="linear-gradient(to left, #def, #fed)">
+				<div style="display:flex;width:100%; justify-content:flex-start;">
+					<div style="width:72%;text-align:left;">
+						<h3
+							style="background-image: linear-gradient(45deg, #78a1f3, #af4261);background-clip: text;color: transparent;">
+							Mathematics for Machine Learning and Artifcial Intelligence</h3>
+					</div>
+				</div>
+
+				<div><img src="img/Minimum_spanning_tree.svg.png" style="width:45%;margin-top:-5%;margin-bottom:-10%;">
+				</div>
+				<p style="font-size:80%;color:#af4261;padding-top:0px;margin-top:0px;text-align:right;">Jedediyah
+					Williams, PhD<br>NCTM Atlanta 2025</p>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<!-- 
+				<section>
+					<h4>Overview</h4>
+					<ol>
+						<li>What is AI and ML?</li>
+						<li>What is the math for AI and ML? Discrete. Brief history</li>
+						<li>ML milestone: Samuel's checkers</li>
+						<li>Hexapawn - Play, Problems, Simulate</li>
+						<li>Another class of problem in ML is a classifier, e.g., spam, cat, etc.</li>
+						<li>Fruit Classifier</li>
+						<li>Example of music classifier</li>
+						<li>MNIST classifier overview</li>
+						<li>This takes some familiarity with spreadsheets (ref spreadsheet tutorial)</li>
+					</ol>
+				<aside class="notes">
+				   
+				</aside>
+			</section> -->
+
+
+			<section data-background="#fff" data-background-gradient="linear-gradient(to left, #def, #fed)" style="font-size:80%;">
+				<h4>What is the math for AI and ML? <br>Discrete, Stats, and Computing</h4>
+				<div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;">Logic</td>
+							</tr>
+							<tr>
+								<td>\(A \lor \neg B \implies Q\)</td>
+							</tr>
+						</table>
+					</div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;height:108px;">Linear Algebra
+								</td>
+								<td> <a href="https://commons.wikimedia.org/wiki/File:Determinant_example.svg"><img
+											style="padding:0;margin:0;" src="img/Determinant_example.svg.png"></a> </td>
+							</tr>
+						</table>
+					</div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;">
+									<div>Graph<br>Theory</div>
+								</td>
+								<td><img style="width:150px;" src="img/walk.svg"></td>
+							</tr>
+						</table>
+					</div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;">
+									<div>Set<br>Theory</div>
+								</td>
+								<td><img style="width:180px;" src="img/set_a_union_b.svg"></td>
+							</tr>
+						</table>
+					</div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;padding:0;margin:0;">
+									<img style="width:150px;padding:0;margin:0;" src="img/pascal.svg">
+								</td>
+							</tr>
+							<tr>
+								<td style="padding:0;margin:0;">Combinatorics</td>
+							</tr>
+						</table>
+					</div>
+					<div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;height:180px;">
+						<table>
+							<tr>
+								<td style="text-align:center;border:0px;vertical-align:top;">Difference Equations,
+									Recursion, Iteration</td>
+							</tr>
+							<tr>
+								<td style="text-align:center;">\(F_{n} = F_{n-1} + F_{n-2}\)</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<aside class="notes">
+				   The math for AI is largely discrete math, statistics, and computing. Statistics has gained some presence, but not enough. 
+				   Discrete math is barely present. 
+				   Numerical computing is by far the most conspicuously absent from math education. 
+				</aside>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Discrete, Stats, and Computing are not new!</h4>
+				<div>
+					<img style="height:330px;padding:0;margin:0;" src="img/nctm_1984.jpg">
+					<img style="height:330px;padding:0;margin:0;" src="img/nctm_1989.jpg">
+					<img style="height:330px;padding:0;margin:0;" src="img/nctm_1991.jpg">
+					<img style="height:330px;padding:0;margin:0;" src="img/nctm_2000.jpg">
+				</div>
+				<aside class="notes">
+				   The absence of discrete math and mathematical computing is notable given nearly two decades of coverage in NCTM publications and the 1989 standards. 
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div>
+					<img style="height:250px;padding:0;margin:0;" src="img/nctm_1984.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/nctm_1989.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/nctm_1991.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/nctm_2000.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/fractals_a.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/fractals_b.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/fractals_c.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/fractals_d.jpg">
+					<img style="height:250px;padding:0;margin:0;" src="img/fractals_e.jpg">
+					<!-- <img style="height:270px;padding:0;margin:0;" src="img/fractals_f.jpg">
+						<img style="height:270px;padding:0;margin:0;" src="img/fractals_g.jpg"> -->
+				</div>
+				<aside class="notes">
+				   Chaos Theory was very popular in the 1990s. 
+				   Some of you may be familiar with the Mandelbrot set. 
+				   You might not know that Benoit Mandelbrot himself wrote an introduction to an amazing series published with the NCTM advisory board on fractals. Mandelbrot stressed the importance of computing in mathematics.
+				</aside>
+			</section>
+
+			<section>
+				<h4>Biggest proponent of Discrete math? NCTM!</h4>
+				<div style="text-align:left;">
+				<img src="img/discrete_searchA.png" style="width:400px;border:1px solid black;">
+				<img src="img/discrete_searchB.png" style="position:absolute;top:40px;left:150px;width:400px;border:1px solid black;">
+				<img src="img/discrete_searchC.png" style="position:absolute;top:60px;left:300px;width:400px;border:1px solid black;"> 
+				<img src="img/nctm_1991.jpg" style="position:absolute;top:18%;left:70%;width:200px;border:3px solid #559;border-radius:7px;"> 
+				<img src="img/mathoftheeighties.png" style="position:absolute;top:52%;left:80px;width:700px;border:3px solid gray;border-radius:11px;"> 
+				 </div>
+				<aside class="notes">
+				   There were strong arguments, for discrete math and computing in K-12, made in the 1980s and '90s, and those arguments are even *more* true now. 
+				   You can read all about it in archived NCTM publications. 
+				</aside>
+			</section>
+
+			<section>
+				<div style="position:relative;">
+					<img style="display:block;width:80%;" src="img/computer_corner.png">
+					<img style="position: absolute; top:10px; right:10px;width:150px;" src="img/arithmetic_teacher.png">
+				</div>
+				<aside class="notes">
+				   If you look at NCTM publications from the 1980s, it is easy to find pages filled with mathematical computer programs. 
+				   Computing was considered by many to be fundamental to mathematics. 
+				   BTW if you tried to get something like this published in NCTM now, you would have no chance (ask me how I know). 
+				</aside>
+			</section>
+
+
+			<section data-background-gradient="linear-gradient(to left, #def, #fed)">
+				<h4>Today</h4>
+				<ol>
+					<li>
+						Activities
+						<ul>
+							<li>Calculator Dynamics</li>
+							<li>ML by Hand</li>
+							<li>AI by Hand</li>
+							<li>Feature Engineering</li>
+							<li>Data Splitting</li>
+						</ul>
+					</li>
+				</ol>
+				<aside class="notes">
+				   I'd like my students, and you(!), to know some of the interesting and important fundamentals of AI and machine learning related to mathematics. 
+				   We'll make it through most of these, and all of the resources will be available. 
+				   It was extremely challenging to cut slides out of this presentation. 
+				   If you are at all interested in what we do here today, please reach out because this is just the beginning. 
+				</aside>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Activity 1 &mdash; Dynamical Systems and Feedback</h4>
+				<br><br>
+				<img src="img/number_function.svg" style="width:80%;">
+				<br><br><br>
+				<aside class="notes">
+				   This is a block diagram of a function. You may have seen the "function machine" which resembles this type of diagram. 
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Activity 1 &mdash; Dynamical Systems and Feedback</h4>
+				<br> 
+				<img src="img/number_feedback.svg" style="width:80%;">
+				<br><br> 
+				<aside class="notes">
+				   We are going to look what happens when we feed the output back into the input and then iterate. 
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Activity 1 &mdash; Dynamical Systems and Feedback</h4>
+				<br> 
+				<img src="img/number_movie_recommendation.svg" style="width:80%;">
+				<br><br>
+				<aside class="notes">
+				   This is not just an interesting academic exercise! 
+				   Most deployed AI applications have a feedback loop of some kind. 
+				   Consider any recommendation system - where what gets recommended to you, affects what you consume, which in turn affects what get recommended to you. 
+				</aside>
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h3>Iterate</h3>
+				<div>The <strong>orbit</strong> of \(x_0\) is the sequence generated by iterating</div>
+				<div data-id="orbit-table">
+					<table>
+						<tr>
+							<td style="vertical-align: middle;">
+								\[S(x) = \sqrt{x}\]
+							</td>
+							<td>\[\quad\]</td>
+							<td style="text-align: left;">
+								\(x_0 = 16\)<br>
+								\(x_1 = S^1(x_0)=4\)<br>
+								\(x_2 = S^2(x_0)=2\)<br>
+								\(x_3 = S^3(x_0)=1.4142...\)<br>
+								\(x_4 = S^4(x_0)=1.1892...\)<br>
+								\(\vdots\)<br> 
+								\(x_n = S^n(x_0)= ...\)
+							</td>
+						</tr>
+					</table>
+				</div>
+				<aside class="notes">
+					We are going to start with much simpler systems, like the square root function. 
+					<br> You can go ahead and try this now! I have my students explore these with a calculator.
+					Try it! Pick any number and take the square root. 
+					Whatever you get, take the square root of that, and keep going.  
+					The sequence you generate is called the orbit. 
+					<br>4:00 
+				</aside>
+			</section>
+
+			<section data-background-iframe="https://www.desmos.com/calculator/x63fz4xqqp">
+				<aside class="notes">
+					It turns out that sqrt(x) converges to 1 for all positive values. 
+					There are also two <em>fixed point</em> values, values for which the output is equal to the input. 
+					What are they?!
+				</aside>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Activity 1 &mdash; Dynamical Systems and Feedback</h4>
+				<div>
+					Find the orbit of \(x_0=0.2\) in the following systems:
+				</div>
+				<div>
+					<table>
+						<tr style="font-size:70%;">
+							<th style="background-color:#FDD;text-align:center;">\(S(x)=\sin(x)\)</th>
+							<th style="background-color:#DFD;text-align:center;">\(C(x)=\cos(x)\)</th>
+							<th style="background-color:#DDF;text-align:center;">\(F(x)=4x(1-x)\)</th>
+						</tr>
+						<tr>
+							<td style="background-color:#FDD;border:1px solid gray;">0.2</td>
+							<td style="background-color:#DFD;border:1px solid gray;">0.2</td>
+							<td style="background-color:#DDF;border:1px solid gray;">0.2</td>
+						</tr>
+						<tr>
+							<td style="border:1px solid gray;background-color:#FDD;">0.1986693</td>
+							<td style="border:1px solid gray;background-color:#DFD;">0.9800665</td>
+							<td style="border:1px solid gray;background-color:#DDF;">0.64</td>
+						</tr>
+						<tr>
+							<td style="border:1px solid gray;background-color:#FDD;">\(\vdots\)</td>
+							<td style="border:1px solid gray;background-color:#DFD;">\(\vdots\)</td>
+							<td style="border:1px solid gray;background-color:#DDF;">\(\vdots\)</td>
+						</tr>
+						<tr>
+							<td style="border:1px solid gray;background-color:#FDD;">&nbsp;</td>
+							<td style="border:1px solid gray;background-color:#DFD;">&nbsp;</td>
+							<td style="border:1px solid gray;background-color:#DDF;">&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="border:1px solid gray;background-color:#FDD;">&nbsp;</td>
+							<td style="border:1px solid gray;background-color:#DFD;">&nbsp;</td>
+							<td style="border:1px solid gray;background-color:#DDF;">&nbsp;</td>
+						</tr>
+					</table>					
+				</div>
+				<aside class="notes">
+				   Okay, here are three *different* functions. Try iterating on these three functions. Two trig functions and a quadratic, and see what happens to the orbit. 
+				   <br>5:30 
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Activity 1 &mdash; Calculator Dynamics and Feedback</h4>
+				<div>
+					<img src="img/orbits.png" style="width:450px;">				
+				</div>
+				<aside class="notes">
+				   This is where computing is incredibly useful in <em>exploratory mathematics</em>! 
+				   Spreadsheets are the most common mathematical tool in the universe, we should teach them. 
+				</aside>
+			</section>
+			
+
+			<section data-background-iframe="https://www.desmos.com/calculator/lkr6sck7pp">
+				<aside class="notes">
+					You may have noticed that sine converges to 0. 
+				</aside>
+			</section>
+
+			<section data-background-iframe="https://www.desmos.com/calculator/iyvr5sm70r">
+				<aside class="notes">
+					You may have noticed that cosine converges to around 0.739
+				</aside>
+			</section>
+
+			<section data-background-iframe="https://www.desmos.com/calculator/5foksjmro3">
+				<aside class="notes">
+				   This quadratic turns out to be a famous example of chaotic behavior. 
+				   <br>
+				   See: 
+				   <ul>
+						<li><a href="https://www.nature.com/articles/261459a0">Simple mathematical models with very complicated dynamics</a></li>
+						<li><a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">https://www.youtube.com/watch?v=ovJcsL7vyrk</a></li>
+				   </ul>
+				</aside>
+			</section>
+			<section>
+				<h4>Chaos</h4>
+				<div>
+					A system is <strong>chaotic</strong> if it exhibits <br><strong>sensitive dependence on initial conditions</strong>. 
+				</div>
+				<div style="font-size:80%;text-align: left;padding-left:40%;">
+					<span style="color:#c74440">\(x_0 = 8 \)</span> <br> 
+					<span style="color:#1362ac">\(x_0 = 8.00001\)</span>
+				</div>
+				<div>
+					<img src="img/chaotic.png" style="width:70%;">
+				</div>
+				<aside class="notes">
+					Chaos theory has profound implications for how measurement affects prediction, and our ability to measure and predict is essentially the premise of data modeling. 					
+				</aside>
+			</section>
+
+			<section>
+				<h4>For Later: Watch Robert Devaney</h4>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/TVfn6P4Z4-8?si=EZQzqYd57QXAPCHy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				<div style="font-size:75%;">										
+					<a href="https://www.youtube.com/watch?v=TVfn6P4Z4-8">https://www.youtube.com/watch?v=TVfn6P4Z4-8</a>
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<h4 style="background-color: #ACF;border-radius:11px;">Summary: Dynamical Systems and Feedback</h4>				
+				<ul><img src="img/doingdatascience.png" style="width:380px;float:right;margin:6px;">
+					<li>Feedback and recursion are fundamental concepts in AI/ML/DS.
+					</li>
+					<li>
+						Even simple systems can exhibit <strong>sensitive dependence on initial conditions</strong>. 						
+					</li>
+					<li>
+						Analyzing dynamical systems is a great application for spreadsheets!
+					</li>
+				</ul>
+				<span style="font-size:50%;color:#888;">Image: Schutt and O'Neil (2014). "Doing Data Science: Straight talk from the frontline".</span>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			
+
+
+			<section>
+				<h4>Activity 2 &mdash; Machine Learning</h4>
+				<div><img src="img/samuel.jpg"></div>
+				<div style="font-size:70%;">
+					In 1959, Arthur Samuel <a target="_blank" href="https://www.ibm.com/history/early-games">created a computer program to play checkers</a>. 
+				</div>
+				<aside class="notes">
+				   <div style="font-size:90%;">
+					In 1959, Arthur Samuel achieved an important milestone in AI. 
+					He wrote a checkers program that initially had poor performance; it would just make random moves.
+					But as more games were played, the performance improved to the point where the program that Samuel had written could outperform its creator. 
+				   </div>
+				</aside>
+			</section>
+			<section>
+				<h4>Activity 2 &mdash; Machine Learning</h4>
+				<div><img src="img/checkers_tree.png"></div>
+				<aside class="notes">
+				   This worked because every game played was stored.
+				   And the outcome of each game, who won or lost, was used to update the branches in the game tree. 
+				   Then, whatever position the board was in, there were statistics available about where each move tended to lead (win or loss for that player). 
+				</aside>
+			</section> 
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img src="img/hexapawn_header.png" style="width:300px;"></div>
+				<div style="text-align:left;font-size:70%;">
+					Hexapawn is a mini chess variant, popularized by <a href="https://www.cs.williams.edu/~freund/cs136-073/GardnerHexapawn.pdf">Martin Gardner</a>. 
+					<div style="width:100%;text-align:center;"><img src="img/moves.png" style="width:700px;"></div>
+					White moves first. A piece can either move forward if the space in front of it is empty, or capture an opponent’s piece diagonally.				
+			
+					A player wins when: <br> 
+					<ol style="margin-left:200px;">
+						<li>One of their pawns reaches the other side</li>
+						<li>They capture all of their opponent's pieces</li>
+						<li>It is their opponent's turn and there is no legal move</li>
+					</ol>
+				</div>
+				<br><br> 
+				<aside class="notes">
+					So we're going to recreate Samuel's game tree, but for a much simpler game called Hexapawn. 
+					<br>...<br>
+					Take about 10 minutes to play Hexapawn. 					
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img src="img/hexapawn_header.png" style="width:300px;"></div>
+				<div><img src="img/hexboard.jpg"></div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img src="img/hexapawn_header.png" style="width:300px;"></div>
+				<div><img src="img/hexapawn_questionsA.png"></div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section data-background-iframe="https://jedediyah.github.io/hexapawn/">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<img src="img/hexapawn_filled.png">
+				<div style="position:absolute;top:20%;right:0px;color:#4a9763;width:300px;font-size:80%;">
+					Each position has a value, and each time a game ends, every position from that game gets +1 for player 1 win, or -1 for player 2 win
+				</div>
+			</section>
+
+			<section>
+				<img src="img/hex_game_chart.png">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<h4>For Later: Watch Matt Parker</h4>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/R9c-_neaxeU?si=jkBXiPr9d5p5OubA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<h4 style="background-color: #CAF;border-radius:11px;">Summary: Hexapawn Machine Learning</h4>				
+				<ul>
+					<li>
+						Analyzing games involves combinatorics, probability, modeling. It can involve experiments, data, statistics, graphing, etc. 
+					</li>
+					<li>
+						Understanding the mechanisms of machine learning remove some of the mysticism. AI isn't magic. 
+					</li>
+					<li>
+						Adversarial attacks on games develop conceptual understanding of bias, and demonstrate potential weaknesses of deployed ML projects. 
+					</li>
+				</ul>				
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Red Green Blue (RGB)</h4>
+				<img src="img/AdditiveColor.svg">
+				<!-- https://commons.wikimedia.org/wiki/File:AdditiveColor.svg -->
+
+				<div style="display:inline-block;font-size:80%;">
+					<img src="img/LCD_pixels_RGB.jpg">
+					<!-- https://upload.wikimedia.org/wikipedia/commons/b/b0/LCD_pixels_RGB.jpg -->
+					<br>
+					Closeup of LCD display
+				</div>
+				<aside class="notes">
+					If you look really closely at a screen you might be able to see the individual red, green, and blue, LEDs.
+					This is because these are primary colors (in optics) and all the colors on a screen can be made with combinations of these three colors.  					
+				</aside>
+			</section>
+
+			<section>
+				<h4>RGB</h4>
+				<div>
+					<img src="img/apple_rgb.png">
+					An image on a screen is a composite<br> of three color channels
+					<!-- You have no idea how much time was spent debating whether to use "composite or composition. I don't like it, but this is the correct word. " -->
+				</div>
+				<aside class="notes">
+					In fact, color images are really three separate images that combined generate what we perceive through our screen. 
+				</aside>
+			</section>
+
+			<section>
+				<div style="text-align:left;">A digital image is a grid of pixel values, typically with values from 0
+					(none of that color) to 255 (full color).</div>
+
+				<br>
+
+				<table>
+					<tr>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:70px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:70px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:70px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:70px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,0);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(255,0,0);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> + </td>
+
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											50</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,0);width:60px;height:50px;">
+											100</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,0);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,255,0);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> + </td>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:40%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,50);width:60px;height:50px;">
+											50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,100);width:60px;height:50px;">
+											100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,200);width:60px;height:50px;">
+											200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,255);width:60px;height:50px;">
+											255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+						<td style="border:0; vertical-align:middle;padding:0;"> = </td>
+						<td style="border:0;">
+							<div>
+								<table style="border-collapse:collapse;font-size:25%;">
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,0,0);width:60px;height:50px;">
+											0,0,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,0,0);width:60px;height:50px;">
+											50,0,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,0,100);width:60px;height:50px;">
+											100,0,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,0,200);width:60px;height:50px;">
+											200,0,200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,50,0);width:60px;height:50px;">
+											0,50,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,50,50);width:60px;height:50px;">
+											50,50,50</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,50,100);width:60px;height:50px;">
+											100,50,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,50,0);width:60px;height:50px;">
+											200,50,0</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,100,100);width:60px;height:50px;">
+											0,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,100,100);width:60px;height:50px;">
+											50,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,100,100);width:60px;height:50px;">
+											100,100,100</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(200,100,200);width:60px;height:50px;">
+											200,100,200</td>
+									</tr>
+									<tr>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(0,200,200);width:60px;height:50px;">
+											0,200,200</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(50,200,0);width:60px;height:50px;">
+											50,200,0</td>
+										<td
+											style="padding:0;border:0px solid black;color:#fff;text-align:center;vertical-align:middle;background-color:rgb(100,200,200);width:60px;height:50px;">
+											100,200,200</td>
+										<td
+											style="padding:0;border-bottom:1px solid gray;border-right:1px solid gray;color:#555;text-align:center;vertical-align:middle;background-color:rgb(255,255,255);width:60px;height:50px;">
+											255,255,255</td>
+									</tr>
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center;">Red</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Green</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Blue</td>
+						<td style="padding:0;"></td>
+						<td style="text-align:center;">Composite</td>
+					</tr>
+				</table>
+				<aside class="notes">
+					Often, the values for each color are between 0 and 255. 0 for none of that color, and 255 for full color. 
+				</aside>
+			</section>
+
+
+
+			<section data-state="RGBdemo">
+				<style>
+					#colorCanvas {
+						border: 1px solid #ccc;
+						width: 500px;
+						height: 300px;
+						margin: 20px auto;
+					}
+
+					.slider-container {
+						margin: 10px 0;
+					}
+
+					label {
+						display: inline-block;
+						width: 50px;
+						font-weight: bold;
+					}
+
+					input[type=range] {
+						width: 200px;
+					}
+
+					#rgbValue {
+						margin-top: 15px;
+						font-size: 18px;
+						font-weight: bold;
+					}
+				</style>
+
+				<canvas id="colorCanvas" width="500" height="300"></canvas>
+
+				<div style="text-align:left;width:370px; margin:auto;">
+					<div class="slider-container">
+						<label for="rRange">R</label>
+						<input type="range" id="rRange" min="0" max="255" value="255">
+						<span id="rVal">255</span>
+					</div>
+					<div class="slider-container">
+						<label for="gRange">G</label>
+						<input type="range" id="gRange" min="0" max="255" value="255">
+						<span id="gVal">255</span>
+					</div>
+					<div class="slider-container">
+						<label for="bRange">B</label>
+						<input type="range" id="bRange" min="0" max="255" value="255">
+						<span id="bVal">255</span>
+					</div>
+				</div>
+
+				<script>
+					const ccanvas = document.getElementById("colorCanvas");
+					const ctxc = ccanvas.getContext("2d");
+
+					const rSlider = document.getElementById("rRange");
+					const gSlider = document.getElementById("gRange");
+					const bSlider = document.getElementById("bRange");
+
+					const rVal = document.getElementById("rVal");
+					const gVal = document.getElementById("gVal");
+					const bVal = document.getElementById("bVal");
+
+					function updateColor() {
+						const r = parseInt(rSlider.value);
+						const g = parseInt(gSlider.value);
+						const b = parseInt(bSlider.value);
+
+						rVal.textContent = r;
+						gVal.textContent = g;
+						bVal.textContent = b;
+
+						const colorStr = `rgb(${r}, ${g}, ${b})`;
+						console.log(colorStr);
+						ctxc.fillStyle = colorStr;
+						ctxc.fillRect(0, 0, ccanvas.width, ccanvas.height);
+					}
+
+					// Attach event listeners
+					[rSlider, gSlider, bSlider].forEach(slider => {
+						slider.addEventListener("input", updateColor);
+					});
+				</script>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+
+			<section>
+				<div style="text-align:left;font-size:80%;">
+					"Filters" are functions that take an image as input, operate on the pixel values, and output the new
+					image.
+				</div>
+				<a target="_blank" href="https://commons.wikimedia.org/wiki/File:Instagram_Filters_2011.jpg"><img
+						src="img/Instagram_Filters_2011.jpg"></a>
+				<!-- https://commons.wikimedia.org/wiki/File:Instagram_Filters_2011.jpg -->
+				<aside class="notes">
+				   Lots of filters work by simply adding or subtracting red, green, and blue, in certain patterns. 
+				</aside>
+			</section>
+
+
+
+			<section>
+				<div>
+					<img src="img/cake_original.jpg" style="width:300px;">
+					<img src="img/rgb_redgreenblue.png">
+				</div>
+				<aside class="notes">
+				   Here are three overlayed histograms. The x axis is the intensity, and the y axis is how many occurances of pixels have that intensity. 
+				</aside>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="cakeTransformWarmer" style="vertical-align:middle;">
+					<img src="img/cake_original.jpg" style="width:220px;">
+					<div style="display:inline-block; width:200px;">
+						Warmer
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="img/cake_warmer.jpg" style="width:220px;">
+				</div>
+				<div data-id="cakeTransformCooler" style="vertical-align:middle;">
+					<img src="img/cake_original.jpg" style="width:220px;">
+					<div style="display:inline-block; width:200px;">
+						Cooler
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="img/cake_cooler.jpg" style="width:220px;">
+				</div>
+				<div data-id="cakeTransformBlur" style="vertical-align:middle;">
+					<img src="img/cake_original.jpg" style="width:220px;">
+					<div style="display:inline-block; width:200px;">
+						Blur
+						<br>
+						&longrightarrow;
+						<br> <br>
+					</div>
+					<img src="img/cake_gaussian_blur.jpg" style="width:220px;">
+				</div>
+				<aside class="notes">
+				   I've made this cake warmer by adding some red to every pixel, 
+				   cooler by adding blue, 
+				   and blurred it by averaging every pixel with some of the pixels around it. 
+				</aside>
+			</section>
+
+
+			<section>
+				<style>
+					canvas {
+						border: 1px solid #ccc;
+						margin: 5px;
+					}
+
+					.sliders {
+						margin-top: 10px;
+						font-size: 50%;
+						width: 290px;
+						text-align: left;
+						margin: auto;
+					}
+
+					input[type=range] {
+						width: 200px;
+					}
+
+					.hist-container {
+						display: flex;
+						justify-content: center;
+						gap: 20px;
+						margin-top: 20px;
+					}
+				</style>
+
+				<div style="vertical-align:top;">
+					<div style="display:inline-block;margin:0;padding:0;"><canvas id="originalCanvas" width="250"
+							height="190"></canvas></div>
+					<div style="display:inline-block;margin:0;padding:0;">
+						<span style="font-size:40%;">\(+\Delta RGB\)</span><br>&longrightarrow;<br><br>
+					</div>
+					<div style="display:inline-block;margin:0;padding:0;"><canvas id="transformedCanvas" width="250"
+							height="190"></canvas></div>
+				</div>
+
+				<div class="sliders">
+					<div>\(\Delta\)R: <input type="range" id="rSlider" min="-50" max="50" value="0"> <span
+							id="rValoffset">0</span></div>
+					<div>\(\Delta\)G: <input type="range" id="gSlider" min="-50" max="50" value="0"> <span
+							id="gValoffset">0</span></div>
+					<div>\(\Delta\)B: <input type="range" id="bSlider" min="-50" max="50" value="0"> <span
+							id="bValoffset">0</span></div>
+				</div>
+
+				<div class="hist-container">
+					<div>
+						<div style="font-size:50%;">Original RGB Histogram</div>
+						<canvas id="histOriginal" style="width:500px;" height="250"></canvas>
+					</div>
+					<div>
+						<div style="font-size:50%;">Transformed RGB Histogram</div>
+						<canvas id="histTransformed" style="width:500px;" height="250"></canvas>
+					</div>
+				</div>
+
+				<script>
+					const img = new Image();
+					img.src = "img/cake_original.jpg";
+
+					const originalCanvas = document.getElementById('originalCanvas');
+					const transformedCanvas = document.getElementById('transformedCanvas');
+					const ctxOrig = originalCanvas.getContext('2d');
+					const ctxTrans = transformedCanvas.getContext('2d');
+
+					let imageDataOrig, imageDataTrans;
+
+					img.onload = function () {
+						ctxOrig.drawImage(img, 0, 0, originalCanvas.width, originalCanvas.height);
+						imageDataOrig = ctxOrig.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
+						updateTransformed();
+					};
+
+					// Sliders
+					const sliders = [
+						{ el: document.getElementById('rSlider'), valEl: document.getElementById('rValoffset') },
+						{ el: document.getElementById('gSlider'), valEl: document.getElementById('gValoffset') },
+						{ el: document.getElementById('bSlider'), valEl: document.getElementById('bValoffset') }
+					];
+					sliders.forEach((s, i) => {
+						s.el.addEventListener('input', () => {
+							s.valEl.textContent = s.el.value;
+							updateTransformed();
+						});
+					});
+
+					// Histograms
+					const histConfig = (label) => ({
+						type: 'line',
+						data: {
+							labels: Array.from({ length: 256 }, (_, i) => i),
+							datasets: [
+								{ label: 'Red', borderColor: 'red', fill: true, backgroundColor: 'rgba(255,0,0,0.3)', data: [], tension: 0.1 },
+								{ label: 'Green', borderColor: 'green', fill: true, backgroundColor: 'rgba(0,255,0,0.3)', data: [], tension: 0.1 },
+								{ label: 'Blue', borderColor: 'blue', fill: true, backgroundColor: 'rgba(0,0,255,0.3)', data: [], tension: 0.1 }
+							]
+						},
+						options: {
+							responsive: false,
+							plugins: { legend: { display: false } },
+							scales: {
+								x: { title: { display: true, text: 'Intensity' } }, y: {
+									title: { display: true, text: 'Frequency' },
+									min: 0, max: 1000
+								}
+							},
+							elements: {
+								point: {
+									radius: 0,
+								}
+							}
+						}
+					});
+
+					const chartOriginal = new Chart(document.getElementById('histOriginal'), histConfig("Original"));
+					const chartTransformed = new Chart(document.getElementById('histTransformed'), histConfig("Transformed"));
+
+					function calcHistogram(imageData) {
+						let rHist = Array(256).fill(0);
+						let gHist = Array(256).fill(0);
+						let bHist = Array(256).fill(0);
+
+						const data = imageData.data;
+						for (let i = 0; i < data.length; i += 4) {
+							rHist[data[i]]++;
+							gHist[data[i + 1]]++;
+							bHist[data[i + 2]]++;
+						}
+						return [rHist, gHist, bHist];
+					}
+
+					function updateTransformed() {
+						if (!imageDataOrig) return;
+
+						const rAdd = parseInt(sliders[0].el.value);
+						const gAdd = parseInt(sliders[1].el.value);
+						const bAdd = parseInt(sliders[2].el.value);
+
+						imageDataTrans = new ImageData(imageDataOrig.width, imageDataOrig.height);
+
+						for (let i = 0; i < imageDataOrig.data.length; i += 4) {
+							imageDataTrans.data[i] = clamp(imageDataOrig.data[i] + rAdd);
+							imageDataTrans.data[i + 1] = clamp(imageDataOrig.data[i + 1] + gAdd);
+							imageDataTrans.data[i + 2] = clamp(imageDataOrig.data[i + 2] + bAdd);
+							imageDataTrans.data[i + 3] = imageDataOrig.data[i + 3]; // alpha
+						}
+
+						ctxOrig.putImageData(imageDataOrig, 0, 0);
+						ctxTrans.putImageData(imageDataTrans, 0, 0);
+
+						// Update histograms
+						const [rO, gO, bO] = calcHistogram(imageDataOrig);
+						const [rT, gT, bT] = calcHistogram(imageDataTrans);
+
+						chartOriginal.data.datasets[0].data = rO;
+						chartOriginal.data.datasets[1].data = gO;
+						chartOriginal.data.datasets[2].data = bO;
+						chartOriginal.update();
+
+						chartTransformed.data.datasets[0].data = rT;
+						chartTransformed.data.datasets[1].data = gT;
+						chartTransformed.data.datasets[2].data = bT;
+						chartTransformed.update();
+					}
+
+					function clamp(value) {
+						return Math.max(0, Math.min(255, value));
+					}
+				</script>
+				<aside class="notes">
+				   This is fun to play with. 
+				</aside>
+			</section>
+
+
+			<section>
+				<span style="font-size:60%;">Try isolating different objects with the filter</span>
+
+				<div>
+					<canvas id="preFilteredCanvas" width="300" height="300"></canvas>
+					<canvas id="filteredCanvas" width="300" height="300"></canvas>
+				</div>
+
+				<div style="display:flex;align-items:center;">
+					<div
+						style="display:inline-block; vertical-align: middle;font-size:80%;padding-right:80px;padding-left:50px;">
+						RGB Filter:
+					</div>
+					<div style="display:inline-block;">
+
+						<div
+							style="font-size:40%;margin-top: 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; max-width: 480px;">
+							<label style="width:80px;">Red Min</label> <input type="range" id="rMin" min="0" max="255"
+								value="0"> <span id="rMinVal">0</span>
+							<label style="width:80px;">Red Max</label> <input type="range" id="rMax" min="0" max="255"
+								value="255"> <span id="rMaxVal">255</span>
+							<label style="width:80px;">Green Min</label> <input type="range" id="gMin" min="0" max="255"
+								value="0"> <span id="gMinVal">0</span>
+							<label style="width:80px;">Green Max</label> <input type="range" id="gMax" min="0" max="255"
+								value="255"> <span id="gMaxVal">255</span>
+							<label style="width:80px;">Blue Min</label> <input type="range" id="bMin" min="0" max="255"
+								value="0"> <span id="bMinVal">0</span>
+							<label style="width:80px;">Blue Max</label> <input type="range" id="bMax" min="0" max="255"
+								value="255"> <span id="bMaxVal">255</span>
+						</div>
+					</div>
+				</div>
+
+				<script>
+					const preFilterCanvas = document.getElementById("preFilteredCanvas");
+					const filtCanvas = document.getElementById("filteredCanvas");
+					const pfCtx = preFilterCanvas.getContext("2d");
+					const fCtx = filtCanvas.getContext("2d");
+
+					// sliders
+					const filterSliders = ["rMin", "rMax", "gMin", "gMax", "bMin", "bMax"];
+					filterSliders.forEach(s => {
+						const elem = document.getElementById(s);
+						elem.addEventListener("input", () => {
+							document.getElementById(s + "Val").innerText = elem.value;
+							filter();
+						});
+					});
+
+					// Load the image
+					const filterimg = new Image();
+					//filterimg.src = "img/cake_original.jpg"; 
+					filterimg.src = "img/landers_with_excavator.jpg";
+					filterimg.onload = function () {
+						preFilterCanvas.width = filterimg.width;
+						preFilterCanvas.height = filterimg.height;
+						filtCanvas.width = filterimg.width;
+						filtCanvas.height = filterimg.height;
+						pfCtx.drawImage(filterimg, 0, 0);
+						filter();
+					};
+
+					function filter() {
+						const rMin = +document.getElementById("rMin").value;
+						const rMax = +document.getElementById("rMax").value;
+						const gMin = +document.getElementById("gMin").value;
+						const gMax = +document.getElementById("gMax").value;
+						const bMin = +document.getElementById("bMin").value;
+						const bMax = +document.getElementById("bMax").value;
+
+						const imageData = pfCtx.getImageData(0, 0, preFilterCanvas.width, preFilterCanvas.height);
+						const data = imageData.data;
+
+						const outData = fCtx.createImageData(imageData);
+						const o = outData.data;
+
+						for (let i = 0; i < data.length; i += 4) {
+							const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+							if (r >= rMin && r <= rMax && g >= gMin && g <= gMax && b >= bMin && b <= bMax) {
+								o[i] = r; o[i + 1] = g; o[i + 2] = b; o[i + 3] = a;  // keep pixel
+							} else {
+								o[i] = o[i + 1] = o[i + 2] = 0;  // or make transparent: set alpha=0 instead
+								o[i + 3] = 0;
+							}
+						}
+						fCtx.putImageData(outData, 0, 0);
+					}
+				</script>
+				<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+			<section>
+				<table>
+					<tr>
+						<td style="border:0;">
+				<div>					
+					<canvas id="appleCanvas" width="300" height="300" style="display:none;"></canvas>
+					<canvas id="fruitTrainingCanvas" width="300" height="300"></canvas>
+				</div>
+						</td>
+</tr><tr>
+						<td style="padding-left:100px;">
+
+				<div style="display:flex;align-items:center;">
+					<div style="display:inline-block;">
+
+						<div
+							style="font-size:30%;margin-top: 20px; display: grid; grid-template-columns: auto 1fr auto; gap: 6px 12px; max-width: 480px;">
+							<label style="width:80px;">Red Min</label>   <input type="range" id="fruitrMin" min="0" max="255" value="0">   <span id="fruitrMinVal">0</span>
+							<label style="width:80px;">Red Max</label>   <input type="range" id="fruitrMax" min="0" max="255" value="255"> <span id="fruitrMaxVal">255</span>
+							<label style="width:80px;">Green Min</label> <input type="range" id="fruitgMin" min="0" max="255" value="0">   <span id="fruitgMinVal">0</span>
+							<label style="width:80px;">Green Max</label> <input type="range" id="fruitgMax" min="0" max="255" value="255"> <span id="fruitgMaxVal">255</span>
+							<label style="width:80px;">Blue Min</label>  <input type="range" id="fruitbMin" min="0" max="255" value="0">   <span id="fruitbMinVal">0</span>
+							<label style="width:80px;">Blue Max</label>  <input type="range" id="fruitbMax" min="0" max="255" value="255"> <span id="fruitbMaxVal">255</span>
+						</div>
+					</div>
+				</div>
+						</td>
+					</tr>
+				</table>
+
+
+				<script>
+					const appleCanvas = document.getElementById("appleCanvas");
+					const fruitFilterCanvas = document.getElementById("fruitTrainingCanvas");
+					const appleCtx = appleCanvas.getContext("2d");
+					const fruitCtx = fruitFilterCanvas.getContext("2d");
+
+					// sliders
+					const fruitFilterSliders = ["fruitrMin", "fruitrMax", "fruitgMin", "fruitgMax", "fruitbMin", "fruitbMax"];
+					fruitFilterSliders.forEach(s => {
+						const elem = document.getElementById(s);
+						elem.addEventListener("input", () => {
+							document.getElementById(s + "Val").innerText = elem.value;
+							fruitFilter();
+						});
+					});
+
+					// Load the image
+					const fruitImg = new Image();
+					fruitImg.src = "img/fruits.png";
+					fruitImg.onload = function () {
+						appleCanvas.width = fruitImg.width;
+						appleCanvas.height = fruitImg.height;
+						fruitFilterCanvas.width = fruitImg.width;
+						fruitFilterCanvas.height = fruitImg.height;
+						appleCtx.drawImage(fruitImg, 0, 0); 
+						fruitCtx.drawImage(fruitImg, 0, 0);
+						fruitFilter();
+					};
+
+					function fruitFilter() {
+						const rMin = +document.getElementById("fruitrMin").value;
+						const rMax = +document.getElementById("fruitrMax").value;
+						const gMin = +document.getElementById("fruitgMin").value;
+						const gMax = +document.getElementById("fruitgMax").value;
+						const bMin = +document.getElementById("fruitbMin").value;
+						const bMax = +document.getElementById("fruitbMax").value;
+
+						const imageData = appleCtx.getImageData(0, 0, appleCanvas.width, appleCanvas.height);
+						const data = imageData.data;
+
+						const outData = fruitCtx.createImageData(imageData);
+						const o = outData.data;
+
+						for (let i = 0; i < data.length; i += 4) {
+							const r = data[i], g = data[i + 1], b = data[i + 2], a = data[i + 3];
+							if (r >= rMin && r <= rMax && g >= gMin && g <= gMax && b >= bMin && b <= bMax) {
+								o[i] = r; o[i + 1] = g; o[i + 2] = b; o[i + 3] = a;  // keep pixel
+							} else {
+								o[i] = o[i + 1] = o[i + 2] = 0;  // or make transparent: set alpha=0 instead
+								o[i + 3] = 0;
+							}
+						}
+						fruitCtx.putImageData(outData, 0, 0);
+					}
+				</script>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+			<section>
+				<h4>A Classification Problem</h4>
+				<p style="margin:60px;">
+					We are given an image and want to classify it as "Apple", "Orange", "Banana", or "Blueberry"
+				</p>
+				<table>
+					<tr>
+						<td style="text-align:center;vertical-align:middle;">							
+							<img src="img/apple.jpg" style="border:1px solid gray;">
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							<div style="border:1px solid gray;width:180px;vertical-align:middle;padding-top:35px;padding-bottom:40px;text-align:center;border-radius:7px;background-color:#def;">Classifier</div>
+						</td>
+						<td>&longrightarrow;</td>
+						<td>
+							"Apple"
+						</td>
+					</tr>
+				</table>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="img/apples.png">
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<div>
+					Gather all of the "Apple" images. For each image, add up the total R values, G values, and B values. 
+				</div>
+				<div>
+					<img src="img/fruit_rgb_apple.png">
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="img/fruit_feature_box.png">
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>
+				<br> 
+				<div>
+					<img src="img/fruit_feature_box.png">
+				</div>
+				<br> 
+				<div>
+					RGB sum = (2.15, 2.21, 1.8) Million &longrightarrow; ? 
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Feature Engineering a Fruit Classifier</h4>				
+				<div>
+					<img src="img/fruit_feature_box.png" style="margin:0;padding:0;">
+				</div>
+				<div>
+					<span style="font-size:80%;">Given an input image, our Fruit Classifier Algorithm is:</span>					
+					<div style="padding:10px;background-color:#cfc;border-radius:13px;font-size:90%;">
+					<ol>
+						<li>Add up all of the R, G, and B values</li>
+						<li>If ... then ...</li>
+						<li>Else if ... then ...</li>
+						<li>Else if ... then ...</li>
+						<li>Else ...</li>
+					</ol>
+					</div>
+				</div>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+					<section>
+				<a href="https://colab.research.google.com/drive/16g8_0ILTBrISHEyE4fRK8LJNQGx92Pe3?usp=sharing" target="_blank">Classify these fruit! (Python script)</a>
+				<img src="img/fruit.png">
+			</section>
+
+
+			<section>
+				<h4>MNIST</h4>
+				<img src="img/mnist_spaced.png">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<img src="img/data_zero.png">
+				<aside class="notes">
+				</aside>
+			</section>
+			<section>
+				<img src="img/data_one.png">
+				<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section>
+				<h4>What are the distinguishing features? </h4>
+				<img style="width:49%;padding:0;margin:0;" src="img/data_zero.png">
+				<img style="width:49%;padding:0;margin:0;" src="img/data_one.png">
+				<aside class="notes">
+				</aside>
+			</section>
+			<section>
+				<img src="img/cut1.jpg">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section>
+				<img src="img/cut3.jpg">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+			<section>
+				<img src="img/cut4.jpg">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+			<section>
+				<img src="img/mnist_spreadsheet.png">
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+			<section>
+				<img src="img/mnistdigits.png" style="width:220px;">				
+				<ol style="font-size:80%;">
+					<li>Start with <a target="_blank" href="https://docs.google.com/spreadsheets/d/1wIiRo_ecfvlcf7wSCWvSbhqLMJzABXgT0gJ0095pI1Q/edit?usp=sharing">this spreadsheet of 0 and 1 pixel data</a></li>
+					<li>Familiarize with the data</li>
+					<li>Write some formulas to get stats about the 0s and 1s</li>
+					<li>Write a formula to predict if a given row is a 0 or 1</li>
+					<li><em>After</em> you have a reliable classifier (formula for predicting 0 or 1), then test it on this <a target="_blank" href="https://docs.google.com/spreadsheets/d/1k8RNWgdvAulyQJu__0I6iHu0jBeWFfrYl-iwlO5tTgE/edit?usp=drive_link">new data</a></li>
+				</ol>
+			<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="dsplit" src="img/ds1.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="dsplit" src="img/ds2.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="dsplit" src="img/ds3.png">
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<img data-id="dsplit" src="img/ds4.png">
+				</section>
+
+				<section>
+					<a target="_blank" href="https://reproducible.cs.princeton.edu/"><img src="img/reproducability.png"></a>
+				</section>
+				<section>
+					<div><a target="_blank" href="https://reproducible.cs.princeton.edu/#rep-failures" style="font-size:50%;">https://reproducible.cs.princeton.edu/#rep-failures</a></div>
+					<a target="_blank" href="https://reproducible.cs.princeton.edu/#rep-failures"><img src="img/reproducabilitylist.png"></a>
+	
+				</section>
+
+		
+			<style>
+				.bibreference {
+					font-size:45%;
+					text-align:left; 
+				}
+			</style>
+			<section>
+				<h4>References</h4>
+
+				<div class="bibreference">
+					O'Neil, C., Schutt, R. (2013). Doing Data Science: Straight Talk from the Frontline. United States: O'Reilly Media.
+				</div>
+				<div class="bibreference">
+					Samuel, A.L. (1959). Some Studies in Machine Learning Using the Game of Checkers. IBM Journal of Research and Development, 44, 206-226. 
+				</div>
+				<div class="bibreference">
+					Gardner, M. (1962, March). How to build a game-learning machine and then teach it to play and to win. Scientific American, 206(3), 138-153.
+				</div>
+				<div class="bibreference">
+					Williams, J. (2024). Building a Digit Classifier with MNIST. Mathematics Teacher: Learning and Teaching PK-12, 117(2), 129-137. 
+					Resources: <a target="_blank" href="https://jedediyah.github.io/data/mnist/">https://jedediyah.github.io/data/mnist/</a>
+				</div>
+				<div class="bibreference">
+					Williams, J. (2025). Computing and Data Sciences. URL: <a target="_blank" href="https://williams-bhs.github.io/">https://williams-bhs.github.io/</a>.  
+				</div>
+				<div class="bibreference">
+					Williams, J. (2025). Spreadsheet Tutorial. URL: <a href="https://williams-bhs.github.io/spreadsheets/">https://williams-bhs.github.io/spreadsheets/</a>
+				</div>
+
+				<div class="bibreference">
+					Abeba Birhane. (2021). The Impossibility of Automating Ambiguity. Artif Life, 27 (1): 44-61. URL: <a href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext">https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext</a>					
+				</div>
+				<aside class="notes">
+				   
+				</aside>
+			</section>
+
+
+
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
+</html>
