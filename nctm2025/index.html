@@ -42,24 +42,32 @@
 				   
 				</aside>
 			</section>
-			<!-- 
-				<section>
-					<h4>Overview</h4>
-					<ol>
-						<li>What is AI and ML?</li>
-						<li>What is the math for AI and ML? Discrete. Brief history</li>
-						<li>ML milestone: Samuel's checkers</li>
-						<li>Hexapawn - Play, Problems, Simulate</li>
-						<li>Another class of problem in ML is a classifier, e.g., spam, cat, etc.</li>
-						<li>Fruit Classifier</li>
-						<li>Example of music classifier</li>
-						<li>MNIST classifier overview</li>
-						<li>This takes some familiarity with spreadsheets (ref spreadsheet tutorial)</li>
-					</ol>
-				<aside class="notes">
-				   
-				</aside>
-			</section> -->
+
+
+			<section data-background-gradient="linear-gradient(to right, #fff, #def)">	
+				<h5><a target="_blank" href="https://jedediyah.github.io/"><img src="img/waving.svg" style="width:50px;transform: translateY(30px);"> Hi! &nbsp; I'm Jed</a></h5>
+				<ul style="font-size:90%;">
+					<li>B.S. Computer Systems Engineering <span style="font-size:50%;">(1st gen!)</span> </li>
+					<li>Taught Algebra, Astronomy and Physics (2006-2010) </li>
+					<ul>
+						<li style="font-size:60%;">Observations and modeling of exoplanets at Maria Mitchell Observatory</li>
+					</ul>
+					<li>Ph.D. Computer Science / Robotics</li>
+					<ul>
+						<li style="font-size:60%;">NSF Graduate Teaching Fellowship in K-12 STEM Education<br>Culturally Situated Design Tools</li>
+						<li style="font-size:60%;">DARPA Mobile Robotics Research</li>
+						<li style="font-size:60%;">Lockheed Martin, Team Trooper - DARPA Robotics Challenge </li>
+					</ul>
+					<li>Taught Math <span style="font-size:70%;">( and some Comp Sci)</span> (2014-2023)</li>
+					<ul>
+						<li style="font-size:60%;">M.Ed. Curriculum and Teaching (I took too many credits)</li>
+						<li style="font-size:60%;">2017 NASA Space Robotics Challenge (Mars), Finalist </li>
+						<li style="font-size:60%;">2019 Massachusetts PAEMST, Mathematics</li>
+						<li style="font-size:60%;">2021 NASA Space Robotics Challenge Phase 2 (Moon), Finalist and Top 5 Winner</li>
+					</ul>
+					<li>Teaching Data Science, CS, and Physics</li>						
+				</ul><br><br><br> 
+			</section>
 
 
 			<section data-background="#fff" data-background-gradient="linear-gradient(to left, #def, #fed)" style="font-size:80%;">
@@ -1606,6 +1614,935 @@ DeBellis, V.A., Rosenstein, J.G. Discrete mathematics in primary and secondary s
 				   
 				</aside>
 			</section>
+
+
+
+
+
+
+				<!-- TIMELINE  -->
+				<style>
+					.aitimeline {
+						width:100%;
+						background-color: #7a7;
+						height:22px;
+						border-radius:7px;
+					}
+					.aitimelineyear {
+						font-size:45%;
+						display: inline-block;
+						color: #aaa; 
+						margin-left: 3px;
+						margin-right: 3px; 
+						margin-top: 1px; 
+					}
+					.aitimelineyear-highlight {
+						font-size:45%;
+						display: inline-block;
+						color: #f88; 
+						margin-left: 3px;
+						margin-right: 3px; 
+						font-weight: bold; 
+						margin-top: 1px; 
+					}
+					.timeline-dot {
+						height: 12px;
+						width: 12px;
+						background-color: #999; 
+						border-radius:50%; 
+						border: 2px solid #777; 
+						display: inline-block; 
+					}
+					.timeline-dot-highlight {
+						height: 12px;
+						width: 12px;
+						background-color: #fff; 
+						border-radius:50%; 
+						border: 2px solid #f88; 
+						display: inline-block; 
+					}
+					.timeline-marker {
+						position:absolute;
+						top:38px;
+						/* color:#c22; */
+						color: rgba(250,50,50,0.5); 
+						font-weight:bold;
+						font-family:Georgia, 'Times New Roman', Times, serif;
+					}
+					.timeline-content{
+						margin-top:50px;
+						height:600px;
+					}
+					.timeline-subtitle {
+						font-size:40%;
+						color:#555;
+					}
+				</style>
+				
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<a target="_blank" href="https://en.wikipedia.org/wiki/Mechanical_Turk"><img src="img/mechturk.jpg" style="width:55%;"></a>
+					</div>
+					<aside class="notes">
+						Mechanical automatons, machines that in some way imitate a living thing (often humans), have been around for millenia. 
+						Their history is fascinating and has an interesting theme: technically impressive and often misleading. 
+					</aside>
+
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:6%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<table style="border:0px;padding:0px;margin:0px;">
+							<tr>
+								<td style="font-size:40%;width:30%;vertical-align:middle;">
+									McCulloch, W. S., & Pitts, W. (1943). A logical calculus of the ideas immanent in nervous activity. The Bulletin of Mathematical Biophysics, 5(4), 115–133.
+								</td>
+								<td>
+									<a target="_blank" href="https://www.cs.cmu.edu/~./epxing/Class/10715/reading/McCulloch.and.Pitts.pdf"><img src="img/neruonnetwork.jpg"></a>
+								</td>
+							</tr>
+						</table>	
+						<aside class="notes">
+							In 1943 McCulloch and Pitts introduced artificial neuron networks as a framework for computation.
+							Today's neural netowrk diagrams look very similar. 
+						</aside>
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:13.25%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						
+						<table style="border:0px;padding:0px;margin:0px;">
+							<tr>
+								<td style="font-size:30%;width:30%;vertical-align: text-top;">
+									<a taget="_blank" href="https://www.pbs.org/newshour/science/8-things-didnt-know-alan-turing"><img src="img/turing.jpg"></a>
+									<!-- https://turingarchive.kings.cam.ac.uk/about-alan-turing -->
+								</td>
+								<td>
+									<a target="_blank" href="https://academic.oup.com/mind/article/LIX/236/433/986238"><img src="img/imitationgame.jpg"></a>
+									<div style="font-size:40%;vertical-align: text-top;">
+										Turing, A. M. (1950). Computing machinery and intelligence. Mind, 59, 433–460.
+									</div>
+								</td>
+							</tr>
+						</table>	
+					</div>
+					<aside class="notes">
+						Alan Turing is now well known thanks to the movie which takes its title from the first section of this 1950 paper which poses the question "can machines think?"
+						It is a remarkable paper for several reasons, including how accurately he predicts modern computing. 
+						<br> 
+						In section 6, he notes: 
+						"The original question, ‘Can machines think!’ I believe to be too meaningless to deserve discussion. 
+					</aside>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:19%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<table style="border:0px;padding:0px;margin:0px;">
+							<tr>
+								<td style="font-size:30%;width:50%;vertical-align: middle;">
+									<a target="_blank" href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf"><img src="img/dartmouthaiproposal.png" style="border: 2px solid #555;border-radius: 13px;"></a>
+								</td>
+								<td style="vertical-align: top;font-size:70%;">
+									<br>
+									<h6>Workshop topics</h6>
+									<ol>
+										<li>Automatic Computers </li>
+										<li>How Can a Computer be Programmed to Use a Language </li>
+										<li>Neuron Nets </li>
+										<li>Theory of the Size of a Calculation </li>
+										<li>Self-Improvement </li>
+										<li>Abstractions </li>
+										<li>Randomness and Creativity </li>
+									</ol>
+								</td>
+							</tr>
+						</table>	
+					</div>
+					<aside class="notes">
+						The term "Artificial Intelligence" was coined by John McCarthy in a proposal for a 1956 summer workshop which was held at Dartmouth College. 
+					</aside>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:20%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<a target="_blank" href="https://history.computer.org/pioneers/samuel.html"><img src="img/samuel.jpg"></a>
+						<div class="timeline-subtitle">
+							Samuel, A. L. (1959). Some Studies in Machine Learning Using the Game of Checkers. IBM Journal of Research and Development, 3, 210--229.
+						</div>
+					</div>
+					<aside class="notes">
+						Samuel's checkers program was the first instance of a (non-trivial) machine which could improve its performance to the point that it could outperform the person who created it. 
+					</aside>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:26%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/rosie.jpg">
+						<div class="timeline-subtitle">
+							The Jetsons (1962). "Rosie the Robot". 
+						</div>
+					</div>
+					<aside class="notes">
+						The very first episode of The Jetson's was "Rosie the Robot", an indication of the importance of autonomous systems in a view of the future. 
+						It's important to note that conversation around AI tends to be driven not by technical details, but by public perception and interest. 
+					</aside>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:30%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/eliza.gif">
+						<div class="timeline-subtitle">
+							1964 - 1967. ELIZA. Joseph Weizenbaum. 
+						</div>
+					</div>
+					<aside class="notes">
+						ELIZA was a chat bot built at MIT in the 1960s using a simple rule-based architecture
+						With such a simple approach, many people who interacted with ELIZA found it easy to be tricked into believing they were speaking with another human. 						
+						This is an excellent example of how we anthropomorphize even simple algorithms, and is often called the "ELIZA effect". 
+					</aside>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:40.6%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<a href="https://browncountytoychest.com/products/pet-rock"><img src="img/petrock.png"></a>
+						<div class="timeline-subtitle">
+							1975. Pet Rock. 
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:49.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/wargames.jpg" style="width:70%;">
+						<div class="timeline-subtitle">
+							1983. Wargames.
+						</div>
+
+						<aside class="notes">
+							The theme of Wargames is the role of human-in-the-loop systems. 
+						</aside>
+					</div>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:50.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/terminator1984.jpg">
+						<div class="timeline-subtitle">
+							1984. The Terminator.
+						</div>
+						<aside class="notes">
+							For years, The Terminator was a primary association when the public thought about AI. 
+						</aside>
+					</div>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:63.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/deepblue1996.jpg" style="width:60%;">
+						<div class="timeline-subtitle">
+							1996. Kasparov defeats IBM's Deep Blue.
+						</div>
+					</div>
+					<aside class="notes">
+						In 1996 Gary Kasparov defeated IBM's chess playing software in a competition of man-versus-machine. 
+					</aside>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:64.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/deepblue1997.jpg" style="width:60%;">
+						<div class="timeline-subtitle">
+							1997. Deep Blue defeats Gary Kasporav. 
+						</div>
+						<aside class="notes">
+							One year later IBM defeated Kasporav. 
+							Interestingly, he probably could have won this match. 
+							Regardless, this marked a turning point. 
+							Chess engines have long since surpased the best human players. 
+						</aside>
+					</div>
+				</section>
+
+
+				<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:69.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/Roomba_original.jpg" style="width:50%;">
+						<div class="timeline-subtitle">
+							2002. Roomba vacuum cleaner robot. 
+						</div>
+					</div>
+				</section> -->
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:75%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/msigpu.jpg">
+						&nbsp;&nbsp;&nbsp;
+						<a href="https://developer.nvidia.com/blog/cuda-refresher-reviewing-the-origins-of-gpu-computing/"><img src="img/cudacpuvgpu.png" style="width:40%;"></a> 
+						<div class="timeline-subtitle">
+							2007. NVidia CUDA - A software interface for GPUs, making it much easier to write code that is highly parallelized. 
+						</div>
+					</div>
+					<aside class="notes">
+						CUDA is an interface for writing code that can run on the GPUs of a graphics card, making parallelizable algorithms ridiculously fast. 
+					</aside>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:76.2%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<div class="timeline-subtitle" style="font-size:100%;width:70%;margin:auto;">
+							<br><br>
+							The first time I was told, earnestly, by someone who "should know" 
+							that teachers won't exist in 5 years because of AI.
+						</div>
+					</div>
+				</section>
+
+<!-- 
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:78.7%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<br><br>
+						<img src="img/siri.png">
+						<div class="timeline-subtitle">
+							2010. Siri. 
+						</div>
+					</div>
+				</section> -->
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:79.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/watsonwin.jpg" style="width:70%;">
+						<div class="timeline-subtitle">
+							2011. IMB's Watson beats Ken Jennings and Brad Rutter in Jeopardy!
+						</div>
+					</div>
+				</section>
+
+
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:80.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/imagenet.png">
+						<img src="img/alexnet.jpg" style="width:60%;position:absolute; left:20%;top:20%;border: 3px solid #555; border-radius:7px;">
+						<div class="timeline-subtitle">
+							2012. AlexNet.
+						</div>
+					</div>
+				</section>
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:82.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/photomath.jpg" style="width:25%;">
+						<div class="timeline-subtitle">
+							2014. PhotoMath.
+						</div>
+					</div>
+				</section>
+
+
+				<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:82.5%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<img src="img/ganpaper.jpg" style="width:55%;">
+						<div class="timeline-subtitle">
+							2014. Generative Adversarial Networks. 
+						</div>
+					</div>
+				</section> -->
+
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:84%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<a href="https://www.dvidshub.net/image/1981615/2015-darpa-robotics-challenge"><img src="img/ihmcwalking.jpg" style="height:350px;"></a>
+						<a href=""><img src="img/trooper_ladder.jpg" style="height:350px;"></a>
+						<a href="https://venturebeat.com/mobile/koreas-team-kaist-wins-the-2015-darpa-robotics-challenge/"><img src="img/kaist.jpg" style="height:350px;"></a>
+						<div class="timeline-subtitle">
+							2013-2015. DARPA Robotics Challenge. 
+						</div>
+					</div>
+
+					<aside class="notes">
+						The DARPA Robotics Challenge reinvigerated notions of killer robots like The Terminator in the technological zeitgeist. 
+					</aside>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:85%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<!-- <a href="https://deepmind.google/technologies/alphago/"><img src="img/leego.jpg" style="width:75%;"></a> -->
+						<a target="_blank" href="https://deepmind.google/technologies/alphago/"><img src="img/alphago.png" style="width:80%;"></a> <!-- https://www.popularmechanics.com/technology/a19844/googles-alphago-ai-wins-first-round-against-go-champion/  -->
+						<div class="timeline-subtitle">
+							2016. AlphaGO beats Lee Sudol 4-1 in five game match. 
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear"><span class="timeline-dot"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<div data-id="timemarker" class="timeline-marker" style="left:86%;">^</div>
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<a target="_blank" href="https://arxiv.org/abs/1706.03762"><img src="img/attention.jpg" style="width:80%;"></a>
+						<div class="timeline-subtitle">
+							2017. Attention Is All You Need. 
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">		
+					<h6 style="color:#77a;font-size:80%;">A brief and selective history of AI</h6>
+					<div data-id="ai-timeline" class="aitimeline">
+						<div data-id="ai-timeline-1940" class="aitimelineyear"><span class="timeline-dot"></span><br>1940</div>
+						<div data-id="ai-timeline-1945" class="aitimelineyear"><span class="timeline-dot"></span><br>1945</div>
+						<div data-id="ai-timeline-1950" class="aitimelineyear"><span class="timeline-dot"></span><br>1950</div>
+						<div data-id="ai-timeline-1955" class="aitimelineyear"><span class="timeline-dot"></span><br>1955</div>
+						<div data-id="ai-timeline-1960" class="aitimelineyear"><span class="timeline-dot"></span><br>1960</div>
+						<div data-id="ai-timeline-1965" class="aitimelineyear"><span class="timeline-dot"></span><br>1965</div>
+						<div data-id="ai-timeline-1970" class="aitimelineyear"><span class="timeline-dot"></span><br>1970</div>
+						<div data-id="ai-timeline-1975" class="aitimelineyear"><span class="timeline-dot"></span><br>1975</div>
+						<div data-id="ai-timeline-1980" class="aitimelineyear"><span class="timeline-dot"></span><br>1980</div>
+						<div data-id="ai-timeline-1985" class="aitimelineyear"><span class="timeline-dot"></span><br>1985</div>
+						<div data-id="ai-timeline-1990" class="aitimelineyear"><span class="timeline-dot"></span><br>1990</div>
+						<div data-id="ai-timeline-1995" class="aitimelineyear"><span class="timeline-dot"></span><br>1995</div>
+						<div data-id="ai-timeline-2000" class="aitimelineyear"><span class="timeline-dot"></span><br>2000</div>
+						<div data-id="ai-timeline-2005" class="aitimelineyear"><span class="timeline-dot"></span><br>2005</div>
+						<div data-id="ai-timeline-2010" class="aitimelineyear"><span class="timeline-dot"></span><br>2010</div>
+						<div data-id="ai-timeline-2015" class="aitimelineyear"><span class="timeline-dot"></span><br>2015</div>
+						<div data-id="ai-timeline-2020" class="aitimelineyear-highlight"><span class="timeline-dot-highlight"></span><br>2020</div>
+						<div data-id="ai-timeline-2025" class="aitimelineyear"><span class="timeline-dot"></span><br>2025</div>
+						<!-- <div data-id="timemarker" class="timeline-marker" style="left:90%;">^</div> -->
+					</div>
+					<div data-id="timeline-content" class="timeline-content">
+						<div>
+							<ul>
+								<li>AlphaFold (2020) </li>
+								<li>DALL E (2021) </li>
+								<li>Midjourney (2022) </li>
+								<li>Stable Diffusion (2022)</li>
+								<li>Chat GPT (2022) </li>
+								<li>LLaMA (2023)</li>
+								<li>Mistral 7B (2023)</li>
+								<li>Sora (2024)</li>
+								<li>Gemma (2024)</li>
+							</ul>
+						</div>
+					</div>
+					<aside class="notes">
+						
+					</aside>
+				</section>
+
+
 
 
 
