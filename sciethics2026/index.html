@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>AI - 2026</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+
+	<!-- Additional custom CSS -->
+	<style>
+		:root {
+			--dsp-red: rgb(255, 217, 223);
+			--dsp-orange: rgb(255, 226, 173);
+			--dsp-yellow: rgb(255, 255, 190);
+			--dsp-green: rgb(200, 236, 200);
+			--dsp-blue: rgb(205, 229, 237);
+			/*--dsp-gray: rgb(101, 101, 101); */
+			--dsp-gray: rgb(231, 231, 231);
+			--dsp-light: rgb(245, 245, 245);
+		}
+
+		.graphbox {
+			display: inline-block;
+			padding: 8px;
+			/* border:3px solid rgb(35, 41, 145); */
+			border-radius: 10px;
+			font-size: 80%;
+			background-color: blanchedalmond;
+			box-shadow: 3px 3px 7px #AAA;
+		}
+
+
+		@keyframes colorchange {
+			0% {
+
+				color: black;
+			}
+
+			100% {
+
+				color: rgb(210, 87, 30);
+			}
+		}
+	</style>
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+
+	<!-- Google Charts -->
+	<!-- <script type="text/javascript" src="loader.js"></script> -->
+
+</head>
+
+<body>
+	<div class="reveal">
+		<!-- Footer -->
+		<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+			jedediyah.github.io/sciethics2026
+		</div>
+		<div class="slides">
+
+
+				<section style="text-align:right;" data-background-gradient="linear-gradient(to right, #fff, #fed)">	
+					<div>
+						<h3><span style="color:#668;">Science Ethics in the Age of AI</span></h3>
+						
+						<p>
+							<img src="img/robottrash.png"><!-- Generated with DALL E 2 -->							
+							<br> 
+							<div style="width:100%;text-align:left;">
+							<a target="_blank" href="http://jedediyah.com" style="font-size:60%;color:#66b; font-family: 'Courier New', Courier, monospace;">Jedediyah Williams, PhD</a> </a>
+							<br>
+							<span style="color:#666; font-family: 'Courier New', Courier, monospace;color:#555;font-size:60%;">Belmont High School</span>
+							<br> 
+							</div>
+					</div>
+				</section>
+
+
+			<section style="text-align:left;" data-background="img/bifurcation.png">
+				<!-- https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg/1280px-Logistic_Map_Bifurcation_Diagram%2C_Matplotlib.svg.png -->
+				<div>
+					<br>
+					<h3><span style="color:rgb(118, 118, 174);">Science Ethics </span>
+						<br>
+						<div style="font-size:64%;color: rgb(238, 154, 44);">
+							In the age of AI </span>
+					</h3>
+					<br><br><br>
+					<br>
+					<br>
+					<a target="_blank" href="http://jedediyah.com" style="font-size:80%;line-height: 0.2;">Jedediyah
+						Williams</a>
+					<br>
+				</div>
+				<div style="color:#666; font-family: 'Courier New', Courier, monospace;font-size:70%;">
+					jedediyah.github.io/sciethics2026
+
+				</div>
+				<br><br><br><br>
+
+			</section>
+
+			<section>
+				<p>
+				<h4>There is too much to talk about! </h4>
+				<table style="font-size:85%;">
+					<tr>
+						<td>
+							<ul>
+								<li>Power</li>
+								<li>Surveillance</li>
+								<li>Privacy</li>
+								<li>Security</li>
+								<li>Consent</li>
+								<li>Access</li>
+								<li>Fairness</li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li>Education</li>
+								<li>Energy</li>
+								<li>Military</li>
+								<li>Misuse</li>
+								<li>Adversarial Attacks</li>
+								<li>Disinformation</li>
+								<li>Liberty</li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li>Discrimination</li>
+								<li>Labor</li>
+								<li>Environment</li>
+								<li>Exploitation</li>
+								<li>Law and Oversight</li>
+								<li>Accountability</li>
+								<li>Justice</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				</p>
+				<p>
+				<table style="font-size:90%;">
+					<tr>
+						<td>
+							<ul>
+								<li>Data Ethics </li>
+								<li>AI Ethics </li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li>Fair ML </li>
+								<li>Fair AI </li>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<li>Algorithmic Bias </li>
+								<li>Data Bias </li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+				</p>
+			</section>
+
+			<section>
+				<table>
+					<tr>
+						<td style="border:0px solid black;width:45%;">
+							<a target="_blank"
+								href="https://twitter.com/petergyang/status/1793480607198323196/photo/1"><img
+									style="width:100%;" src="img/pizza.jpeg"></a>
+							<span><a target="_blank" style="color:#777;font-size:30%;"
+									href="https://twitter.com/petergyang/status/1793480607198323196/photo/1">https://twitter.com/petergyang/status/1793480607198323196/photo/1</a></span>
+						</td>
+						<td style="vertical-align: top; padding:0px; margin:0px; ">
+							<br>
+							cheese not sticking to pizza
+							<div style="width:100%; text-align: center;padding-top:40px;padding-bottom: 40px;">&darr;
+							</div>
+							... add about 1/8 cup of glue
+						</td>
+					</tr>
+				</table>
+
+			</section>
+
+
+			<section>
+				<table>
+					<tr>
+						<td style="border:0px solid black;width:40%;">
+							<a target="_blank"
+								href="https://bsky.app/profile/electricland.bsky.social/post/3kt6uooqbl22d"><img
+									src="img/rocksperday.jpg" style="width:90%;"> </a>
+						</td>
+						<td style="vertical-align: top; padding:0px; margin:0px; ">
+							<br><br><br>
+							how many rocks should I eat
+							<div style="width:100%; text-align: center;padding-top:40px;padding-bottom: 40px;">&darr;
+							</div>
+							... at least one small rock per day
+						</td>
+					</tr>
+				</table>
+
+			</section>
+
+
+
+			<section>
+				<img src="img/googleai.jpeg" style="border-radius: 7px;">
+			</section>
+
+			<section>
+				<a target="_blank" href="https://twitter.com/RosenzweigJane/status/1767736005765820710?s=20"><img
+						style="width:60%;" src="img/toymovie.jpeg"><img src="img/jane.jpg"></a>
+			</section>
+			<section>
+				<a href="https://twitter.com/gcabanac/status/1767574447337124290?s=20"><img
+						src="img/elsevier1.jpeg"></a>
+			</section>
+			<section>
+				<a href="https://twitter.com/gcabanac/status/1767507279627055129/photo/1"><img
+						src="img/elsevier2.jpeg"></a>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+				style="text-align:left; vertical-align:text-top;">
+								<img src="img/salesforce1.png">
+								<!-- https://www.cnbc.com/2025/09/02/salesforce-ceo-confirms-4000-layoffs-because-i-need-less-heads-with-ai.html -->
+			</section>
+			
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+				style="text-align:left; vertical-align:text-top;">
+				<img src="img/salesforce1.png" style="width:20%;">
+				<img src="img/salesforce2.png">
+				<!-- https://vuink.com/post/znnegunaqnz-d-dpbz/2025/12/25/salesforce-regrets-firing-4000-staff-ai -->
+			</section>
+
+
+			<section>
+				<p>
+					A common misconception is that
+				<h3>data + compute &RightArrow; solutions</h3>
+				<br>
+				<p>
+					If the problem isn't solved yet, it's just because you haven't added enough technology yet!
+				</p>
+				</p>
+			</section>
+
+
+
+			<section>
+				<a target="_blank" href="https://arxiv.org/abs/2206.09511"><img src="img/fallacyofai.png" style="width:30%;"></a>
+				
+				<a target="_blank"
+					href="https://direct.mit.edu/artl/article-abstract/27/1/44/101872/The-Impossibility-of-Automating-Ambiguity?redirectedFrom=fulltext"><img  style="width:30%;"
+						src="img/automatingambiguity.png"></a>
+						
+						<a target="_blank" href="https://www.youtube.com/watch?v=akuJqk2tDPo"><img  style="width:30%;"
+						src="img/intractable.jpg"></a>
+				"We can be impressed by their performance on some inputs,but there are infinitely many inputs
+				where they must fail."
+				 - Iris van Rooij (26:02)
+			</section>
+
+	
+
+			<section>
+				Algorithms are brittle - Melanie Mitchell
+				<a href="https://www.youtube.com/watch?v=4QBvSVYotVc"><img src="img/brittle.png"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="alicediv">
+					<a target="_blank" href="https://arxiv.org/abs/2406.02061" style="font-size:40%;">Alice in
+						Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in State-Of-the-Art Large Language
+						Models</a>
+					<a target="_blank" href="https://twitter.com/lefthanddraft/status/1806329491708633575"><img
+							style="width:70%;border-radius:9px;" src="img/alice1.png"></a>
+				</div>
+				<aside class="notes">
+					Here's just one example of sensitive dependence on initial conditions in a chat bot.
+					There is a simple statement followed by a question. In this instance the bot calculates the correct
+					answer.
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="alicediv">
+					<a target="_blank" href="https://arxiv.org/abs/2406.02061" style="font-size:40%;">Alice in
+						Wonderland: Simple Tasks Showing Complete Reasoning Breakdown in State-Of-the-Art Large Language
+						Models</a>
+					<img style="width:70%;border-radius:9px;" src="img/alice1.png">
+					<img style="position: absolute;left:25%;top:-5%;border:2px solid #565;border-radius:3px;"
+						src="img/alice2.png">
+				</div>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img data-id="watsonpic" src="img/watsonj.jpg">
+				<aside class="notes">
+					Why are broken systems being deployed?
+					Good marketing, I suppose.
+					AI failing spectacularly is nothing new.
+					The history of AI is littered with spectacular failures.
+					You might remember IBM's Watson.
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a target="_blank"
+					href="https://slate.com/technology/2022/01/ibm-watson-health-failure-artificial-intelligence.html">
+					<img src="img/watson.png" style="width:70%;"></a>
+				<img data-id="watsonpic" src="img/watsonj.jpg" style="width:200px;">
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a target="_blank" href="https://www.bbc.com/news/articles/c722gne7qngo">
+					<img data-id="mcdspic" src="img/mcdonaldsai.png">
+				</a>
+				<aside class="notes">
+					A few weeks ago, McDonald's shut down its AI ordering system because it was garbage.
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a target="_blank" href="https://www.bbc.com/news/articles/c722gne7qngo">
+					<img src="img/mcds.png" style="width:100%;"></a><br>
+				<img data-id="mcdspic" src="img/mcdonaldsai.png" style="width:200px;">
+				<aside class="notes">
+					Having just a little bit of understanding about modeling complex systems means that you won't be
+					surprised when you roll up to McDonald's, order ice cream, but get stacks of butter instead.
+					Broken AI technologies keep getting deployed into the wild.
+					They keep failing.
+				</aside>
+			</section>
+
+
+			<section>
+				<a target="_blank"
+					href="https://www.reddit.com/r/foraging/comments/15p9b7t/ai_generated_foraging_books/">
+					<img src="img/foragingbooks.jpg">
+				</a>
+				<aside class="notes">
+					Real authors are being pushed out of marketplaces that are being flooded with AI generated text,
+					but, some of those books might tell you to eat poisonous plants.
+				</aside>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://www.theverge.com/2017/7/28/16054834/mushroom-identifying-app-machine-vision-ai-dangerous">
+					<img src="img/mushroom_verge.png">
+				</a>
+				<aside class="notes">
+					What does this tech look like in education? I wonder.
+				</aside>
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif" style="width:20%;">
+				<a href="https://www.youtube.com/watch?v=fBVCFcEBKLM"><img src="img/duplex.png"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif" style="width:20%;">
+				<a href="https://www.youtube.com/watch?v=fBVCFcEBKLM"><img src="img/duplex.png" style="width:20%;"></a>
+				<a href="https://www.youtube.com/watch?v=UIZAiXYceBI"><img src="img/gemini_demo.png"
+						style="width:50%;"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif" style="width:20%;">
+				<a href="https://www.youtube.com/watch?v=fBVCFcEBKLM"><img src="img/duplex.png" style="width:20%;"></a>
+				<a href="https://www.youtube.com/watch?v=UIZAiXYceBI"><img src="img/gemini_demo.png"
+						style="width:20%;"></a>
+				<img src="img/compounds.png" style="width:50%;">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif" style="width:20%;">
+				<a href="https://www.youtube.com/watch?v=fBVCFcEBKLM"><img src="img/duplex.png" style="width:20%;"></a>
+				<a href="https://www.youtube.com/watch?v=UIZAiXYceBI"><img src="img/gemini_demo.png"
+						style="width:20%;"></a>
+				<img src="img/compounds.png" style="width:20%;">
+				<img src="img/fresh.png" style="width:50%;">
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/tesla_vid_2016.gif" style="width:20%;">
+				<a href="https://www.youtube.com/watch?v=fBVCFcEBKLM"><img src="img/duplex.png" style="width:20%;"></a>
+				<a href="https://www.youtube.com/watch?v=UIZAiXYceBI"><img src="img/gemini_demo.png"
+						style="width:20%;"></a>
+				<img src="img/compounds.png" style="width:20%;">
+				<img src="img/fresh.png" style="width:20%;">
+				<img src="img/human_pin.png" style="width:50%;">
+			</section>
+
+
+
+			<!-- <section>				
+				<a target="_blank" href="https://www.youtube.com/watch?v=VctsqOo8wsc"><img src="img/aihypelie.jpg" style="width:40%;"></a>
+				<p>
+					"LLM chatbots have been designed in a way, known by psychologists and ethicists, to trick humans into believing they are intelligent."
+				</p>
+				<aside class="notes">  
+					Another reasron for the current AI hype wave is that companies tend to misrepresent the abilities of their products; 
+					Products that are designed in a way to exploit human psychology. 
+				</aside>
+			</section> -->
+			<section>
+				<h5>"The hype is a lie"</h5>
+				<ul style="font-size:80%;">
+					<li><a target="_blank"
+							href="https://www.theregister.com/2023/01/18/tesla_selfdriving_video_faked">Tesla faked
+							self-driving AI demo</a></li>
+					<li><a target="_blank" href="https://www.axios.com/2018/05/17/google-ai-demo-questions">Google faked
+							Duplex AI demo</a></li>
+					<li><a target="_blank"
+							href="https://techcrunch.com/2023/12/07/googles-best-gemini-demo-was-faked/">Google faked
+							Gemini AI demo</a></li>
+					<li><a target="_blank" href="https://pubs.acs.org/doi/10.1021/acs.chemmater.4c00643">Google Deep
+							Mind claims to discover 2.2 million compounds</a></li>
+					<li><a target="_blank"
+							href="https://arstechnica.com/gadgets/2024/04/amazon-ends-ai-powered-store-checkout-which-needed-1000-video-reviewers/">Amazon
+							Fresh "walk out" turns out to be 1000 people in India</a></li>
+					<li><a target="_blank"
+							href="https://www.technologyreview.com/2017/04/14/152563/facebooks-perfect-impossible-chatbot/">Facebook
+							chatbot M powered largely by humans</a></li>
+					<li><a target="_blank"
+							href="https://www.geekwire.com/2024/microsoft-ai-engineer-says-company-thwarted-attempt-expose-dall-e-3-safety-problem/">Microsoft
+							covered up vulnerabilities in DALL-E 3 image generator</a></li>
+					<li><a target="_blank"
+							href="https://www.theverge.com/2024/4/30/24145838/rabbit-r1-android-app-pixel-6a">Rabbit R1
+							turns out to just be an Android app</a></li>
+					<li><a target="_blank"
+							href="https://mashable.com/article/humane-ai-pin-demo-video-updated-inaccuracy-blunders">Humane
+							AI Pin edited video to fix incorrect answers</a></li>
+					<li><a target="_blank" href="https://law-ai.org/re-evaluating-gpt-4s-bar-exam-performance/">OpenAI
+							reported 90th-percentile performance on Bar Exam. </a></li>
+				</ul>
+				<aside class="notes">
+					There is a well documented history of tech companies lying to us about their products.
+					When someone presents you with a new technology, remember that it is not your responsibility to find
+					a way to use it.
+					If someone wants you to give them money, I hope they are demonstrating that their product actually
+					works and is solving a problem you actually require a solution for.
+				</aside>
+			</section>
+
+
+
+			<section>
+				<table style="border:0px;">
+					<tr>
+						<td style="width:50%;">
+							<a target="_blank"
+								href="https://www.theguardian.com/technology/2024/feb/03/ai-artificial-intelligence-tools-hiring-jobs"><img
+									style="width:100%;" src="img/hiring.jpg"></a>
+						</td>
+						<td style="vertical-align: top;">
+							<br>
+							"Not only do many of the hiring tools not work, they are based on troubling
+							pseudoscience
+							and can discriminate"
+						</td>
+					</tr>
+				</table>
+				<div style="font-size:70%;">
+					<a target="_blank" href="https://www.hilkeschellmann.com/">Hilke Schellmann</a> tried the
+					<em>myInterview</em> tool to check her "hiring score":
+					<ul>
+						<li>Honest interview in English: 83% </li>
+						<li>Reading a random wikipedia page in German: 73%</li>
+						<li>Getting a robot voice to read her English: 79%</li>
+					</ul>
+				</div>
+				<br>
+				<aside class="notes">
+					Professor of journalism Hilke Schellmann completed several interviews with an AI interview bot.
+					She found that she acheived an acceptable hiring score with an honest interview in English, a random
+					Wikipedia article in German, or a robot voice.
+					The company couldn't explain how or why this worked.
+					So what was the interview machine actually doing?
+				</aside>
+			</section>
+
+
+			<section data-background="#ddd">
+				<blockquote style="width:85%;font-size:90%;background-color: #fff;border-radius:13px;">"Our success,
+					happiness, and wellbeing are never fully of our own making. Others' decisions can profoundly affect
+					the course of our lives... <br><br> Arbitrary, inconsistent, or faulty decision-making thus raises
+					serious concerns..."</blockquote>
+				<p style="font-size:80%;">
+					- <a target="_blank" href="https://fairmlbook.org/introduction.html">Fairness and Machine
+						Learning</a>, Barocas, Hardt, and Narayanan
+				</p>
+				<aside class="notes">
+					To what extent are we placing our students' futures into biased, harmful, pseudoscientific, noise
+					machines?
+				</aside>
+			</section>
+
+
+			<section>
+				<a target="_blank"
+					href="https://www.chalkbeat.org/2023/10/4/23903768/mark-zuckerberg-czi-schools-personalized-learning-technology-summit/">
+					<img src="img/zucked.png">
+				</a>
+			</section>
+
+
+
+			<section>
+				<a target="_blank"
+					href="https://www.wsj.com/tech/ai/ai-is-tutoring-students-but-still-struggles-with-basic-math-694e76d3"><img
+						src="img/wsjaitutor.jpg"></a>
+				<aside class="notes">
+					Often, the models that are getting deployed are fundamentally the wrong class of models.
+					There is a strong bias toward LLMs at the moment, even in domains where LLMs struggle.
+				</aside>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://www.the74million.org/article/whistleblower-l-a-schools-chatbot-misused-student-data-as-tech-co-crumbled/">
+					<img src="img/lachatbot.png">
+				</a>
+				<aside class="notes">
+					School systems are dumping money into these technologies, and voluntarily giving up sensitive
+					student data.
+					OpenAI has repeatedly experienced security vulnerabilities, and a lot of applications are being
+					developed on top of OpenAI technologies.
+				</aside>
+			</section>
+
+
+
+			<section>
+				<a target="_blank"
+					href="https://www.theverge.com/2021/4/8/22374386/proctorio-racial-bias-issues-opencv-facial-detection-schools-tests-remote-learning"><img
+						src="img/vergeproctorio.png"></a>
+			</section>
+			<section>
+				<!-- Cheat detection biased - ell students and neurodivergent students disproportionately flagged with false positives of cheating  -->
+				<div style="vertical-align: text-top;">
+					<a target="_blank"
+						href="https://themarkup.org/machine-learning/2023/08/14/ai-detection-tools-falsely-accuse-international-students-of-cheating"><img
+							style="width:40%;" src="img/markupaidetection.jpg"></a>
+					<a target="_blank" href="https://www.cell.com/patterns/fulltext/S2666-3899(23)00130-7"
+						style="vertical-align: top;"><img style="width:40%;" src="img/stanfordaidetection.jpg"></a>
+				</div>
+			</section>
+			<section>
+				<a target="_blank" href="https://arxiv.org/abs/2403.00742"><img src="img/dialectprejudice.png"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="nctmdiv">
+					<a target="_blank"
+						href="https://www.nctm.org/News-and-Calendar/Messages-from-the-President/Archive/Kevin-Dykema/Math-and-Artificial-Intelligence/"><img
+							style="width:100%;border-radius:9px;" src="img/nctmai.png"></a>
+				</div>
+				<aside class="notes">
+					The president of NCTM released a statement on AI a few months ago.
+				</aside>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="nctmdiv">
+					<img style="width:100%;border-radius:9px;" src="img/nctmai.png">
+					<img style="position: absolute;left:15%;top:30%;border:2px solid black;border-radius:9px;"
+						src="img/nctmaiquote.png">
+				</div>
+				<aside class="notes">
+					In it, he casually suggests secretly surveilling students without their consent.
+					He also implies that this data will be sent to some hypothetical 3rd party app.
+					Too many people in positions of authority have no idea what they are doing with regard to AI and
+					data.
+				</aside>
+			</section>
+
+
+
+
+			<section>
+				<!-- <a target="_blank" href="https://www.technologyreview.com/2020/11/18/1012234/training-machine-learning-broken-real-world-heath-nlp-computer-vision/"><img src="img/trainingbroken.png" style="width:40%;"></a> -->
+				<a target="_blank"
+					href="https://www.science.org/content/article/eye-catching-advances-some-ai-fields-are-not-real"><img
+						src="img/eyecatching.png" style="width:40%;"></a>
+				<a target="_blank"
+					href="https://spectrum.ieee.org/machine-learning-faces-a-reckoning-in-health-research"><img
+						src="img/mlreckoning.png" style="width:40%;"></a>
+				<a target="_blank"
+					href="https://qz.com/2016153/ai-promised-to-revolutionize-radiology-but-so-far-its-failing/"><img
+						src="img/airevolutionfail.png" style="width:40%;"></a>
+				<a target="_blank"
+					href="https://www.technologyreview.com/2020/04/27/1000658/google-medical-ai-accurate-lab-real-life-clinic-covid-diabetes-retina-disease/"><img
+						src="img/googlemedai.png" style="width:40%;"></a>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a data-id="naturelinkedpitfall" target="_blank"
+					href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png"></a>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<img src="img/natureabstract.png" style="width:70%;">
+				<a data-id="naturelinkedpitfall" target="_blank"
+					href="https://www.nature.com/articles/s42256-021-00307-0"><img src="img/naturepitfalls.png"
+						style="width:25%;"></a>
+			</section>
+			<section>
+				<img src="img/tay.png" style="width:35%;">
+				<a target="_blank" href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/"><img
+						src="img/tayapology.png" style="width:90%;"></a>
+			</section>
+			<section>
+				<a href="https://retailwire.com/discussion/will-walmarts-decision-to-scrap-robots-have-far-ranging-effects/"
+					target="_blank"><img src="img/walmart.png"></a>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://www.theguardian.com/technology/2015/dec/30/us-marines-reject-bigdog-robot-boston-dynamics-ls3-too-noisy"><img
+						src="img/marinebot.png" style="width:48%;"></a>
+				<a target="_blank"
+					href="https://www.nationaldefensemagazine.org/articles/2020/1/8/army-cancels-high-profile-robotic-mule-contract"><img
+						src="img/armybot.png" style="width:48%;"></a>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://jalopnik.com/elon-musk-promises-full-self-driving-next-year-for-th-1848432496"><img
+						src="img/musk.png" style="width:70%;"></a>
+			</section>
+
+
+
+			<section>
+				<h3>Let's play a game!</h3>
+				It's called phisiognomy!
+				<br>
+				Given a face, you try to guess if they are good or bad.
+				<br>
+			</section>
+			<!-- Phisignomy -->
+			<section>
+				<a target="_blank" href="https://iiif.lib.harvard.edu/manifests/view/drs:42954877$1i"><img
+						src="img/willisbook.png"><img src="img/willisbooktitle.png"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face1.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face1.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:50%;padding-top:10px;">
+					Good!
+					<br><br>
+					<div style="font-size:70%;">
+						"He is a person of large vital force and chest capacity; great intellectual power and
+						command of language...
+						<br><br>
+						Physically considered, he is a splendid animal"
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face2.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face2.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:55%;padding-top:100px;">
+					Bad :(
+					<br><br>
+					<div style="font-size:70%;">
+						"Here is a nature that will want to receive money without having to work hard for it...
+						<br><br>
+						judging from this picture she has a free and easy style of conduct and not very
+						conscientious as to right and wrong"
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face3.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face3.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:55%;padding-top:40px;">
+					Bad :(
+					<br><br>
+					<div style="font-size:70%;">
+						"Here is a mouth that looks beastly and the expression of the eyes is <br>anything but
+						<em>pure</em>...
+						<br><br>
+						There is little good to be seen in this face; <br>it is indicative of a low, <br>coarse and
+						gross type of character."
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face4.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face4.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:55%;padding-top:20px;">
+					Good!
+					<br><br>
+					<div style="font-size:70%;">
+						"What a noble countenance, and what a magnificent head in the top part where the moral
+						faculties are located!
+						<br><br>
+						... The expression of the eyes is pure, wise and honest."
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face5.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face5.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:55%;padding-top:0px;">
+					Good!
+					<br><br>
+					<div style="font-size:70%;">
+						"The perceptive faculties are very largely developed in this gentleman. Observe the immense
+						development directly over the nose and eyes, which imparts an observing, knowing,
+						matter-of-fact and practical cast of mind."
+					</div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div><img data-id="face" src="img/face6.png"></div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div style="width:40%;display:inline-block;"><img data-id="face" src="img/face6.png"></div>
+				<div style="display:inline-block;vertical-align: top;width:55%;padding-top:10px;">
+					Evil!!
+					<br><br>
+					<div style="font-size:70%;">
+						"These small, black eyes are insinuating, artful, suggestive and wicked.
+						<br><br>
+						The face, though pretty, is mere <em>animal beauty</em>; nothing spiritual about it."
+					</div>
+				</div>
+			</section>
+
+			<!-- END PHYSIOGNOMY! -->
+
+			<section>
+				<a target="_blank" href="https://nautil.us/how-eugenics-shaped-statistics-238014/"><img
+						style="width:75%;" src="img/nautiliseugenics.png"></a>
+				<div style="font-size:80%;">
+					Galton coined the term "eugenics" in 1883.
+					<br>
+					Pearson was a student of Galton's and they worked with Fisher.
+					<br>
+					The three were pioneers of Statistics, which developed with their attempts to support bigotry on a
+					scientific foundation.
+				</div>
+				<br><br>
+				<aside class="notes">
+					Professor Willis' book is from 1884.
+				</aside>
+			</section>
+
+			<section>
+				<a target="_blank" href="https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a"><img
+						src="img/galtoncriminals.png"></a>
+				<a target="_blank" href="https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a">
+					<div style="font-size:40%;">https://medium.com/@blaisea/physiognomys-new-clothes-f2d4b59fdd6a</div>
+				</a>
+			</section>
+			<section>
+				<a target="_blank" href=""><img src="img/criminals.jpeg"></a>
+				<div style="font-size:50%;">"Wu and Zhang’s sample ‘criminal’ images (top) and ‘non-criminal’ images
+					(bottom)." 2016</div>
+			</section>
+			<section>
+				<a target="_blank"
+					href="https://www.washingtonpost.com/news/morning-mix/wp/2017/09/12/researchers-use-facial-recognition-tools-to-predict-sexuality-lgbt-groups-arent-happy/"><img
+						src="img/sexualityai.png" style="width:80%;"></a>
+			</section>
+			<section>
+				<a target="_blank" href="https://academic.oup.com/book/55103/chapter/423910713"><img
+						src="img/physiognomyinai.png"></a>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div data-id="eugenicsq">To what extent are we training the next generation of pseudoscientists?</div>
+			</section>
+
+			<section>
+				<a target="_blank" href="https://www.youtube.com/watch?v=MEuIGp-N1Xg"><img src="img/emotionai.png"></a>
+				<div style="font-size:80%;">
+					"Simplistic stereotypes is really not a basis for developing AI, and if your AI is based on this
+					then basically what you're doing is enshrining stereotypes in code." (11:42)
+				</div>
+				<aside class="notes">
+					Affect recognition, attempting to classify someones emotions based on their face, is another market
+					riddled with pseudoscience.
+				</aside>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a target="_blank"
+					href="https://www.insidehighered.com/news/tech-innovation/teaching-learning/2024/02/27/facial-recognition-heads-class-will-students"><img
+						src="img/facerecognition.png"></a>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<a target="_blank"
+					href="https://www.insidehighered.com/news/tech-innovation/teaching-learning/2024/02/27/facial-recognition-heads-class-will-students"><img
+						src="img/facialrecinclassroomtext.jpg"></a>
+			</section>
+
+
+
+			<section>
+				<h4>Some of the more well known harms</h4>
+				<a target="_blank"
+					href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing"><img
+						src="img/propublicabias.png" style="width:30%;"></a>
+				<a target="_blank" href="https://www.media.mit.edu/projects/gender-shades/overview/"><img
+						src="img/gendershades.png" style="width:30%;"></a>
+				<a target="_blank"
+					href="https://www.reuters.com/article/us-amazon-com-jobs-automation-insight/amazon-scraps-secret-ai-recruiting-tool-that-showed-bias-against-women-idUSKCN1MK08G"><img
+						src="img/amazonrecruiting.png" style="width:35%;"></a>
+				<a target="_blank"
+					href="https://www.vox.com/future-perfect/22672414/ai-artificial-intelligence-gpt-3-bias-muslim"><img
+						src="img/aiislamaphobia.png" style="width:40%;"></a>
+			</section>
+
+
+			<section>
+				<a
+					href="https://fortune.com/well/2023/10/20/chatgpt-google-bard-ai-chatbots-medical-racism-black-patients-health-care/amp/"><img
+						src="img/standfordchatgpt.png"></a>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416"><img
+						style="width:70%;" src="img/aircanada.jpg"></a>
+			</section>
+
+			<section>
+				<a target="_blank" href="https://www.tandfonline.com/doi/full/10.1080/26375451.2024.2312789"><img
+						src="img/rowlett.jpg"></a>
+			</section>
+
+			<section>
+				<a target="_blank"
+					href="https://www.bloomberg.com/news/articles/2024-02-27/ai-chatbots-not-ready-for-election-prime-time-study-shows"><img
+						style="width:80%;" src="img/bloombergelection.jpg"></a>
+				<aside class="notes">
+					One of the ways in which it was "harmful" is that someone who tried to follow what it said would
+					not have their vote counted.
+				</aside>
+			</section>
+
+			<section>
+				<h4>Standford Med blames algorithm</h4>
+
+				<a href="https://www.technologyreview.com/2020/12/21/1015303/stanford-vaccine-algorithm/"><img
+						src="img/standfordmed.jpg"></a>
+			</section>
+
+
+			<section>
+				<a href="https://time.com/6247678/openai-chatgpt-kenya-workers/" target="_blank"><img src="img/time.png"
+						style="width:70%;"></a>
+			</section>
+
+
+			<section data-background="img/manyhumans.png" style="text-align:left;">
+
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<a href="https://www.nytimes.com/2019/08/16/technology/ai-humans.html" target="_blank"><span
+						style="width:50%;margin-right:0px;text-align:right;font-size:50%;color:#fff;">https://www.nytimes.com/2019/08/16/technology/ai-humans.html</span></a>
+
+			</section>
+
+
+			<section data-background="#fff">
+				<a target="_blank"
+					href="https://www.nytimes.com/interactive/2019/10/11/technology/flickr-facial-recognition.html"><img
+						src="img/flickr.png"></a>
+			</section>
+
+
+			<section>
+				<a href="https://www.bbc.com/news/technology-57088382" target="_blank"><img
+						src="img/labelertrauma.png"></a>
+			</section>
+			<section>
+				<a href="https://www.npr.org/2022/03/24/1088343332/tiktok-lawsuit-content-moderators?sc=18&f=1088343332"
+					target="_blank"><img src="img/tiktok.png" style="width:70%;"></a>
+			</section>
+
+
+			<section data-background="#000">
+				<a href="https://anatomyof.ai/index.html" target="_blank"><img src="img/aianatomy.png"></a>
+				<span style="font-size:50%;"><a href="https://anatomyof.ai/">Anatomy of an AI system</a>, Crawford
+					and Joler</span>
+			</section>
+
+			<section>
+				<a target="_blank" href="https://twitter.com/WxNB_/status/1767593012501082166"><video preload="auto"
+						autoplay loop muted src="img/temps.mp4" type="video/mp4"></video></a>
+			</section>
+
+			<section>
+				<a href="https://www.nature.com/articles/s42256-022-00465-9" target="_blank"><img
+						src="img/dualuse.png"></a>
+			</section>
+
+			<section>
+				Adversarial attack
+				<a target="_blank" href="https://www.youtube.com/watch?v=ZwCNG9KFdXs"><img src="img/faceprint.png"></a>
+			</section>
+
+
+			<style>
+				.bookresource {
+					height: 40px;
+					margin: 0px;
+					padding: 0px;
+				}
+			</style>
+			<section>
+				<img src="img/oneil.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/eubanks.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/algopression.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/broussard.png" style="height:230px;margin:0px;padding:0px;">
+				<br>
+				<img src="img/thing_shane.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/hello_fry.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/invisible_perez.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/benjamin.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/ai_mitchell.jpg" style="height:230px;margin:0px;padding:0px;">
+				<br>
+				<img src="img/designjustice.png" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/atlasai.png" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/datafem.jpg" style="height:230px;margin:0px;padding:0px;">
+				<img src="img/morethanaglitch.png" style="height:230px;margin:0px;padding:0px;">
+			</section>
+
+
+
+
+
+		</div> <!-- END of slides div -->
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
