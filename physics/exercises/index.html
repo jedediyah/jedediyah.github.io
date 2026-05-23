@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<title>Physics Exercise</title>
+
+<style>
+    :root {
+        --primary: #0074d9;
+        --primary-dark: #005fa3;
+        --bg: #f8f9fa;
+        --card-bg: #ffffff;
+        --radius: 12px;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+        background: var(--bg);
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    img {
+      margin:auto; 
+      display: block;
+      max-width:100%; 
+      padding-top:20px; 
+      padding-bottom:20px; 
+    }
+
+    .container {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    select, button {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 12px 15px;
+        border-radius: var(--radius);
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background: var(--primary);
+        color: white;
+        margin-top: 12px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    button:hover {
+        background: var(--primary-dark);
+    }
+
+    .card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+        body {
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Physics Exercise</h1>
+
+    <select id="topic-select">
+        <option value="">-- Any Topic --</option>
+    </select>
+
+
+    <button onclick="loadProblem()">Get a Random Exercise</button>
+
+    <div id="problem-box" class="card hidden">
+        <h2 style="margin-top:0;">Exercise</h2>
+        <p id="problem-text"></p>
+        <button onclick="showSolution()" style="margin-top:50px;">Show Solution</button>
+    </div>
+
+    <div id="solution-box" class="card hidden" style="background:#fff;">
+        <h3 style="margin-top:0;">Solution</h3>
+        <p id="solution-text"></p>
+    </div>
+</div>
+
+<script src="problems.js"></script>
+<script>
+
+
+function loadProblem() {
+    var unit = document.getElementById("topic-select").value;
+
+    // if (!unit) {
+    //     alert("Please select a topic first!");
+    //     return;
+    // }
+
+    if (!unit) {
+        unit = Object.keys(problems)[ Math.floor(Math.random() * Object.keys(problems).length) ]; 
+    }
+
+    const chosenList = problems[unit]; 
+    
+    const randomProblem = chosenList[Math.floor(Math.random() * chosenList.length)];
+
+    document.getElementById("problem-box").style.display = "block";
+    document.getElementById("solution-box").style.display = "none";
+
+    document.getElementById("problem-text").innerHTML = randomProblem.q;
+    document.getElementById("solution-text").innerHTML = randomProblem.a;
+    
+    // Force mathjax to reload on new text
+    MathJax.typesetPromise();
+}
+
+function showSolution() {
+    document.getElementById("solution-box").style.display = "block";
+}
+
+const select = document.getElementById("topic-select");
+const container = document.getElementById("problemContainer");
+
+const selectElement = document.querySelector('select');
+selectElement.addEventListener('change', (event) => {
+    console.log(`Selected: ${event.target.value}`);
+    loadProblem(); 
+});
+
+
+// Populate dropdown 
+Object.keys(problems).forEach(key => {
+    const option = document.createElement("option");
+    option.value = key;
+    let displayName = key.replace(/_/g, ' ');
+    displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+    option.textContent = displayName.charAt(0).toUpperCase() + displayName.slice(1).replace("_"," ");
+    select.appendChild(option);
+});
+</script>
+
+</body>
+</html>
+
