@@ -7,7 +7,7 @@ const problems = {
         },
         {
             q: "What is the displacement of a vehicle that moves backwards at 5 m/s for 17 s?",
-            a: "\\[v=\\frac{\\Delta x}{\\Delta t}\\]\\[\\Delta x = v \\Delta t\\]\\[\\Delta x = (-5)(17)=-85\\text{ m/s}\\]While we are given 5 m/s as a speed, <em>backwards</em> indicates a negative velocity."
+            a: "\\[v=\\frac{\\Delta x}{\\Delta t}\\]\\[\\Delta x = v \\Delta t\\]\\[\\Delta x = (-5)(17)=-85\\text{ m}\\]While we are given 5 m/s as a speed, <em>backwards</em> indicates a negative velocity."
         }
     ],
     accelerated_motion: [
@@ -98,7 +98,7 @@ const problems = {
             a: "2.0 m/s"
         },
         {
-            q: "Find the momentum of the larger mass after collision.<br><br><img src='img/collision_2023.png'>",
+            q: "Find the velocity of the larger mass after collision.<br><br><img src='img/collision_2023.png'>",
             a: "\\[m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f}\\]\\[(0.02)(1.5)+(0.01)(0)=(0.02)v_{1f}+(0.01)(2)\\]\\[v_{1f}=0.5\\text{ m/s}\\]"
         },
         {
@@ -299,7 +299,7 @@ const problems = {
             a: "Sound."
         }, 
         {
-            q: "Identify which type of wave, mechanical or electromagnetic, should be used to send a signal from Earth to a rove ron the surface of Mars. ",
+            q: "Identify which type of wave, mechanical or electromagnetic, should be used to send a signal from Earth to a rover on the surface of Mars. ",
             a: "Electromagnetic waves should be used. Mechanical waves have no medium through which to propagate in space (there is no air for sound). "
         }, 
         {
