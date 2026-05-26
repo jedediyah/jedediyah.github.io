@@ -83,7 +83,7 @@ const problems = {
         }, 
         {
             q: "During a soccer game, a player kicked the 0.42 kg soccer ball into a goal. The ball was traveling 22 m/s when it collided with the net and came to a stop.<br><img src='img/soccer_2024.png'><br>Find the change in momentum of the ball during the collision with the net. If the collision lasted 0.25 s, find the average force the net applied to the ball.",
-            a: "\\[\\Delta p = m v_{f} - mv_{i}\\]\\[\\Delta p = (0.42)(0) - (0.42)(22)=-9.42 \\text{ kg m/s} \\]Then \\[\\Delta p = F \\Delta t\\]\\[-9.42 = F (0.25)\\]\\[F = -36.96 \\text{ N}\\]"
+            a: "\\[\\Delta p = m v_{f} - mv_{i}\\]\\[\\Delta p = (0.42)(0) - (0.42)(22)=-9.24 \\text{ kg m/s} \\]Then \\[\\Delta p = F \\Delta t\\]\\[-9.24 = F (0.25)\\]\\[F = -36.96 \\text{ N}\\]"
         }, 
         {
             q: "Two toy cars, car R and car S, moved toward each other at a constant speed. Car R had a mass of 2 kg, and car S had a mass of 3 kg.<br><img src='img/car_2024.png'><br>What was the total momentum of the system as the cars moved toward each other?",
