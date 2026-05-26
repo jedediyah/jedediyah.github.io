@@ -120,7 +120,7 @@ const problems = {
             a: "GPE = mgh = 2 × 9.8 × 3 = 58.8 J."
         }, 
         {
-            q: "Cats play and sleep on cat towers. A cat tower with two platforms is shown. One platform is 1.8 m above the ground and the second platform is 1.1 m above the ground. <br><img src='img/cat_plat_2024.png'><br><ol><li>What is the gravitational potentail energy of a 1.5 kg cat on the 1.8 m platform?</li><li>The cat jumped from the 1.8 m platform to the 1.1 m platform. As the cat was moving tot he 1.1 m platform, what was happening to its kinetic energy?</li></ol>",
+            q: "Cats play and sleep on cat towers. A cat tower with two platforms is shown. One platform is 1.8 m above the ground and the second platform is 1.1 m above the ground. <br><img src='img/cat_plat_2024.png'><br><ol><li>What is the gravitational potential energy of a 1.5 kg cat on the 1.8 m platform?</li><li>The cat jumped from the 1.8 m platform to the 1.1 m platform. As the cat was moving to the 1.1 m platform, what was happening to its kinetic energy?</li></ol>",
             a: "1. \\[PE = mgh = (1.5)(10)(1.8) = 27 \\text{ J} \\]2. The kinetic energy increased."
         }, 
         {
