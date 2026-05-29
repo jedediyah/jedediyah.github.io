@@ -34,6 +34,10 @@ const problems = {
         {
             q: "<img src='img/svt_2022.png'><br>Which of the following setups would cause the ball to roll with the motion shown in the graph?<ol type='A'><li><img src='img/ramp2022a.png'></li><li><img src='img/ramp2022b.png'></li><li><img src='img/ramp2022c.png'></li><li><img src='img/ramp2022d.png'></li></ol>",
             a: "A. "
+        },
+        {
+            q: "A student pushed an object across a table to the right. The graph shows the velocity of the object over time during three time intervals, X, Y, and Z.<br><br><img src='img/vvt_2025.png'><br><br>Draw a free body diagram for the object during time intervals X, Y, and Z.",
+            a: "<img src='img/fbd_2025.png'><br><br>It is possible for there to be an \\[F_{push}\\] on interval Z, as long as it is smaller than the friction force."
         }
     ],
     projectile_motion: [
@@ -158,6 +162,10 @@ const problems = {
         {
             q: "<img src='img/roller_coaster_2022.png'><br>A 4500 kg roller coaster car is lifted to point W and then released from rest. At points W, X, Y, and Z, find the potential and kinetic energy as well as the velocity of the car.",
             a: "W. \\[PE = (4500)(10)(50)=2250000\\]\\[KE=\\frac{1}{2}(4500)(0)^2=0\\]\\[v=0\\]\\[ME=2250000\\] X. \\[PE = (4500)(10)(25)=1125000\\]\\[KE=ME-PE=1125000\\]\\[v=\\sqrt{\\frac{2 \\cdot KE}{m}}=22.361\\text{ m/s}\\] Y. \\[PE = (4500)(10)(40)=1800000\\]\\[KE=ME-PE=450000\\]\\[v=\\sqrt{\\frac{2 \\cdot KE}{m}}=14.142\\text{ m/s}\\] Z. \\[PE = (4500)(10)(8)=360000\\]\\[KE=ME-PE=1890000\\]\\[v=\\sqrt{\\frac{2 \\cdot KE}{m}}=28.983\\text{ m/s}\\]"
+        },
+        {
+            q: "A student compresses a spring with a block, as shown in the diagram.<br><br><img src='img/spring_8_2025.png'><br><br>When the student lets go of the block, the block moves to the right, as shown in the diagram below.<br><br><img src='img/spring_8_2025b.png'><br><br>Which of the following describes a change in energy that occurs when the student lets go of the block?<br><br><img src='img/spring_8_2025ans.png'>",
+            a: "D"
         }
     ],
     heat: [
@@ -235,6 +243,10 @@ const problems = {
         {
             q: "Two negatively charged spheres are separated by a distance d.<br><br><img src='img/tube_charges_2022.png'><br>Which of the following would increase the distance, d, the most?<ol type='A'><li>adding more negative charges to both spheres</li><li>removing some negative charges from both spheres</li><li>adding more negative charges to one sphere and making the other sphere neutral</li><li>removing some negative charges from one sphere and making the other sphere neutral</li><ol>",
             a: "A. adding more negative charges to both spheres."
+        },
+        {
+            q: "A 12 kg object and a 16 kg object are located 2 m apart. Each exerts a gravitational force, Fg, on the other, as shown in the diagram.<br><br><img src='img/gravitation_2025.png'><br><br>Which of the following pairs of objects placed 4 m apart will have these same gravitational forces?<br><br><img src='img/grav_options_2025.png'>",
+            a: "B"
         }
     ],
     circuits: [
@@ -269,7 +281,16 @@ const problems = {
         {
             q: "Find the current.<br><br><img src='img/acircuit_2022.png'>",
             a: "\\[V=IR\\]\\[I=\\frac{V}{R}\\]\\[I=\\frac{12}{3+6+4}=0.92\\text{ A}\\]"
+        },
+        {
+            q: "What happens to the current in the circuit when the voltage is increased to 12 V?<br><br><img src='img/circuit_2025.png'>",
+            a: "Given that the resistor stays the same, quadrupling the voltage quadruples the current. \\[V=IR\\] Current is proportional to voltage. "
+        },
+        {
+            q: "A circuit with a battery and four resistors is shown.<br><br><img src='img/circuit7_2025.png'><br><br>a. Which resistor has the greatest voltage drop across it?<br><br>b. What is the current through the 10 Ohm resistor?",
+            a: "a. 18 Ohm <br><br>b. 0.25 A"
         }
+        
     ],
     magnetism: [
         {
@@ -287,6 +308,10 @@ const problems = {
         {
             q: "During an investigation, a student placed a compass above a wire in a circuit, as shown in the diagram. The student recorded the position of the compass needle when the switch was open and when it was closed.<br><br><img src='img/compass_2022.png'><br>Which of the following claims is supported by evidence produced in this investigation?<ol type='A'><li>An electric current produces a magnetic field</li><li>A magnetic field produces an electric current.</li><li>An electric current flows from a negative to a positive terminal.</li><li>A magnetic field extends from the north pole of a magnet to its south pole.</li></ol>",
             a: "A. An electric current produces a magnetic field. "
+        },
+        {
+            q: "Some older forms of computer technology used plastic discs coated with iron oxide to store information in magnetic fields. Which of the following best explains why one of these discs could be damaged if placed near a coil of wire that is carrying current?<br><br><ol type='A'><li>The coil of wire generates heat, which could charge the iron oxide coating.</li><li>The coil of wire uses energy, which could affect the energy stored in the iron oxide coating.</li><li>The current in the wire produces a gravitational field, which could pull the iron oxide coating off the disc.</li><li>The current in the wire produces a magnetic field, which could alter the magnetic storage in the iron oxide coating.</li></ol>",            
+            a: "D"
         }
     ],
     waves: [
@@ -313,6 +338,10 @@ const problems = {
         {
             q: "Which of the following statements describes a difference between an electromagnetic wave and a mechanical wave?<ol type='A'><li>An electromagnetic wave always travels more slowly than a mechanical wave.</li><li>An electromagnetic wave is a longitudinal wave, and a mechanical wave is not.</li><li>An electromagnetic wave can travel in a vacuum, and a mechanical wave cannot.</li><li>An electromagnetic wave always has a lower frequency than a mechanical wave.</li></ol>",
             a: "C. "
+        },
+        {
+            q: "Two waves, X and Y, are traveling toward each other. The waves cancel each other out when they interact and completely overlap. <br><br>Which of the following diagrams best represents the two waves before they interact?<br><br><img src='img/waves_2025.png'>",
+            a: "A"
         }
     ]
 };
