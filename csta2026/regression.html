@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	<title>Regression</title>
+
+	<link rel="stylesheet" href="reveal.js-master/dist/reset.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/reveal.css">
+	<link rel="stylesheet" href="reveal.js-master/dist/theme/white.css">
+	<link rel="stylesheet" href="slides.css">
+	<link rel="stylesheet" href="../boxes.css">
+
+
+	<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+	<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+	<style>
+		.reveal img {
+			margin: 0;
+		}
+
+
+
+  /* Color definitions for data science pipeline */
+:root{ 
+  --dsp-red: rgb(255, 217, 223);
+  --dsp-orange: rgb(255, 226, 173);
+  --dsp-yellow: rgb(255, 255, 190);
+  --dsp-green: rgb(200, 236, 200);
+  --dsp-blue: rgb(205, 229, 237);
+  --dsp-gray: rgb(231, 231, 231);
+  --dsp-light: rgb(245, 245, 245);
+}
+
+.inline-exercise{ 
+  background-color: #f0f8ff; 
+  border-left: 5px solid #4b9cd3; 
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width:500px;
+  margin: auto; 
+  padding: 1em 1.5em;
+}
+.inline-exercise h4 {
+  color: #274967; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+
+/* 
+An example inline exercise with solution looks like this: 
+      <div class="exercise">
+        <h4>Exercise</h4>
+        <p>What is 1+2+3?</p>
+        <button onclick="toggleSolution(this)" class="exercise-button">Show Solution</button>
+        <div class="solution">
+          <p>1+2+3 = 6.</p>
+        </div>
+      </div>
+*/
+
+
+.advanced {
+  background-color: #f0f8ff; 
+  border-left: 5px solid #c14bd3; 
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width:100%;
+  margin: auto; 
+  padding: 10px;
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+  text-align: left;
+}
+.advanced h4 {
+  background-color: #f0f8ff; 
+  color: #274967; 
+  margin-top: 0;
+  margin-bottom:0;
+  font-size:90%;
+}
+
+
+.exercise {
+  background-color: #f0f8ff; 
+  border-left: 5px solid #4b9cd3; 
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  max-width:500px;
+  margin: auto; 
+  padding: 1em 1.5em;
+  margin-top: 35px; 
+  margin-bottom: 35px; 
+  text-align: left;
+}
+.exercise h4 {
+  color: #274967; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.solution {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+}
+.exercise-button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.definition-box {
+  background-color: #f0fff4; 
+  border-left: 5px solid #2f855a; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  max-width:500px;
+  margin: auto; 
+  text-align: left;
+}
+
+.definition-box h4 {
+  color: #276749; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.definition-box p {
+  margin: 0;
+}
+
+.theorem-box {
+  background-color: #f7f5ff; 
+  border-left: 5px solid #805ad5; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.theorem-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: #553c9a;  
+  font-weight: 600;
+}
+
+.theorem-box p {
+  margin: 0;
+}
+
+.algorithm-box {
+  background-color: #fffbeb; 
+  border-left: 5px solid #d69e2e; 
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  max-width:500px;
+  margin: auto; 
+  text-align: left;
+}
+
+.algorithm-box h4 {
+  color: #b7791f; 
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+.algorithm-box p, .algorithm-box ol {
+  margin: 0;
+}
+.algorithm-box ol {
+  list-style-type: none;
+  counter-reset: my-counter;
+  padding-left: 1.5em; 
+}
+
+.algorithm-box ol li {
+  counter-increment: my-counter;
+  position: relative;
+}
+
+.algorithm-box ol li::before {
+  content: "(" counter(my-counter) ")";
+  position: absolute;
+  left: -1.5em; 
+}
+
+
+
+	</style>
+</head>
+
+<body>
+	<div class="reveal"><!-- Footer -->
+		<div style="position:fixed;bottom:10px;left:10px;color:rgb(129, 129, 129);font-size:70%;">
+			<img src="img/csta_logo.png">
+		</div>
+		<div class="slides">
+
+			<!-- TITLE SLIDE -->
+			<section>
+				<h2>Regression by Hand</h2>
+				<img src="img/data_models.svg" style="width:300px;">
+				<p style="font-size:80%;color:#1a53b0;padding-top:0px;margin-top:0px;text-align:right;">Jedediyah
+					Williams, PhD<br>jedediyah@gmail.com</p>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>How high does a bouncy ball bounce?</h4>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>How high does a bouncy ball bounce?</h4>
+					<table style="width:50%;color:#686;">
+						<tr>
+							<td style="font-size:300%;">
+								&downarrow;
+							</td>
+							<td style="vertical-align: middle;font-size:80%;">
+								Translate the question into a data problem
+							</td>
+						</tr>
+					</table>
+				<div>
+					When we drop a bouncy ball from rest at height \(h_{drop}\), what height \(h_{bounce}\) will it
+					reach on its first bounce?
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: top;display:none;">
+							<table>
+								<tr style="display:none;">
+									<th>\(h_{drop}\) (cm)</th>
+									<th>\(h_{bounce}\)(cm)</th>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data12" data-auto-animate-delay="0.0"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data11" data-auto-animate-delay="0.0"> </div>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data21" data-auto-animate-delay="1.5"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data22" data-auto-animate-delay="1.5"> </div>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data31" data-auto-animate-delay="1.5"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data32" data-auto-animate-delay="1.5"> </div>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data41" data-auto-animate-delay="1.5"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data42" data-auto-animate-delay="1.5"> </div>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data51" data-auto-animate-delay="1.5"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data52" data-auto-animate-delay="1.5"> </div>
+									</td>
+								</tr>
+								<tr style="display:none;">
+									<td style="text-align: center;">
+										<div data-id="ball-data61" data-auto-animate-delay="1.5"> </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data62" data-auto-animate-delay="1.5"> </div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td style="width:95%;"><img src="img/balldrop.jpg"></td>
+					</tr>
+				</table>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: top;">
+							<table style="font-size:70%;background-color: var(--dsp-orange);border-radius:13px;">
+								<tr>
+									<th>
+										<div data-id="bounce_data_hdrop">\(h_{drop}\) (cm)</div>
+									</th>
+									<th>
+										<div data-id="bounce_data_hbounce">\(h_{bounce}\)(cm)</div>
+									</th>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data12" data-auto-animate-delay="0.0">20 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data11" data-auto-animate-delay="0.0">15 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data21" data-auto-animate-delay="0.1">30 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data22" data-auto-animate-delay="0.1">21 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data31" data-auto-animate-delay="0.15">40 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data32" data-auto-animate-delay="0.15">23 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data41" data-auto-animate-delay=".2">50 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data42" data-auto-animate-delay=".2">35 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data51" data-auto-animate-delay=".25">70 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data52" data-auto-animate-delay=".25">40 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data61" data-auto-animate-delay=".3">100 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data62" data-auto-animate-delay=".3">65 </div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td style="width:45%;"><img src="img/balldrop.jpg" style="width:100%;"></td>
+					</tr>
+				</table>
+			</section>
+
+			<!-- Vocab on variables -->
+			<!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="width:35%;"><img src="img/balldrop.jpg" style="width:100%;"></td>
+						<td style="vertical-align: top;">
+							<table>
+								<tr>
+									<td><strong>Independent</strong></td>
+									<td><strong>Dependent</strong></td>
+								</tr>
+								<tr>
+									<th>\(h_{drop}\) (cm)</th>
+									<th>\(h_{bounce}\)(cm)</th>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data12" data-auto-animate-delay="0.0">20 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data11" data-auto-animate-delay="0.05">15 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data21" data-auto-animate-delay="0.25">30 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data22" data-auto-animate-delay="0.3">21 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data31" data-auto-animate-delay="0.5">40 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data32" data-auto-animate-delay="0.55">23 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data41" data-auto-animate-delay=".75">50 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data42" data-auto-animate-delay=".80">35 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data51" data-auto-animate-delay="1.0">70 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data52" data-auto-animate-delay="1.05">40 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data61" data-auto-animate-delay="1.25">100 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data62" data-auto-animate-delay="1.30">65 </div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</section> -->
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 0.100)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: top;">
+							<table style="font-size:70%;background-color: var(--dsp-orange);border-radius:13px;">
+								<tr>
+									<th>
+										<div data-id="bounce_data_hdrop">\(h_{drop}\) (cm)</div>
+									</th>
+									<th>
+										<div data-id="bounce_data_hbounce">\(h_{bounce}\)(cm)</div>
+									</th>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data12b" data-auto-animate-delay="0.0">20 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data11b" data-auto-animate-delay="0.0">15 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data21b" data-auto-animate-delay="0.1">30 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data22b" data-auto-animate-delay="0.1">21 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data31b" data-auto-animate-delay="0.15">40 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data32b" data-auto-animate-delay="0.15">23 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data41b" data-auto-animate-delay=".2">50 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data42b" data-auto-animate-delay=".2">35 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data51b" data-auto-animate-delay=".25">70 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data52b" data-auto-animate-delay=".25">40 </div>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: center;">
+										<div data-id="ball-data61b" data-auto-animate-delay=".3">100 </div>
+									</td>
+									<td style="text-align: center;">
+										<div data-id="ball-data62b" data-auto-animate-delay=".3">65 </div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td style="width:70%;">
+							<div data-id="bounce_data"><img src="img/bounce_regress_data.svg"></div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 0.100)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;text-align: center;">
+							<div data-id="ball-model" style="font-size:80%;">
+								<strong>True relationship</strong>
+								<br> 
+								\(Y = ? \)
+							</div>
+							<br>
+							<div data-id="ball-model" style="font-size:80%;">
+								<strong>Approximation</strong>
+								<br> 
+								\(\hat{Y} = \hat{\beta}_{0} + \hat{\beta}_{1}X \)
+							</div>
+						</td>
+						<td style="width:60%;">
+							<div data-id="bounce_data"><img src="img/bounce_regress_model.svg"></div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 0.100)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;">
+							<div data-id="ball-modelapprox" style="background-color: var(--dsp-green);border-radius:13px;padding:1px;">
+								\[ \hat{Y} = \hat{\beta}_{1}X \]
+							</div>
+							<br>
+							<div style="font-size:80%;">
+								\(\hat{\beta}_{1}\) is a <strong>model parameter</strong>: a tuneable value in our model
+							</div>
+						</td>
+						<td style="width:70%;">
+							<div data-id="bounce_data"><img src="img/bounce_regress_model.svg"></div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 0.100)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;font-size:70%;">
+							The <strong>residual error</strong> between the observed data \((x_i, y_i)\) and the model
+							is:
+							<div style="background-color: var(--dsp-red); margin:auto; border-radius:11px;width:230px;">
+							\[ e_{i} = y_i - \hat{y}_i \]
+						</div>
+							where
+							\[ \hat{y}_i = \hat{\beta}_{1} x_{i} \]
+						</td>
+						<td style="width:60%;">
+							<div data-id="bounce_data"><img src="img/bounce_regress_residual.svg"></div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 0.100)">
+				<h4>How high does a bouncy ball bounce?</h4>
+				<table>
+					<tr>
+						<td style="vertical-align: middle;font-size:70%;">
+							The <strong>sum of squared error</strong> is the sum of squares of the errors!
+							<br><br>
+							<div style="background-color: var(--dsp-red); margin:auto; border-radius:11px;width:230px;padding-top:1px;padding-bottom:1px;">
+							\[ SSE = \sum_{i=1}^{n} e_{i}^{2}\]
+							</div>
+							<!-- \[ SSE = \sum_{i=1}^{n} (y_i - \hat{y}_i)^{2} \] -->
+						</td>
+						<td style="width:70%;">
+							<div data-id="bounce_data"><img src="img/bounce_regress_residual.svg"></div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+				data-state="forceGraph">
+				<div data-id="reg_plot_div" style="width:49%;display:inline-block;">
+					<canvas id="dataChart" width="300" height="330"></canvas>
+				</div>
+				<div data-id="sse_plot_div" style="width:49%;display:inline-block;">
+					<canvas id="sseChart" width="300" height="330"></canvas>
+				</div>
+				<div data-id="reg_controls" id="controls">
+					<label for="bSlider">Slope (\(\hat{\beta}_{1}\)): <span id="bValue">0.3</span></label><br>
+					<input type="range" id="bSlider" min="0.3" max="1.0" step="0.01" value="0.3"> &nbsp;
+					<button id="errorCaptureButton">Capture SSE</button>
+				</div>
+			</section>
+
+			<script>
+				const dataPoints = [
+					{ x: 20, y: 15 },
+					{ x: 30, y: 21 },
+					{ x: 40, y: 23 },
+					{ x: 50, y: 35 },
+					{ x: 70, y: 40 },
+					{ x: 100, y: 65 }
+				];
+				const SSEpoints = [{ x: null, y: null }];
+				let sse = 0.0;
+
+				const ctxData = document.getElementById('dataChart').getContext('2d');
+				const ctxSSE = document.getElementById('sseChart').getContext('2d');
+				const chart = new Chart(ctxData, {
+					type: 'scatter',
+					data: {
+						datasets: [
+							{
+								label: 'Data Points',
+								data: dataPoints,
+								backgroundColor: 'red',
+								pointRadius: 4,
+							},
+							{
+								label: 'Model Line',
+								data: [],
+								type: 'line',
+								borderColor: '#2d70b3',
+								borderWidth: 2,
+								fill: false,
+								pointRadius: 0
+							},
+							{
+								label: 'Residuals',
+								data: [],
+								type: 'line',
+								borderColor: 'black',
+								borderWidth: 1,
+								pointRadius: 0,
+								showLine: true,
+							}
+						]
+					},
+					options: {
+						responsive: true,
+						plugins: {
+							legend: { display: false }
+						},
+						scales: {
+							x: {
+								type: 'linear',
+								min: 0,
+								max: 105,
+								title: { display: true, text: 'Drop Height (cm)' },
+								grid: { display: false }
+							},
+							y: {
+								min: 0,
+								max: 80,
+								title: { display: true, text: 'Bounce Height (cm)' },
+								grid: { display: false }
+							}
+						}
+					}
+				});
+				const chartSSE = new Chart(ctxSSE, {
+					type: 'scatter',
+					data: {
+						datasets: [
+							{
+								label: 'SSE Points',
+								data: SSEpoints,
+								backgroundColor: 'red',
+								showLine: false
+							}
+						]
+					},
+					options: {
+						responsive: true,
+						plugins: {
+							legend: { display: false }
+						},
+						scales: {
+							x: {
+								type: 'linear',
+								min: 0.2,
+								max: 1.1,
+								title: { display: true, text: 'B_1' }, // Ouch, this hurts to do
+								grid: { display: false }
+							},
+							y: {
+								min: 0,
+								max: 3000,
+								title: { display: true, text: 'SSE' },
+								grid: { display: false }
+							}
+						}
+					}
+				});
+
+
+
+				function updateChart(b) {
+					const modelLine = [
+						{ x: 0, y: 0 },
+						{ x: 105, y: b * 105 }
+					];
+					chart.data.datasets[1].data = modelLine;
+
+					const residualLines = [];
+					sse = 0;
+					dataPoints.forEach(p => {
+						const predictedY = b * p.x;
+						sse += Math.pow(p.y - predictedY, 2);
+						residualLines.push({ x: p.x, y: p.y });         // actual point
+						residualLines.push({ x: p.x, y: predictedY });  // model prediction
+						residualLines.push({ x: null, y: null });       // disconnect the line
+					});
+					chart.data.datasets[2].data = residualLines;
+
+					chart.update();
+					chartSSE.update();
+
+					document.getElementById('bValue').textContent = b.toFixed(2);
+				}
+
+				const bSlider = document.getElementById('bSlider');
+				bSlider.addEventListener('input', () => {
+					updateChart(parseFloat(bSlider.value));
+				});
+				document.getElementById('errorCaptureButton').addEventListener('click', () => {
+					let b = document.getElementById('bSlider').value;
+					SSEpoints.push({ x: b, y: sse });
+					console.log(b, sse);
+
+					chartSSE.update();
+					chartSSE2.update();
+				});
+
+				updateChart(parseFloat(bSlider.value));
+				console.log("updated?");
+
+			</script>
+
+
+
+
+			<section>
+				<table>
+					<tr style="background-color:var(--dsp-orange);">
+						<th style="vertical-align: middle;">Data</th>
+						<td>
+							<table>
+								<tr>
+									<td>\(h_{drop}\) </td>
+									<td>20 </td>
+									<td>30 </td>
+									<td>40 </td>
+									<td>50 </td>
+									<td>70 </td>
+									<td>100 </td>
+								</tr>
+								<tr>
+									<td>\(h_{bounce}\) </td>
+									<td>15 </td>
+									<td>21 </td>
+									<td>23 </td>
+									<td>35 </td>
+									<td>40 </td>
+									<td>65 </td>
+								</tr>
+							</table>	 
+						</td>
+					</tr>
+					<tr style="background-color:var(--dsp-green);">
+						<th>Model</th>
+						<td>
+							\[ \hat{h}_{bounce} = \hat{\beta}_{1} h_{drop} \quad \text{\tiny Constrained Linear Model}\]
+						</td>
+					</tr>
+					<tr style="background-color:var(--dsp-blue);">
+						<th style="vertical-align: middle;">Optimized Parameter</th>
+						<td style="vertical-align: top;">
+							\[ \hat{h}_{bounce} = 0.64 \ h_{drop} \quad \text{\tiny minimized SSE} \]
+						</td>
+					</tr>
+				</table>
+				
+			</section>
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Model Interpretation</h4>
+				<div data-id="interpquestion">
+					What does the parameter in our model mean?
+				</div>
+				<div>
+					<img src="img/bounce_regress_residual.svg" style="width:60%;">
+				</div>
+				<div data-id="interpmodel">
+					\( \hat{h}_{bounce} = \hat{\beta}_{1} h_{drop}  \)
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Model Interpretation</h4>
+				<div>
+					<img src="img/bounce_regress_residual.svg" style="width:40%;">
+				</div>
+				<div data-id="interpmodel">
+					\( \hat{h}_{bounce} = \hat{\beta}_{1} h_{drop}  \)
+				</div>
+				<div style="background-color: var(--dsp-blue);margin:auto;width:444px;padding-top:15px;padding-bottom:15px;border-radius: 11px;">
+					\(\hat{\beta}_{1}\) is the slope, \(\frac{h_{bounce}}{h_{drop}}\) 
+				</div>
+				<div style="font-size:80%;">
+					This is the ratio of bounce height to drop height <br>and means we predict \(h_{bounce}\) to be 64% of \(h_{drop}\)
+				</div>
+			</section>
+
+
+
+
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Model Validation</h4>
+				<div>
+					How can we verify that our model works, <br>or that it is useful? 
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h4>Model Validation</h4>				
+				<br> 
+				<div style="background-color: #eee; border:1px solid #ccc; border-radius:11px;margin:auto;padding:20px;">
+					<div style="padding-bottom:35px;">Data Splitting</div>					
+					<img src="img/data_splitting.svg" style="width:100%;">
+				</div>
+				<br> <br> 
+			</section>
+			<section>
+				<a target="_blank" href="https://reproducible.cs.princeton.edu/"><img src="img/reproducability.png"></a>
+			</section>
+
+
+
+			<section>
+				<h4>Regression Review</h4>
+				<ul style="font-size:70%;">					
+					<li><strong>Data</strong> are recorded observations of independent and dependent variables.  </li>					
+					<li>A <strong>model</strong> is an abstract representation intended to explain or predict relationships in data. </li>
+					<li>A <strong>parameter</strong> is an adjustable value in a model that can be tuned. </li>
+					<li><strong>Regression</strong> involves optimizing the parameters of a model to minimize some error between data and model prediction. </li>
+					<li><strong>Data splitting</strong> is one method of model validation where data are split into training and testing sets. The testing set is not used until the model is ready to be validated. </li>	
+					<li><strong>Residual error</strong> \(e_{i}\) is the model prediction error, \(y_i - \hat{y}_{i}\).</li>	
+					<li><strong>Squared error</strong> \(e_{i}^2\) is the square of the model prediction error, \((y_i - \hat{y}_{i})^2\).</li>		
+					<li><strong>Sum of squared error</strong> is the sum of squared errors \(\sum_{i}e_{i}^{2}\)</li>				
+				</ul>
+			</section>
+
+			<section>
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="https://docs.google.com/document/d/1c9tXDpPQQ_XIL0-vQ023tnEMb4n5XgLm5tYLWIyZD28/edit?usp=sharing">Student bouncy ball activity</a>  </li>
+					<li><a href="https://www.desmos.com/calculator/iwwqnspvil">Desmos utility </a> </li>
+					<li><a href="https://jupytereverywhere.org/lab/index.html?notebook=amusing-adaptable-sardine">Regression in Python</a> </li>
+				</ul>				
+			</section>
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<script src="reveal.js-master/dist/reveal.js"></script>
+	<script src="reveal.js-master/plugin/notes/notes.js"></script>
+	<script src="reveal.js-master/plugin/markdown/markdown.js"></script>
+	<script src="reveal.js-master/plugin/highlight/highlight.js"></script>
+	<script src="reveal.js-master/plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		}).then(() => {
+
+
+			// The chart occasionally does not load. It seems there is some race condition.
+			// Conveniently, we can force the graphs to update when the slides load, just in case. 
+			Reveal.on('forceGraph', () => {				
+				updateChart(parseFloat(bSlider.value));
+			})
+
+
+		});
+	</script>
+</body>
+
+</html>
