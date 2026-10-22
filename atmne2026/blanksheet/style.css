@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#luckysheet {
+  position: absolute;
+  inset: 0;
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+}
+
+#luckysheet-input-box {
+  position: absolute !important;
+  max-width: 200px !important;
+  overflow: hidden !important;
+  z-index: 9999 !important;
+  right: 0 !important;
+  pointer-events: auto;
+}
+
+#luckysheet-input-box input {
+  max-width: 200px !important;
+}

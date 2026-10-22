@@ -1,0 +1,2144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Exploratory Mathematics</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <!-- <link rel="stylesheet" href="plugin/highlight/monokai.css"> -->
+    <!-- <link rel="stylesheet" href="plugin/highlight/zenburn.css"> -->
+
+    <link rel="icon" href="img/cover.png" type="image/png" sizes="32x32">
+
+    <style>
+        /* A header color for h4  */
+        .reveal h4 {
+            color: #af4261;
+        }
+
+        /* Fancy block quote */
+        .bquote {
+            text-align: left;
+            border-left: 3px solid gray;
+            padding-left: 25px;
+            margin-left: 100px;
+            color: #555;
+        }
+
+        pre {
+            background-color: #f1f3f5;
+        }
+
+        code {
+            color: #003b4f;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Footer -->
+            <div style="position:fixed;bottom:10px;left:10px;color:rgb(189, 189, 189);font-size:50%;">
+                jedediyah.github.io/atmne2026
+            </div>
+
+            <section data-background="#fff">
+                <div style="text-align:left;">
+                    <h3 style="background-image: linear-gradient(45deg, #78a1f3, #af4261);background-clip: text;color: transparent;padding:0; margin:0;">
+                        Experimental Mathematics</h3>
+                    <span style="color:#555;font-size:80%;padding:0;margin:0;">Computing and Visualization for Modeling and Data Science</span>
+                </div>
+                <br>
+                <div><img src="img/matlabplot.png" style="width:35%;text-align: left;"></div>
+                <p style="font-size:70%;color:#426eaf;padding-top:0px;margin-top:0px;text-align:right;">
+                    Jedediyah Williams, PhD<br>
+                    jedediyah@gmail.com<br>
+                    ATMNE 2026</p>
+            </section>
+
+            <section style="text-align:left;">
+                <h4>AI Disclosure</h4>
+                <p>No "AI" was used to "research" or create this presentation. I typed this presentation into a text editor. </p>
+                <p><img src="img/aidisclosure.png"></p>
+            </section>
+
+            <section>
+                <section>
+                    <h4 style="color: #222;">How to navigate these slides</h4>
+                    <ul>
+                        <li>Use <b style="color:#af4244;">&leftarrow; &rightarrow;</b> arrow keys to move left right
+                        </li>
+                        <li>and <b style="color:#af4244;">&uparrow; &downarrow;</b><b> UP-DOWN</b> to explore</li>
+                    </ul>
+                </section>
+                <section>
+                    <p>You'll find additional information (me ranting) in the vertical direction.</p>
+                    <p>You can also use [ESC] to view multiple slides or the [s] key to see speaker notes. </p>
+                </section>
+            </section>
+
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:50%;">
+                <div style="display:inline-block;width:30%;">
+                    <a href="https://en.wikipedia.org/wiki/Robert_L._Devaney"><img src="img/bob.jpg"></a>
+                    <img src="img/chaos_devaney.jpg" style="width:60%;">
+                </div>
+                <div style="display:inline-block;width:60%;text-align: left;padding-left:5%;vertical-align:top;">
+                    "There are a number of reasons why I have written this book. By far the most important is my conviction that
+                    <span style="color:#8f1f00;font-size:130%;font-weight:bold;">we in mathematics education &mdash;
+                        whether on the secondary or collegiate level &mdash; fail miserably to communicate the vitality of contemporary
+                        mathematics to our students</span>. Let's face it: most high school and college mathematics
+                    courses emphasize centuries-old mathematics. As a consequence, many students think that new
+                    mathematics ended in the time of Euclid and Pythagoras (or, if they know calculus, in the time
+                    of Newton and Leibniz). Many students feel that mathematics is a dead discipline, that, as a
+                    career, it leads nowhere but to teaching (and thereby the perpetuation of a dead discipline).
+                    <span style="color:#8f1f00;font-size:130%;font-weight:bold;">They have no appreciation or
+                        understanding of what a mathematician really does or thinks about.</span>"
+                    <br>
+                    <div style="width:100%; text-align: right;">Robert L. Devaney (1990, p. iii)</div>
+                    <aside class="notes">
+                        I want to dedicate this talk to Robert L. Devaney, who was a mathematics professor at Boston University and who died this past year.
+                        I never met Bob in-person, but I bought one of this books when I was still a teenager, and his work was deeply influential to me.
+                        His work, particularly as an educator, is still profoundly relevant.
+                    </aside>
+            </section>
+
+
+            <section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <div style="display:inline-block;width:30%;"><img src="img/chaos_devaney.jpg" style="width:100%;">
+                    </div>
+                    <div style="display:inline-block;width:60%;text-align: left;padding-left:5%; font-size:48%;">
+                        "<span style="color:#8f1f00;font-size:140%;font-weight:bold;">
+                            A very simple six- or seven-line BASIC program allows a student to compute hundreds and thousands of iterations of a single function.
+                            Students get the feeling that they have the power to explore the uncharted wilderness</span>
+                        of the dynamics of quadratic functions, not to mention the many, many other simple functions whose dynamics are less well understood.
+                        This is a radical new development in mathematics instruction.
+                        <span style="color:#8f1f00;font-size:140%;font-weight:bold;">
+                            It gives mathematics an experimental component, a laboratory</span>.
+                        Much as the physicists, chemists, and biologists have long used the laboratory as an essential component
+                        of their introductory courses, now we in mathematics have the same opportunity, and the results
+                        should be a much higher appreciation for and recognition of the importance of research mathematics by
+                        contemporary students."
+                        <br>
+                        <div style="width:100%; text-align: right;">Robert L. Devaney (1990, p. iii)</div>
+                        <aside class="notes">
+                            Devaney was a proponent of computing in the math classroom.
+                            This particular book, while it focuses on the mathematics, uses the programming language BASIC.
+                            This book is still highly relevant, and could be re-written today using Python.
+                        </aside>
+                </section>
+
+
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <div style="font-size:70%;text-align: left;">Chaos Theory and fractals were everywhere in the 90s. It was great. Look at the cover of Principles and Standards!</div>
+                    <img src="img/principlesandstandards_cover.png" style="width:30%;">
+                </section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <img src="img/principlesandstandards_p1.png" style="width:40%;">
+                    <br>
+                    <p>
+                        This is page 1 of Principles and Standards!
+                    </p>
+                </section>
+                <section>
+                    <div style="font-size:50%;text-align:left;">
+                        There was a very cool set of texts from 1992 on <em>Fractals For the Classroom</em>. There was even a set of workbooks produced, coauthored by Devaney.
+                    </div>
+                    <div>
+                        <img style="height:210px;padding:0;margin:0;" src="img/fractals_b.jpg">
+                        <img style="height:210px;padding:0;margin:0;" src="img/fractals_a.jpg"><br>
+                        <img style="height:210px;padding:0;margin:0;" src="img/fractals_c.jpg">
+                        <img style="height:210px;padding:0;margin:0;" src="img/fractals_d.jpg">
+                        <img style="height:210px;padding:0;margin:0;" src="img/fractals_e.jpg">
+                    </div>
+                </section>
+                <section>
+                    <p>
+                        <img src="img/sunny.png" style="width:70%;margin:0;padding:0;">
+                        <br>
+                        <span style="font-size:80%;">Me talking about Math Ed: "Chaos Theory!"</span>
+                    </p>
+                </section>
+            </section>
+
+
+            <section>
+                <img src="img/kutahw.png">
+                <aside class="notes">
+                    Show of hands, who has ever assigned something that looks like this?
+                    I am not opposed to worksheets. They are a good source of problems.
+                    Three points:
+                    - The reason we learn mathematics like this is that solving systems is valuable in applied mathematics.
+                    - When we teach it, however, we ignore applications, often working right up to the point where this topic would be useful and then stopping short.
+                    - We also ignore contemporary solutions, i.e., numerical computing.
+                    - (4th point?!) When we only work on these type of problems by hand, it constrains the size and nature of the problem.
+                    These problems tend to have integer coefficients, they tend to have nice solutions, they take few steps to solve, they are abstract in the worst sense of that word: devoid of any context because then it wouldn't be "math"
+
+                    To be clear, I am not arguing that this is how math is done, nor that we should not teach math "by hand". Rather, if we are going to work up to this point, why not make the next step, a step that both gives students experience with how math often does get done, and gives them fantastic computational power which provides access to an entire world of problems they could not otherwise investigate.
+                    Finally, computing is a mathematical sandbox.
+
+                </aside>
+            </section>
+
+            <section>
+                <div style="width:40%;padding:0;margin:0;display:inline-block;vertical-align: top;">
+                    <br>
+                    <img src="img/kuta_num1_question.png">
+                </div>
+                <div style="width:58%;padding:0;margin:0;display:inline-block;vertical-align: top;">
+                    <h4>MATLAB / Octave</h4>
+                    <div style="vertical-align: top;width:100%;margin:auto;">
+                        <pre><code data-trim class="language-matlab">
+>> M = [ -1  -5  -5    2
+          4  -5   4   19
+          1   5  -1  -20 ]
+
+          
+>> rref(M)
+  ans = 
+    1   0   0  -2 
+    0   1   0  -3
+    0   0   1   3
+</code></pre><br><br>
+                    </div>
+                </div><br>
+                <aside class="notes">
+                    If you've ever taken my Algebra 2 or PreCalculus courses, then you've learned to solve systems of linear equations with Octave.
+                    My students complete those problems twice, once by hand and then a second time with Octave.
+                    Two important aspects of having students do this are:
+                    1 - While they already completed the work by hand, they now know that computers can do it.
+                    2 - If they want to work on bigger problems that involve this mathematics, the computation is done for them. This opens up an entire world of new problems they could not do without such a tool.
+                </aside>
+            </section>
+
+            <section>
+                <h4>Undeniably reasonable position</h4>
+                <div style="text-align:left;">
+                    So much of mathematics can and should be done on paper and whiteboards.                     
+                    <br><br>
+                    Given the importance of computing in mathematics and its applications, the level to which we incorporate authentic numerical computing into K-12 mathematics should not be zero. 
+                </div>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div class="bquote" data-id="quote-majority" style="display:inline-block;width:60%;text-align: left;padding-left:5%;margin-left:2%;margin-top:40px;margin-top:5px;margin-left:0;font-size:75%;font-weight: bold;">
+                    "<span style="color:#8f1f00;">a majority of those who make extensive use of mathematics do so by means of a computer</span>.
+                    Debates over whether the computer influences the essence of mathematics would not be difficult to locate, but
+                    <span style="color:#8f1f00;">there is no debating that the use of mathematics, now and in the future, is directly related to computer technology</span>".
+                </div>
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <div style="display:inline-block;width:65%;vertical-align: top;padding:0;margin:0;">
+                        <img src="img/koetke1969.png" style="width:100%;padding:0;margin:0;">
+                    </div>
+                    <div class="bquote" data-id="quote-majority" style="display:inline-block;width:60%;text-align: left;padding-left:5%;margin-left:2%;margin-top:40px;margin-top:5px;margin-left:0;font-size:75%;font-weight: bold;">
+                        "<span style="color:#8f1f00;">a majority of those who make extensive use of mathematics do so by means of a
+                            computer</span>. Debates over whether the computer influences the essence of mathematics would not be difficult to locate, but
+                        <span style="color:#8f1f00;">there is no debating that the use of mathematics, now and in the future, is
+                            directly related to computer technology</span>".
+                    </div>
+                    <div style="width:100%; text-align: right;font-size:75%;">(1969)</div>
+                </section>
+
+                <!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="display:inline-block;width:65%;vertical-align: top;padding:0;margin:0;">
+                    <img src="img/koetke1969.png" style="width:100%;padding:0;margin:0;">
+                </div>
+                <div style="display:inline-block;width:65%;vertical-align: top;padding:0;margin:0;">
+                    <img src="img/jrme.png" style="width:100%;padding:0;margin:0;">
+                </div>
+            </section> -->
+
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Discrete, Stats, and Computing have been proposed for decades</h4>
+                    <div>
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_1981.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_1984.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_1989.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_1990.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_1991.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/fractals_b.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/fractals_a.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_2000.jpg">
+                        <img style="height:250px;padding:0;margin:0;" src="img/nctm_2006.jpg">
+                    </div>
+                    <aside class="notes">
+                        If you can get your hands on NCTM yearbooks, they are SO well written and compelling.
+                        The absence of discrete math and mathematical computing is notable given nearly two decades of coverage in NCTM publications, including the 1989 standards which highlighted the importance of computing in mathematics.
+                    </aside>
+                </section>
+
+
+                <section data-background="#fff" data-background-gradient="linear-gradient(to left, #def, #fed)" style="font-size:80%;">
+                    <h4>What is the math for AI and ML? </h4>
+                    <div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;">Logic</td>
+                                </tr>
+                                <tr>
+                                    <td>\(A \lor \neg B \implies Q\)</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;height:108px;">Linear Algebra
+                                    </td>
+                                    <td> <a href="https://commons.wikimedia.org/wiki/File:Determinant_example.svg"><img style="padding:0;margin:0;" src="img/Determinant_example.svg.png"></a> </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;">
+                                        <div>Graph<br>Theory</div>
+                                    </td>
+                                    <td><img style="width:150px;" src="img/walk.svg"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;">
+                                        <div>Set<br>Theory</div>
+                                    </td>
+                                    <td><img style="width:180px;" src="img/set_a_union_b.svg"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;padding:0;margin:0;">
+                                        <img style="width:150px;padding:0;margin:0;" src="img/pascal.svg">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0;margin:0;">Combinatorics</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div style="border:1px solid gray;margin:5px;border-radius:7px;width:400px;display:inline-block;height:180px;">
+                            <table>
+                                <tr>
+                                    <td style="text-align:center;border:0px;vertical-align:top;">Difference Equations,
+                                        Recursion, Iteration</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center;">\(F_{n} = F_{n-1} + F_{n-2}\)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <aside class="notes">
+                        It is remarkable to hear the talk now about "modernizing mathematics" and the push for so many of the math topics that were argued for decades ago.
+                        Our failure to modernize math in the 1980s is even worse, in retrospect, when we consider some of the signifcant applications of the topics proposed.
+                        The math for AI is largely discrete math, statistics, and computing. Statistics has gained some presence, but not enough.
+                        Discrete math is barely present. Numerical computing is by far the most conspicuously absent from math education.
+                    </aside>
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+
+                <section>
+                    <h4>Biggest proponent of Discrete math? NCTM!</h4>
+                    <div style="text-align:left;">
+                        <img src="img/discrete_searchA.png" style="width:400px;border:1px solid black;">
+                        <img src="img/discrete_searchB.png" style="position:absolute;top:40px;left:150px;width:400px;border:1px solid black;">
+                        <img src="img/discrete_searchC.png" style="position:absolute;top:60px;left:300px;width:400px;border:1px solid black;">
+                        <img src="img/nctm_1991.jpg" style="position:absolute;top:18%;left:70%;width:200px;border:3px solid #559;border-radius:7px;">
+                        <img src="img/mathoftheeighties.png" style="position:absolute;top:52%;left:80px;width:700px;border:3px solid gray;border-radius:11px;">
+                    </div>
+                    <aside class="notes">
+                        There were strong arguments, for discrete math and computing in K-12, made in the 1980s and '90s, and those arguments are even *more* true now.
+                        You can read all about it in archived NCTM publications.
+                    </aside>
+                </section>
+
+            </section>
+
+
+
+
+
+            <section>
+                <section>
+                    <div style="position:relative;">
+                        <img style="display:block;width:80%;" src="img/computer_corner.png">
+                        <img style="position: absolute; top:10px; right:10px;width:150px;" src="img/arithmetic_teacher.png">
+                    </div>
+                    <aside class="notes">
+                        If you look at NCTM publications from the 1980s, it is easy to find pages filled with mathematical computer programs.
+                        Computing was considered by many to be fundamental to mathematics.
+                        BTW if you tried to get something like this published in NCTM now, you would have no chance (ask me how I know).
+                    </aside>
+                </section>
+
+                <section>
+                    <div style="font-size:60%;text-align: left;">
+                        Creative Computing makes for wonderful and insightful reading! This article was from the Mar 1979 edition.
+                    </div>
+                    <a href="https://archive.org/details/creative-computing-magazine/Creative_Computing_Vol_05_03_1979_Mar%5Bocr%5D/page/112/mode/2up">
+                        <img src="img/creative_computing_mar_1979.png">
+                    </a>
+                </section>
+            </section>
+
+
+
+            <section>
+                <section>
+                    <div style="font-size:40%;text-align:left;">
+                        I searched NCTM archives for strings like "program", "computer", "monte carlo", "python", "computing", "computer simulation", etc.
+                    </div>
+                    <div style="margin:0;padding:0;">
+                        <a target="_blank" href="https://docs.google.com/spreadsheets/d/1FGeHPH1zv_OQdhDBsEy-roBQVd7mbZNUWTbdDhj6yYA/edit?usp=sharing">
+                            <img src="img/nctm_computing_spreadsheet.png" style="margin:0;padding:0;">
+                        </a>
+                    </div>
+                    <div style="margin:0;padding:0;">
+                        <a href="img/nctm_computing_pubs.png"><img src="img/nctm_computing_pubs.png"></a>
+                    </div>
+
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+
+
+
+                <section style="text-align: left; font-size:60%;">
+                    <h4>Notable Publications</h4>
+                    <div>
+                        <ul>
+                            <li>1958 - <a href="https://pubs.nctm.org/view/journals/mt/51/3/article-p176.xml">A high school digital computer program</a> </li>
+                            <li>1963 - <a href="https://eric.ed.gov/?id=ED019888">Computer Oriented Mathematics, An Introduction for Teachers</a> </li>
+                            <li>1969 - <a href="https://pubs.nctm.org/view/journals/mt/62/4/article-p335.xml">Points and Viewpoints: Announcing A New Department</a>,
+                                The Computer-Oriented Mathematics department of NCTM </li>
+                            <li>1969 - First (?) NCTM article with a full computer program,
+                                <a href="https://pubs.nctm.org/view/journals/at/16/3/article-p189.xml">Computer-enriched instruction for the elementary teacher*</a>
+                            </li>
+                            <li>1983 Oct - First Computer Corner, <a href="https://pubs.nctm.org/view/journals/at/31/2/article-p54.xml">Computer Corner: What Machine?</a>
+                            </li>
+                            <li>1984 - NCTM Yearbook, Computers in Mathematics Education </li>
+                            <li>1987 May - Last Computer Corner, <a href="https://pubs.nctm.org/view/journals/at/34/9/article-p46.xml">Computer Corner</a> </li>
+                            <li>1989 - <a href="https://archive.org/details/curriculumevalua00nati/page/252/mode/2up">Curriculum and evaluation standards for school mathematics</a>.
+                                Explicit emphasis on importance of computing and discrete math topics.
+                            </li>
+                            <li>2000 - <a href="https://www.nctm.org/flipbooks/standards/pssm/html5/index.html">Principles and Standards for School Mathematics</a>
+                                Still emphasizing computing with language similar to 1989, but shifting somehow in the view of computing away from "computing" toward "using software". Discrete math should be integral (p. 31).
+                            </li>
+                            <li>2010 - CCSS. Interprets "computer" in math as a calculator or CAS system.
+                            </li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        A remarkable turn comes around 2000, in which mathematical computing is diluted.
+                        Computing in mathematics is relegated, in the 2010 Common Core standards, to the TI-84.
+                        CAS systems are referenced, but who on Earth has taught CAS?
+                    </aside>
+                </section>
+
+
+                <section>
+                    <p style="font-size:60%;">
+                        I suspect the reason computing fizzled is related in part to the reason that discrete mathematics content fizzled...
+                    </p>
+                    <div class="bquote" style="font-size:80%;margin-left:0;">
+                        "A major obstacle to students' going beyond the basics is that their teachers often have never gone beyond the basics. "
+                    </div>
+                    <br>
+                    <div class="bquote" style="font-size:80%;margin-left:0;">
+                        "They use workesheets to provide lots of practice for their students, thinking that they are engaging their students in problem solving, but not realizing that there is a difference between a problem and an exercise."
+                    </div>
+                    <br>
+                    <div style="text-align: right;font-size:50%;">
+                        DeBellis and Rosenstein (2004), Discrete mathematics in primary and secondary schools in the United States
+                    </div>
+                </section>
+
+            </section>
+
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4 data-id="mcstitle">Mathematics in Computer Science!</h4>
+                <div>
+                    <div style="width:35%;display:inline-block">
+                        <a href="https://csteachers.org/pk12standards/view/"><img src="img/csta_standards_cover.png" style="width:85%;"></a>
+                    </div>
+                    <div style="width:55%;display:inline-block;vertical-align: top;text-align: left;font-size:80%;">
+                        <br>
+                        <div data-id="mathappearsin">"math" appears in 31 of the standards!</div>
+                    </div>
+                </div>
+                <aside class="notes">
+                    CSTA just released their new Computer Science standards for PK through 12.
+                    Excitingly, math appears in 31 of CSTA's new standards!
+                </aside>
+            </section>
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4 data-id="mcstitle">Mathematics in Computer Science?</h4>
+                <div>
+                    <div style="width:35%;display:inline-block">
+                        <a href="https://csteachers.org/pk12standards/view/"><img src="img/csta_standards_cover.png" style="width:85%;"></a>
+                    </div>
+                    <div style="width:55%;display:inline-block;vertical-align: top;text-align: left;font-size:80%;">
+                        <br>
+                        <div data-id="mathappearsin">"math" appears in 31 of the standards!</div>
+                        <br><br>
+                        In 29 of those, it appears after "<span style="color:#af4244;">Students are not expected to</span>"
+                        <br> or as something to be avoided
+                    </div>
+                </div>
+                <aside class="notes">
+                    Unfortunately, "math" appears almost exclusively as something that students are not expected to understand or use.
+                    In (10), "not on mastering the mathematics that underlie them" in reference to algorithms
+                    In (11), "using a math library instead of writing a trigonometric function from scratch"
+                    In (13) "math" refers to "count the total number of pets".
+
+
+                    So I've given a bit of background, from the unrealized dreams of 1980s NCTM to the current CSTA which is explicitely focused on students not understanding math as it relates to computer applications.
+                </aside>
+            </section>
+            <section>
+                <section>
+                    <h4>The disconnect</h4>
+                    <div>
+                        <ul>
+                            <li>Math that won't touch computing </li>
+                            <li>Comp Sci that won't touch math </li>
+                        </ul>
+                    </div>
+                    <br>
+                    <img src="img/mathxorcs.png" style="width:400px;">
+                    <!-- Why is this? 
+                 (2004) says that teachers simply never learned math themselves! 
+                 So what are we to do? 
+                 Start simple. 
+                 Lead in to Experimental mathematics -->
+
+                    <aside class="notes">
+                        So what we have is math that won't touch computing and comp sci that won't touch math, despite the fact that there is substantial overlap between these two fields.
+                        For the better part of a century, several branches of mathematics have relied heavily on computing.
+                        Computer science is a field of applied mathematics.
+                        The intersection of these two subjects happens to be what every keeps talking excitedly about, and nobody will teach it because it is too mathy or too computery.
+                    </aside>
+                </section>
+                <section>
+                    <div style="font-size:70%; text-align:left;">
+                        That anyone would be opposed to computing in mathematics on the grounds that it is outside the domain of pure mathematics is frustrating for many reasons, not the least of which is that our high school math curriculum is not of pure mathematics. Mandelbrot, Devaney, and others layed down the fundamental arguments for how computing is already being used in pure mathematics. Additionally, there are any number of mathematical topics we do not cover in "the traditional algebra-geometry-precalculus-calculus sequence, a sequence designed with engineering and physical science applications in mind" (NCTM 1989, p. 7).
+                    </div>                    
+                </section>
+
+            </section>
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div data-id="aiquote84" class="bquote" style="width:100%;margin-left:0;">
+                    "For the purist who would cavalierly relegate such programs to the engineer's domain, recent developments in <span style="color:#af4244;">artificial intelligence</span> provide an undeniably potent counterexample."
+                </div>
+            </section>
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div data-id="aiquote84" class="bquote" style="width:100%;margin-left:0;">
+                    "For the purist who would cavalierly relegate such programs to the engineer's domain, recent developments in <span style="color:#af4244;">artificial intelligence</span> provide an undeniably potent counterexample."
+                </div>
+                <div style="vertical-align: top;font-size:70%;">
+                    <img src="img/nctm_1984.jpg" style="width:100px;"> Fey &amp; Heid (NCTM, 1984, p. 22)
+                </div>
+                <aside class="notes">
+                    It was 1984! Several of the people in this room were not even born yet when math educators were already publishing essays referencing the significe of artificial intelligence on k12 math education.
+                </aside>
+            </section>
+
+            <!-- 
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div data-id="nc-wolfram" style="width:60%;display:inline-block;">
+                    <img src="img/wolfram89.png">
+                </div>
+                <br>
+                <a href="https://www.youtube.com/watch?v=MeuCAT5HDh0">Introducting Mathematica, Stephen Wolfram</a> 1989
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div data-id="nc-wolfram" style="width:40%;display:inline-block;">
+                    <img src="img/wolfram89.png">
+                </div>
+            </section>
+
+
+
+            <section>
+                What does "computing" in mathematics look like?
+                Spreadsheets. (Kipu!)
+                Numerical computing platform:
+                - MATLAB / Octave
+                - Mathematica
+                - Python
+            </section> -->
+
+
+
+
+
+
+
+
+            <section>
+                <p style="text-align: left;background-color: #eef;padding:15px;border-radius:15px;font-size:90%;margin:0;">
+                    <b>Experimental mathematics</b> is an empirical approach to mathematics that involves numerical investigations
+                    and often leverages computing to discover and explore patterns.
+                </p>
+                <div>
+                    <img src="img/jack.jpeg" style="width:200px;">
+                    <img src="img/blueberry.jpeg" style="width:200px;">
+                    <img src="img/factors.jpeg" style="width:200px;">
+                    <img src="img/facdisp.png" style="width:200.5px;">
+                </div>
+                <aside class="notes">
+                    There are wonderful experiments to be done by hand. Incorporating computing into mathematical experiments opens up a world of interesting problems that would be inaccessible otherwise. 
+                </aside>
+            </section>
+
+            <section>
+                <p style="text-align: left;font-size:85%;">Borwein and Jungic (2025) describe experimental mathematics in education
+                    as:</p>
+                <div class="bquote">
+                    "a student-centred, instructor-moderated, (usually) computationally-assisted approach in teaching and
+                    learning mathematics that utilizes modern technology [...]"
+                </div>
+                <br>
+                <div style="text-align: right;">
+                    <a target="_blank" style="font-size:60%;" href="https://doi.org/10.5206/mt.v5i1.22378">https://doi.org/10.5206/mt.v5i1.22378</a>
+                </div>
+
+                <aside class="notes">
+                    When I hear people talk about exploration in math class, I often wonder if they are familiar with experimental mathematics as a pedagogical tool. 
+
+                    Many of us who also teach science know that experiments are often highly structured well designed learning experiences.
+                    We don't give students a bunch of acids and say "figure some stuff out".
+                </aside>                
+            </section>
+
+            <section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:70%;">
+                    <div style="display:inline-block;width:30%;vertical-align: top;">
+                        <img src="img/fractals_b.jpg">
+                    </div>
+                    <div data-id="mandelbrot_quote_block" class="bquote" style="display:inline-block;width:60%;text-align: left;padding-left:5%;margin-left:2%;font-size:88%;margin-top:10px;">
+                        "We must begin by noting that experimental mathematics <em>does not</em> imply an attempted invasion of pure
+                        mathematics by the applied. <em>Applied mathematics</em> has always been permeated with science, hence with
+                        experiment. This feature greatly contributed to its being thoroughly unpopular with those believing
+                        that applied mathematics is bad matematics. But <em>experimental mathematics</em> means something
+                        different: <b style="color:#8f1f00">it means injecting experiment back into core parts of mathematics</b> that
+                        need not &mdash;
+                        at least at present &mdash; have any contact with science."
+                    </div>
+                    <br>
+                    <div style="width:100%; text-align: right;font-size:80%;">Benoit Mandelbrot (Peitgen et al., 1992, p. 2)</div>
+                </section>
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:70%;">
+                    <div style="display:inline-block;width:30%;vertical-align: top;"><img src="img/mandelbrot.jpg" style="width:100%;"></div>
+                    <div data-id="mandelbrot_quote_block" class="bquote" style="display:inline-block;width:60%;text-align: left;padding-left:5%;margin-left:2%;">
+                        "In other words, <b style="color:#8f1f00">we may well be witnessing the re-emergence of a new active 'doublet' of an experimental
+                            and/or theoretical study</b>. Experimental and theoretical physicists seldom live in perfect harmony, but they
+                        know they must not only coexist, but actually listen to each other and otherwise interact."
+                    </div>
+                    <br><br>
+                    <div style="width:100%; text-align: right;font-size:80%;">Benoit Mandelbrot (Peitgen et al., 1992, p. 2)</div>
+                    <aside class="notes">
+                        Recall that observation leads to conjecture. This is what we saw earlier.
+                    </aside>
+                </section>
+
+                <section>
+                    <div style="vertical-align: top;padding:0;margin:0;">
+                        <a target="_blank" href="https://youtu.be/5ZIIGLiQWNM?t=175"><img src="img/tao_map.png" style="width:40%;"></a>
+                    </div>
+                    <div class="bquote" style="display:inline-block;width:90%;text-align: left;padding-left:5%;margin-left:2%;font-size:80%;margin-top:0px;">
+                        "[Experimental mathematics is] not as well respected as it should be... I do feel like in the future we're
+                        going to have much more balance between theory and experiment. Closer to how it is in the other sciences."
+                    </div>
+                    <br>
+                    <div style="width:100%; text-align: right;font-size:70%;">Terrance Tao (2025), <span style="font-style:italic;">Machine Assisted Proofs</span></div>
+
+                    <div style="text-align: right;">
+                        <a target="_blank" style="font-size:50%;" href="https://youtu.be/5ZIIGLiQWNM?t=175">https://youtu.be/5ZIIGLiQWNM?t=175</a>
+                    </div>
+                    <aside class="notes">
+                        Mandelbrot's sentiment has echoed, three and a half decades later Terrance Tao casually mentioned the importance of experimental mathematics in a talk on Machine-Assisted Proofs.
+                    </aside>
+                </section>
+
+
+            <section style="font-size:90%;">
+                <div class="bquote">
+                    "In many topics of high school mathematics, computers and calculators can be used to discover and test
+                    principles and methods. For example, concepts and theorems can be illustrated numerically and graphically to
+                    develop sound understanding before formal proof is attempted."
+                </div>
+                <br>
+                <div style="font-size:80%;">
+                    <span style="font-style:italic;">The Impact of Computing Technology on School Mathematics</span>, <br>NCTM
+                    (1984)
+                </div>
+            </section>
+
+
+
+            <section>
+                <div class="bquote">
+                    "Mathematical work does not proceed along the narrow logical path of truth to truth to truth, but bravely or
+                    gropingly follows deviations through the surrounding marshland of propositions which are neither simply and
+                    wholly true nor simply and wholly false."
+                </div>
+                <br>
+                <div style="font-size:80%;">
+                    Seymor Papert (1980, p.195)
+                </div>
+            </section>
+
+            <section style="font-size:90%;">
+                <div class="bquote">
+                    "For students, the greatest promise and challenge of technology in mathematics learning is the move toward
+                    more self-directed and self-monitored learning. Students must become adept at using computer-based
+                    instructional materials, mathematical tool software, and personal programming skills to develop and practice
+                    the use of mathematical concepts, principles, and problem-solving processes."
+                </div>
+                <br>
+                <div style="font-size:80%;">
+                    <span style="font-style:italic;">The Impact of Computing Technology on School Mathematics</span>, <br>NCTM
+                    (1984)
+                </div>
+            </section>
+
+            <section style="font-size:80%;">
+                <div style="display:inline-block; width:40%;vertical-align: top;">
+                    <img src="img/nctm_2000_p_78.jpg">
+                </div>
+                <div style="display:inline-block; width:45%;vertical-align: top;">
+                    <div class="bquote" style="margin-left:0;margin-top:30px;">
+                        "[...] the extra student time required to produce such pictures is repaid by improved general graphics skills, by increased understanding, and by the flexibility to puruse one's own inquiries outside the built-in options of the tool"
+                    </div>
+                    <br>
+                    <div style="font-size:80%;">
+                        <br>Burke and Curcio, <em>Learning Mathematics for a New Century</em>, <br>NCTM Yearbook (2000, p.78)
+                    </div>
+                </div>
+            </section>
+
+
+            </section>
+
+
+
+
+
+
+            <section>
+                <h4>Broken Stick Problem</h4>
+                <div>
+                    Given a stick broken at two random places, what is the probability that the three pieces can form a triangle?
+                </div>
+                <canvas id="stickCanvas" width="800" height="200"></canvas>
+                <div style="width:100%; text-align:left; ">
+                    <span id="possibilityDisplay" style="font-size:70%;"></span>
+                    <button style="float:right;" onclick="breakStick();">Break</button>
+                </div>
+                <script>
+                    const canvas = document.getElementById("stickCanvas");
+                    const ctx = canvas.getContext("2d");
+
+                    function breakStick() {
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                        let break1 = Math.random();
+                        let break2 = Math.random();
+
+                        let l1 = Math.min(break1, break2);
+                        let l3 = 1.0 - Math.max(break1, break2);
+                        let l2 = 1.0 - l1 - l3;
+
+                        let a = Math.min(l1, l2, l3);
+                        let c = Math.max(l1, l2, l3);
+                        let b = 1.0 - a - c;
+
+                        let left = 15;
+                        let right = canvas.width - 15;
+
+                        // Draw the stick 
+                        ctx.strokeStyle = "black";
+                        ctx.lineWidth = 7;
+                        ctx.beginPath();
+                        ctx.moveTo(left, 100);
+                        ctx.lineTo(right, 100);
+                        ctx.stroke();
+
+                        // Draw break points 
+                        console.log([a, b, c])
+                        ctx.strokeStyle = "red";
+
+                        x = left + (right - left) * break1;
+                        ctx.beginPath();
+                        ctx.moveTo(x, 85);
+                        ctx.lineTo(x, 115);
+                        ctx.stroke();
+
+                        x = left + (right - left) * break2;
+                        ctx.beginPath();
+                        ctx.moveTo(x, 85);
+                        ctx.lineTo(x, 115);
+                        ctx.stroke();
+
+                        // Update display 
+                        if (a + b > c) {
+                            document.getElementById("possibilityDisplay").innerHTML = "Triangle possible!";
+                        }
+                        else {
+                            document.getElementById("possibilityDisplay").innerHTML = "No triangle...";
+                        }
+                    }
+                </script>
+                <aside class="notes">
+                    This is a classic probability problem. No spoilers please! Think about it for a minute.
+                    What do we, or especially a student, do when we are faced with a problem we don't know the theory behind?
+                    We play with it. We feel it out. We start to explore it numerically.
+                </aside>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:80%;">
+                <h4>Break a Stick</h4>
+                <ol>
+                    <li>Generate two random numbers, <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break1</span> and <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break2</span></li>
+                    <li style="color:#fff;">Determine the <span style="font-family: 'Courier New', Courier, monospace;color:#fff;">Left</span> break and <span style="font-family: 'Courier New', Courier, monospace;color:#fff;">Right</span> break:
+                        <ul>
+                            <li>Left = min(Break1, Break2)</li>
+                            <li>Right = max(Break1, Break2)</li>
+                        </ul>
+                    </li>
+                    <li style="color:#fff;">The three lengths are:
+                        <ul>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L1</span> = Left</li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L2</span> = Right - Left </li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L3</span> = 1 - Right</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img src="img/stick_breaks.png">
+                <aside class="notes">
+                    Let's say the stick has length 1, and we pick two random locations, break1 and break2.
+                </aside>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:80%;">
+                <h4>Break a Stick</h4>
+                <ol>
+                    <li>Generate two random numbers, <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break1</span> and <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break2</span></li>
+                    <li>Determine the <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Left</span>
+                        break and <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Right</span> break:
+                        <ul>
+                            <li>Left = min(Break1, Break2)</li>
+                            <li>Right = max(Break1, Break2)</li>
+                        </ul>
+                    </li>
+                    <li style="color:#fff;">The three lengths are:
+                        <ul>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L1</span> = Left</li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L2</span> = Right - Left </li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#fff;">L3</span> = 1 - Right</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img src="img/stick_breaks.png">
+                <aside class="notes">
+                    Break1 is not necessarily on the left or right of break2, and I like to refer to the breaks as left and right.
+                    So let's call Left the minimum of the two breaks, and call Right the Maximum of the two breaks.
+                </aside>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="font-size:80%;">
+                <h4>Break a Stick</h4>
+                <ol>
+                    <li>Generate two random numbers, <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break1</span> and <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Break2</span></li>
+                    <li>Determine the <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Left</span>
+                        break and <span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">Right</span> break:
+                        <ul>
+                            <li>Left = min(Break1, Break2)</li>
+                            <li>Right = max(Break1, Break2)</li>
+                        </ul>
+                    </li>
+                    <li>The three lengths are:
+                        <ul>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">L1</span> = Left</li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">L2</span> = Right - Left
+                            </li>
+                            <li><span style="font-family: 'Courier New', Courier, monospace;color:#276fff;">L3</span> = 1 - Right</li>
+                        </ul>
+                    </li>
+                </ol>
+                <img src="img/stick_breaks.png">
+                <aside class="notes">
+                    The lengths of our three pieces are the distance from 0 to Left, which just has length Left,
+                    the distance between the two breaks, Right - Left, and
+                    the distance from Rigth to the end.
+                </aside>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Broken Stick Spreadsheet</h4>
+
+                <img src="img/stick_breaks.png">
+                <table style="font-size: 50%;width:100%;" data-id="triangle_table">
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; width:10px; color: #666;"> </td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">A</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">B</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">C</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">D</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">E</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">F</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">G</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">1</td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Left </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Right </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L3 </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =rand()</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =rand()</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =min(A2,B2)</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =max(A2,B2)</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =C2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =D2-C2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =1-D2</td>
+                    </tr>
+                </table>                
+                
+                <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Ag8j7cuRI0AHfG47UQr3Xr3meFI9-ixBytMhMUS1Ebg/edit?usp=sharing" style="font-size:50%;">Spreadsheet of Broken Stick Exploration</a>
+                
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Broken Stick Spreadsheet</h4>
+
+                <img src="img/stick_breaks.png">
+                <table style="font-size: 45%;width:100%;" data-id="triangle_table">
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; width:10px; color: #666;"> </td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">A</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">B</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">C</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">D</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">E</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">F</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">G</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">1</td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Left </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Right </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L3 </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.7296236</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.2312645</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.2312645</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.7296236</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.2312645</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.4983590</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            0.2703763</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- 
+             0.7296236478    
+             0.2312645989 
+             0.2312645989    
+             0.2703763522    
+             0.4983590489        
+             0.2312645989    
+             0.2703763522    
+             0.4983590489 
+             -->
+
+            <!-- 
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Broken Stick Spreadsheet</h4>
+
+                <img src="img/stick_breaks.png">
+                <table style="font-size: 50%;width:100%;" data-id="triangle_table">
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; width:10px; color: #666;"> </td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">A</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">B</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">C</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">D</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">E</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">F</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;text-align:center;">G</td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">1</td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Break2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Left </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">Right </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L1 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L2 </td>
+                        <td style="border:1px solid gray; border-collapse: collapse;font-weight:bold;">L3 </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid gray; border-collapse: collapse; color: #666;width:20px;">2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =rand()</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =rand()</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =min(A2,B2)</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =max(A2,B2)</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =C2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =D2-C2</td>
+                        <td style="border:1px solid gray; border-collapse: collapse; font-family:'Courier New', Courier, monospace; width:300px;padding:1;">
+                            =1-D2</td>
+                    </tr>
+                </table>
+                <br>
+                <div style="font-size:50%;">
+                    Blank Sheet: <a target="_blank" href="https://williams-bhs.github.io/spreadsheets/blanksheet/">https://williams-bhs.github.io/spreadsheets/blanksheet/</a>
+                </div>
+            </section> -->
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="vertical-align:text-top;">
+                <h4 style="margin: 0;padding:0;">Monte Carlo Simulation of Broken Stick</h4>
+                <img src="img/sheets_sticks.png" style="margin: 0;padding:0;">
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="vertical-align:text-top;">
+                <h4 style="margin: 0;padding:0;">Monte Carlo Simulation of Broken Stick</h4>
+                <div style="display:inline-block; width:75%;">
+                    <img src="img/sheets_sticks.png" style="margin: 0;padding:0;"> <!-- Sheet with distributions -->
+                </div>
+                <div style="display:inline-block; width:110%;">
+                    <img src="img/hist_a.png" style="width:30%;padding:0; margin:0;">
+                    <img src="img/hist_b.png" style="width:30%;padding:0; margin:0;">
+                    <img src="img/hist_c.png" style="width:30%;padding:0; margin:0;">
+                </div>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left; vertical-align:text-top;">
+                <div data-id="histogram_title">Density histogram of the <b>shortest</b> piece length</div>
+                <img src="img/hist_a.png">
+                <div style="font-size:40%;"><a target="_blank" href="https://www.desmos.com/calculator/v57shcikcz">https://www.desmos.com/calculator/v57shcikcz</a></div>
+                <aside class="notes">
+                    What do you notice?
+                </aside>
+            </section>
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left; vertical-align:text-top;">
+                <div data-id="histogram_title">Density histogram of the <b>longest</b> piece length</div>
+                <img src="img/hist_c.png">
+                <div style="font-size:40%;"><a target="_blank" href="https://www.desmos.com/calculator/v57shcikcz">https://www.desmos.com/calculator/v57shcikcz</a></div>
+            </section>
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)" style="text-align:left; vertical-align:text-top;">
+
+                <div style="display:inline-block; width:45%;">
+                    <img src="img/hist_a.png" style="width:95%;padding:0; margin:0;">
+                    <img src="img/hist_b.png" style="width:95%;padding:0; margin:0;">
+                    <img src="img/hist_c.png" style="width:95%;padding:0; margin:0;">
+                </div>
+                <div style="display:inline-block; width:45%;vertical-align: top;">
+                    <h4>Observations become Conjectures</h4>
+                    <ul style="font-size:70%;">
+                        <li>The longest that the shortest piece can be is 1/3</li>
+                        <li>The shortest that the longest piece can be is 1/3</li>
+                        <li>The shortest that the middle piece can be is around 0</li>
+                        <li>The longest that the middle piece can be is around 1/2</li>
+                        <li>The longest piece has to be shorter than 1/2 for a triangle</li>
+                        <li>The longest piece is shorter than 1/2 around 1/4 of the time</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    These are all observations, not proofs, but they are observations that can be proved.
+                    Experimental mathematics leads to discoveries and conjectures which can subsequently be proved.
+                    This is the connection between empirical experimentation with theory. 
+                </aside>
+            </section>
+
+            <section>
+                <h4>Some facts</h4>
+                <div style="font-size:80%;">
+                    <ul>
+                        <li>A lot of mathematics has nothing to do with computers.  </li>
+                        <li>A lot of mathematics is only accesible with computers.</li>                        
+                    </ul>
+<br> <br> 
+                    
+                </div>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Monte Carlo Simulations</h4>
+                <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre style="width:100%;"><code data-trim class="language-python" style="text-align: left;font-size:55%;padding:15px;line-height:1.5;">import matplotlib.pyplot as plt 
+import numpy as np
+
+lengths = []
+for i in range(1_000_000):
+    break_1 = np.random.rand()
+    break_2 = np.random.rand()
+    left = min(break_1, break_2)
+    right = max(break_1, break_2)
+    L1, L2, L3 = left, right-left, 1.0-right
+    shortest = min(L1, L2, L3) 
+    longest = max(L1, L2, L3)
+    medium = 1.0 - shortest - longest 
+    lengths.append([shortest, medium, longest])
+    
+lengths = np.array(lengths)
+plt.hist(lengths[:,0], alpha=0.6, bins=100, density=True)
+plt.hist(lengths[:,1], alpha=0.6, bins=100, density=True)
+plt.hist(lengths[:,2], alpha=0.6, bins=100, density=True)
+plt.show()
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <br>
+                    <img src="img/stick_dists.png">
+                </div>
+            </section>
+
+            <section>
+            <section>
+                <div>Given a stick broken at 5 places, what is the probability that the remaining 6 pieces can form a tetrahedron? </div>
+                <img src="img/tetra_distributions.png">
+            </section>
+
+                <section style="font-size:22%;">
+
+Break a stick randomly into six pieces. If we order the lengths from shortest to longest, a through f, then the PDF for each length a through f is: 
+        \[	f_a(x) = 38880 x^4 -25920 x^3 + 6480 x^2  -720 x + 30 \quad  0 \leq x \leq \frac{1}{6}   	\]
+        \[ 	f_b(x) = 
+                    \begin{cases}
+                        -100650x^4 + 54600x^3 - 9900x^2 + 600x 		&   0 \leq x \leq \frac{1}{6}   \\
+                        93750x^4 - 75000x^3+22500x^2-3000x+150	      &      \frac{1}{6} \lt x \leq \frac{1}{5}   \\
+                    \end{cases}
+        \]
+        \[ 	f_c(x) = 
+                    \begin{cases}
+                        90600x^4 -36000x^3 +3600 x^2    	&   0 \leq x \leq \frac{1}{6}   \\
+                        -298200x^4 + 223200x^3 -61200x^2 +7200x -300      	&     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                        76800x^4 -76800x^3+28800x^2-4800x+300          &     \frac{1}{5} \lt x \leq \frac{1}{4}      \\
+                    \end{cases}
+        \]
+        \[ 	f_d(x) = 
+                    \begin{cases}
+                            -32400x^4 + 7200x^3	        &     0 \leq x \leq \frac{1}{6}     \\ 
+                            356400x^{4}-252000x^{3}+64800x^{2}-7200x+300     &     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                            -206100x^{4}+198000x^{3}-70200x^{2}+10800x-600 &     \frac{1}{5} \lt x \leq \frac{1}{4}     \\
+                        24300x^4-32400x^3+16200x^2-3600x+300	      &    \frac{1}{4} \lt x \leq \frac{1}{3}     \\
+                    \end{cases}
+        \]
+
+        \[ 	f_e(x) = 
+                    \begin{cases}
+                        3600x^4   &     0 \leq x \leq \frac{1}{6}     \\
+                        -190800x^{4}+129600x^{3}-32400x^{2}+3600x-150     &     \frac{1}{6} \lt x \leq \frac{1}{5}     \\
+                        184200x^{4}-170400x^{3}+57600x^{2}-8400x+450        &     \frac{1}{4} \lt x \leq \frac{1}{5}     \\
+                        -46200x^{4}+60000x^{3}-28800x^{2}+6000x-450  &      \frac{1}{3} \lt x \leq \frac{1}{4}     \\
+                        2400x^4-4800x^3+3600x^2-1200x+150    &     \frac{1}{2} \lt x \leq 1   \\
+                    \end{cases}
+        \]
+
+        \[ 	f_f(x) = 
+                    \begin{cases}
+                        38880x^4-25920x^3+6480x^2-720x+30       &   \frac{1}{6} \leq x \leq \frac{1}{5}     \\
+                        -54870x^{4}+49080x^{3}-16020x^{2}+2280x-120     &    \frac{1}{5} \lt x \leq \frac{1}{4}     \\
+                        21930x^{4}-27720x^{3}+12780x^{2}-2520x+180       &    \frac{1}{4} \lt x \leq \frac{1}{3}     \\
+                        -2370x^4 + 4680 x^3 -3420 x^2 +1080x -120     &      \frac{1}{3} \lt x \leq \frac{1}{2}     \\
+                        30x^4 -120 x^3 + 180 x^2 -120 x + 30       &    \frac{1}{2} \lt x \leq 1   \\
+                    \end{cases}
+        \]
+
+                </section>
+                <section>
+                    <div style="font-size:35%;text-align:left;">
+                        Take a look at the PDF for the longest piece. This is actually a stacked density histogram where the blue area corresponds to failed tetrahedra, and the orange area corresponds to succseful tetrahedra. That orange area is *the solution* to our problem.
+                    </div>
+                    <img src="img/pdf_f.png" style="width:70%;">
+
+                    <div style="font-size:40%;text-align:left;">
+                        We know the exact function in black: it is \(f_{f}(x)\) on the previous slide. So if we knew the function of the orange-blue boundary, call it \(h(x)\), then we would be able to integrate \(f(x)-h(x)\) for the solution. 
+                        
+                    </div>
+                </section>
+                <section>
+                    <img src="img/pdf_f.png" style="width:70%;">
+
+                    <div style="font-size:40%;text-align:left;">
+                        If you are looking for smaller sub-problems to attack, it also appears (but needs to be demonstrated) that:
+                        <div style="padding-left:30px;">
+                            <ol>
+                                <li>A tetrahedron is always possible if \(\frac{1}{6}\le f \lt \frac{1}{5}\) </li>
+                                <li>A tetrahedron is never possible if \(f \gt \frac{1}{3}\) </li>
+                            </ol>
+                        </div>
+                        
+                    </div>
+                </section>
+            </section>
+
+
+
+
+            <section>
+                <section>
+                    <h4>For Later: Watch Robert Devaney</h4>
+                    <a href="https://www.youtube.com/watch?v=TVfn6P4Z4-8"><img src="img/rld_chaos.png" style="width:50%;border:3px solid black;"></a>
+                    <div style="font-size:75%;">
+                        <a href="https://www.youtube.com/watch?v=TVfn6P4Z4-8">https://www.youtube.com/watch?v=TVfn6P4Z4-8</a>
+                    </div>
+                    <aside class="notes">
+
+                    </aside>
+                </section>
+
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Experiment &mdash; Dynamical Systems and Feedback</h4>
+                    <br><br>
+                    <img src="img/number_function.svg" style="width:80%;">
+                    <br><br><br>
+                    <aside class="notes">
+                        Here is a function, rather a block diagram of a function.
+                        You may have seen the "function machine" which resembles this type of diagram.
+                    </aside>
+                </section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Experiment &mdash; Dynamical Systems and Feedback</h4>
+                    <br>
+                    <img src="img/number_feedback.svg" style="width:80%;">
+                    <br><br>
+                    <aside class="notes">
+                        We are going to look what happens when we feed the output back into the input and then iterate.
+                    </aside>
+                </section>
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Experiment &mdash; Dynamical Systems and Feedback</h4>
+                    <br>
+                    <img src="img/number_movie_recommendation.svg" style="width:80%;">
+                    <br><br>
+                    <aside class="notes">
+                        This is not just an interesting academic exercise!
+                        Most deployed AI applications have a feedback loop of some kind.
+                        Consider any recommendation system - where what gets recommended to you, affects what you consume, which in turn affects what get recommended to you.
+                    </aside>
+                </section>
+
+
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h3>Iterate</h3>
+                    <div>The <strong>orbit</strong> of \(x_0\) is the sequence generated by iterating</div>
+                    <div data-id="orbit-table">
+                        <table>
+                            <tr>
+                                <td style="vertical-align: middle;">
+                                    \[S(x) = \sqrt{x}\]
+                                </td>
+                                <td>\[\quad\]</td>
+                                <td style="text-align: left;">
+                                    \(x_0 = 16\)<br>
+                                    \(x_1 = S^1(x_0)=4\)<br>
+                                    \(x_2 = S^2(x_0)=2\)<br>
+                                    \(x_3 = S^3(x_0)=1.4142...\)<br>
+                                    \(\vdots\)<br>
+                                    \(x_n = S^n(x_0)= ...\)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <aside class="notes">
+                        We are going to start with much simpler systems, like the square root function.
+                        <br> You can go ahead and try this now! I have my students explore these with a calculator.
+                        Try it! Pick any number and take the square root.
+                        Whatever you get, take the square root of that, and keep going.
+                        The sequence you generate is called the orbit.
+                        <br>4:00
+                    </aside>
+                </section>
+
+                <section data-background-iframe="https://www.desmos.com/calculator/x63fz4xqqp">
+                    <aside class="notes">
+                        It turns out that sqrt(x) converges to 1 for all positive values.
+                        There are also two <em>fixed point</em> values, values for which the output is equal to the input.
+                        What are they?!
+                    </aside>
+                </section>
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Experiment &mdash; Dynamical Systems and Feedback</h4>
+                    <div>
+                        Find the orbit of \(x_0=0.2\) in the following systems:
+                    </div>
+                    <div>
+                        <table>
+                            <tr style="font-size:70%;">
+                                <th style="background-color:#FDD;text-align:center;">\(S(x)=\sin(x)\)</th>
+                                <th style="background-color:#DFD;text-align:center;">\(C(x)=\cos(x)\)</th>
+                                <th style="background-color:#DDF;text-align:center;">\(F(x)=4x(1-x)\)</th>
+                            </tr>
+                            <tr>
+                                <td style="background-color:#FDD;border:1px solid gray;">0.2</td>
+                                <td style="background-color:#DFD;border:1px solid gray;">0.2</td>
+                                <td style="background-color:#DDF;border:1px solid gray;">0.2</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid gray;background-color:#FDD;">0.1986693</td>
+                                <td style="border:1px solid gray;background-color:#DFD;">0.9800665</td>
+                                <td style="border:1px solid gray;background-color:#DDF;">0.64</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid gray;background-color:#FDD;">\(\vdots\)</td>
+                                <td style="border:1px solid gray;background-color:#DFD;">\(\vdots\)</td>
+                                <td style="border:1px solid gray;background-color:#DDF;">\(\vdots\)</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid gray;background-color:#FDD;">&nbsp;</td>
+                                <td style="border:1px solid gray;background-color:#DFD;">&nbsp;</td>
+                                <td style="border:1px solid gray;background-color:#DDF;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="border:1px solid gray;background-color:#FDD;">&nbsp;</td>
+                                <td style="border:1px solid gray;background-color:#DFD;">&nbsp;</td>
+                                <td style="border:1px solid gray;background-color:#DDF;">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <aside class="notes">
+                        Okay, here are three *different* functions. Try iterating on these three functions. Two trig functions and a quadratic, and see what happens to the orbit.
+                    </aside>
+                </section>
+
+                <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                    <h4>Experiment &mdash; Calculator Dynamics and Feedback</h4>
+                    <div>
+                        <img src="img/orbits.png" style="width:450px;">
+                    </div>
+                    <aside class="notes">
+                        This is where computing is incredibly useful in <em>exploratory mathematics</em>!
+                        Spreadsheets are the most common mathematical tool in the universe, we should teach them.
+                    </aside>
+                </section>
+
+
+                <section data-background-iframe="https://www.desmos.com/calculator/lkr6sck7pp">
+                    <aside class="notes">
+                        You may have noticed that sine converges to 0.
+                    </aside>
+                </section>
+
+                <section data-background-iframe="https://www.desmos.com/calculator/iyvr5sm70r">
+                    <aside class="notes">
+                        You may have noticed that cosine converges to around 0.739
+                    </aside>
+                </section>
+
+                <section data-background-iframe="https://www.desmos.com/calculator/5foksjmro3">
+                    <aside class="notes">
+                        This quadratic turns out to be a famous example of chaotic behavior.
+                        <br>
+                        See:
+                        <ul>
+                            <li><a href="https://www.nature.com/articles/261459a0">Simple mathematical models with very complicated dynamics</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=ovJcsL7vyrk">https://www.youtube.com/watch?v=ovJcsL7vyrk</a></li>
+                        </ul>
+                    </aside>
+                </section>
+                <section>
+                    <h4>Chaos</h4>
+                    <div>
+                        A system is <strong>chaotic</strong> if it exhibits <br><strong>sensitive dependence on initial conditions</strong>.
+                    </div>
+                    <div style="font-size:80%;text-align: left;padding-left:40%;">
+                        <span style="color:#c74440">\(x_0 = 8 \)</span> <br>
+                        <span style="color:#1362ac">\(x_0 = 8.00001\)</span>
+                    </div>
+                    <div>
+                        <img src="img/chaotic.png" style="width:70%;">
+                    </div>
+                    <aside class="notes">
+                        Chaos theory has profound implications for how measurement affects prediction, and our ability to measure and predict is essentially the premise of data modeling.
+                        Learning about this is enhanced with computing, and should not involve special software.
+                        ** Do not use custom software to do what general software can do **
+                    </aside>
+                </section>
+
+
+
+                <section>
+                    <div style="font-size:50%;text-align:left;">
+                        Read "The Impossibility of Automating Ambiguity" by Abeba Birhane.
+                        So much of the work that I do with those teaching fundamentals of modeling is to ask: "why do we think this will even work"? Birhane does a better job than I ever could of addressing misconceptions and undermining assumptions about what data modeling is fundamentally capable of. Some of y'all just need to read Jurassic Park or James Gleick. Or go back to Poincaré. Y'all quote George Box but need to actually read "Empirical Model-Building and Response Surfaces" (p. 424). You say all models are wrong but don't act like it.
+                    </div>
+                </section>
+            </section>
+
+
+            <!-- <section> 
+                <h4 style="font-size:60%;">Spreadsheets! There's just so much we can do with them.</h4>
+                <img src="img/logistic_spreadsheet.png">
+            </section> -->
+
+
+            <section>
+                <h4>Python</h4>
+                <p style="font-size:76%;">Python is a popular general purpose programming language. </p>
+                <div>
+                    <div style="height:180px;display:inline-block;font-size:60%;margin:0;">Terminal<br><img src="img/py_terminal.png" style="border:1px solid black;margin:0;"></div>
+                    <div style="height:180px;display:inline-block;font-size:60%;margin:0;">IDE<br><img src="img/py_vscode.png" style="border:1px solid black;margin:0;"></div>
+                    <br>
+                    <a href="https://colab.research.google.com" target="_blank">
+                        <div style="height:180px;display:inline-block;font-size:60%;margin:0;">Colab<br><img src="img/py_colab.png" style="border:1px solid black;margin:0;"></div>
+                    </a>
+                    <a target="_blank" href="https://jupytereverywhere.org/lab/index.html">
+                        <div style="height:180px;display:inline-block;font-size:60%;margin:0;">Jupyter Everywhere<br><img src="img/py_jupeverywhere.png" style="border:1px solid black;margin:0;"></div>
+                    </a>
+                </div>
+                <aside class="notes">
+                    Open up JupyterEverywhere or Colab
+                </aside>
+            </section>
+
+
+
+            <!-- NUMERICAL COMPUTING TOPICS -->
+            <!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Fundamental Numerical Computing Topics</h4>
+                <ol>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-a">Arithmetic </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-v">Variables </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-f">Functions </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-g">Graphing </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-arr">Arrays </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-brnch">Branching </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-loop">Looping </div>
+                    </li>
+                </ol>
+            </section> -->
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <h4>Fundamental Numerical Computing Topics</h4>
+                <ol>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-a">Arithmetic </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-v">Variables </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;" data-id="fnc-g">Graphing </div>
+                    </li>
+                </ol>
+                <br><br><br>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:50px;">
+                        <div style="display:inline-block;color:#555;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr data-id="levelhr">
+                    </div>
+                    <div>
+                        <table class="caption-top table" style="font-size:60%;width:80%;">
+                            <thead>
+                                <tr class="header">
+                                    <th style="text-align: left;"><span style="color:#af4261;">Operation</span></th>
+                                    <th style="text-align: center;"><span style="color:#af4261;">Example</span></th>
+                                    <th style="text-align: center;"><span style="color:#af4261;">Python</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="odd">
+                                    <td style="text-align: left;width:25%;">Addition</td>
+                                    <td style="text-align: center;width:33%;"><span class="math inline">\(5+7\)</span></td>
+                                    <td style="text-align: center;width:33%;">
+                                        <pre style="margin:10px;"><code data-trim class="language-python" style="font-size:170%;padding:10px;text-align: center;margin:0;"> 5 + 7 </pre></code>
+                                    </td>
+                                    <!-- The margin:0; on the <pre> tag can be increased to spread the table  -->
+                                </tr>
+                                <tr class="even">
+                                    <td style="text-align: left;">Subtraction</td>
+                                    <td style="text-align: center;"><span class="math inline">\(42-50\)</span></td>
+                                    <td style="text-align: center;width:33%;">
+                                        <pre style="margin:10px;"><code data-trim class="language-python" style="font-size:170%;padding:10px;text-align: center;margin:0;"> 42 - 50 </pre></code>
+                                    </td>
+                                </tr>
+                                <tr class="odd">
+                                    <td style="text-align: left;">Multiplication</td>
+                                    <td style="text-align: center;"><span class="math inline">\(3\times 8\)</span></td>
+                                    <td style="text-align: center;width:33%;">
+                                        <pre style="margin:10px;"><code data-trim class="language-python" style="font-size:170%;padding:10px;text-align: center;margin:0;"> 3 * 8 </pre></code>
+                                    </td>
+                                </tr>
+                                <tr class="even">
+                                    <td style="text-align: left;">Division</td>
+                                    <td style="text-align: center;"><span class="math inline">\(64 \div 8\)</span></td>
+                                    <td style="text-align: center;width:33%;">
+                                        <pre style="margin:10px;"><code data-trim class="language-python" style="font-size:170%;padding:10px;text-align: center;margin:0;"> 64 / 8 </pre></code>
+                                    </td>
+                                </tr>
+                                <tr class="odd">
+                                    <td style="text-align: left;">Exponentiation</td>
+                                    <td style="text-align: center;"><span class="math inline">\(3^4\)</span></td>
+                                    <td style="text-align: center;width:33%;">
+                                        <pre style="margin:10px;"><code data-trim class="language-python" style="font-size:170%;padding:10px;text-align: center;margin:0;"> 3**4 </pre></code>
+                                    </td>
+                                </tr>
+                                <!-- <tr class="even">
+                                    <td style="text-align: left;">Modulo</td>
+                                    <td style="text-align: center;"><span class="math inline">\(17 \mod 5\)</span></td>
+                                    <td style="text-align: center;"><code data-trim class="language-python" style="font-size:100%;background-color: #f1f3f5;color:#7d12ba;padding-left:15px;padding-right:15px;"> 17 % 5 </code></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br><br>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:50px;">
+                        <div style="display:inline-block;color:#555;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr data-id="levelhr">
+                    </div>
+                    <br>
+                    <div style="display:inline-block;width:35%;vertical-align: top;margin-right:5%;" data-id="pyexamplecontainer">
+                        <div style="vertical-align: top;">
+                            <h4>Expression</h4>
+                            $5 + 3 \times \frac{14 - 4}{2 + 8}$
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:55%;vertical-align: top;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: center;font-size:120%;padding:15px;">?
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:50px;">
+                        <div style="display:inline-block;color:#555;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr data-id="levelhr">
+                    </div>
+                    <br>
+                    <div style="display:inline-block;width:35%;vertical-align: top;margin-right:5%;" data-id="pyexamplecontainer">
+                        <div style="vertical-align: top;">
+                            <h4>Expression</h4>
+                            $5 + 3 \times \frac{14 - 4}{2 + 8}$
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:55%;vertical-align: top;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: center;font-size:120%;padding:15px;">5 + 3 * (14 - 4) / (2 + 8)
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br><br><br>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:50px;">
+                        <div style="display:inline-block;color:#555;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr data-id="levelhr">
+                    </div>
+
+                    <div style="display:inline-block;width:35%;vertical-align: top;margin-right:5%;">
+                        <div style="vertical-align: top;">
+                            <h4>Expressions</h4>
+
+                            $\sqrt{2}$
+                            <br><br>
+                            $e^{-\pi}$
+                            <br><br>
+                            $\ln (2)$
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:55%;vertical-align: top;">
+                        <h4>Python</h4>
+
+                        <pre><code data-trim class="language-python" style="text-align: left;font-size:120%;padding:15px;">import numpy as np 
+
+
+np.sqrt(2)
+
+np.exp( -np.pi )
+
+np.log(2)
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br>
+            </section>
+
+
+
+
+            <!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:70px;">
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#555;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div> 
+                        <hr>
+                    </div>
+                    <div style="display:inline-block;width:28%;vertical-align: top;margin-right:5%;">
+                        <div style="vertical-align: top;">
+                            <h4>Variables</h4>
+                            <span style="font-size:70%;">
+                                $3x^2-5x-8=0$
+                            </span>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:65%;vertical-align: top;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: left;font-size:110%;padding:15px;">
+import numpy as np 
+
+a = 3
+b = -5 
+c = -8
+
+(-b + np.sqrt(b**2-4*a*c))/(2*a)
+
+(-b - np.sqrt(b**2-4*a*c))/(2*a)
+
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br><br>
+            </section> -->
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:70px;">
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#555;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr>
+                    </div>
+                    <div style="display:inline-block;width:46%;vertical-align: top;margin-right:5%;padding:0;margin:0;">
+                        <div style="vertical-align: top;">
+                            <h4>Variables</h4>
+                            <div style="font-size:70%;text-align: left;">
+                                Given masses $m_1=15 \times 10^6$ and $m_2=9.5 \times 10^7$, separated by a distance of $312$ m, find the force of gravity between the two masses,
+                                $$F_g = G \frac{m_1 m_2}{d^2}$$
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: left;font-size:110%;padding:15px;">m1 = 15 * 10**6
+m2 = 9.5 * 10**7
+G  = 6.67 * 10**-11
+d  = 312
+
+Fg = G * m1 * m2 / d**2 
+</code></pre>
+                    </div>
+                </div>
+                <br>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:70px;">
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#555;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr>
+                    </div>
+                    <div style="display:inline-block;width:28%;vertical-align: top;margin-right:5%;padding:0;margin:0;">
+                        <div style="vertical-align: top;">
+                            <h4>Variables</h4>
+                            <div style="font-size:70%;text-align: left;">
+                                Find the roots of $$x^2+3x-2$$
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:70%;vertical-align: top;padding:0;margin:0;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: left;font-size:105%;padding:15px;">a = 1 
+b = 3 
+c = -2 
+
+x1 = (-b + np.sqrt(b**2 - 4*a*c))/(2*a)
+x2 = (-b - np.sqrt(b**2 - 4*a*c))/(2*a)
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br><br>
+            </section>
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:70px;">
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#555;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-g">Graphing </div>
+                        <hr>
+                    </div>
+                    <div style="display:inline-block;width:46%;vertical-align: top;margin-right:5%;padding:0;margin:0;">
+                        <div style="vertical-align: top;">
+                            <h4>Variables</h4>
+                            <div style="font-size:70%;text-align: left;">
+                                Variables can be overwritten, which is useful for iterative numerical solutions to problems.
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;">
+                        <h4>Python</h4>
+                        <pre><code data-trim class="language-python" style="text-align: left;font-size:110%;padding:15px;">x = 2 
+g = 1 
+
+g = 0.5 * (g + x/g)
+g = 0.5 * (g + x/g)
+g = 0.5 * (g + x/g)
+</code></pre>
+                    </div>
+                </div>
+                <br><br><br><br>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;">
+                    <div data-id="levels" style="font-size:70%;vertical-align: top;margin-bottom:70px;">
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-a">Arithmetic </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#ccc;" data-id="fnc-v">Variables </div> <span style="color:#ccc;">|</span>
+                        <div style="display:inline-block;color:#555;" data-id="fnc-g">Graphing </div>
+                        <hr>
+                    </div>
+                </div>
+
+                <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:90%;padding:15px;">import matplotlib.pyplot as plt 
+
+x = [1, 2, 3, 4, 5]
+y = [4, 1, 3, 2, 6]
+
+plt.plot(x,y)
+plt.show() 
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <img src="img/cell-3-output-1.png">
+                </div>
+                <br><br><br><br>
+            </section>
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:90%;padding:15px;">import matplotlib.pyplot as plt 
+
+x = [1, 2, 3, 4, 5]
+y = [4, 1, 3, 2, 6]
+
+plt.<span style="color:#8f1f00;">plot</span>(x,y)
+plt.show() 
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <img src="img/cell-3-output-1.png">
+                </div>
+                <br>
+                <div style="display:inline-block;width:50%;vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:90%;padding:15px;">plt.<span style="color:#8f1f00;">scatter</span>(x,y)
+plt.show() 
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <img src="img/cell-3-output-1b.png">
+                </div>
+            </section>
+
+
+            <!-- <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:80%;padding:15px;overflow: hidden;"># Data
+year = [1800, 1830, 1880, 1900, 1920, 1990, 2000]
+Boston = [24937, 61392, 362839, 560862, 748060, 874283, 589141]
+NewYork = [60000, 185000, 1919000, 3802000, 7798000, 16044000, 17800000]
+
+plt.<span style="color:#8f1f00;">plot</span>(year, Boston, label='Boston') 
+plt.<span style="color:#8f1f00;">plot</span>(year, NewYork, label='New York')
+
+# Display with labels 
+plt.xlabel('Year')
+plt.ylabel('Population')
+plt.title('City Populations')
+plt.grid()
+plt.legend()
+plt.show() 
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+
+                </div>
+                <br>
+            </section>
+             -->
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:80%;padding:15px;overflow: hidden;"># Data
+year = [1800, 1830, 1880, 1900, 1920, 1990, 2000]
+Boston = [24937, 61392, 362839, 560862, 748060, 874283, 589141]
+NewYork = [60000, 185000, 1919000, 3802000, 7798000, 16044000, 17800000]
+
+plt.<span style="color:#8f1f00;">plot</span>(year, Boston, label='Boston') 
+plt.<span style="color:#8f1f00;">plot</span>(year, NewYork, label='New York')
+
+# Display with labels 
+plt.xlabel('Year')
+plt.ylabel('Population')
+plt.title('City Populations')
+plt.grid()
+plt.legend()
+plt.show() 
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <img src="img/city_populations.png" style="position:absolute;top:180px;left:540px;width:490px;border:1px solid gray;width:400px;">
+                </div>
+                <br>
+            </section>
+
+            <!-- 
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="vertical-align: top;padding:0;margin:0;padding-top:20px;">
+                    <pre><code data-trim class="language-python" style="text-align: left;font-size:78%;padding:15px;">study_methods = ["Flashcards", "ChatBot", "YouTube", "Group Study", "Notes"]
+counts = [3, 8, 5, 19, 8]
+
+plt.<span style="color:#8f1f00;">bar</span>(study_methods, counts)
+plt.show()
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;margin:0;padding:0;">
+                    <img src="img/study_bar.png">
+                </div>
+                <br>
+            </section> -->
+
+
+
+
+            <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+                <div style="display:inline-block;width:45%;margin-right:15px;">
+                    <pre style="width:100%;"><code data-trim class="language-python" style="text-align: left;font-size:65%;padding:15px;">scores = [ 2, 3, 4, 4, 5, 5, 5, 6, 6, 7, 
+           7, 7, 8, 8, 8, 8, 9, 9, 10, 10 ]
+           
+plt.<span style="color:#8f1f00;">hist</span>(scores, bins=9, edgecolor='black')
+
+plt.xlabel('Score out of 10')
+plt.title('Quiz Score Distribution')
+plt.show()
+</code></pre>
+                    <div style="display:inline-block;width:85%;margin:0;padding:0;">
+                        <img src="img/quiz_distribution.png" style="margin:0;padding:0;height:250px;">
+                    </div>
+                </div>
+                <div style="display:inline-block;width:50%;">
+                    <pre style="width:100%;"><code data-trim class="language-python" style="text-align: left;font-size:65%;padding:15px;">classA = [5, 6, 5, 7, 6, 5, 8, 6, 7, 5, 4, 6]
+classB = [9, 8, 10, 9, 10, 8, 9, 10, 6, 8, 9]
+
+plt.<span style="color:#8f1f00;">boxplot</span>( [classA, classB],
+          labels=["Class A", "Class B"] )
+
+plt.title('Quiz Scores by Class')
+plt.show()
+</code></pre>
+                    <div style="display:inline-block;width:85%;margin:0;padding:0;">
+                        <img src="img/boxwhisk.png" style="margin:0;padding:0;height:250px;">
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section>
+                <h4>DataFrames in Pandas</h4>
+                <div style="font-size:50%;">
+                    <img src="img/rubiks2025.png" style="border:2px solid gray; border-radius:5px;width:600px;"><br>2025 Rubik's WCA World Championship results
+                </div>
+            </section>
+
+            <section>
+                <h4>Functions</h4>
+                <div style="display:inline-block;width:50%;margin-right:15px;font-size:70%;vertical-align: top;">
+                    <br>
+                    $f(x)= |x^2-5|$
+                    <br><br> 
+                    $g(x)=x \sin(2x)$
+<br> <br> 
+                    <pre style="width:100%;"><code data-trim class="language-python" style="text-align: left;font-size:130%;line-height: 1.6;">import matplotlib.pyplot as plt 
+
+def f(x): return abs( x**2 - 5 )
+def g(x): return x * np.sin( 2*x )
+
+x = np.linspace(-5, 5, 1000)
+plt.plot( x, g(f(x)) )
+</code></pre>
+                </div>
+                <div style="display:inline-block;width:45%;">
+                    <br> 
+<img src="img/goffofx.png">
+                </div>
+            </section>
+<!-- 
+            <section>
+                <img src="img/fev_data.png">
+            </section> -->
+
+<section> 
+    <h4 style="padding:0;margin:0;">Regression</h4>
+    <img src="img/co2.png" style="width:60%;">
+    <div style="font-size:50%;">
+        $\hat{Y}=\hat{\beta}_0+\hat{\beta}_1 X+\hat{\beta}_2 X^2+\hat{\beta}_3 \sin(\hat{\beta}_4 X+\hat{\beta}_5)$
+    </div>
+</section>
+
+<section>
+    <h4>Next Steps</h4>
+    <ul style="font-size:80%;">
+        <li>Complete the <a href="https://williams-bhs.github.io/spreadsheets/">Introduction to Spreadsheets</a></li>
+        <li>Explore the <a href="https://colab.research.google.com/github/williams-bhs/williams-bhs.github.io/blob/main/notebooks/Python_Notebook_Introduction.ipynb">Colab Notebook</a> or <a href="https://jupytereverywhere.org/lab/index.html?notebook=focused-adaptable-bee">JupyterEverywhere Notebook</a></li>
+        <li> Read and contribute to <a href="https://numericalcomputing.net/">numericalcomputing.net</a> </li>
+    </ul>
+</section>
+
+
+
+            <!-- <section>
+                <h4>What we teach</h4>
+                <p>
+                    The <b>algebra-geometry-precalculus-calculus</b> sequence is
+                    focused on skills for <b>engineering and science</b> <br>(NCTM 1989, p. 7)
+                </p>
+                <aside class="notes">
+                </aside>
+            </section>
+
+            <section>
+                <section>
+                    <a href="img/abstraction.svg"><img src="img/abstraction.svg" style="margin:0;padding:0;"></a>
+                    <p style="font-size:50%;">
+                        Similar to Davis &amp; Hersh (p. 129, 1981)
+                    </p>
+                </section>
+                <section>
+                    <a href="img/abstraction.jpg"><img src="img/abstraction.jpg" style="width:40%;margin:0;padding:0;"></a>
+                    <p style="font-size:50%;text-align: left;margin:0;padding:0;">
+                        A depiction of the "abstraction process" from Davis &amp; Hersh (1981, p. 129). Davis &amp;
+                        Hersh were not depicting just applied mathematics, but the abstraction process of mathematics in
+                        whole. At least early mathematics, and arguably much of the mathematics that we teach in grade
+                        school. "Today mathematics largely leaves aside the interesting psychohistorical problem of how
+                        abstractions come about and concentrates on a set-theoretic description of abstraction
+                        formation" (1981, p. 130).
+                    </p>
+                    <p style="font-size:50%;text-align: left;margin:0;padding:0;">
+                        Even if we take a Platonic view of mathematics, the doing of mathematics by human beings may
+                        always involve crossing back-and-forth between our real world and an idealized one. Our lines on
+                        paper are not straight. Our compass helps us to model an idea. Or is it to interpret an idea
+                        that is a model?
+                    </p>
+                </section>
+
+                <section>
+                    <img src="img/nctm_1989_abstraction.jpg" style="width:80%;">
+                    <br>
+                    <p style="font-size:70%;">
+                        NCTM (1989, p. 138)
+                    </p>
+                </section>
+
+            </section> -->
+
+  
+
+
+            <style>
+                .reference {
+                    font-size: 40%;
+                    text-align: left;
+                    text-indent: -2ch;
+                    margin-left: 2ch;
+                }
+            </style>
+            <section style="text-align:left;">
+                <h4 style="font-size:50%;">References</h4>
+                <div class="reference">
+                    Borwein, Naomi, and Veselin Jungic. 2025. <span style="font-style:italic;">A Survey of Experimental
+                        Mathematics for Education</span>.
+                    Maple Transactions, ahead of print, February. <a href="https://doi.org/10.5206/mt.v5i1.22378">https://doi.org/10.5206/mt.v5i1.22378</a>.
+                </div>
+                <div class="reference">
+                    Davis, Philip J., &amp; Hersh, Reuben. 1981. <span style="font-style:italic;">The Mathematical
+                        Experience</span>. Houghton Mifflin Company Boston.
+                </div>
+                <div class="reference">
+                    DeBellis, V.A., Rosenstein, J.G. Discrete mathematics in primary and secondary schools in the United States.
+                    <span style="font-style:italic">Zentralblatt für Didaktik der Mathematik</span> <b>36</b>, 46–55 (2004). <a href="https://doi.org/10.1007/BF02655758">https://doi.org/10.1007/BF02655758</a>
+                </div>
+                <div class="reference">
+                    Devaney, Robert L. 1990. <span style="font-style:italic;">Chaos, fractals, and dynamics: computer
+                        experiments in mathematics</span>. Addison-Wesley Pub. Co.
+                </div>
+                <div class="reference">
+                    Fey, James, and M. Kathleen Heid. 1984. <span style="font-style:italic;">Imperatives and Possibilities for New Curricula in Secondary School Mathematics</span>.
+                    NCTM Yearbook. Reston, VA: National Council of Teachers of Mathematics.
+                </div>
+                <div class="reference">
+                    National Council of Teachers of Mathematics (NCTM). 1984.
+                    <span style="font-style:italic;">The Impact of Computing Technology on School Mathematics</span>. Report of an NCTM Conference. National
+                    Council of Teachers of Mathematics. <a href="https://eric.ed.gov/?id=ED259898">https://eric.ed.gov/?id=ED259898</a>.
+                </div>
+                <div class="reference">
+                    &mdash;. 1989. <span style="font-style:italic;">Curriculum and Evaluation Standards for School Mathematics</span>.
+                    Reston, VA: National Council of Teachers of Mathematics. URL: <a href="https://archive.org/details/curriculumevalua00nati/page/6/mode/2up">https://archive.org/details/curriculumevalua00nati/page/6/mode/2up</a>
+                </div>
+                <div class="reference">
+                    Burke, Maurice J. and Frances R. Curcio (editors). <span style="font-style: italic;">Learning Mathematics for a New Century</span> 2000.
+                    Reston, VA: National Council of Teachers of Mathematics.
+                </div>
+                <div class="reference">
+                    Papert, S. 1980. <span style="font-style:italic;">Mindstorms</span>. Harvester Studies in Cognitive Science.
+                    Basic Books. <a href="https://books.google.com/books?id=uagfAQAAIAAJ">https://books.google.com/books?id=uagfAQAAIAAJ</a>.
+                </div>
+                <div class="reference">
+                    Peitgen, Heinz-Otto, Hartmut Jürgens, and Dietmar Saupe. 1992. <span style="font-style:italic;">Fractals for
+                        the Classroom Part One:
+                        Introduction to Fractals and Chaos</span>. Springer-Verlag New York, Inc.
+                </div>
+                <div class="reference">
+                    Tao, Terence. 2025. Machine Assisted Proofs. URL: <a href="https://youtu.be/5ZIIGLiQWNM?t=171">https://youtu.be/5ZIIGLiQWNM?t=171</a>.
+                </div>
+                <div class="reference">
+                    Koetke, Walter, and Charles J. Zoet. 1969. "Computer-Oriented Mathematics: Computers in Mathematics
+                    Education." The Mathematics Teacher (Reston VA, USA) 62 (7): 563-67. <a href="https://doi.org/10.5951/MT.62.7.0563">https://doi.org/10.5951/MT.62.7.0563</a>.
+                </div>
+            </section>
+           
+
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/math/math.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealNotes, RevealMath.KaTeX]
+        });
+    </script>
+</body>
+
+</html>
